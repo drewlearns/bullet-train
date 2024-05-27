@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Please provide Camera access so you can upload receipts";
+NSFaceIDUsageDescription = "Please provide Biometrics access for quicker login";
+NSCalendarsUsageDescription = "Please provide Calendar access for bills";
+NSPhotoLibraryUsageDescription = "Please provide access to Photo Library so you can upload receipts";

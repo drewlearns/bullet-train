@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "411610482449",
+    "project_id": "the-purple-piggy-bank",
+    "storage_bucket": "the-purple-piggy-bank.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411610482449:android:9217bc4769cb836390aeb0",
+        "android_client_info": {
+          "package_name": "com.mycompany.thepurplepiggybank"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5wKCCVcQ89iB3oWm_HQmUpHQC-SFJR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
