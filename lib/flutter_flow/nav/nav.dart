@@ -180,6 +180,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Dashboard')
               : const DashboardWidget(),
+        ),
+        FFRoute(
+          name: 'EditMembers',
+          path: '/editMembers',
+          builder: (context, params) => EditMembersWidget(
+            householdIds: params.getParam<String>(
+              'householdIds',
+              ParamType.String,
+              isList: true,
+            ),
+            householdNames: params.getParam<String>(
+              'householdNames',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -9,6 +9,12 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getUser)] action in contentView_1 widget.
   ApiCallResponse? getUserOutput;
+  // Stores action output result for [Backend Call - API (getUser)] action in contentView_1 widget.
+  ApiCallResponse? getUserOutput2;
+  // Stores action output result for [Backend Call - API (getUser)] action in contentView_1 widget.
+  ApiCallResponse? getUserOutput1;
+  // Stores action output result for [Backend Call - API (getHousehold)] action in contentView_1 widget.
+  ApiCallResponse? getHouseholdOutput1;
 
   @override
   void initState(BuildContext context) {}

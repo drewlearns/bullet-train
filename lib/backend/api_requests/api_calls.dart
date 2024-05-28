@@ -494,11 +494,25 @@ class GetUserCall {
 }
 
 class EditUserCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? email = '',
+    String? newUsername = '',
+    String? phoneNumber = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "email": "$email",
+  "newUsername": "$newUsername",
+  "phoneNumber": "$phoneNumber",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'editUser',
       apiUrl: '$baseUrl/editUser',
@@ -516,6 +530,74 @@ class EditUserCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? errorDetails(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.errorDetails''',
+      ));
+  String? newEmail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.uuid''',
+      ));
+  String? oldUsername(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.username''',
+      ));
+  String? firstName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.firstName''',
+      ));
+  String? lastName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.lastName''',
+      ));
+  String? oldEmail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.email''',
+      ));
+  String? newUserPhoneNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.user.phoneNumber''',
+      ));
+  String? signupDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.signupDate''',
+      ));
+  bool? mailOptin(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.user.mailOptIn''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.user.updatedAt''',
+      ));
+  bool? confirmedEmail(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.user.confirmedEmail''',
+      ));
+  String? subscriptionEndDate(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.user.subscriptionEndDate''',
+      ));
+  String? subscriptionStatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.user.subscriptionStatus''',
+      ));
 }
 
 class DeleteUserJsCall {
@@ -821,11 +903,17 @@ class EditHouseholdCall {
 }
 
 class GetHouseholdMembersCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
-""''';
+{
+  "authorizationToken": "",
+  "householdId": ""
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdMembers',
       apiUrl: '$baseUrl/getHouseholdMembers',
@@ -843,6 +931,27 @@ class GetHouseholdMembersCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? userEmail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].user.email''',
+      ));
+  String? userFirstName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].user.firstName''',
+      ));
+  String? userLastName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].user.lastName''',
+      ));
+  String? userJoinedDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].joinedDate''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class DeleteHouseholdCall {
@@ -871,11 +980,21 @@ class DeleteHouseholdCall {
 }
 
 class GetHouseholdCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+    int? page = 1,
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails",
+  "page": $page
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHousehold',
       apiUrl: '$baseUrl/getHousehold',
@@ -893,14 +1012,68 @@ class GetHouseholdCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List<String>? householdId(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].householdId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? householdName(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].householdName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  String? creationDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].creationDate''',
+      ));
+  String? customHouseholdNameSuchAsCrew(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[:].customHouseholdNameSuchAsCrew''',
+      ));
+  String? account(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].account''',
+      ));
+  bool? setupComplete(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$[:].setupComplete''',
+      ));
+  bool? activeSubscription(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$[:].activeSubscription''',
+      ));
 }
 
 class GetHouseholdByIdCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdById',
       apiUrl: '$baseUrl/getHouseholdById',
@@ -918,6 +1091,73 @@ class GetHouseholdByIdCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.householdId''',
+      ));
+  String? householdName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.householdName''',
+      ));
+  String? customHouseholdNameSuchAsCrew(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customHouseholdNameSuchAsCrew''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.updatedAt''',
+      ));
+  String? creationDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.creationDate''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.createdAt''',
+      ));
+  String? account(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.account''',
+      ));
+  bool? setupComplete(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.setupComplete''',
+      ));
+  bool? activeSubscription(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.activeSubscription''',
+      ));
+  List? members(dynamic response) => getJsonField(
+        response,
+        r'''$.members''',
+        true,
+      ) as List?;
+  String? memberId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].id''',
+      ));
+  String? memberEmail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].memberUuid''',
+      ));
+  String? role(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].role''',
+      ));
+  String? joinedDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].joinedDate''',
+      ));
+  String? memberCreatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].createdAt''',
+      ));
+  String? memberUpdatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.members[:].updatedAt''',
+      ));
 }
 
 class AddPaymentSourceCall {

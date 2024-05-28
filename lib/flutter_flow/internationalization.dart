@@ -791,12 +791,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EditUser
   {
-    'ns0ri40b': {
-      'en': 'Back',
+    'as6f07xi': {
+      'en': 'Email',
       'es': '',
     },
-    'gm39s05q': {
-      'en': 'Page Title',
+    'zblrg04i': {
+      'en': 'Phone Number',
+      'es': '',
+    },
+    'ohk2irdi': {
+      'en': 'Update Profile',
+      'es': '',
+    },
+    'gtkjzs45': {
+      'en': 'Edit Profile',
       'es': '',
     },
     '9iag3u40': {
@@ -806,47 +814,62 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Dashboard
   {
-    'yj5zfe4z': {
-      'en': 'Back',
-      'es': '',
-    },
-    'lplu25vn': {
-      'en': 'Page Title',
-      'es': '',
-    },
-    '0xauxcxc': {
-      'en': 'Platform Navigation',
-      'es': '',
-    },
-    'et6ewv0b': {
-      'en': 'Dashboard',
-      'es': '',
-    },
-    'k4v8bkuc': {
-      'en': 'Chats',
-      'es': '',
-    },
-    'wxk3yh9e': {
-      'en': 'Projects',
-      'es': '',
-    },
     'aknel4u0': {
       'en': 'Settings',
-      'es': '',
-    },
-    'ec6695rh': {
-      'en': 'Billing',
-      'es': '',
-    },
-    'byvqbvao': {
-      'en': 'Explore',
       'es': '',
     },
     'vlmedd7c': {
       'en': 'Edit Profile',
       'es': '',
     },
+    'so70za4w': {
+      'en': 'Invitations',
+      'es': '',
+    },
+    'gure3i4q': {
+      'en': 'Edit Members',
+      'es': '',
+    },
+    'zc8oz36a': {
+      'en': 'Dashboard',
+      'es': '',
+    },
     '822sr01o': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // EditMembers
+  {
+    'rbuy9zv2': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    'm95pe4l2': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'thrxst7n': {
+      'en': 'Select Household',
+      'es': '',
+    },
+    'wej33rpn': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    'oki5snjx': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'xs8om2yt': {
+      'en': 'Select Household',
+      'es': '',
+    },
+    'vea6crhu': {
+      'en': 'Edit Members',
+      'es': '',
+    },
+    'c3unpp3a': {
       'en': 'Home',
       'es': '',
     },

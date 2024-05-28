@@ -20,3 +20,5 @@ export '/transactions/add_transaction/add_transaction_widget.dart'
 export '/pages/bills/add_bill/add_bill_widget.dart' show AddBillWidget;
 export '/pages/user/edit_user/edit_user_widget.dart' show EditUserWidget;
 export '/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/pages/user/edit_members/edit_members_widget.dart'
+    show EditMembersWidget;
