@@ -373,6 +373,31 @@ class LoginCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? errorDetails(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.errorDetails''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? accessToken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.AccessToken''',
+      ));
+  int? expiresIn(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.tokens.ExpiresIn''',
+      ));
+  String? refreshToken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.RefreshToken''',
+      ));
+  String? idToken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.IdToken''',
+      ));
 }
 
 class GetUserCall {
@@ -568,19 +593,30 @@ class ConfirmPasswordResetCodeCall {
 
 class AddHouseholdCall {
   Future<ApiCallResponse> call({
-    String? bearer = '',
+    String? householdName = '',
+    String? authorizationToken = '',
+    String? customHouseholdNameSuchAsCrew = '',
+    String? account = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "householdName": "$householdName",
+  "authorizationToken": "$authorizationToken",
+  "customHouseholdNameSuchAsCrew": "$customHouseholdNameSuchAsCrew",
+  "account": "standard",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'addHousehold',
       apiUrl: '$baseUrl/addHousehold',
       callType: ApiCallType.POST,
       headers: {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
-        'Authorization': 'Bearer $bearer',
       },
       params: {},
       body: ffApiRequestBody,
@@ -592,6 +628,28 @@ class AddHouseholdCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.householdId''',
+      ));
+  String? householdName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.householdName''',
+      ));
+  String? customHouseholdNameSuchAsCrew(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customHouseholdName''',
+      ));
+  String? account(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.account''',
+      ));
 }
 
 class AddInviteCall {

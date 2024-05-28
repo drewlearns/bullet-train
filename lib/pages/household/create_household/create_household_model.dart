@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_household_widget.dart' show CreateHouseholdWidget;
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class CreateHouseholdModel extends FlutterFlowModel<CreateHouseholdWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // Stores action output result for [Backend Call - API (addHousehold)] action in Button widget.
+  ApiCallResponse? addHouseholdOutput;
 
   @override
   void initState(BuildContext context) {}

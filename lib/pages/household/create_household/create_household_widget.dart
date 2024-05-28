@@ -1,9 +1,11 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'create_household_model.dart';
 export 'create_household_model.dart';
 
@@ -18,6 +20,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
   late CreateHouseholdModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -46,6 +49,8 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: 'CreateHousehold',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -360,8 +365,92 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              currentUserLocationValue =
+                                                  await getCurrentUserLocation(
+                                                      defaultLocation:
+                                                          const LatLng(0.0, 0.0));
+                                              _model.addHouseholdOutput =
+                                                  await TppbGroup
+                                                      .addHouseholdCall
+                                                      .call(
+                                                authorizationToken: FFAppState()
+                                                    .authorizationToken,
+                                                account: 'Standard',
+                                                householdName:
+                                                    _model.textController1.text,
+                                                customHouseholdNameSuchAsCrew:
+                                                    _model.textController2.text,
+                                                ipAddress:
+                                                    currentUserLocationValue
+                                                        ?.toString(),
+                                                deviceDetails: '',
+                                              );
+                                              if ((_model.addHouseholdOutput
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: const Text(
+                                                          'Success! We created your'),
+                                                      content: Text(TppbGroup
+                                                          .addHouseholdCall
+                                                          .customHouseholdNameSuchAsCrew(
+                                                        (_model.addHouseholdOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: const Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+
+                                                context.pushNamed('Dashboard');
+                                              } else {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: const Text(
+                                                          'Failure! Error: '),
+                                                      content: Text(TppbGroup
+                                                          .addHouseholdCall
+                                                          .message(
+                                                        (_model.addHouseholdOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: const Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                                setState(() {
+                                                  _model.textController1
+                                                      ?.clear();
+                                                  _model.textController2
+                                                      ?.clear();
+                                                });
+                                              }
+
+                                              setState(() {});
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(

@@ -9,6 +9,7 @@ import '/globall_widgets/passwordfield/passwordfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'signin_model.dart';
 export 'signin_model.dart';
 
@@ -138,6 +139,8 @@ class _SigninWidgetState extends State<SigninWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: 'Sign In',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -173,12 +176,12 @@ class _SigninWidgetState extends State<SigninWidget>
                     FFLocalizations.of(context).getText(
                       'v2nsdv8j' /* Authentication */,
                     ),
-                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
-                              FlutterFlowTheme.of(context).titleLargeFamily,
+                              FlutterFlowTheme.of(context).headlineLargeFamily,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleLargeFamily),
+                              FlutterFlowTheme.of(context).headlineLargeFamily),
                         ),
                   ),
                   centerTitle: true,
@@ -1580,8 +1583,39 @@ class _SigninWidgetState extends State<SigninWidget>
                                                       if ((_model.loginOutput
                                                               ?.succeeded ??
                                                           true)) {
+                                                        FFAppState().email =
+                                                            FFAppState().email;
+                                                        FFAppState()
+                                                                .authorizationToken =
+                                                            TppbGroup.loginCall
+                                                                .accessToken(
+                                                          (_model.loginOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!;
+                                                        FFAppState()
+                                                                .refreshToken =
+                                                            TppbGroup.loginCall
+                                                                .refreshToken(
+                                                          (_model.loginOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!;
+
                                                         context.pushNamed(
-                                                            'Dashboard');
+                                                          'Dashboard',
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                const TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .bottomToTop,
+                                                            ),
+                                                          },
+                                                        );
                                                       } else {
                                                         await showDialog(
                                                           context: context,

@@ -170,7 +170,6 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Dashboard': const DashboardWidget(),
-      'CreateHousehold': const CreateHouseholdWidget(),
       'AddIncome': const AddIncomeWidget(),
       'AddTransaction': const AddTransactionWidget(),
       'AddBill': const AddBillWidget(),
@@ -199,16 +198,6 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'xas0e6hp' /* Dashboard */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.groups_rounded,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'eu989foe' /* + Household */,
             ),
             tooltip: '',
           ),

@@ -116,9 +116,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateHousehold',
           path: '/createHousehold',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'CreateHousehold')
-              : const CreateHouseholdWidget(),
+          builder: (context, params) => const CreateHouseholdWidget(),
         ),
         FFRoute(
           name: 'AddInvite',

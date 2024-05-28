@@ -319,10 +319,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AcceptInvite
   {
-    'tpzcihbt': {
-      'en': 'The Purple Piggy Bank',
-      'es': '',
-    },
     'mnsha0nh': {
       'en': 'Create Account',
       'es': '',
@@ -367,6 +363,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Get Started',
       'es': '',
     },
+    'gip10886': {
+      'en': 'Accept Invite',
+      'es': '',
+    },
     'hcw9t6xx': {
       'en': 'Home',
       'es': '',
@@ -380,7 +380,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'af2jqzn1': {
       'en':
-          'Thanks for joining! Access or create your account below, and get started on your budgeting like a pro!',
+          'Thanks for joining The Purple Piggy Bank! \nAccess or create your account below, and get started budgeting like a pro!',
       'es': '',
     },
     'ir5ppysr': {
@@ -645,6 +645,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '\$1.50',
       'es': '',
     },
+    'txfn7od3': {
+      'en': 'Dashboard',
+      'es': '',
+    },
     'xas0e6hp': {
       'en': 'Dashboard',
       'es': '',
@@ -668,20 +672,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'es': '',
     },
-    '65lqzrda': {
-      'en': 'Select Date',
-      'es': '',
-    },
     'e9f66mmn': {
       'en': 'Amount',
       'es': '',
     },
-    'kcur2liw': {
+    '3rxdjor6': {
+      'en': 'Debit',
+      'es': '',
+    },
+    'qbi4j055': {
+      'en': 'Debit',
+      'es': '',
+    },
+    '21e2irl6': {
+      'en': 'Credit',
+      'es': '',
+    },
+    'hvuu66ls': {
       'en': 'Transaction Type',
       'es': '',
     },
-    '4azbmnv7': {
-      'en': 'Transaction Date',
+    '7juctawh': {
+      'en': 'Search for an item...',
       'es': '',
     },
     'ycld1wwp': {
@@ -692,16 +704,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Description',
       'es': '',
     },
-    '4zkzyd6e': {
-      'en': 'Status - On for cleared, off for pending',
-      'es': '',
-    },
     'spxwz1p6': {
       'en': 'Tags',
       'es': '',
     },
     '67yj6s6b': {
       'en': 'Comma separated list',
+      'es': '',
+    },
+    '4zkzyd6e': {
+      'en': 'Cleared?                                                 ',
       'es': '',
     },
     '63be80wb': {
@@ -712,11 +724,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add Transaction',
       'es': '',
     },
-    'ns0ri40b': {
-      'en': 'Back',
-      'es': '',
-    },
-    'ufnfnr57': {
+    '4s9ckp50': {
       'en': 'Add Transaction',
       'es': '',
     },
@@ -729,6 +737,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'xjd2xux6': {
       'en': 'Is It a debt?',
+      'es': '',
+    },
+    '6n1sggda': {
+      'en': 'On for Yes',
       'es': '',
     },
     'oef218an': {

@@ -149,14 +149,30 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                             'xjd2xux6' /* Is It a debt? */,
                           ),
                           style: FlutterFlowTheme.of(context)
-                              .titleLarge
+                              .bodyLarge
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
-                                    .titleLargeFamily,
+                                    .bodyLargeFamily,
+                                fontSize: 14.0,
                                 letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
-                                        .titleLargeFamily),
+                                        .bodyLargeFamily),
+                              ),
+                        ),
+                        subtitle: Text(
+                          FFLocalizations.of(context).getText(
+                            '6n1sggda' /* On for Yes */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .labelMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .labelMediumFamily),
                               ),
                         ),
                         tileColor:
@@ -165,6 +181,8 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                         activeTrackColor: FlutterFlowTheme.of(context).accent1,
                         dense: false,
                         controlAffinity: ListTileControlAffinity.trailing,
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
                       ),
                       TextFormField(
                         controller: _model.textController1,
@@ -477,7 +495,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                           ],
                           onChanged: (val) =>
                               setState(() => _model.dropDownValue1 = val),
-                          width: 364.0,
+                          width: double.infinity,
                           height: 56.0,
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium

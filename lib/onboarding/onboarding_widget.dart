@@ -235,7 +235,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                 44.0, 8.0, 44.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'af2jqzn1' /* Thanks for joining! Access or ... */,
+                                'af2jqzn1' /* Thanks for joining The Purple ... */,
                               ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
