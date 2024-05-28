@@ -160,7 +160,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFF141616);
   late Color secondaryText = const Color(0xFF57636C);
   late Color primaryBackground = const Color(0xFFEDEBEB);
-  late Color secondaryBackground = const Color(0xFFEBEBED);
+  late Color secondaryBackground = const Color(0xFFECECEC);
   late Color accent1 = const Color(0xFF220B3D);
   late Color accent2 = const Color(0xFF68186F);
   late Color accent3 = const Color(0xFF0C0F59);
@@ -213,107 +213,107 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Exo 2';
+  String get displayLargeFamily => 'Noto Sans JP';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Exo 2';
+  String get displayMediumFamily => 'Noto Sans JP';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Exo 2';
+  String get displaySmallFamily => 'Noto Sans JP';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Exo 2';
+  String get headlineLargeFamily => 'Noto Sans JP';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Exo 2';
+  String get headlineMediumFamily => 'Noto Sans JP';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Exo 2';
+  String get headlineSmallFamily => 'Noto Sans JP';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Roboto';
+  String get titleLargeFamily => 'Noto Sans JP';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Roboto';
+  String get titleMediumFamily => 'Noto Sans JP';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Roboto';
+  String get titleSmallFamily => 'Noto Sans JP';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Roboto';
+  String get labelLargeFamily => 'Noto Sans JP';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Roboto';
+  String get labelMediumFamily => 'Noto Sans JP';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Roboto';
+  String get labelSmallFamily => 'Noto Sans JP';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Roboto';
+  String get bodyLargeFamily => 'Noto Sans JP';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Roboto';
+  String get bodyMediumFamily => 'Noto Sans JP';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Roboto';
+  String get bodySmallFamily => 'Noto Sans JP';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -325,107 +325,107 @@ class TabletTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Exo 2';
+  String get displayLargeFamily => 'Noto Sans JP';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Exo 2';
+  String get displayMediumFamily => 'Noto Sans JP';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Exo 2';
+  String get displaySmallFamily => 'Noto Sans JP';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Exo 2';
+  String get headlineLargeFamily => 'Noto Sans JP';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Exo 2';
+  String get headlineMediumFamily => 'Noto Sans JP';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Exo 2';
+  String get headlineSmallFamily => 'Noto Sans JP';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Exo 2';
+  String get titleLargeFamily => 'Noto Sans JP';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Roboto';
+  String get titleMediumFamily => 'Noto Sans JP';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Roboto';
+  String get titleSmallFamily => 'Noto Sans JP';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Roboto';
+  String get labelLargeFamily => 'Noto Sans JP';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Roboto';
+  String get labelMediumFamily => 'Noto Sans JP';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Roboto';
+  String get labelSmallFamily => 'Noto Sans JP';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Roboto';
+  String get bodyLargeFamily => 'Noto Sans JP';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Roboto';
+  String get bodyMediumFamily => 'Noto Sans JP';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Roboto';
+  String get bodySmallFamily => 'Noto Sans JP';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -437,107 +437,107 @@ class DesktopTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Exo 2';
+  String get displayLargeFamily => 'Noto Sans JP';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Exo 2';
+  String get displayMediumFamily => 'Noto Sans JP';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Exo 2';
+  String get displaySmallFamily => 'Noto Sans JP';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Exo 2';
+  String get headlineLargeFamily => 'Noto Sans JP';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Exo 2';
+  String get headlineMediumFamily => 'Noto Sans JP';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Exo 2';
+  String get headlineSmallFamily => 'Noto Sans JP';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Exo 2';
+  String get titleLargeFamily => 'Noto Sans JP';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Exo 2',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Roboto';
+  String get titleMediumFamily => 'Noto Sans JP';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Roboto';
+  String get titleSmallFamily => 'Noto Sans JP';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Roboto';
+  String get labelLargeFamily => 'Noto Sans JP';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Roboto';
+  String get labelMediumFamily => 'Noto Sans JP';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Roboto';
+  String get labelSmallFamily => 'Noto Sans JP';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Roboto';
+  String get bodyLargeFamily => 'Noto Sans JP';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Roboto';
+  String get bodyMediumFamily => 'Noto Sans JP';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Roboto';
+  String get bodySmallFamily => 'Noto Sans JP';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Roboto',
+        'Noto Sans JP',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

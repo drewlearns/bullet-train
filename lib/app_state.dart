@@ -43,6 +43,38 @@ class FFAppState extends ChangeNotifier {
       _defaultCurrency = await secureStorage.getString('ff_defaultCurrency') ??
           _defaultCurrency;
     });
+    await _safeInitAsync(() async {
+      _phoneNumber =
+          await secureStorage.getString('ff_phoneNumber') ?? _phoneNumber;
+    });
+    await _safeInitAsync(() async {
+      _mailOptIn = await secureStorage.getString('ff_mailOptIn') ?? _mailOptIn;
+    });
+    await _safeInitAsync(() async {
+      _confirmedEmail =
+          await secureStorage.getBool('ff_confirmedEmail') ?? _confirmedEmail;
+    });
+    await _safeInitAsync(() async {
+      _subscriptionEndDate =
+          await secureStorage.getString('ff_subscriptionEndDate') ??
+              _subscriptionEndDate;
+    });
+    await _safeInitAsync(() async {
+      _subscriptionStatus =
+          await secureStorage.getString('ff_subscriptionStatus') ??
+              _subscriptionStatus;
+    });
+    await _safeInitAsync(() async {
+      _purchaseToken =
+          await secureStorage.getString('ff_purchaseToken') ?? _purchaseToken;
+    });
+    await _safeInitAsync(() async {
+      _receiptData =
+          await secureStorage.getString('ff_receiptData') ?? _receiptData;
+    });
+    await _safeInitAsync(() async {
+      _lightmode = await secureStorage.getBool('ff_lightmode') ?? _lightmode;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -144,6 +176,94 @@ class FFAppState extends ChangeNotifier {
 
   void deleteDefaultCurrency() {
     secureStorage.delete(key: 'ff_defaultCurrency');
+  }
+
+  String _phoneNumber = '';
+  String get phoneNumber => _phoneNumber;
+  set phoneNumber(String value) {
+    _phoneNumber = value;
+    secureStorage.setString('ff_phoneNumber', value);
+  }
+
+  void deletePhoneNumber() {
+    secureStorage.delete(key: 'ff_phoneNumber');
+  }
+
+  String _mailOptIn = '';
+  String get mailOptIn => _mailOptIn;
+  set mailOptIn(String value) {
+    _mailOptIn = value;
+    secureStorage.setString('ff_mailOptIn', value);
+  }
+
+  void deleteMailOptIn() {
+    secureStorage.delete(key: 'ff_mailOptIn');
+  }
+
+  bool _confirmedEmail = false;
+  bool get confirmedEmail => _confirmedEmail;
+  set confirmedEmail(bool value) {
+    _confirmedEmail = value;
+    secureStorage.setBool('ff_confirmedEmail', value);
+  }
+
+  void deleteConfirmedEmail() {
+    secureStorage.delete(key: 'ff_confirmedEmail');
+  }
+
+  String _subscriptionEndDate = '';
+  String get subscriptionEndDate => _subscriptionEndDate;
+  set subscriptionEndDate(String value) {
+    _subscriptionEndDate = value;
+    secureStorage.setString('ff_subscriptionEndDate', value);
+  }
+
+  void deleteSubscriptionEndDate() {
+    secureStorage.delete(key: 'ff_subscriptionEndDate');
+  }
+
+  String _subscriptionStatus = '';
+  String get subscriptionStatus => _subscriptionStatus;
+  set subscriptionStatus(String value) {
+    _subscriptionStatus = value;
+    secureStorage.setString('ff_subscriptionStatus', value);
+  }
+
+  void deleteSubscriptionStatus() {
+    secureStorage.delete(key: 'ff_subscriptionStatus');
+  }
+
+  String _purchaseToken = '';
+  String get purchaseToken => _purchaseToken;
+  set purchaseToken(String value) {
+    _purchaseToken = value;
+    secureStorage.setString('ff_purchaseToken', value);
+  }
+
+  void deletePurchaseToken() {
+    secureStorage.delete(key: 'ff_purchaseToken');
+  }
+
+  String _receiptData = '';
+  String get receiptData => _receiptData;
+  set receiptData(String value) {
+    _receiptData = value;
+    secureStorage.setString('ff_receiptData', value);
+  }
+
+  void deleteReceiptData() {
+    secureStorage.delete(key: 'ff_receiptData');
+  }
+
+  bool _lightmode = false;
+  bool get lightmode => _lightmode;
+  set lightmode(bool value) {
+    _lightmode = value;
+    secureStorage.setBool('ff_lightmode', value);
+  }
+
+  void deleteLightmode() {
+    secureStorage.delete(key: 'ff_lightmode');
   }
 }
 

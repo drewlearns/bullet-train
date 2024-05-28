@@ -1603,7 +1603,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                         )!;
 
                                                         context.pushNamed(
-                                                          'Dashboard',
+                                                          'EditUser',
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:

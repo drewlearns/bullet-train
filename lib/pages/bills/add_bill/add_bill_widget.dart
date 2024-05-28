@@ -113,7 +113,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'm8l3oht4' /* Add Bill */,
+                      'bmkxvaue' /* Add Bill */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:

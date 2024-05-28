@@ -149,35 +149,26 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            if (responsiveVisibility(
-                              context: context,
-                              phone: false,
-                              tablet: false,
-                            ))
-                              Container(
-                                width: 230.0,
-                                height: 16.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'mnsha0nh' /* Create Account */,
                                 ),
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMediumFamily),
+                                    ),
                               ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'mnsha0nh' /* Create Account */,
-                              ),
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .headlineMediumFamily,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .headlineMediumFamily),
-                                  ),
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(

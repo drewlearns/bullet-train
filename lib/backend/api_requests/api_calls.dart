@@ -401,11 +401,19 @@ class LoginCall {
 }
 
 class GetUserCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUser',
       apiUrl: '$baseUrl/getUser',
@@ -423,6 +431,66 @@ class GetUserCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? uuid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.uuid''',
+      ));
+  String? username(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.username''',
+      ));
+  String? firstName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.firstName''',
+      ));
+  String? lastName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.lastName''',
+      ));
+  String? email(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.email''',
+      ));
+  String? phoneNumber(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.phoneNumber''',
+      ));
+  String? signupDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.signupDate''',
+      ));
+  bool? mailOptIn(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.mailOptIn''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.updatedAt''',
+      ));
+  bool? confirmedEmail(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.confirmedEmail''',
+      ));
+  String? subscriptionEndDate(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriptionEndDate''',
+      ));
+  String? subscriptionStatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriptionStatus''',
+      ));
+  List<String>? householdIds(dynamic response) => (getJsonField(
+        response,
+        r'''$.householdMembers[:].householdId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class EditUserCall {
@@ -1610,9 +1678,33 @@ class GetThresholdPreferenceCall {
 }
 
 class AddIncomeCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? name = '',
+    String? amount = '',
+    String? firstPayDay = '',
+    String? frequency = '',
+    String? description = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+    String? paymentSourceId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    const ffApiRequestBody = '''
+{
+    "authorizationToken": "",
+    "householdId": "",
+    "name": "",
+    "amount": "",
+    "firstPayDay": "",
+    "frequency": "",
+    "description": "",
+    "ipAddress": "",
+    "deviceDetails": "",
+    "paymentSourceId": ""
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'addIncome',
       apiUrl: '$baseUrl/addIncome',
@@ -1621,7 +1713,8 @@ class AddIncomeCall {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1629,6 +1722,11 @@ class AddIncomeCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class EditIncomeJsCall {

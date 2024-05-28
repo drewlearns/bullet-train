@@ -551,109 +551,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // Dashboard
-  {
-    '8y3uhcx6': {
-      'en': 'Profit Details',
-      'es': '',
-    },
-    'hu3l4f84': {
-      'en': 'Sales & Revenue',
-      'es': '',
-    },
-    'lyze5gf1': {
-      'en': '56.4k',
-      'es': '',
-    },
-    'rxxyr93w': {
-      'en': 'Customers',
-      'es': '',
-    },
-    'uma07nf8': {
-      'en': '\$320k',
-      'es': '',
-    },
-    'ihvvmo0x': {
-      'en': 'Total Sales',
-      'es': '',
-    },
-    '0q1aeml0': {
-      'en': '\$45.6M',
-      'es': '',
-    },
-    'hz5ioo3f': {
-      'en': 'Revenue',
-      'es': '',
-    },
-    '0wd67j9a': {
-      'en': '56.4k',
-      'es': '',
-    },
-    '6yxsvi6r': {
-      'en': 'Customers',
-      'es': '',
-    },
-    'v96tbibd': {
-      'en': 'Your transactions',
-      'es': '',
-    },
-    'mswmaf6w': {
-      'en': 'List Item Title',
-      'es': '',
-    },
-    'aailzsb7': {
-      'en': 'Secondary text',
-      'es': '',
-    },
-    'n1u4x2q1': {
-      'en': '\$1.50',
-      'es': '',
-    },
-    'pllte5ao': {
-      'en': 'List Item Title',
-      'es': '',
-    },
-    'c80wf9le': {
-      'en': 'Secondary text',
-      'es': '',
-    },
-    'ssaguqhw': {
-      'en': '\$1.50',
-      'es': '',
-    },
-    '4g6aonuv': {
-      'en': 'List Item Title',
-      'es': '',
-    },
-    'ui9t1fup': {
-      'en': 'Secondary text',
-      'es': '',
-    },
-    '2qn157vw': {
-      'en': '\$1.50',
-      'es': '',
-    },
-    'jjjo7au4': {
-      'en': 'List Item Title',
-      'es': '',
-    },
-    '4dlkj85b': {
-      'en': 'Secondary text',
-      'es': '',
-    },
-    'h77t1cc0': {
-      'en': '\$1.50',
-      'es': '',
-    },
-    'txfn7od3': {
-      'en': 'Dashboard',
-      'es': '',
-    },
-    'xas0e6hp': {
-      'en': 'Dashboard',
-      'es': '',
-    },
-  },
   // AddTransaction
   {
     't70q27te': {
@@ -883,7 +780,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add Bill',
       'es': '',
     },
-    'm8l3oht4': {
+    'bmkxvaue': {
       'en': 'Add Bill',
       'es': '',
     },
@@ -892,10 +789,111 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // EditUser
+  {
+    'ns0ri40b': {
+      'en': 'Back',
+      'es': '',
+    },
+    'gm39s05q': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    '9iag3u40': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Dashboard
+  {
+    'yj5zfe4z': {
+      'en': 'Back',
+      'es': '',
+    },
+    'lplu25vn': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    '0xauxcxc': {
+      'en': 'Platform Navigation',
+      'es': '',
+    },
+    'et6ewv0b': {
+      'en': 'Dashboard',
+      'es': '',
+    },
+    'k4v8bkuc': {
+      'en': 'Chats',
+      'es': '',
+    },
+    'wxk3yh9e': {
+      'en': 'Projects',
+      'es': '',
+    },
+    'aknel4u0': {
+      'en': 'Settings',
+      'es': '',
+    },
+    'ec6695rh': {
+      'en': 'Billing',
+      'es': '',
+    },
+    'byvqbvao': {
+      'en': 'Explore',
+      'es': '',
+    },
+    'vlmedd7c': {
+      'en': 'Edit Profile',
+      'es': '',
+    },
+    '822sr01o': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
   // passwordfield
   {
     '9mr8s7gi': {
       'en': 'New Password',
+      'es': '',
+    },
+  },
+  // sideNav
+  {
+    'xlcl1l1h': {
+      'en': 'Dashboard',
+      'es': '',
+    },
+    'l2252ife': {
+      'en': 'Chats',
+      'es': '',
+    },
+    'cbo9cc7k': {
+      'en': 'Projects',
+      'es': '',
+    },
+    'n1c32bq6': {
+      'en': 'Settings',
+      'es': '',
+    },
+    'a0zvzeab': {
+      'en': 'Billing',
+      'es': '',
+    },
+    'drkubskk': {
+      'en': 'Explore',
+      'es': '',
+    },
+    '3sf5raxp': {
+      'en': 'Edit Profile',
+      'es': '',
+    },
+    '48mr44ey': {
+      'en': 'Light Mode',
+      'es': '',
+    },
+    'u5guu940': {
+      'en': 'Dark Mode',
       'es': '',
     },
   },

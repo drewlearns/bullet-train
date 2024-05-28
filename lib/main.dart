@@ -169,10 +169,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Dashboard': const DashboardWidget(),
-      'AddIncome': const AddIncomeWidget(),
-      'AddTransaction': const AddTransactionWidget(),
       'AddBill': const AddBillWidget(),
+      'AddTransaction': const AddTransactionWidget(),
+      'Dashboard': const DashboardWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -186,27 +185,17 @@ class _NavBarPageState extends State<NavBarPage> {
         }),
         backgroundColor: Colors.white,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
-        unselectedItemColor: const Color(0x8A000000),
+        unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.home_outlined,
-              size: 24.0,
+              Icons.ballot_outlined,
             ),
             label: FFLocalizations.of(context).getText(
-              'xas0e6hp' /* Dashboard */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.monetization_on_outlined,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '55a2tubh' /* Add Income */,
+              'edqtajv7' /* Add Bill */,
             ),
             tooltip: '',
           ),
@@ -221,10 +210,11 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.ballot_outlined,
+              Icons.home_outlined,
+              size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'edqtajv7' /* Add Bill */,
+              '822sr01o' /* Home */,
             ),
             tooltip: '',
           )

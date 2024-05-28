@@ -141,22 +141,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AddIncome',
           path: '/addIncome',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'AddIncome')
-              : AddIncomeWidget(
-                  paymentSourceIds: params.getParam<String>(
-                    'paymentSourceIds',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                ),
-        ),
-        FFRoute(
-          name: 'Dashboard',
-          path: '/dashboard',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Dashboard')
-              : const DashboardWidget(),
+          builder: (context, params) => AddIncomeWidget(
+            paymentSourceIds: params.getParam<String>(
+              'paymentSourceIds',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
         ),
         FFRoute(
           name: 'AddTransaction',
@@ -177,6 +168,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     isList: true,
                   ),
                 ),
+        ),
+        FFRoute(
+          name: 'EditUser',
+          path: '/editUser',
+          builder: (context, params) => const EditUserWidget(),
+        ),
+        FFRoute(
+          name: 'Dashboard',
+          path: '/dashboard',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Dashboard')
+              : const DashboardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
