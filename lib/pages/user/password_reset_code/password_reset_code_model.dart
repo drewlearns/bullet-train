@@ -21,7 +21,7 @@ class PasswordResetCodeModel extends FlutterFlowModel<PasswordResetCodeWidget> {
   String? textFieldSelectedOption;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? textController2Validator;
-  // Stores action output result for [Backend Call - API (confirmSignup)] action in Button widget.
+  // Stores action output result for [Backend Call - API (confirmPasswordResetCode)] action in Button widget.
   ApiCallResponse? confirmSignupOutput;
 
   @override

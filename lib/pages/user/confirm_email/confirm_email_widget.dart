@@ -1,7 +1,9 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +56,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
@@ -104,20 +106,18 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                   children: [
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
-                          10.0, 30.0, 10.0, 30.0),
+                          24.0, 30.0, 24.0, 30.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '1vq0vg61' /* Check your email for a confirm... */,
                         ),
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              fontSize: 24.0,
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
                               letterSpacing: 0.0,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
+                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                       ),
                     ),
@@ -210,6 +210,9 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         contentPadding: const EdgeInsets.all(24.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -243,6 +246,8 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelLargeFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -299,8 +304,73 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                 ),
                               ),
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  _model.apiResultxtq =
+                                      await TppbGroup.confirmSignupCall.call(
+                                    confirmationCode:
+                                        _model.pinCodeController!.text,
+                                    username: widget.email,
+                                  );
+                                  if ((_model.apiResultxtq?.succeeded ??
+                                      true)) {
+                                    unawaited(
+                                      () async {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              title: const Text('Success!'),
+                                              content: const Text('Confirmed!'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: const Text('Ok'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }(),
+                                    );
+
+                                    context.pushNamed(
+                                      'EditPage',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.bottomToTop,
+                                          duration: Duration(milliseconds: 30),
+                                        ),
+                                      },
+                                    );
+                                  } else {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: const Text('Error'),
+                                          content: Text(TppbGroup
+                                              .confirmSignupCall
+                                              .message(
+                                            (_model.apiResultxtq?.jsonBody ??
+                                                ''),
+                                          )!),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: const Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }
+
+                                  setState(() {});
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'qq3gscsk' /* Confirm Email */,

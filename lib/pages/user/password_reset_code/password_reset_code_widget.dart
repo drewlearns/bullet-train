@@ -59,7 +59,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
@@ -144,6 +144,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .labelLargeFamily,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
@@ -258,6 +259,9 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               contentPadding: const EdgeInsets.all(24.0),
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -411,6 +415,9 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   contentPadding: const EdgeInsets.all(24.0),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
@@ -460,7 +467,8 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       _model.confirmSignupOutput =
-                                          await TppbGroup.confirmSignupCall
+                                          await TppbGroup
+                                              .confirmPasswordResetCodeCall
                                               .call();
                                       if ((_model
                                               .confirmSignupOutput?.succeeded ??
@@ -470,14 +478,13 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                           builder: (alertDialogContext) {
                                             return AlertDialog(
                                               title: const Text(' Confirmed:'),
-                                              content: Text(
-                                                  TppbGroup.confirmSignupCall
-                                                      .confirmedEmail(
-                                                        (_model.confirmSignupOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                      .toString()),
+                                              content: Text(TppbGroup
+                                                  .confirmPasswordResetCodeCall
+                                                  .message(
+                                                (_model.confirmSignupOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -490,7 +497,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                           },
                                         );
 
-                                        context.pushNamed('Dashboard');
+                                        context.pushNamed('Signin');
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -498,8 +505,8 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                             return AlertDialog(
                                               title: const Text('Error'),
                                               content: Text(TppbGroup
-                                                  .confirmSignupCall
-                                                  .errorDetails(
+                                                  .confirmPasswordResetCodeCall
+                                                  .message(
                                                 (_model.confirmSignupOutput
                                                         ?.jsonBody ??
                                                     ''),

@@ -491,6 +491,10 @@ class GetUserCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class EditUserCall {
@@ -717,11 +721,23 @@ class ForgotPasswordCall {
 }
 
 class ConfirmPasswordResetCodeCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? username = '',
+    String? code = '',
+    String? newPassword = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "username": "$username",
+  "code": "$code",
+  "newPassword": "$newPassword",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmPasswordResetCode',
       apiUrl: '$baseUrl/confirmPasswordResetCode',
@@ -739,6 +755,11 @@ class ConfirmPasswordResetCodeCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class AddHouseholdCall {
@@ -803,11 +824,23 @@ class AddHouseholdCall {
 }
 
 class AddInviteCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? email = '',
+    String? householdId = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "email": "$email",
+  "householdId": "$householdId",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'addInvite',
       apiUrl: '$baseUrl/addInvite',
@@ -825,6 +858,11 @@ class AddInviteCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class AcceptInviteCall {
@@ -853,11 +891,23 @@ class AcceptInviteCall {
 }
 
 class DeleteMemberFromHouseholdCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? memberUuid = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "memberUuid": "$memberUuid",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteMemberFromHousehold',
       apiUrl: '$baseUrl/deleteMemberFromHousehold',
@@ -875,6 +925,11 @@ class DeleteMemberFromHouseholdCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class EditHouseholdCall {
@@ -909,10 +964,10 @@ class GetHouseholdMembersCall {
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
-  "authorizationToken": "",
-  "householdId": ""
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdMembers',
@@ -932,22 +987,42 @@ class GetHouseholdMembersCall {
     );
   }
 
-  String? userEmail(dynamic response) => castToType<String>(getJsonField(
+  List<String>? userEmail(dynamic response) => (getJsonField(
         response,
         r'''$.members[:].user.email''',
-      ));
-  String? userFirstName(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? userFirstName(dynamic response) => (getJsonField(
         response,
         r'''$.members[:].user.firstName''',
-      ));
-  String? userLastName(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? userLastName(dynamic response) => (getJsonField(
         response,
         r'''$.members[:].user.lastName''',
-      ));
-  String? userJoinedDate(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? userJoinedDate(dynamic response) => (getJsonField(
         response,
         r'''$.members[:].joinedDate''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',

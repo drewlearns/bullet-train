@@ -156,7 +156,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Dashboard';
+  String _currentPageName = 'EditPage';
   late Widget? _currentPage;
 
   @override
@@ -169,9 +169,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'AddBill': const AddBillWidget(),
+      'EditPage': const EditPageWidget(),
+      'Ledger': const LedgerWidget(),
       'AddTransaction': const AddTransactionWidget(),
-      'Dashboard': const DashboardWidget(),
+      'PaymentSources': const PaymentSourcesWidget(),
+      'Settings': const SettingsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -183,19 +185,30 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.ballot_outlined,
+              Icons.edit,
+              size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'edqtajv7' /* Add Bill */,
+              '822sr01o' /* Settings */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.monetization_on_outlined,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'qsmrrqhi' /* Ledger */,
             ),
             tooltip: '',
           ),
@@ -204,17 +217,27 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.add_circle,
             ),
             label: FFLocalizations.of(context).getText(
-              '05fwsqja' /* Add Transaction */,
+              '05fwsqja' /* Transaction */,
             ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.home_outlined,
+              Icons.wallet_outlined,
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '822sr01o' /* Home */,
+              '7jw3q0de' /* Sources */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.settings_suggest,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'v58bmuxq' /* Settings */,
             ),
             tooltip: '',
           )

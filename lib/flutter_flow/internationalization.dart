@@ -159,7 +159,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Fill out the information below in order to access your account.',
       'es': '',
     },
-    '5i4sjs4j': {
+    '2wnr3uh4': {
       'en': 'Email',
       'es': '',
     },
@@ -175,10 +175,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Forgot Password?',
       'es': '',
     },
-    'v2nsdv8j': {
-      'en': 'Authentication',
-      'es': '',
-    },
     'vtgmm7q4': {
       'en': 'Home',
       'es': '',
@@ -188,7 +184,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '1vq0vg61': {
       'en': 'Check your email for a confirmation code and enter it below',
-      'es': '',
+      'es':
+          'Revise su correo electrónico para obtener un código de confirmación e ingréselo a continuación',
     },
     'farkll3t': {
       'en': 'Email ',
@@ -200,7 +197,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'j2i0w2sq': {
       'en': 'Confirm Email',
-      'es': '',
+      'es': 'Confirmar correo electrónico',
     },
     '37hgvmq8': {
       'en': 'Home',
@@ -268,19 +265,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Household Name',
       'es': '',
     },
-    'nooxdgw5': {
-      'en':
-          'We realize that \"Household\" is pretty generic and you might not want to call it a \"Household\". \nYou can rename \"Household\" to anything you like such as \"Family\" or \"Crew\"',
-      'es': '',
-    },
-    'a7c8wiuz': {
-      'en': 'Custom Naming',
-      'es': '',
-    },
-    '1t7v9pat': {
-      'en': 'Crew',
-      'es': '',
-    },
     'xhd4vi2y': {
       'en': 'Create',
       'es': '',
@@ -290,8 +274,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'eu989foe': {
-      'en': '+ Household',
-      'es': '',
+      'en': 'Household',
+      'es': 'Familiar',
     },
   },
   // AddInvite
@@ -375,20 +359,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Onboarding
   {
     'cbyqhghe': {
-      'en': 'Welcome!',
+      'en': 'Silly Name, Serious Ledgering',
       'es': '',
     },
     'af2jqzn1': {
       'en':
-          'Thanks for joining The Purple Piggy Bank! \nAccess or create your account below, and get started budgeting like a pro!',
-      'es': '',
-    },
-    'ir5ppysr': {
-      'en': 'Accept Invitation',
+          'Access or create your account below, and track expenses like a pro!',
       'es': '',
     },
     'otv926su': {
       'en': 'Login',
+      'es': '',
+    },
+    'ir5ppysr': {
+      'en': 'Confirm Email',
+      'es': '',
+    },
+    'pifffp3g': {
+      'en': 'YourEmail@Example.com',
+      'es': 'TucorreoElectrónico@ejemplo.com',
+    },
+    'ube4hh6q': {
+      'en': 'Accept Invitation',
+      'es': '',
+    },
+    'lu7sjzp3': {
+      'en': 'Disclaimer: The Purple Piggy Bank LLC is not a bank. ',
       'es': '',
     },
     '1nhlwor7': {
@@ -456,98 +452,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '7ixebahq': {
-      'en': '+ Source',
-      'es': '',
-    },
-  },
-  // AddIncome
-  {
-    'q1ny1778': {
-      'en': 'Income Name',
-      'es': '',
-    },
-    'pp3l1cml': {
-      'en': 'Enter bill name',
-      'es': '',
-    },
-    '0dvyk67v': {
-      'en': 'Amount',
-      'es': '',
-    },
-    'vpoh4cgg': {
-      'en': 'Enter amount',
-      'es': '',
-    },
-    'j6fqylve': {
-      'en': 'Amount Due',
-      'es': '',
-    },
-    '1ufli95j': {
-      'en': 'When was the most recent Payday? ',
-      'es': '',
-    },
-    '1klthsxv': {
-      'en': 'Monthly',
-      'es': '',
-    },
-    'zx44d1cv': {
-      'en': 'Once',
-      'es': '',
-    },
-    'vaogu79n': {
-      'en': 'Weekly',
-      'es': '',
-    },
-    'flhf5240': {
-      'en': 'Bi-weekly',
-      'es': '',
-    },
-    '2o125dsz': {
-      'en': 'Monthly',
-      'es': '',
-    },
-    '07cl0k1o': {
-      'en': 'Annually',
-      'es': '',
-    },
-    'okwlwyck': {
-      'en': 'Semi Annually',
-      'es': '',
-    },
-    '951wa55t': {
-      'en': 'Select Frequency of the Bill...',
-      'es': '',
-    },
-    'rgalr3kn': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'xid3od52': {
-      'en': 'Description',
-      'es': '',
-    },
-    'wzoygrpw': {
-      'en': 'Enter description',
-      'es': '',
-    },
-    '3r4paw7p': {
-      'en': 'Select Default Payment Source',
-      'es': '',
-    },
-    'l01zt3l8': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    '364foyf5': {
-      'en': 'Add Bill',
-      'es': '',
-    },
-    '3m7i7cpd': {
-      'en': 'Add Income',
-      'es': '',
-    },
-    '55a2tubh': {
-      'en': 'Add Income',
+      'en': 'Source',
       'es': '',
     },
   },
@@ -567,10 +472,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'n58ce5nj': {
       'en': 'Search for an item...',
-      'es': '',
-    },
-    'e9f66mmn': {
-      'en': 'Amount',
       'es': '',
     },
     '3rxdjor6': {
@@ -593,20 +494,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'es': '',
     },
+    'e9f66mmn': {
+      'en': 'Amount',
+      'es': '',
+    },
     'ycld1wwp': {
       'en': 'Category',
       'es': '',
     },
-    'mtdtuxub': {
+    '7fyxldcf': {
       'en': 'Description',
       'es': '',
     },
-    'spxwz1p6': {
+    'e0zusb6e': {
       'en': 'Tags',
       'es': '',
     },
-    '67yj6s6b': {
-      'en': 'Comma separated list',
+    '4atshyry': {
+      'en': 'Comma Separated List',
       'es': '',
     },
     '4zkzyd6e': {
@@ -626,167 +531,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '05fwsqja': {
-      'en': 'Add Transaction',
-      'es': '',
-    },
-  },
-  // AddBill
-  {
-    'xjd2xux6': {
-      'en': 'Is It a debt?',
-      'es': '',
-    },
-    '6n1sggda': {
-      'en': 'On for Yes',
-      'es': '',
-    },
-    'oef218an': {
-      'en': 'Category',
-      'es': '',
-    },
-    '32xa7pva': {
-      'en': 'Enter category',
-      'es': '',
-    },
-    'q74vhmki': {
-      'en': 'Bill Name',
-      'es': '',
-    },
-    'hh9w8doq': {
-      'en': 'Enter bill name',
-      'es': '',
-    },
-    'icpty767': {
-      'en': 'Amount',
-      'es': '',
-    },
-    'd5znjo5h': {
-      'en': 'Enter amount',
-      'es': '',
-    },
-    '8ga75k5r': {
-      'en': 'Amount Due',
-      'es': '',
-    },
-    '9cpqd1jq': {
-      'en': 'Day of Month The Bill Is Due',
-      'es': '',
-    },
-    'nqpcoyfe': {
-      'en': 'Enter day of month',
-      'es': '',
-    },
-    'nqusbqaw': {
-      'en': 'Monthly',
-      'es': '',
-    },
-    'z4tmv4yo': {
-      'en': 'Once',
-      'es': '',
-    },
-    'xtx65ojj': {
-      'en': 'Weekly',
-      'es': '',
-    },
-    'mavgzir7': {
-      'en': 'Bi-weekly',
-      'es': '',
-    },
-    'ebvg5inu': {
-      'en': 'Monthly',
-      'es': '',
-    },
-    '4nh1wlup': {
-      'en': 'Annually',
-      'es': '',
-    },
-    '8g90iyf5': {
-      'en': 'Semi Annually',
-      'es': '',
-    },
-    'qrqieulk': {
-      'en': 'Select Frequency of the Bill...',
-      'es': '',
-    },
-    '0svm68e7': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'ozifmw34': {
-      'en': 'Cash Back',
-      'es': '',
-    },
-    'tm0cioj1': {
-      'en': 'Enter cash back amount',
-      'es': '',
-    },
-    '3b9d15eq': {
-      'en': 'Interest Rate',
-      'es': '',
-    },
-    '8kz7xygu': {
-      'en': 'Enter interest rate',
-      'es': '',
-    },
-    'dq7z7jlr': {
-      'en': 'Description',
-      'es': '',
-    },
-    'xb9b72y5': {
-      'en': 'Enter description',
-      'es': '',
-    },
-    'ccjdc3fk': {
-      'en': 'URL',
-      'es': '',
-    },
-    '0jtvmcf0': {
-      'en': 'Enter URL',
-      'es': '',
-    },
-    '7c52mt78': {
-      'en': 'Online Web Portal URL',
-      'es': '',
-    },
-    '9xzg56l6': {
-      'en': 'Store your biller\'s credentials here',
-      'es': '',
-    },
-    'cswnncxy': {
-      'en': 'Username',
-      'es': '',
-    },
-    'y04z6gyx': {
-      'en': 'Enter username',
-      'es': '',
-    },
-    'bq22s8x8': {
-      'en': 'Password',
-      'es': '',
-    },
-    'ps6bgli0': {
-      'en': 'Enter password',
-      'es': '',
-    },
-    'g8hupi21': {
-      'en': 'Select Default Payment Source',
-      'es': '',
-    },
-    'qexk1678': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'zj35fnfh': {
-      'en': 'Add Bill',
-      'es': '',
-    },
-    'bmkxvaue': {
-      'en': 'Add Bill',
-      'es': '',
-    },
-    'edqtajv7': {
-      'en': 'Add Bill',
-      'es': '',
+      'en': 'Transaction',
+      'es': 'Transacción',
     },
   },
   // EditUser
@@ -812,31 +558,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // Dashboard
+  // EditPage
   {
     'aknel4u0': {
-      'en': 'Settings',
+      'en': 'Navigation',
+      'es': '',
+    },
+    'kehrrac3': {
+      'en': 'Add Household',
+      'es': '',
+    },
+    'uqoqemc3': {
+      'en': 'Household Members',
       'es': '',
     },
     'vlmedd7c': {
-      'en': 'Edit Profile',
+      'en': 'Payment Sources',
       'es': '',
     },
-    'so70za4w': {
-      'en': 'Invitations',
+    'x19oa06p': {
+      'en': 'Bills',
       'es': '',
     },
-    'gure3i4q': {
-      'en': 'Edit Members',
+    'lbng236n': {
+      'en': 'Incomes',
       'es': '',
     },
-    'zc8oz36a': {
-      'en': 'Dashboard',
+    '9lph6yzp': {
+      'en': 'Settings',
       'es': '',
     },
     '822sr01o': {
-      'en': 'Home',
-      'es': '',
+      'en': 'Settings',
+      'es': 'Ajustes',
     },
   },
   // EditMembers
@@ -853,16 +607,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'wej33rpn': {
-      'en': 'Please select...',
+    'v2p6ljb1': {
+      'en': 'Name',
       'es': '',
     },
-    'oki5snjx': {
-      'en': 'Search for an item...',
+    'h8hl93yq': {
+      'en': 'Email',
       'es': '',
     },
-    'xs8om2yt': {
-      'en': 'Select Household',
+    'y3cy5jhy': {
+      'en': 'Joined',
+      'es': '',
+    },
+    'qpct2gd7': {
+      'en': 'Action',
       'es': '',
     },
     'vea6crhu': {
@@ -874,49 +632,838 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // Ledger
+  {
+    'x4op0soz': {
+      'en': 'Ledger',
+      'es': '',
+    },
+    'gvsa5ee9': {
+      'en': 'example',
+      'es': '',
+    },
+    'rb34tajy': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    '420kk0dd': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'bonlneeh': {
+      'en': 'Select Household',
+      'es': '',
+    },
+    'ospnywwi': {
+      'en': '\$25,000',
+      'es': '',
+    },
+    'rbq3v38o': {
+      'en': 'Per Month',
+      'es': '',
+    },
+    'xikxdf8u': {
+      'en': 'View Spending Habits',
+      'es': '',
+    },
+    'v1wepj7f': {
+      'en': 'Total Spent',
+      'es': '',
+    },
+    'afpy76my': {
+      'en': '\$2,502',
+      'es': '',
+    },
+    'rox8f5j1': {
+      'en': 'Transactions',
+      'es': '',
+    },
+    'cot3dzfe': {
+      'en': 'Go Far Rewards',
+      'es': '',
+    },
+    '3m18avbc': {
+      'en': 'Income',
+      'es': '',
+    },
+    '3lmuyhzv': {
+      'en': '-\$50.00',
+      'es': '',
+    },
+    'vn94z4e2': {
+      'en': 'Tues. 15, 4:32',
+      'es': '',
+    },
+    'tbblvxfj': {
+      'en': 'Go Far Rewards',
+      'es': '',
+    },
+    'z34irg5z': {
+      'en': 'Income',
+      'es': '',
+    },
+    '3ev4j9o8': {
+      'en': '-\$50.00',
+      'es': '',
+    },
+    'fk3fjhau': {
+      'en': 'Tues. 15, 4:32',
+      'es': '',
+    },
+    'r7tx4z83': {
+      'en': 'Go Far Rewards',
+      'es': '',
+    },
+    'm7at87h6': {
+      'en': 'Income',
+      'es': '',
+    },
+    'j4yl2qn3': {
+      'en': '\$50.00',
+      'es': '',
+    },
+    'yd3j316e': {
+      'en': 'Tues. 15, 4:32',
+      'es': '',
+    },
+    'qsmrrqhi': {
+      'en': 'Ledger',
+      'es': '',
+    },
+  },
+  // Settings
+  {
+    'oabp5o41': {
+      'en': 'Navigation',
+      'es': '',
+    },
+    '01ht5zc3': {
+      'en': 'Settings',
+      'es': '',
+    },
+    '4aqkug6y': {
+      'en': 'Edit Profile',
+      'es': '',
+    },
+    'y80indk0': {
+      'en': 'View Security Logs',
+      'es': '',
+    },
+    '5vm2te1p': {
+      'en': 'Invitations',
+      'es': '',
+    },
+    'y1ef1kt8': {
+      'en': 'Edit Members',
+      'es': '',
+    },
+    '8umt9gnn': {
+      'en': 'Default Payment Source',
+      'es': '',
+    },
+    'ia9ir3ju': {
+      'en': 'Default Currency',
+      'es': '',
+    },
+    'c0560gxy': {
+      'en': 'Set Threshold',
+      'es': '',
+    },
+    'u4o33ie3': {
+      'en': 'Camera Access',
+      'es': '',
+    },
+    '3vttzvp5': {
+      'en': 'Location Services',
+      'es': '',
+    },
+    'mblc35ec': {
+      'en': 'Light Mode',
+      'es': '',
+    },
+    '7ei018dv': {
+      'en': 'Dark Mode',
+      'es': '',
+    },
+    'wanc3doe': {
+      'en': 'Settings',
+      'es': '',
+    },
+    'v58bmuxq': {
+      'en': 'Settings',
+      'es': 'Ajustes',
+    },
+  },
+  // SupportPage
+  {
+    'daqypr0m': {
+      'en': 'Welcome to support',
+      'es': '',
+    },
+    's4p8bwcw': {
+      'en': 'How can we help you?',
+      'es': '',
+    },
+    'pp3fdz25': {
+      'en': 'Call Us',
+      'es': '',
+    },
+    '3rv7c8y5': {
+      'en': 'Email Us',
+      'es': '',
+    },
+    'ki3fov0k': {
+      'en': 'Search FAQs',
+      'es': '',
+    },
+    '4ppd4tfy': {
+      'en': 'Review FAQ\'s below',
+      'es': '',
+    },
+    '6edu6oon': {
+      'en': 'How do I download Code?',
+      'es': '',
+    },
+    '4r7dkrbd': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+    },
+    '6e2ofzkv': {
+      'en': 'How do I download Code?',
+      'es': '',
+    },
+    'bff1bm0g': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+    },
+    '4f1v6q5q': {
+      'en': 'How do I download Code?',
+      'es': '',
+    },
+    'xegr3w85': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+    },
+    's0vpir3e': {
+      'en': 'Create Ticket',
+      'es': '',
+    },
+    'go1rregl': {
+      'en': 'Chat Now',
+      'es': '',
+    },
+    '9n52auf3': {
+      'en': 'Get support',
+      'es': '',
+    },
+    '9iag3u40': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Incomes
+  {
+    'b5644f6r': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    'cj41nyjg': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'mgkw5p93': {
+      'en': 'Select Household',
+      'es': '',
+    },
+    'u28qwsa5': {
+      'en': 'Your Incomes',
+      'es': '',
+    },
+    'vcczyaud': {
+      'en': 'Below is a list of your Incomes',
+      'es': '',
+    },
+    'tvk6z2pm': {
+      'en': 'Acme Inc',
+      'es': '',
+    },
+    'hsq7mpyf': {
+      'en': '\$3000.00',
+      'es': '',
+    },
+    'f8fmejfp': {
+      'en': 'Acme Inc',
+      'es': '',
+    },
+    'di33lb7o': {
+      'en': '\$3000.00',
+      'es': '',
+    },
+    '92t2d8lk': {
+      'en': 'Total',
+      'es': '',
+    },
+    'i6dyqr5f': {
+      'en': '\$6000.00',
+      'es': '',
+    },
+    'k2vsn58t': {
+      'en': 'Incomes',
+      'es': '',
+    },
+    'qsrie90l': {
+      'en': 'Home',
+      'es': 'Ajustes',
+    },
+  },
+  // PaymentSources
+  {
+    '1r8khj5g': {
+      'en': 'example',
+      'es': '',
+    },
+    '5e1lbvdq': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    'sowexalv': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'z8my2sk5': {
+      'en': 'Select Household',
+      'es': '',
+    },
+    'im36hlko': {
+      'en': 'Below are your Payment Sources in your Wallet',
+      'es': '',
+    },
+    'us4c4f6b': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    'skpnyt6t': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    '37esf9cp': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    '8m59cmh4': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    '613bhj3p': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    'q629z3gz': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    'qupcx8y4': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    's01hu3pq': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    'l82f07as': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    'ou68hp39': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    'e1z8g8gu': {
+      'en': 'Ally Bank',
+      'es': '',
+    },
+    '941uql2d': {
+      'en': '\$120.00',
+      'es': '',
+    },
+    'p678pn5d': {
+      'en': 'Payment Sources',
+      'es': '',
+    },
+    '7jw3q0de': {
+      'en': 'Sources',
+      'es': '',
+    },
+  },
+  // Audit
+  {
+    'j7q53cpa': {
+      'en': 'Activity',
+      'es': '',
+    },
+    'rzkxjfl0': {
+      'en': 'All Activity from this past month.',
+      'es': '',
+    },
+    'zvegwe7t': {
+      'en': '14, Sept. 2021',
+      'es': '',
+    },
+    'iuff6r7m': {
+      'en': 'Created New User',
+      'es': '',
+    },
+    '0x2gnv71': {
+      'en': 'Andrew Daniels',
+      'es': '',
+    },
+    '4zp5pca6': {
+      'en': 'Andrew F.',
+      'es': '',
+    },
+    'sw6fr7bn': {
+      'en': '14, Sept. 2021',
+      'es': '',
+    },
+    'huzm9zd0': {
+      'en': 'Creted a Group',
+      'es': '',
+    },
+    '83tiigo2': {
+      'en': 'Design Team',
+      'es': '',
+    },
+    'v3uva4px': {
+      'en': 'Andrew F.',
+      'es': '',
+    },
+    'ohzf5ko2': {
+      'en': '14, Sept. 2021',
+      'es': '',
+    },
+    '6i9dzqts': {
+      'en': 'Created Invoice',
+      'es': '',
+    },
+    'dq7xupqt': {
+      'en': '#402 - Contractor',
+      'es': '',
+    },
+    '2pljs4rb': {
+      'en': 'Andrew F.',
+      'es': '',
+    },
+    '1gbw6tqv': {
+      'en': 'Beginning of Activity',
+      'es': '',
+    },
+    'gm39s05q': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'smhrb5vq': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // defaultCurrency
+  {
+    '0wg150ir': {
+      'en': 'Default Currency',
+      'es': '',
+    },
+    'pveoxysy': {
+      'en': 'Invite',
+      'es': '',
+    },
+  },
+  // DefaultPaymentSource
+  {
+    'ns0ri40b': {
+      'en': 'Back',
+      'es': '',
+    },
+    '02svdcir': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'x99vtcpk': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Export
+  {
+    'u5nxtkcb': {
+      'en': 'Back',
+      'es': '',
+    },
+    'fl8t6l81': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    '2lfzp5lt': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Bills
+  {
+    'a68khtne': {
+      'en': 'Below are a summary of your Bills',
+      'es': '',
+    },
+    'mamx0tsh': {
+      'en': 'All',
+      'es': '',
+    },
+    '4tw0jla3': {
+      'en': 'Today',
+      'es': '',
+    },
+    'sve9go7g': {
+      'en': 'Slack Ltd',
+      'es': '',
+    },
+    'crpv4tg4': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    '14rquake': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'my9j9365': {
+      'en': 'DUE',
+      'es': '',
+    },
+    '9dp5x14z': {
+      'en': 'ScreenStudio App',
+      'es': '',
+    },
+    'vpk6ffo3': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    '9gmpjn91': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'ujsvfs1b': {
+      'en': 'DUE',
+      'es': '',
+    },
+    '9mhldzsu': {
+      'en': 'Earlier Invoices',
+      'es': '',
+    },
+    '5zv4t2aw': {
+      'en': 'Dribbble LTD.',
+      'es': '',
+    },
+    'ch5rscfh': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'foc0rcbv': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    'ovoqmsvv': {
+      'en': 'Overdue',
+      'es': '',
+    },
+    'w6i6fx0b': {
+      'en': 'FlutterFlow',
+      'es': '',
+    },
+    'cegzu5ki': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'df7htpzz': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    'su305s81': {
+      'en': 'Overdue',
+      'es': '',
+    },
+    'gbsmz6gd': {
+      'en': 'ScreenStudio App',
+      'es': '',
+    },
+    '9ydao681': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'e2pyt902': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'vpt45q5y': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'aua3k91z': {
+      'en': 'Slack Ltd',
+      'es': '',
+    },
+    '53p8mnqk': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'bpgio8ut': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'tfxix2kz': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'y90uacsu': {
+      'en': 'Open',
+      'es': '',
+    },
+    'zhjrb18g': {
+      'en': 'Today',
+      'es': '',
+    },
+    'dxe2k6p7': {
+      'en': 'ScreenStudio App',
+      'es': '',
+    },
+    'ubzz90pc': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'lhvw7poq': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'hnqmyyni': {
+      'en': 'DUE',
+      'es': '',
+    },
+    'r8zqw40a': {
+      'en': 'Slack Ltd',
+      'es': '',
+    },
+    'wv6tgmo3': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    '7jbnn9p0': {
+      'en': '\$24.99',
+      'es': '',
+    },
+    'jvk7ioii': {
+      'en': 'DUE',
+      'es': '',
+    },
+    '3g3m2w9d': {
+      'en': 'Earlier Invoices',
+      'es': '',
+    },
+    'c2ravo9b': {
+      'en': 'Dribbble LTD.',
+      'es': '',
+    },
+    '83ryuf4e': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'r6r23svw': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    '2twfw4qy': {
+      'en': 'Overdue',
+      'es': '',
+    },
+    'xnaowzr2': {
+      'en': 'FlutterFlow',
+      'es': '',
+    },
+    'haddh10j': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'yzaxytw6': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    'w0q5emf0': {
+      'en': 'Overdue',
+      'es': '',
+    },
+    'jt2q50ii': {
+      'en': 'Paid',
+      'es': '',
+    },
+    '10ju06sl': {
+      'en': 'Earlier Invoices',
+      'es': '',
+    },
+    'lcyz7wvz': {
+      'en': 'Dribbble LTD.',
+      'es': '',
+    },
+    'e1lktnnr': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'r4gjlyvs': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    'kcqix8ks': {
+      'en': 'Paid',
+      'es': '',
+    },
+    '8h2ofq90': {
+      'en': 'FlutterFlow',
+      'es': '',
+    },
+    '7htdm3v5': {
+      'en': 'Paid on: May, 4th 2023',
+      'es': '',
+    },
+    'hcrzs6co': {
+      'en': '\$500.00',
+      'es': '',
+    },
+    'v6o8ppn3': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'njdtrzbk': {
+      'en': 'Invoices',
+      'es': '',
+    },
+    'nlr9n59f': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // BillDetails
+  {
+    'ci8rupc1': {
+      'en': 'Back',
+      'es': '',
+    },
+    'r1ydype0': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'd1d4fkj3': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // TransactionDetails
+  {
+    'kii15ppw': {
+      'en': 'Back',
+      'es': '',
+    },
+    'z02vfh3y': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'kjjxxcjc': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // IncomeDetails
+  {
+    '1304v4d7': {
+      'en': 'Back',
+      'es': '',
+    },
+    'g5w0qfnx': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'uzmjojfi': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // AddIncome
+  {
+    '8v3q3h6r': {
+      'en': 'Back',
+      'es': '',
+    },
+    '1y305ntt': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    '82wih84b': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Notifications
+  {
+    'bbrlqvzv': {
+      'en': 'Check-in evaluated',
+      'es': '',
+    },
+    'ku5uqn2r': {
+      'en': 'Mar 8, 2022',
+      'es': '',
+    },
+    'qa5g0rtb': {
+      'en': 'Check-in evaluated',
+      'es': '',
+    },
+    '56vr9aty': {
+      'en': 'Mar 8, 2022',
+      'es': '',
+    },
+    '3gxqt54j': {
+      'en': 'Check-in evaluated',
+      'es': '',
+    },
+    'h481xv8a': {
+      'en': 'Mar 8, 2022',
+      'es': '',
+    },
+    'fz7qsx09': {
+      'en': 'New Event added to your calendar',
+      'es': '',
+    },
+    '6gv5ng9u': {
+      'en': 'Mar 8, 2022',
+      'es': '',
+    },
+    'xnzdyoyu': {
+      'en': 'Profile Modified',
+      'es': '',
+    },
+    'iqhok7a4': {
+      'en': 'Mar 8, 2022',
+      'es': '',
+    },
+    '6e55dtzm': {
+      'en': 'Notifications',
+      'es': '',
+    },
+    'h4lx149j': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
   // passwordfield
   {
     '9mr8s7gi': {
       'en': 'New Password',
-      'es': '',
-    },
-  },
-  // sideNav
-  {
-    'xlcl1l1h': {
-      'en': 'Dashboard',
-      'es': '',
-    },
-    'l2252ife': {
-      'en': 'Chats',
-      'es': '',
-    },
-    'cbo9cc7k': {
-      'en': 'Projects',
-      'es': '',
-    },
-    'n1c32bq6': {
-      'en': 'Settings',
-      'es': '',
-    },
-    'a0zvzeab': {
-      'en': 'Billing',
-      'es': '',
-    },
-    'drkubskk': {
-      'en': 'Explore',
-      'es': '',
-    },
-    '3sf5raxp': {
-      'en': 'Edit Profile',
-      'es': '',
-    },
-    '48mr44ey': {
-      'en': 'Light Mode',
-      'es': '',
-    },
-    'u5guu940': {
-      'en': 'Dark Mode',
       'es': '',
     },
   },

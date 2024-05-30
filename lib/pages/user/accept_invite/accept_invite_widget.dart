@@ -94,7 +94,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
@@ -139,6 +139,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
@@ -209,7 +211,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     });
                                   },
                                   autofocus: true,
-                                  autofillHints: const [AutofillHints.email],
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText:
@@ -273,6 +274,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyLargeFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -405,7 +408,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           });
                                         },
                                         autofocus: true,
-                                        autofillHints: const [AutofillHints.email],
+                                        autofillHints: const [AutofillHints.name],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
@@ -522,7 +525,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           });
                                         },
                                         autofocus: true,
-                                        autofillHints: const [AutofillHints.email],
+                                        autofillHints: const [
+                                          AutofillHints.familyName
+                                        ],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
@@ -851,11 +856,11 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                    .primaryBackground,
                                 activeColor:
-                                    FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).alternate,
                                 activeTrackColor:
-                                    FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).primary,
                                 dense: true,
                                 controlAffinity:
                                     ListTileControlAffinity.trailing,

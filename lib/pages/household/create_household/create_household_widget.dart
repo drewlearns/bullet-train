@@ -27,17 +27,10 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
     super.initState();
     _model = createModel(context, () => CreateHouseholdModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.textController2?.text = FFLocalizations.of(context).getText(
-            '1t7v9pat' /* Crew */,
-          );
-        }));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -149,12 +142,12 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                                8.0, 0.0, 8.0, 16.0),
                             child: SizedBox(
                               width: 300.0,
                               child: TextFormField(
-                                controller: _model.textController1,
-                                focusNode: _model.textFieldFocusNode1,
+                                controller: _model.textController,
+                                focusNode: _model.textFieldFocusNode,
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -167,6 +160,8 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -216,137 +211,24 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                  contentPadding: const EdgeInsets.all(24.0),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodyMediumFamily,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
-                                    ),
-                                validator: _model.textController1Validator
-                                    .asValidator(context),
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 30.0, 8.0, 16.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'nooxdgw5' /* We realize that "Household" is... */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 16.0, 8.0, 16.0),
-                            child: SizedBox(
-                              width: 300.0,
-                              child: TextFormField(
-                                controller: _model.textController2,
-                                focusNode: _model.textFieldFocusNode2,
-                                autofocus: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText:
-                                      FFLocalizations.of(context).getText(
-                                    'a7c8wiuz' /* Custom Naming */,
-                                  ),
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily),
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily),
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  contentPadding: const EdgeInsets.all(24.0),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                          .primaryText,
                                       letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily),
                                     ),
-                                validator: _model.textController2Validator
+                                validator: _model.textControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -378,9 +260,9 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                     .authorizationToken,
                                                 account: 'Standard',
                                                 householdName:
-                                                    _model.textController1.text,
+                                                    _model.textController.text,
                                                 customHouseholdNameSuchAsCrew:
-                                                    _model.textController2.text,
+                                                    'Crew',
                                                 ipAddress:
                                                     currentUserLocationValue
                                                         ?.toString(),
@@ -394,11 +276,10 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                   builder:
                                                       (alertDialogContext) {
                                                     return AlertDialog(
-                                                      title: const Text(
-                                                          'Success! We created your'),
+                                                      title: const Text('Success! '),
                                                       content: Text(TppbGroup
                                                           .addHouseholdCall
-                                                          .customHouseholdNameSuchAsCrew(
+                                                          .message(
                                                         (_model.addHouseholdOutput
                                                                 ?.jsonBody ??
                                                             ''),
@@ -415,7 +296,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                   },
                                                 );
 
-                                                context.pushNamed('Dashboard');
+                                                context.pushNamed('EditPage');
                                               } else {
                                                 await showDialog(
                                                   context: context,
@@ -443,9 +324,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                   },
                                                 );
                                                 setState(() {
-                                                  _model.textController1
-                                                      ?.clear();
-                                                  _model.textController2
+                                                  _model.textController
                                                       ?.clear();
                                                 });
                                               }

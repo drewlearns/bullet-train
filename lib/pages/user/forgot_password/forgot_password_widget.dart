@@ -49,7 +49,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
@@ -187,6 +187,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   contentPadding: const EdgeInsets.all(24.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -236,6 +239,16 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                       ],
                                     );
                                   },
+                                );
+
+                                context.pushNamed(
+                                  'PasswordResetCode',
+                                  queryParameters: {
+                                    'email': serializeParam(
+                                      _model.textController.text,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
                                 );
                               } else {
                                 await showDialog(

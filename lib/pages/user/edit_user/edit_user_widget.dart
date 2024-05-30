@@ -192,6 +192,9 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                       contentPadding: const EdgeInsets.all(24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -300,6 +303,9 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     contentPadding: const EdgeInsets.all(24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)

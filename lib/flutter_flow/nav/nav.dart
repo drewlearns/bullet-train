@@ -121,7 +121,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AddInvite',
           path: '/addInvite',
-          builder: (context, params) => const AddInviteWidget(),
+          builder: (context, params) => AddInviteWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'AcceptInvite',
@@ -139,17 +144,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AddPaymentSourceWidget(),
         ),
         FFRoute(
-          name: 'AddIncome',
-          path: '/addIncome',
-          builder: (context, params) => AddIncomeWidget(
-            paymentSourceIds: params.getParam<String>(
-              'paymentSourceIds',
-              ParamType.String,
-              isList: true,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'AddTransaction',
           path: '/addTransaction',
           builder: (context, params) => params.isEmpty
@@ -157,29 +151,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const AddTransactionWidget(),
         ),
         FFRoute(
-          name: 'AddBill',
-          path: '/addBill',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'AddBill')
-              : AddBillWidget(
-                  paymentSourceIds: params.getParam<String>(
-                    'paymentSourceIds',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                ),
-        ),
-        FFRoute(
           name: 'EditUser',
           path: '/editUser',
           builder: (context, params) => const EditUserWidget(),
         ),
         FFRoute(
-          name: 'Dashboard',
-          path: '/dashboard',
+          name: 'EditPage',
+          path: '/settings',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Dashboard')
-              : const DashboardWidget(),
+              ? const NavBarPage(initialPage: 'EditPage')
+              : const EditPageWidget(),
         ),
         FFRoute(
           name: 'EditMembers',
@@ -196,6 +177,103 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: true,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'Ledger',
+          path: '/ledger',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Ledger')
+              : LedgerWidget(
+                  householdIds: params.getParam<String>(
+                    'householdIds',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                  householdNames: params.getParam<String>(
+                    'householdNames',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                ),
+        ),
+        FFRoute(
+          name: 'Settings',
+          path: '/accountSettings',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Settings')
+              : const SettingsWidget(),
+        ),
+        FFRoute(
+          name: 'SupportPage',
+          path: '/supportPage',
+          builder: (context, params) => const SupportPageWidget(),
+        ),
+        FFRoute(
+          name: 'Incomes',
+          path: '/incomes',
+          builder: (context, params) => const IncomesWidget(),
+        ),
+        FFRoute(
+          name: 'PaymentSources',
+          path: '/paymentSources',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'PaymentSources')
+              : const PaymentSourcesWidget(),
+        ),
+        FFRoute(
+          name: 'Audit',
+          path: '/audit',
+          builder: (context, params) => const AuditWidget(),
+        ),
+        FFRoute(
+          name: 'defaultCurrency',
+          path: '/defaultCurrency',
+          builder: (context, params) => DefaultCurrencyWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'DefaultPaymentSource',
+          path: '/defaultPaymentSource',
+          builder: (context, params) => const DefaultPaymentSourceWidget(),
+        ),
+        FFRoute(
+          name: 'Export',
+          path: '/export',
+          builder: (context, params) => const ExportWidget(),
+        ),
+        FFRoute(
+          name: 'Bills',
+          path: '/bills',
+          builder: (context, params) => const BillsWidget(),
+        ),
+        FFRoute(
+          name: 'BillDetails',
+          path: '/billDetails',
+          builder: (context, params) => const BillDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'TransactionDetails',
+          path: '/transactionDetails',
+          builder: (context, params) => const TransactionDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'IncomeDetails',
+          path: '/incomeDetails',
+          builder: (context, params) => const IncomeDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'AddIncome',
+          path: '/addIncome',
+          builder: (context, params) => const AddIncomeWidget(),
+        ),
+        FFRoute(
+          name: 'Notifications',
+          path: '/notifications',
+          builder: (context, params) => const NotificationsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
