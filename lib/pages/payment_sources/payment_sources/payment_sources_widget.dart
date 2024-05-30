@@ -74,7 +74,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'p678pn5d' /* Payment Sources */,
+                      'iaqvidej' /* Payment Sources */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily:
@@ -118,7 +118,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                             FormFieldController<String>(null),
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            '1r8khj5g' /* example */,
+                                            '4k5t4ems' /* example */,
                                           )
                                         ],
                                         onChanged: (val) async {
@@ -230,7 +230,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'im36hlko' /* Below are your Payment Sources... */,
+                                      '66djhrvd' /* Below are your Payment Sources... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -332,7 +332,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'us4c4f6b' /* Ally Bank */,
+                                                      'atf029tl' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -355,7 +355,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'skpnyt6t' /* $120.00 */,
+                                                    'z28gj15y' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -461,7 +461,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '37esf9cp' /* Ally Bank */,
+                                                      'hr61n2tn' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -484,7 +484,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '8m59cmh4' /* $120.00 */,
+                                                    'v9nlfh9d' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -590,7 +590,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '613bhj3p' /* Ally Bank */,
+                                                      'n26odeom' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -613,7 +613,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'q629z3gz' /* $120.00 */,
+                                                    'p01xyz1i' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -719,7 +719,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'qupcx8y4' /* Ally Bank */,
+                                                      'a3v9syjw' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -742,7 +742,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    's01hu3pq' /* $120.00 */,
+                                                    'mxgoy2c7' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -848,7 +848,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'l82f07as' /* Ally Bank */,
+                                                      '745c82ft' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -871,7 +871,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'ou68hp39' /* $120.00 */,
+                                                    'p1dka7ii' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -977,7 +977,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'e1z8g8gu' /* Ally Bank */,
+                                                      'nddrt8gu' /* Ally Bank */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1000,7 +1000,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '941uql2d' /* $120.00 */,
+                                                    'donjp6bd' /* $120.00 */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)

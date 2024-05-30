@@ -90,7 +90,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '1304v4d7' /* Back */,
+                                    '4ln0slbh' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -114,7 +114,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'g5w0qfnx' /* Page Title */,
+                              'a8rtf58o' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

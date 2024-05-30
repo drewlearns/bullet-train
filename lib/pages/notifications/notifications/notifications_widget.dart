@@ -49,7 +49,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
               automaticallyImplyLeading: false,
               title: Text(
                 FFLocalizations.of(context).getText(
-                  '6e55dtzm' /* Notifications */,
+                  'q10lzvx2' /* Notifications */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily:
@@ -105,7 +105,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'bbrlqvzv' /* Check-in evaluated */,
+                                  'utba5tmr' /* Check-in evaluated */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -126,7 +126,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'ku5uqn2r' /* Mar 8, 2022 */,
+                                'xmy5byhf' /* Mar 8, 2022 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -184,7 +184,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'qa5g0rtb' /* Check-in evaluated */,
+                                  'fq2o45sx' /* Check-in evaluated */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -205,7 +205,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '56vr9aty' /* Mar 8, 2022 */,
+                                'xlhct6s5' /* Mar 8, 2022 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -263,7 +263,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '3gxqt54j' /* Check-in evaluated */,
+                                  'eqhmhaio' /* Check-in evaluated */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -284,7 +284,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'h481xv8a' /* Mar 8, 2022 */,
+                                '9drcqgc7' /* Mar 8, 2022 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -342,7 +342,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'fz7qsx09' /* New Event added to your calend... */,
+                                  's4yqgkia' /* New Event added to your calend... */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
@@ -363,7 +363,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '6gv5ng9u' /* Mar 8, 2022 */,
+                                'xk38nhou' /* Mar 8, 2022 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -421,7 +421,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'xnzdyoyu' /* Profile Modified */,
+                                  '5qipyhvz' /* Profile Modified */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
@@ -442,7 +442,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'iqhok7a4' /* Mar 8, 2022 */,
+                                'udrajo23' /* Mar 8, 2022 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium

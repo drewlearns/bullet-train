@@ -1643,6 +1643,8 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 defaultLocation:
                                                                     const LatLng(0.0,
                                                                         0.0));
+                                                        Function() navigate =
+                                                            () {};
                                                         _model.loginOutput =
                                                             await TppbGroup
                                                                 .loginCall
@@ -1715,22 +1717,11 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 FFAppState()
                                                                     .email,
                                                           );
-
-                                                          context.pushNamedAuth(
-                                                            'AddTransaction',
-                                                            context.mounted,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              kTransitionInfoKey:
-                                                                  const TransitionInfo(
-                                                                hasTransition:
-                                                                    true,
-                                                                transitionType:
-                                                                    PageTransitionType
-                                                                        .bottomToTop,
-                                                              ),
-                                                            },
-                                                          );
+                                                          navigate = () =>
+                                                              context.goNamedAuth(
+                                                                  'AddTransaction',
+                                                                  context
+                                                                      .mounted);
                                                         } else {
                                                           await showDialog(
                                                             context: context,
@@ -1754,6 +1745,8 @@ class _SigninWidgetState extends State<SigninWidget>
                                                             },
                                                           );
                                                         }
+
+                                                        navigate();
 
                                                         setState(() {});
                                                       },

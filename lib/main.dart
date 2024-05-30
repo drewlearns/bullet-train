@@ -211,7 +211,7 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'qsmrrqhi' /* Ledger */,
+              'zu5jz6j9' /* Ledger */,
             ),
             tooltip: '',
           ),
@@ -230,7 +230,7 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '7jw3q0de' /* Sources */,
+              '4de9zmbc' /* Sources */,
             ),
             tooltip: '',
           ),

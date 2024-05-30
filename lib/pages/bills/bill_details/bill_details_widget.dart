@@ -90,7 +90,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'ci8rupc1' /* Back */,
+                                    'yb536r91' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -114,7 +114,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'r1ydype0' /* Page Title */,
+                              'cji83squ' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

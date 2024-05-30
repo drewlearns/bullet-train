@@ -286,7 +286,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_expiresIn');
   }
 
-  DateTime? _expiresAt;
+  DateTime? _expiresAt = DateTime.fromMillisecondsSinceEpoch(1717079520000);
   DateTime? get expiresAt => _expiresAt;
   set expiresAt(DateTime? value) {
     _expiresAt = value;

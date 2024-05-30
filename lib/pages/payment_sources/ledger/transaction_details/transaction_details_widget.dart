@@ -91,7 +91,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'kii15ppw' /* Back */,
+                                    '4ag1byw9' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -115,7 +115,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'z02vfh3y' /* Page Title */,
+                              'oe52ejiy' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

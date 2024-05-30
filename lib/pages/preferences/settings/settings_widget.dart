@@ -1359,7 +1359,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
-                                  'u4o33ie3' /* Camera Access */,
+                                  'e1amm7ef' /* Camera Access */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -1392,7 +1392,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
-                                  '3vttzvp5' /* Location Services */,
+                                  'rlx2bfkx' /* Location Services */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -1498,7 +1498,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'mblc35ec' /* Light Mode */,
+                                                          'v9sa2szt' /* Light Mode */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1586,7 +1586,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '7ei018dv' /* Dark Mode */,
+                                                          'rbskjpgt' /* Dark Mode */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(

@@ -90,7 +90,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '8v3q3h6r' /* Back */,
+                                    'wf8geyc7' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -114,7 +114,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '1y305ntt' /* Page Title */,
+                              'e4sglg88' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

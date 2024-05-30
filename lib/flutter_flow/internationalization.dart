@@ -510,7 +510,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Tags',
       'es': '',
     },
-    '4atshyry': {
+    'm9j6ef06': {
       'en': 'Comma Separated List',
       'es': '',
     },
@@ -634,11 +634,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Ledger
   {
-    'x4op0soz': {
+    'watkde6a': {
       'en': 'Ledger',
       'es': '',
     },
-    'gvsa5ee9': {
+    'o57j60hj': {
       'en': 'example',
       'es': '',
     },
@@ -654,79 +654,79 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'ospnywwi': {
+    'cq2735d7': {
       'en': '\$25,000',
       'es': '',
     },
-    'rbq3v38o': {
+    'bfeyrj0r': {
       'en': 'Per Month',
       'es': '',
     },
-    'xikxdf8u': {
+    'lfic0wqw': {
       'en': 'View Spending Habits',
       'es': '',
     },
-    'v1wepj7f': {
+    'eusmn3vw': {
       'en': 'Total Spent',
       'es': '',
     },
-    'afpy76my': {
+    'x6cbubt4': {
       'en': '\$2,502',
       'es': '',
     },
-    'rox8f5j1': {
+    'oadllask': {
       'en': 'Transactions',
       'es': '',
     },
-    'cot3dzfe': {
+    'cve2djz2': {
       'en': 'Go Far Rewards',
       'es': '',
     },
-    '3m18avbc': {
+    'l9hvnq40': {
       'en': 'Income',
       'es': '',
     },
-    '3lmuyhzv': {
+    '1q3dntw0': {
       'en': '-\$50.00',
       'es': '',
     },
-    'vn94z4e2': {
+    'vydx5qj9': {
       'en': 'Tues. 15, 4:32',
       'es': '',
     },
-    'tbblvxfj': {
+    'm5tsp1d9': {
       'en': 'Go Far Rewards',
       'es': '',
     },
-    'z34irg5z': {
+    'kwc5xhzw': {
       'en': 'Income',
       'es': '',
     },
-    '3ev4j9o8': {
+    '7e13bgv9': {
       'en': '-\$50.00',
       'es': '',
     },
-    'fk3fjhau': {
+    '1hzpszut': {
       'en': 'Tues. 15, 4:32',
       'es': '',
     },
-    'r7tx4z83': {
+    'xnfg9etb': {
       'en': 'Go Far Rewards',
       'es': '',
     },
-    'm7at87h6': {
+    '7rz7ayr1': {
       'en': 'Income',
       'es': '',
     },
-    'j4yl2qn3': {
+    'kg7v6da4': {
       'en': '\$50.00',
       'es': '',
     },
-    'yd3j316e': {
+    '6swqw26e': {
       'en': 'Tues. 15, 4:32',
       'es': '',
     },
-    'qsmrrqhi': {
+    'zu5jz6j9': {
       'en': 'Ledger',
       'es': '',
     },
@@ -769,19 +769,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Set Threshold',
       'es': '',
     },
-    'u4o33ie3': {
+    'e1amm7ef': {
       'en': 'Camera Access',
       'es': '',
     },
-    '3vttzvp5': {
+    'rlx2bfkx': {
       'en': 'Location Services',
       'es': '',
     },
-    'mblc35ec': {
+    'v9sa2szt': {
       'en': 'Light Mode',
       'es': '',
     },
-    '7ei018dv': {
+    'rbskjpgt': {
       'en': 'Dark Mode',
       'es': '',
     },
@@ -796,66 +796,66 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SupportPage
   {
-    'daqypr0m': {
+    '9pqd4siy': {
       'en': 'Welcome to support',
       'es': '',
     },
-    's4p8bwcw': {
+    'hpwg9gjl': {
       'en': 'How can we help you?',
       'es': '',
     },
-    'pp3fdz25': {
+    'mp4ske2y': {
       'en': 'Call Us',
       'es': '',
     },
-    '3rv7c8y5': {
+    'u4o3txwx': {
       'en': 'Email Us',
       'es': '',
     },
-    'ki3fov0k': {
+    '45r262t3': {
       'en': 'Search FAQs',
       'es': '',
     },
-    '4ppd4tfy': {
+    'u9zlxogj': {
       'en': 'Review FAQ\'s below',
       'es': '',
     },
-    '6edu6oon': {
+    '338slgpr': {
       'en': 'How do I download Code?',
       'es': '',
     },
-    '4r7dkrbd': {
+    'b6c0hnx9': {
       'en':
           'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
       'es': '',
     },
-    '6e2ofzkv': {
+    '4shb6phd': {
       'en': 'How do I download Code?',
       'es': '',
     },
-    'bff1bm0g': {
+    'vs0lqun0': {
       'en':
           'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
       'es': '',
     },
-    '4f1v6q5q': {
+    '8mmrn8tz': {
       'en': 'How do I download Code?',
       'es': '',
     },
-    'xegr3w85': {
+    'm5p603hf': {
       'en':
           'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
       'es': '',
     },
-    's0vpir3e': {
+    'l2ge42he': {
       'en': 'Create Ticket',
       'es': '',
     },
-    'go1rregl': {
+    '5aj2kjqc': {
       'en': 'Chat Now',
       'es': '',
     },
-    '9n52auf3': {
+    '0rfscbo4': {
       'en': 'Get support',
       'es': '',
     },
@@ -878,50 +878,50 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'u28qwsa5': {
+    'flaqlunv': {
       'en': 'Your Incomes',
       'es': '',
     },
-    'vcczyaud': {
+    '00csnecz': {
       'en': 'Below is a list of your Incomes',
       'es': '',
     },
-    'tvk6z2pm': {
+    'yzn26w49': {
       'en': 'Acme Inc',
       'es': '',
     },
-    'hsq7mpyf': {
+    '7oom76xr': {
       'en': '\$3000.00',
       'es': '',
     },
-    'f8fmejfp': {
+    'mg0mr8c8': {
       'en': 'Acme Inc',
       'es': '',
     },
-    'di33lb7o': {
+    'tu79wndh': {
       'en': '\$3000.00',
       'es': '',
     },
-    '92t2d8lk': {
+    'jdny7ygk': {
       'en': 'Total',
       'es': '',
     },
-    'i6dyqr5f': {
+    'ghug1m83': {
       'en': '\$6000.00',
       'es': '',
     },
-    'k2vsn58t': {
+    'dpqfymu9': {
       'en': 'Incomes',
       'es': '',
     },
     'qsrie90l': {
       'en': 'Home',
-      'es': 'Ajustes',
+      'es': '',
     },
   },
   // PaymentSources
   {
-    '1r8khj5g': {
+    '4k5t4ems': {
       'en': 'example',
       'es': '',
     },
@@ -937,134 +937,134 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'im36hlko': {
+    '66djhrvd': {
       'en': 'Below are your Payment Sources in your Wallet',
       'es': '',
     },
-    'us4c4f6b': {
+    'atf029tl': {
       'en': 'Ally Bank',
       'es': '',
     },
-    'skpnyt6t': {
+    'z28gj15y': {
       'en': '\$120.00',
       'es': '',
     },
-    '37esf9cp': {
+    'hr61n2tn': {
       'en': 'Ally Bank',
       'es': '',
     },
-    '8m59cmh4': {
+    'v9nlfh9d': {
       'en': '\$120.00',
       'es': '',
     },
-    '613bhj3p': {
+    'n26odeom': {
       'en': 'Ally Bank',
       'es': '',
     },
-    'q629z3gz': {
+    'p01xyz1i': {
       'en': '\$120.00',
       'es': '',
     },
-    'qupcx8y4': {
+    'a3v9syjw': {
       'en': 'Ally Bank',
       'es': '',
     },
-    's01hu3pq': {
+    'mxgoy2c7': {
       'en': '\$120.00',
       'es': '',
     },
-    'l82f07as': {
+    '745c82ft': {
       'en': 'Ally Bank',
       'es': '',
     },
-    'ou68hp39': {
+    'p1dka7ii': {
       'en': '\$120.00',
       'es': '',
     },
-    'e1z8g8gu': {
+    'nddrt8gu': {
       'en': 'Ally Bank',
       'es': '',
     },
-    '941uql2d': {
+    'donjp6bd': {
       'en': '\$120.00',
       'es': '',
     },
-    'p678pn5d': {
+    'iaqvidej': {
       'en': 'Payment Sources',
       'es': '',
     },
-    '7jw3q0de': {
+    '4de9zmbc': {
       'en': 'Sources',
       'es': '',
     },
   },
   // Audit
   {
-    'j7q53cpa': {
+    '93e1w4lh': {
       'en': 'Activity',
       'es': '',
     },
-    'rzkxjfl0': {
+    'qgz3k04p': {
       'en': 'All Activity from this past month.',
       'es': '',
     },
-    'zvegwe7t': {
+    '7jj2p8sk': {
       'en': '14, Sept. 2021',
       'es': '',
     },
-    'iuff6r7m': {
+    '7mys6aco': {
       'en': 'Created New User',
       'es': '',
     },
-    '0x2gnv71': {
+    'hdqi7t53': {
       'en': 'Andrew Daniels',
       'es': '',
     },
-    '4zp5pca6': {
+    '522ur4m2': {
       'en': 'Andrew F.',
       'es': '',
     },
-    'sw6fr7bn': {
+    '1z68b64w': {
       'en': '14, Sept. 2021',
       'es': '',
     },
-    'huzm9zd0': {
+    '9qv6kq9m': {
       'en': 'Creted a Group',
       'es': '',
     },
-    '83tiigo2': {
+    'l7fuwghg': {
       'en': 'Design Team',
       'es': '',
     },
-    'v3uva4px': {
+    'r37gajoh': {
       'en': 'Andrew F.',
       'es': '',
     },
-    'ohzf5ko2': {
+    'z9pfpe82': {
       'en': '14, Sept. 2021',
       'es': '',
     },
-    '6i9dzqts': {
+    'jz9y68dv': {
       'en': 'Created Invoice',
       'es': '',
     },
-    'dq7xupqt': {
+    'byeu4rz5': {
       'en': '#402 - Contractor',
       'es': '',
     },
-    '2pljs4rb': {
+    'e7v32sdq': {
       'en': 'Andrew F.',
       'es': '',
     },
-    '1gbw6tqv': {
+    'txz8mgwx': {
       'en': 'Beginning of Activity',
       'es': '',
     },
-    'gm39s05q': {
+    'zreuhkb1': {
       'en': 'Page Title',
       'es': '',
     },
-    'smhrb5vq': {
+    'okfyypuz': {
       'en': 'Home',
       'es': '',
     },
@@ -1082,380 +1082,380 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DefaultPaymentSource
   {
-    'ns0ri40b': {
+    '9jbgighv': {
       'en': 'Back',
       'es': '',
     },
-    '02svdcir': {
+    '9vzkzm0p': {
       'en': 'Page Title',
       'es': '',
     },
-    'x99vtcpk': {
+    'ox6veo0p': {
       'en': 'Home',
       'es': '',
     },
   },
   // Export
   {
-    'u5nxtkcb': {
+    '9obokdgo': {
       'en': 'Back',
       'es': '',
     },
-    'fl8t6l81': {
+    '4coedydz': {
       'en': 'Page Title',
       'es': '',
     },
-    '2lfzp5lt': {
+    '9wx2z0jy': {
       'en': 'Home',
       'es': '',
     },
   },
   // Bills
   {
-    'a68khtne': {
+    'bci545gq': {
       'en': 'Below are a summary of your Bills',
       'es': '',
     },
-    'mamx0tsh': {
+    'ifo1tyu1': {
       'en': 'All',
       'es': '',
     },
-    '4tw0jla3': {
+    'pfgaf7dc': {
       'en': 'Today',
       'es': '',
     },
-    'sve9go7g': {
+    'neyuia0m': {
       'en': 'Slack Ltd',
       'es': '',
     },
-    'crpv4tg4': {
+    'znyzx6r6': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    '14rquake': {
+    '8a4t4juz': {
       'en': '\$24.99',
       'es': '',
     },
-    'my9j9365': {
+    'jzc72of9': {
       'en': 'DUE',
       'es': '',
     },
-    '9dp5x14z': {
+    'fc5q1xex': {
       'en': 'ScreenStudio App',
       'es': '',
     },
-    'vpk6ffo3': {
+    'eyoif7vr': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    '9gmpjn91': {
+    'h6khncqu': {
       'en': '\$24.99',
       'es': '',
     },
-    'ujsvfs1b': {
+    '1yjjj1q5': {
       'en': 'DUE',
       'es': '',
     },
-    '9mhldzsu': {
+    'm3ahks1r': {
       'en': 'Earlier Invoices',
       'es': '',
     },
-    '5zv4t2aw': {
+    'pukfjxrt': {
       'en': 'Dribbble LTD.',
       'es': '',
     },
-    'ch5rscfh': {
+    '6hv8xbik': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'foc0rcbv': {
+    'frptin19': {
       'en': '\$500.00',
       'es': '',
     },
-    'ovoqmsvv': {
+    'rzuvx9et': {
       'en': 'Overdue',
       'es': '',
     },
-    'w6i6fx0b': {
+    '3dnl7ny9': {
       'en': 'FlutterFlow',
       'es': '',
     },
-    'cegzu5ki': {
+    'ky1avjgg': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'df7htpzz': {
+    'xxkfz4ed': {
       'en': '\$500.00',
       'es': '',
     },
-    'su305s81': {
+    'w868mcom': {
       'en': 'Overdue',
       'es': '',
     },
-    'gbsmz6gd': {
+    'q4ypjfhc': {
       'en': 'ScreenStudio App',
       'es': '',
     },
-    '9ydao681': {
+    '820sjjwm': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'e2pyt902': {
+    '4eaycglv': {
       'en': '\$24.99',
       'es': '',
     },
-    'vpt45q5y': {
+    'i839v43q': {
       'en': 'Paid',
       'es': '',
     },
-    'aua3k91z': {
+    'hkrjqyze': {
       'en': 'Slack Ltd',
       'es': '',
     },
-    '53p8mnqk': {
+    'olojvsr7': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'bpgio8ut': {
+    'd5spgbt7': {
       'en': '\$24.99',
       'es': '',
     },
-    'tfxix2kz': {
+    '95fwx38g': {
       'en': 'Paid',
       'es': '',
     },
-    'y90uacsu': {
+    'ombth8rz': {
       'en': 'Open',
       'es': '',
     },
-    'zhjrb18g': {
+    'wp671g1j': {
       'en': 'Today',
       'es': '',
     },
-    'dxe2k6p7': {
+    'i635bo1z': {
       'en': 'ScreenStudio App',
       'es': '',
     },
-    'ubzz90pc': {
+    '66uhiem5': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'lhvw7poq': {
+    't0fdbdnu': {
       'en': '\$24.99',
       'es': '',
     },
-    'hnqmyyni': {
+    'xj2dkir1': {
       'en': 'DUE',
       'es': '',
     },
-    'r8zqw40a': {
+    'huc0mfw4': {
       'en': 'Slack Ltd',
       'es': '',
     },
-    'wv6tgmo3': {
+    'hxupmatf': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    '7jbnn9p0': {
+    'xl2auvn4': {
       'en': '\$24.99',
       'es': '',
     },
-    'jvk7ioii': {
+    'dfbwz9v5': {
       'en': 'DUE',
       'es': '',
     },
-    '3g3m2w9d': {
+    'at84fekj': {
       'en': 'Earlier Invoices',
       'es': '',
     },
-    'c2ravo9b': {
+    '6h8dovgx': {
       'en': 'Dribbble LTD.',
       'es': '',
     },
-    '83ryuf4e': {
+    'hj7dgcnn': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'r6r23svw': {
+    '5fvs7v45': {
       'en': '\$500.00',
       'es': '',
     },
-    '2twfw4qy': {
+    'zz6grios': {
       'en': 'Overdue',
       'es': '',
     },
-    'xnaowzr2': {
+    '6zhxks33': {
       'en': 'FlutterFlow',
       'es': '',
     },
-    'haddh10j': {
+    'xoapghk7': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'yzaxytw6': {
+    'ddqnepeq': {
       'en': '\$500.00',
       'es': '',
     },
-    'w0q5emf0': {
+    'ph7k2jpr': {
       'en': 'Overdue',
       'es': '',
     },
-    'jt2q50ii': {
+    'hlhurnt6': {
       'en': 'Paid',
       'es': '',
     },
-    '10ju06sl': {
+    '8e05mlke': {
       'en': 'Earlier Invoices',
       'es': '',
     },
-    'lcyz7wvz': {
+    'ywrr65c8': {
       'en': 'Dribbble LTD.',
       'es': '',
     },
-    'e1lktnnr': {
+    'f9miu7fp': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'r4gjlyvs': {
+    '2yu5tw1p': {
       'en': '\$500.00',
       'es': '',
     },
-    'kcqix8ks': {
+    'xle1qzox': {
       'en': 'Paid',
       'es': '',
     },
-    '8h2ofq90': {
+    'ebn3d2u1': {
       'en': 'FlutterFlow',
       'es': '',
     },
-    '7htdm3v5': {
+    'tcsndfnv': {
       'en': 'Paid on: May, 4th 2023',
       'es': '',
     },
-    'hcrzs6co': {
+    'q77ojuna': {
       'en': '\$500.00',
       'es': '',
     },
-    'v6o8ppn3': {
+    'sun5s64a': {
       'en': 'Paid',
       'es': '',
     },
-    '2utyx48a': {
+    'ttmje8k7': {
       'en': 'Bills',
       'es': '',
     },
-    'nlr9n59f': {
+    '5k2ed9dk': {
       'en': 'Home',
       'es': '',
     },
   },
   // BillDetails
   {
-    'ci8rupc1': {
+    'yb536r91': {
       'en': 'Back',
       'es': '',
     },
-    'r1ydype0': {
+    'cji83squ': {
       'en': 'Page Title',
       'es': '',
     },
-    'd1d4fkj3': {
+    'seycjexv': {
       'en': 'Home',
       'es': '',
     },
   },
   // TransactionDetails
   {
-    'kii15ppw': {
+    '4ag1byw9': {
       'en': 'Back',
       'es': '',
     },
-    'z02vfh3y': {
+    'oe52ejiy': {
       'en': 'Page Title',
       'es': '',
     },
-    'kjjxxcjc': {
+    '2q12y4mj': {
       'en': 'Home',
       'es': '',
     },
   },
   // IncomeDetails
   {
-    '1304v4d7': {
+    '4ln0slbh': {
       'en': 'Back',
       'es': '',
     },
-    'g5w0qfnx': {
+    'a8rtf58o': {
       'en': 'Page Title',
       'es': '',
     },
-    'uzmjojfi': {
+    '5560t94s': {
       'en': 'Home',
       'es': '',
     },
   },
   // AddIncome
   {
-    '8v3q3h6r': {
+    'wf8geyc7': {
       'en': 'Back',
       'es': '',
     },
-    '1y305ntt': {
+    'e4sglg88': {
       'en': 'Page Title',
       'es': '',
     },
-    '82wih84b': {
+    '34yo6nw6': {
       'en': 'Home',
       'es': '',
     },
   },
   // Notifications
   {
-    'bbrlqvzv': {
+    'utba5tmr': {
       'en': 'Check-in evaluated',
       'es': '',
     },
-    'ku5uqn2r': {
+    'xmy5byhf': {
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    'qa5g0rtb': {
+    'fq2o45sx': {
       'en': 'Check-in evaluated',
       'es': '',
     },
-    '56vr9aty': {
+    'xlhct6s5': {
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    '3gxqt54j': {
+    'eqhmhaio': {
       'en': 'Check-in evaluated',
       'es': '',
     },
-    'h481xv8a': {
+    '9drcqgc7': {
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    'fz7qsx09': {
+    's4yqgkia': {
       'en': 'New Event added to your calendar',
       'es': '',
     },
-    '6gv5ng9u': {
+    'xk38nhou': {
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    'xnzdyoyu': {
+    '5qipyhvz': {
       'en': 'Profile Modified',
       'es': '',
     },
-    'iqhok7a4': {
+    'udrajo23': {
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    '6e55dtzm': {
+    'q10lzvx2': {
       'en': 'Notifications',
       'es': '',
     },
-    'h4lx149j': {
+    '978adqpz': {
       'en': 'Home',
       'es': '',
     },

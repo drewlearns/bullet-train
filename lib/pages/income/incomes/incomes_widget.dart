@@ -70,7 +70,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   FFLocalizations.of(context).getText(
-                    'k2vsn58t' /* Incomes */,
+                    'dpqfymu9' /* Incomes */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
                         fontFamily:
@@ -227,7 +227,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'u28qwsa5' /* Your Incomes */,
+                                        'flaqlunv' /* Your Incomes */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
@@ -267,7 +267,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                       0.0, 4.0, 0.0, 12.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'vcczyaud' /* Below is a list of your Income... */,
+                                      '00csnecz' /* Below is a list of your Income... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -353,7 +353,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'tvk6z2pm' /* Acme Inc */,
+                                                                'yzn26w49' /* Acme Inc */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -386,7 +386,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'hsq7mpyf' /* $3000.00 */,
+                                                          '7oom76xr' /* $3000.00 */,
                                                         ),
                                                         textAlign:
                                                             TextAlign.end,
@@ -490,7 +490,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'f8fmejfp' /* Acme Inc */,
+                                                              'mg0mr8c8' /* Acme Inc */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -521,7 +521,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'di33lb7o' /* $3000.00 */,
+                                                        'tu79wndh' /* $3000.00 */,
                                                       ),
                                                       textAlign: TextAlign.end,
                                                       style:
@@ -604,7 +604,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '92t2d8lk' /* Total */,
+                                                          'jdny7ygk' /* Total */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -652,7 +652,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                   Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'i6dyqr5f' /* $6000.00 */,
+                                                      'ghug1m83' /* $6000.00 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)

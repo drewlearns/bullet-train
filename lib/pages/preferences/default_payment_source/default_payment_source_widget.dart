@@ -92,7 +92,7 @@ class _DefaultPaymentSourceWidgetState
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'ns0ri40b' /* Back */,
+                                    '9jbgighv' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -116,7 +116,7 @@ class _DefaultPaymentSourceWidgetState
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '02svdcir' /* Page Title */,
+                              '9vzkzm0p' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

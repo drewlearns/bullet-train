@@ -75,7 +75,7 @@ class _BillsWidgetState extends State<BillsWidget>
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '2utyx48a' /* Bills */,
+                      'ttmje8k7' /* Bills */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -106,7 +106,7 @@ class _BillsWidgetState extends State<BillsWidget>
                             16.0, 0.0, 16.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'a68khtne' /* Below are a summary of your Bi... */,
+                            'bci545gq' /* Below are a summary of your Bi... */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .labelMedium
@@ -184,17 +184,17 @@ class _BillsWidgetState extends State<BillsWidget>
                               tabs: [
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'mamx0tsh' /* All */,
+                                    'ifo1tyu1' /* All */,
                                   ),
                                 ),
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'y90uacsu' /* Open */,
+                                    'ombth8rz' /* Open */,
                                   ),
                                 ),
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'jt2q50ii' /* Paid */,
+                                    'hlhurnt6' /* Paid */,
                                   ),
                                 ),
                               ],
@@ -220,7 +220,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                             16.0, 16.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '4tw0jla3' /* Today */,
+                                            'pfgaf7dc' /* Today */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -295,7 +295,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'sve9go7g' /* Slack Ltd */,
+                                                                'neyuia0m' /* Slack Ltd */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -324,7 +324,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'crpv4tg4' /* Paid on: May, 4th 2023 */,
+                                                                  'znyzx6r6' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -357,7 +357,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '14rquake' /* $24.99 */,
+                                                            '8a4t4juz' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -417,7 +417,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'my9j9365' /* DUE */,
+                                                                    'jzc72of9' /* DUE */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -494,7 +494,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                '9dp5x14z' /* ScreenStudio App */,
+                                                                'fc5q1xex' /* ScreenStudio App */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -523,7 +523,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'vpk6ffo3' /* Paid on: May, 4th 2023 */,
+                                                                  'eyoif7vr' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -556,7 +556,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '9gmpjn91' /* $24.99 */,
+                                                            'h6khncqu' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -616,7 +616,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'ujsvfs1b' /* DUE */,
+                                                                    '1yjjj1q5' /* DUE */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -648,7 +648,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                             16.0, 16.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '9mhldzsu' /* Earlier Invoices */,
+                                            'm3ahks1r' /* Earlier Invoices */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -723,7 +723,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                '5zv4t2aw' /* Dribbble LTD. */,
+                                                                'pukfjxrt' /* Dribbble LTD. */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -752,7 +752,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'ch5rscfh' /* Paid on: May, 4th 2023 */,
+                                                                  '6hv8xbik' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -785,7 +785,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'foc0rcbv' /* $500.00 */,
+                                                            'frptin19' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -845,7 +845,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'ovoqmsvv' /* Overdue */,
+                                                                    'rzuvx9et' /* Overdue */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -922,7 +922,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'w6i6fx0b' /* FlutterFlow */,
+                                                                '3dnl7ny9' /* FlutterFlow */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -951,7 +951,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'cegzu5ki' /* Paid on: May, 4th 2023 */,
+                                                                  'ky1avjgg' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -984,7 +984,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'df7htpzz' /* $500.00 */,
+                                                            'xxkfz4ed' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1044,7 +1044,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'su305s81' /* Overdue */,
+                                                                    'w868mcom' /* Overdue */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1121,7 +1121,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'gbsmz6gd' /* ScreenStudio App */,
+                                                                'q4ypjfhc' /* ScreenStudio App */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1150,7 +1150,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '9ydao681' /* Paid on: May, 4th 2023 */,
+                                                                  '820sjjwm' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1183,7 +1183,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'e2pyt902' /* $24.99 */,
+                                                            '4eaycglv' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1243,7 +1243,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'vpt45q5y' /* Paid */,
+                                                                    'i839v43q' /* Paid */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1322,7 +1322,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'aua3k91z' /* Slack Ltd */,
+                                                                'hkrjqyze' /* Slack Ltd */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1351,7 +1351,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '53p8mnqk' /* Paid on: May, 4th 2023 */,
+                                                                  'olojvsr7' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1384,7 +1384,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'bpgio8ut' /* $24.99 */,
+                                                            'd5spgbt7' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1444,7 +1444,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'tfxix2kz' /* Paid */,
+                                                                    '95fwx38g' /* Paid */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1488,7 +1488,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                             16.0, 16.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'zhjrb18g' /* Today */,
+                                            'wp671g1j' /* Today */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -1563,7 +1563,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'dxe2k6p7' /* ScreenStudio App */,
+                                                                'i635bo1z' /* ScreenStudio App */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1592,7 +1592,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'ubzz90pc' /* Paid on: May, 4th 2023 */,
+                                                                  '66uhiem5' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1625,7 +1625,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'lhvw7poq' /* $24.99 */,
+                                                            't0fdbdnu' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1685,7 +1685,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'hnqmyyni' /* DUE */,
+                                                                    'xj2dkir1' /* DUE */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1762,7 +1762,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'r8zqw40a' /* Slack Ltd */,
+                                                                'huc0mfw4' /* Slack Ltd */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1791,7 +1791,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'wv6tgmo3' /* Paid on: May, 4th 2023 */,
+                                                                  'hxupmatf' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1824,7 +1824,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '7jbnn9p0' /* $24.99 */,
+                                                            'xl2auvn4' /* $24.99 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1884,7 +1884,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'jvk7ioii' /* DUE */,
+                                                                    'dfbwz9v5' /* DUE */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1916,7 +1916,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                             16.0, 16.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '3g3m2w9d' /* Earlier Invoices */,
+                                            'at84fekj' /* Earlier Invoices */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -1991,7 +1991,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'c2ravo9b' /* Dribbble LTD. */,
+                                                                '6h8dovgx' /* Dribbble LTD. */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2020,7 +2020,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '83ryuf4e' /* Paid on: May, 4th 2023 */,
+                                                                  'hj7dgcnn' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -2053,7 +2053,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'r6r23svw' /* $500.00 */,
+                                                            '5fvs7v45' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -2113,7 +2113,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '2twfw4qy' /* Overdue */,
+                                                                    'zz6grios' /* Overdue */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2190,7 +2190,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'xnaowzr2' /* FlutterFlow */,
+                                                                '6zhxks33' /* FlutterFlow */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2219,7 +2219,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'haddh10j' /* Paid on: May, 4th 2023 */,
+                                                                  'xoapghk7' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -2252,7 +2252,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'yzaxytw6' /* $500.00 */,
+                                                            'ddqnepeq' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -2312,7 +2312,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'w0q5emf0' /* Overdue */,
+                                                                    'ph7k2jpr' /* Overdue */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2354,7 +2354,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                             16.0, 16.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '10ju06sl' /* Earlier Invoices */,
+                                            '8e05mlke' /* Earlier Invoices */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -2429,7 +2429,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'lcyz7wvz' /* Dribbble LTD. */,
+                                                                'ywrr65c8' /* Dribbble LTD. */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2458,7 +2458,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'e1lktnnr' /* Paid on: May, 4th 2023 */,
+                                                                  'f9miu7fp' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -2491,7 +2491,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'r4gjlyvs' /* $500.00 */,
+                                                            '2yu5tw1p' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -2551,7 +2551,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'kcqix8ks' /* Paid */,
+                                                                    'xle1qzox' /* Paid */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2630,7 +2630,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                '8h2ofq90' /* FlutterFlow */,
+                                                                'ebn3d2u1' /* FlutterFlow */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2659,7 +2659,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '7htdm3v5' /* Paid on: May, 4th 2023 */,
+                                                                  'tcsndfnv' /* Paid on: May, 4th 2023 */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -2692,7 +2692,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'hcrzs6co' /* $500.00 */,
+                                                            'q77ojuna' /* $500.00 */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -2752,7 +2752,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'v6o8ppn3' /* Paid */,
+                                                                    'sun5s64a' /* Paid */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)

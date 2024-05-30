@@ -72,7 +72,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
             ),
             title: Text(
               FFLocalizations.of(context).getText(
-                'x4op0soz' /* Ledger */,
+                'watkde6a' /* Ledger */,
               ),
               style: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
@@ -146,7 +146,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                               List<String>.from(['example']),
                                           optionLabels: [
                                             FFLocalizations.of(context).getText(
-                                              'gvsa5ee9' /* example */,
+                                              'o57j60hj' /* example */,
                                             )
                                           ],
                                           onChanged: (val) async {
@@ -298,7 +298,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'ospnywwi' /* $25,000 */,
+                                          'cq2735d7' /* $25,000 */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
@@ -326,7 +326,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                           8.0, 0.0, 0.0, 4.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'rbq3v38o' /* Per Month */,
+                                          'bfeyrj0r' /* Per Month */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -360,7 +360,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                       _model.dropDownValue != '')
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'xikxdf8u' /* View Spending Habits */,
+                                        'lfic0wqw' /* View Spending Habits */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -387,7 +387,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   0.0, 0.0, 4.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'v1wepj7f' /* Total Spent */,
+                                              'eusmn3vw' /* Total Spent */,
                                             ),
                                             textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.of(context)
@@ -413,7 +413,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                           _model.dropDownValue != '')
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'afpy76my' /* $2,502 */,
+                                            'x6cbubt4' /* $2,502 */,
                                           ),
                                           textAlign: TextAlign.end,
                                           style: FlutterFlowTheme.of(context)
@@ -454,7 +454,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'rox8f5j1' /* Transactions */,
+                              'oadllask' /* Transactions */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -545,7 +545,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'cot3dzfe' /* Go Far Rewards */,
+                                                    'cve2djz2' /* Go Far Rewards */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -571,7 +571,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '3m18avbc' /* Income */,
+                                                      'l9hvnq40' /* Income */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -609,7 +609,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '3lmuyhzv' /* -$50.00 */,
+                                                  '1q3dntw0' /* -$50.00 */,
                                                 ),
                                                 textAlign: TextAlign.end,
                                                 style:
@@ -636,7 +636,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'vn94z4e2' /* Tues. 15, 4:32 */,
+                                                    'vydx5qj9' /* Tues. 15, 4:32 */,
                                                   ),
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
@@ -741,7 +741,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'tbblvxfj' /* Go Far Rewards */,
+                                                    'm5tsp1d9' /* Go Far Rewards */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -767,7 +767,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'z34irg5z' /* Income */,
+                                                      'kwc5xhzw' /* Income */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -805,7 +805,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '3ev4j9o8' /* -$50.00 */,
+                                                  '7e13bgv9' /* -$50.00 */,
                                                 ),
                                                 textAlign: TextAlign.end,
                                                 style:
@@ -834,7 +834,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'fk3fjhau' /* Tues. 15, 4:32 */,
+                                                    '1hzpszut' /* Tues. 15, 4:32 */,
                                                   ),
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
@@ -939,7 +939,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'r7tx4z83' /* Go Far Rewards */,
+                                                    'xnfg9etb' /* Go Far Rewards */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -965,7 +965,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'm7at87h6' /* Income */,
+                                                      '7rz7ayr1' /* Income */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1003,7 +1003,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'j4yl2qn3' /* $50.00 */,
+                                                  'kg7v6da4' /* $50.00 */,
                                                 ),
                                                 textAlign: TextAlign.end,
                                                 style:
@@ -1030,7 +1030,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'yd3j316e' /* Tues. 15, 4:32 */,
+                                                    '6swqw26e' /* Tues. 15, 4:32 */,
                                                   ),
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(

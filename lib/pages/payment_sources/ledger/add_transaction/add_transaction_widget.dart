@@ -583,7 +583,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 'e0zusb6e' /* Tags */,
                               ),
                               hintText: FFLocalizations.of(context).getText(
-                                '4atshyry' /* Comma Separated List */,
+                                'm9j6ef06' /* Comma Separated List */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyLarge

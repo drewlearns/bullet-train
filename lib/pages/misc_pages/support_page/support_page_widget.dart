@@ -193,7 +193,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
               ),
               title: Text(
                 FFLocalizations.of(context).getText(
-                  '9n52auf3' /* Get support */,
+                  '0rfscbo4' /* Get support */,
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
@@ -222,7 +222,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'daqypr0m' /* Welcome to support */,
+                                '9pqd4siy' /* Welcome to support */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
@@ -241,7 +241,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  's4p8bwcw' /* How can we help you? */,
+                                  'hpwg9gjl' /* How can we help you? */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
@@ -302,7 +302,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'pp3fdz25' /* Call Us */,
+                                                  'mp4ske2y' /* Call Us */,
                                                 ),
                                                 textAlign: TextAlign.center,
                                                 style:
@@ -373,7 +373,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '3rv7c8y5' /* Email Us */,
+                                                  'u4o3txwx' /* Email Us */,
                                                 ),
                                                 textAlign: TextAlign.center,
                                                 style:
@@ -444,7 +444,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'ki3fov0k' /* Search FAQs */,
+                                                  '45r262t3' /* Search FAQs */,
                                                 ),
                                                 textAlign: TextAlign.center,
                                                 style:
@@ -479,7 +479,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                   0.0, 12.0, 0.0, 4.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '4ppd4tfy' /* Review FAQ's below */,
+                                  'u9zlxogj' /* Review FAQ's below */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
@@ -521,7 +521,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '6edu6oon' /* How do I download Code? */,
+                                          '338slgpr' /* How do I download Code? */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -543,7 +543,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '4r7dkrbd' /* Showcase a couple of eye-catch... */,
+                                            'b6c0hnx9' /* Showcase a couple of eye-catch... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -594,7 +594,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '6e2ofzkv' /* How do I download Code? */,
+                                          '4shb6phd' /* How do I download Code? */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -616,7 +616,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'bff1bm0g' /* Showcase a couple of eye-catch... */,
+                                            'vs0lqun0' /* Showcase a couple of eye-catch... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -667,7 +667,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '4f1v6q5q' /* How do I download Code? */,
+                                          '8mmrn8tz' /* How do I download Code? */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -689,7 +689,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'xegr3w85' /* Showcase a couple of eye-catch... */,
+                                            'm5p603hf' /* Showcase a couple of eye-catch... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -726,7 +726,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                         print('Button pressed ...');
                       },
                       text: FFLocalizations.of(context).getText(
-                        's0vpir3e' /* Create Ticket */,
+                        'l2ge42he' /* Create Ticket */,
                       ),
                       icon: const Icon(
                         Icons.receipt_long,
@@ -765,7 +765,7 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
                         print('Button pressed ...');
                       },
                       text: FFLocalizations.of(context).getText(
-                        'go1rregl' /* Chat Now */,
+                        '5aj2kjqc' /* Chat Now */,
                       ),
                       icon: const Icon(
                         Icons.support_agent_rounded,

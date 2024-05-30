@@ -90,7 +90,7 @@ class _ExportWidgetState extends State<ExportWidget> {
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'u5nxtkcb' /* Back */,
+                                    '9obokdgo' /* Back */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -114,7 +114,7 @@ class _ExportWidgetState extends State<ExportWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'fl8t6l81' /* Page Title */,
+                              '4coedydz' /* Page Title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
