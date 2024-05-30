@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
@@ -5,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/globall_widgets/passwordfield/passwordfield_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -1683,9 +1685,40 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )!;
+                                                          FFAppState()
+                                                                  .expiresIn =
+                                                              TppbGroup
+                                                                  .loginCall
+                                                                  .expiresIn(
+                                                            (_model.loginOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!;
+                                                          await actions
+                                                              .updateExpiresAtAction(
+                                                            context,
+                                                          );
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+                                                          await authManager
+                                                              .signIn(
+                                                            authenticationToken:
+                                                                FFAppState()
+                                                                    .authorizationToken,
+                                                            refreshToken:
+                                                                FFAppState()
+                                                                    .refreshToken,
+                                                            tokenExpiration:
+                                                                FFAppState()
+                                                                    .expiresAt,
+                                                            authUid:
+                                                                FFAppState()
+                                                                    .email,
+                                                          );
 
-                                                          context.pushNamed(
-                                                            'EditPage',
+                                                          context.pushNamedAuth(
+                                                            'AddTransaction',
+                                                            context.mounted,
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
@@ -1833,7 +1866,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                     0.0),
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .secondaryBackground,
+                                                            .primaryBackground,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1854,12 +1887,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                               .bodyMediumFamily),
                                                                 ),
                                                         elevation: 0.0,
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          width: 2.0,
-                                                        ),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(40.0),

@@ -116,11 +116,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateHousehold',
           path: '/createHousehold',
+          requireAuth: true,
           builder: (context, params) => const CreateHouseholdWidget(),
         ),
         FFRoute(
           name: 'AddInvite',
           path: '/addInvite',
+          requireAuth: true,
           builder: (context, params) => AddInviteWidget(
             householdId: params.getParam(
               'householdId',
@@ -141,11 +143,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AddPaymentSource',
           path: '/addPaymentSource',
+          requireAuth: true,
           builder: (context, params) => const AddPaymentSourceWidget(),
         ),
         FFRoute(
           name: 'AddTransaction',
           path: '/addTransaction',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'AddTransaction')
               : const AddTransactionWidget(),
@@ -153,11 +157,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'EditUser',
           path: '/editUser',
+          requireAuth: true,
           builder: (context, params) => const EditUserWidget(),
         ),
         FFRoute(
           name: 'EditPage',
           path: '/settings',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'EditPage')
               : const EditPageWidget(),
@@ -165,6 +171,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'EditMembers',
           path: '/editMembers',
+          requireAuth: true,
           builder: (context, params) => EditMembersWidget(
             householdIds: params.getParam<String>(
               'householdIds',
@@ -181,6 +188,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Ledger',
           path: '/ledger',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Ledger')
               : LedgerWidget(
@@ -199,6 +207,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Settings',
           path: '/accountSettings',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Settings')
               : const SettingsWidget(),
@@ -206,16 +215,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SupportPage',
           path: '/supportPage',
+          requireAuth: true,
           builder: (context, params) => const SupportPageWidget(),
         ),
         FFRoute(
           name: 'Incomes',
           path: '/incomes',
+          requireAuth: true,
           builder: (context, params) => const IncomesWidget(),
         ),
         FFRoute(
           name: 'PaymentSources',
           path: '/paymentSources',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'PaymentSources')
               : const PaymentSourcesWidget(),
@@ -223,11 +235,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Audit',
           path: '/audit',
+          requireAuth: true,
           builder: (context, params) => const AuditWidget(),
         ),
         FFRoute(
           name: 'defaultCurrency',
           path: '/defaultCurrency',
+          requireAuth: true,
           builder: (context, params) => DefaultCurrencyWidget(
             householdId: params.getParam(
               'householdId',
@@ -238,41 +252,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'DefaultPaymentSource',
           path: '/defaultPaymentSource',
+          requireAuth: true,
           builder: (context, params) => const DefaultPaymentSourceWidget(),
         ),
         FFRoute(
           name: 'Export',
           path: '/export',
+          requireAuth: true,
           builder: (context, params) => const ExportWidget(),
         ),
         FFRoute(
           name: 'Bills',
           path: '/bills',
+          requireAuth: true,
           builder: (context, params) => const BillsWidget(),
         ),
         FFRoute(
           name: 'BillDetails',
           path: '/billDetails',
+          requireAuth: true,
           builder: (context, params) => const BillDetailsWidget(),
         ),
         FFRoute(
           name: 'TransactionDetails',
           path: '/transactionDetails',
+          requireAuth: true,
           builder: (context, params) => const TransactionDetailsWidget(),
         ),
         FFRoute(
           name: 'IncomeDetails',
           path: '/incomeDetails',
+          requireAuth: true,
           builder: (context, params) => const IncomeDetailsWidget(),
         ),
         FFRoute(
           name: 'AddIncome',
           path: '/addIncome',
+          requireAuth: true,
           builder: (context, params) => const AddIncomeWidget(),
         ),
         FFRoute(
           name: 'Notifications',
           path: '/notifications',
+          requireAuth: true,
           builder: (context, params) => const NotificationsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

@@ -848,6 +848,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -864,7 +866,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                 dense: true,
                                 controlAffinity:
                                     ListTileControlAffinity.trailing,
-                                contentPadding: const EdgeInsets.all(24.0),
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 16.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),

@@ -75,6 +75,15 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _lightmode = await secureStorage.getBool('ff_lightmode') ?? _lightmode;
     });
+    await _safeInitAsync(() async {
+      _expiresIn = await secureStorage.getInt('ff_expiresIn') ?? _expiresIn;
+    });
+    await _safeInitAsync(() async {
+      _expiresAt = await secureStorage.read(key: 'ff_expiresAt') != null
+          ? DateTime.fromMillisecondsSinceEpoch(
+              (await secureStorage.getInt('ff_expiresAt'))!)
+          : _expiresAt;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -264,6 +273,30 @@ class FFAppState extends ChangeNotifier {
 
   void deleteLightmode() {
     secureStorage.delete(key: 'ff_lightmode');
+  }
+
+  int _expiresIn = 0;
+  int get expiresIn => _expiresIn;
+  set expiresIn(int value) {
+    _expiresIn = value;
+    secureStorage.setInt('ff_expiresIn', value);
+  }
+
+  void deleteExpiresIn() {
+    secureStorage.delete(key: 'ff_expiresIn');
+  }
+
+  DateTime? _expiresAt;
+  DateTime? get expiresAt => _expiresAt;
+  set expiresAt(DateTime? value) {
+    _expiresAt = value;
+    value != null
+        ? secureStorage.setInt('ff_expiresAt', value.millisecondsSinceEpoch)
+        : secureStorage.remove('ff_expiresAt');
+  }
+
+  void deleteExpiresAt() {
+    secureStorage.delete(key: 'ff_expiresAt');
   }
 }
 

@@ -12,12 +12,13 @@ export '/pages/household/add_invite/add_invite_widget.dart'
     show AddInviteWidget;
 export '/pages/user/accept_invite/accept_invite_widget.dart'
     show AcceptInviteWidget;
-export '/pages/user/onboarding/onboarding_widget.dart' show OnboardingWidget;
+export '/pages/misc_pages/onboarding/onboarding_widget.dart'
+    show OnboardingWidget;
 export '/pages/payment_sources/add_payment_source/add_payment_source_widget.dart'
     show AddPaymentSourceWidget;
-export '/pages/transactions/add_transaction/add_transaction_widget.dart'
+export '/pages/payment_sources/ledger/add_transaction/add_transaction_widget.dart'
     show AddTransactionWidget;
-export '/pages/user/edit_user/edit_user_widget.dart' show EditUserWidget;
+export '/pages/preferences/edit_user/edit_user_widget.dart' show EditUserWidget;
 export '/pages/misc_pages/edit_page/edit_page_widget.dart' show EditPageWidget;
 export '/pages/household/edit_members/edit_members_widget.dart'
     show EditMembersWidget;

@@ -52,24 +52,44 @@ class _BillsWidgetState extends State<BillsWidget>
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-              automaticallyImplyLeading: false,
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  'njdtrzbk' /* Invoices */,
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(50.0),
+              child: AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.pop();
+                  },
                 ),
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).headlineMediumFamily,
-                      letterSpacing: 0.0,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).headlineMediumFamily),
+                actions: const [],
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    FFLocalizations.of(context).getText(
+                      '2utyx48a' /* Bills */,
                     ),
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).headlineLargeFamily,
+                          letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).headlineLargeFamily),
+                        ),
+                  ),
+                  centerTitle: true,
+                  expandedTitleScale: 1.0,
+                ),
+                elevation: 0.0,
               ),
-              actions: const [],
-              centerTitle: false,
-              elevation: 0.0,
             ),
             body: SafeArea(
               top: true,
@@ -378,7 +398,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondary,
+                                                                    .alternate,
                                                                 width: 2.0,
                                                               ),
                                                             ),
@@ -577,7 +597,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondary,
+                                                                    .alternate,
                                                                 width: 2.0,
                                                               ),
                                                             ),
@@ -806,7 +826,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .tertiary,
+                                                                    .alternate,
                                                                 width: 2.0,
                                                               ),
                                                             ),
@@ -1005,7 +1025,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .tertiary,
+                                                                    .alternate,
                                                                 width: 2.0,
                                                               ),
                                                             ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
+import 'auth/custom_auth/auth_util.dart';
 import 'auth/custom_auth/custom_auth_user_provider.dart';
 
 import 'backend/firebase/firebase_config.dart';
@@ -21,6 +22,8 @@ void main() async {
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
+
+  await authManager.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -156,7 +159,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'EditPage';
+  String _currentPageName = 'AddTransaction';
   late Widget? _currentPage;
 
   @override
