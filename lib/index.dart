@@ -19,7 +19,6 @@ export '/pages/payment_sources/add_payment_source/add_payment_source_widget.dart
 export '/pages/payment_sources/ledger/add_transaction/add_transaction_widget.dart'
     show AddTransactionWidget;
 export '/pages/preferences/edit_user/edit_user_widget.dart' show EditUserWidget;
-export '/pages/misc_pages/edit_page/edit_page_widget.dart' show EditPageWidget;
 export '/pages/household/edit_members/edit_members_widget.dart'
     show EditMembersWidget;
 export '/pages/payment_sources/ledger/ledger/ledger_widget.dart'

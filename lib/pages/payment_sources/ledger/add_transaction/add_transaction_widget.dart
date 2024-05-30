@@ -41,6 +41,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
+    _model.switchValue = true;
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,7 +67,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -75,7 +76,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -86,11 +87,13 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '4s9ckp50' /* Add Transaction */,
+                      'lp5a8drp' /* Add Transaction */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).headlineLargeFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).headlineLargeFamily),
@@ -105,59 +108,111 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 30.0, 16.0, 16.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller: _model.dropDownValueController1 ??=
-                              FormFieldController<String>(null),
-                          options: const <String>[],
-                          onChanged: (val) =>
-                              setState(() => _model.dropDownValue1 = val),
-                          width: 300.0,
-                          height: 60.0,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primary,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(12.0),
+                            bottomRight: Radius.circular(12.0),
+                            topLeft: Radius.circular(0.0),
+                            topRight: Radius.circular(0.0),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24.0, 16.0, 0.0, 16.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 36.0, 0.0),
+                                  child: FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.dropDownValueController1 ??=
+                                            FormFieldController<String>(
+                                      _model.dropDownValue1 ??= '',
+                                    ),
+                                    options: List<String>.from(['example']),
+                                    optionLabels: [
+                                      FFLocalizations.of(context).getText(
+                                        'vo5hz1hl' /* example */,
+                                      )
+                                    ],
+                                    onChanged: (val) => setState(
+                                        () => _model.dropDownValue1 = val),
+                                    width: 300.0,
+                                    height: 56.0,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
+                                        ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'vccgc66r' /* Please select... */,
+                                    ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 5.0,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    borderWidth: 2.0,
+                                    borderRadius: 8.0,
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    hidesUnderline: true,
+                                    isOverButton: true,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      '40l6c4aq' /* Select Household */,
+                                    ),
+                                    labelTextStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily),
+                                        ),
+                                  ),
+                                ),
                               ),
-                          hintText: FFLocalizations.of(context).getText(
-                            't70q27te' /* Select Household */,
+                            ],
                           ),
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 5.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 16.0, 16.0),
+                            0.0, 16.0, 16.0, 16.0),
                         child: FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController2 ??=
                               FormFieldController<String>(null),
@@ -251,7 +306,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                           ),
                           options: FFButtonOptions(
                             width: 300.0,
-                            height: 60.0,
+                            height: 50.0,
                             padding: const EdgeInsets.all(0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
@@ -302,7 +357,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 ],
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue3 = val),
-                                width: 126.0,
+                                width: 128.0,
                                 height: 60.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -326,11 +381,11 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 ),
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                elevation: 2.0,
+                                elevation: 5.0,
                                 borderColor:
                                     FlutterFlowTheme.of(context).alternate,
                                 borderWidth: 2.0,
-                                borderRadius: 8.0,
+                                borderRadius: 12.0,
                                 margin: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 4.0),
                                 hidesUnderline: true,
@@ -669,7 +724,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   ),
                             ),
                             Switch(
-                              value: _model.switchValue ??= true,
+                              value: _model.switchValue!,
                               onChanged: (newValue) async {
                                 setState(() => _model.switchValue = newValue);
                               },
@@ -685,108 +740,120 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                           ],
                         ),
                       ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          final selectedMedia =
-                              await selectMediaWithSourceBottomSheet(
-                            context: context,
-                            allowPhoto: true,
-                          );
-                          if (selectedMedia != null &&
-                              selectedMedia.every((m) =>
-                                  validateFileFormat(m.storagePath, context))) {
-                            setState(() => _model.isDataUploading = true);
-                            var selectedUploadedFiles = <FFUploadedFile>[];
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 16.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    selectedMedia.every((m) =>
+                                        validateFileFormat(
+                                            m.storagePath, context))) {
+                                  setState(() => _model.isDataUploading = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
 
-                            try {
-                              selectedUploadedFiles = selectedMedia
-                                  .map((m) => FFUploadedFile(
-                                        name: m.storagePath.split('/').last,
-                                        bytes: m.bytes,
-                                        height: m.dimensions?.height,
-                                        width: m.dimensions?.width,
-                                        blurHash: m.blurHash,
-                                      ))
-                                  .toList();
-                            } finally {
-                              _model.isDataUploading = false;
-                            }
-                            if (selectedUploadedFiles.length ==
-                                selectedMedia.length) {
-                              setState(() {
-                                _model.uploadedLocalFile =
-                                    selectedUploadedFiles.first;
-                              });
-                            } else {
-                              setState(() {});
-                              return;
-                            }
-                          }
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          '63be80wb' /* Upload Receipt Photo (Optional... */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 300.0,
-                          height: 60.0,
-                          padding: const EdgeInsets.all(0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
+                                  try {
+                                    selectedUploadedFiles = selectedMedia
+                                        .map((m) => FFUploadedFile(
+                                              name:
+                                                  m.storagePath.split('/').last,
+                                              bytes: m.bytes,
+                                              height: m.dimensions?.height,
+                                              width: m.dimensions?.width,
+                                              blurHash: m.blurHash,
+                                            ))
+                                        .toList();
+                                  } finally {
+                                    _model.isDataUploading = false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                      selectedMedia.length) {
+                                    setState(() {
+                                      _model.uploadedLocalFile =
+                                          selectedUploadedFiles.first;
+                                    });
+                                  } else {
+                                    setState(() {});
+                                    return;
+                                  }
+                                }
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                '63be80wb' /* Upload Receipt */,
                               ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            '4bisizbg' /* Add Transaction */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 300.0,
-                            height: 60.0,
-                            padding: const EdgeInsets.all(0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
+                              options: FFButtonOptions(
+                                height: 60.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 1.0,
                                 ),
-                            elevation: 2.0,
-                            borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                            ),
                           ),
-                        ),
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '4bisizbg' /* Add Transaction */,
+                            ),
+                            options: FFButtonOptions(
+                              height: 60.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleMediumFamily),
+                                  ),
+                              elevation: 2.0,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

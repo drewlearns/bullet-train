@@ -44,7 +44,7 @@ class _AuditWidgetState extends State<AuditWidget> {
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(50.0),
             child: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
@@ -53,7 +53,7 @@ class _AuditWidgetState extends State<AuditWidget> {
                 buttonSize: 60.0,
                 icon: Icon(
                   Icons.arrow_back,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                   size: 30.0,
                 ),
                 onPressed: () async {
@@ -64,14 +64,15 @@ class _AuditWidgetState extends State<AuditWidget> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   FFLocalizations.of(context).getText(
-                    'zreuhkb1' /* Page Title */,
+                    '94fk55bk' /* Page Title */,
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  style: FlutterFlowTheme.of(context).headlineLarge.override(
                         fontFamily:
-                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                            FlutterFlowTheme.of(context).headlineLargeFamily,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
                         letterSpacing: 0.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                            FlutterFlowTheme.of(context).headlineLargeFamily),
                       ),
                 ),
                 centerTitle: true,

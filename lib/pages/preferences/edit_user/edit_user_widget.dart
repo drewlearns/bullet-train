@@ -61,7 +61,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -70,7 +70,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -81,11 +81,13 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'gtkjzs45' /* Edit Profile */,
+                      '3l81ad7s' /* Edit Profile */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).headlineLargeFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).headlineLargeFamily),

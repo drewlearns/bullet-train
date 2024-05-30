@@ -54,37 +54,43 @@ class _LedgerWidgetState extends State<LedgerWidget> {
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              buttonSize: 46.0,
-              icon: const Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 25.0,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(50.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              leading: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  context.pop();
+                },
               ),
-              onPressed: () async {
-                context.pop();
-              },
-            ),
-            title: Text(
-              FFLocalizations.of(context).getText(
-                'watkde6a' /* Ledger */,
+              title: Text(
+                FFLocalizations.of(context).getText(
+                  'cw2zxs05' /* Ledger */,
+                ),
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).headlineLarge.override(
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineLargeFamily,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineLargeFamily),
+                    ),
               ),
-              style: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                    color: Colors.white,
-                    letterSpacing: 0.0,
-                    useGoogleFonts: GoogleFonts.asMap().containsKey(
-                        FlutterFlowTheme.of(context).titleSmallFamily),
-                  ),
+              actions: const [],
+              centerTitle: true,
+              elevation: 0.0,
             ),
-            actions: const [],
-            centerTitle: false,
-            elevation: 0.0,
           ),
           body: SafeArea(
             top: true,
@@ -118,16 +124,16 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 0.0),
+                                  24.0, 0.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Column(
@@ -135,7 +141,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 16.0, 0.0, 16.0),
+                                            0.0, 16.0, 0.0, 0.0),
                                         child: FlutterFlowDropDown<String>(
                                           controller:
                                               _model.dropDownValueController ??=
@@ -260,7 +266,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
+                                        16.0, 16.0, 16.0, 0.0),
                                     child: FlutterFlowIconButton(
                                       borderColor:
                                           FlutterFlowTheme.of(context).primary,
@@ -350,7 +356,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 8.0, 20.0, 0.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:

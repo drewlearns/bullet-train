@@ -63,7 +63,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -72,7 +72,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -83,7 +83,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '8br3hawr' /* Reset Password */,
+                      'eyl5bpan' /* Reset Password */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:

@@ -195,7 +195,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Confirm Email',
       'es': '',
     },
-    'j2i0w2sq': {
+    '6nzki83f': {
       'en': 'Confirm Email',
       'es': 'Confirmar correo electrónico',
     },
@@ -214,7 +214,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Send Me A Reset Code',
       'es': '',
     },
-    '2am5b5rj': {
+    'a5mfuda6': {
       'en': 'Forgot Password',
       'es': '',
     },
@@ -245,7 +245,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Set New Password',
       'es': '',
     },
-    '8br3hawr': {
+    'eyl5bpan': {
       'en': 'Reset Password',
       'es': '',
     },
@@ -269,7 +269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create',
       'es': '',
     },
-    'x9x4ewe6': {
+    '8x49gfpl': {
       'en': 'New Household',
       'es': '',
     },
@@ -292,7 +292,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Send Invitation',
       'es': '',
     },
-    'njugttrp': {
+    '16zeiofc': {
       'en': 'Invitations',
       'es': '',
     },
@@ -347,7 +347,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Get Started',
       'es': '',
     },
-    'gip10886': {
+    'sb2wijru': {
       'en': 'Accept Invite',
       'es': '',
     },
@@ -447,7 +447,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create Payment Source',
       'es': '',
     },
-    'fm7jzi5a': {
+    '7yhlzdh9': {
       'en': 'Wallet',
       'es': '',
     },
@@ -458,12 +458,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AddTransaction
   {
-    't70q27te': {
-      'en': 'Select Household',
+    'vo5hz1hl': {
+      'en': 'example',
       'es': '',
     },
-    'm5857s2k': {
+    'vccgc66r': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    'ccxc1zac': {
       'en': 'Search for an item...',
+      'es': '',
+    },
+    '40l6c4aq': {
+      'en': 'Select Household',
       'es': '',
     },
     'uhtw2gk0': {
@@ -519,14 +527,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '63be80wb': {
-      'en': 'Upload Receipt Photo (Optional)',
+      'en': 'Upload Receipt',
       'es': '',
     },
     '4bisizbg': {
       'en': 'Add Transaction',
       'es': '',
     },
-    '4s9ckp50': {
+    'lp5a8drp': {
       'en': 'Add Transaction',
       'es': '',
     },
@@ -549,48 +557,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Update Profile',
       'es': '',
     },
-    'gtkjzs45': {
+    '3l81ad7s': {
       'en': 'Edit Profile',
       'es': '',
     },
     '9iag3u40': {
       'en': 'Home',
       'es': '',
-    },
-  },
-  // EditPage
-  {
-    'aknel4u0': {
-      'en': 'Navigation',
-      'es': '',
-    },
-    'kehrrac3': {
-      'en': 'Add Household',
-      'es': '',
-    },
-    'uqoqemc3': {
-      'en': 'Household Members',
-      'es': '',
-    },
-    'vlmedd7c': {
-      'en': 'Payment Sources',
-      'es': '',
-    },
-    'x19oa06p': {
-      'en': 'Bills',
-      'es': '',
-    },
-    'lbng236n': {
-      'en': 'Incomes',
-      'es': '',
-    },
-    '9lph6yzp': {
-      'en': 'Settings',
-      'es': '',
-    },
-    '822sr01o': {
-      'en': 'Settings',
-      'es': 'Ajustes',
     },
   },
   // EditMembers
@@ -623,7 +596,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Action',
       'es': '',
     },
-    'vea6crhu': {
+    'po44mldl': {
       'en': 'Edit Members',
       'es': '',
     },
@@ -634,10 +607,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Ledger
   {
-    'watkde6a': {
-      'en': 'Ledger',
-      'es': '',
-    },
     'o57j60hj': {
       'en': 'example',
       'es': '',
@@ -726,6 +695,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Tues. 15, 4:32',
       'es': '',
     },
+    'cw2zxs05': {
+      'en': 'Ledger',
+      'es': '',
+    },
     'zu5jz6j9': {
       'en': 'Ledger',
       'es': '',
@@ -733,20 +706,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Settings
   {
-    'oabp5o41': {
-      'en': 'Navigation',
-      'es': '',
-    },
-    '01ht5zc3': {
-      'en': 'Settings',
-      'es': '',
-    },
     '4aqkug6y': {
       'en': 'Edit Profile',
       'es': '',
     },
     'y80indk0': {
       'en': 'View Security Logs',
+      'es': '',
+    },
+    '8cs5qwjs': {
+      'en': 'Add Household',
       'es': '',
     },
     '5vm2te1p': {
@@ -785,7 +754,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Dark Mode',
       'es': '',
     },
-    'wanc3doe': {
+    'ib4ulrrm': {
       'en': 'Settings',
       'es': '',
     },
@@ -855,7 +824,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Chat Now',
       'es': '',
     },
-    '0rfscbo4': {
+    'ogbjnkmc': {
       'en': 'Get support',
       'es': '',
     },
@@ -866,16 +835,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Incomes
   {
-    'b5644f6r': {
+    'satbhtrh': {
+      'en': 'Option 1',
+      'es': '',
+    },
+    'a530epg0': {
       'en': 'Please select...',
       'es': '',
     },
-    'cj41nyjg': {
+    'jpavqzma': {
       'en': 'Search for an item...',
-      'es': '',
-    },
-    'mgkw5p93': {
-      'en': 'Select Household',
       'es': '',
     },
     'flaqlunv': {
@@ -910,12 +879,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '\$6000.00',
       'es': '',
     },
-    'dpqfymu9': {
+    'pyfe4td3': {
       'en': 'Incomes',
       'es': '',
     },
     'qsrie90l': {
-      'en': 'Home',
+      'en': 'Incomes',
       'es': '',
     },
   },
@@ -935,10 +904,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'z8my2sk5': {
       'en': 'Select Household',
-      'es': '',
-    },
-    '66djhrvd': {
-      'en': 'Below are your Payment Sources in your Wallet',
       'es': '',
     },
     'atf029tl': {
@@ -989,12 +954,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '\$120.00',
       'es': '',
     },
-    'iaqvidej': {
-      'en': 'Payment Sources',
+    'z7dady7i': {
+      'en': 'Wallet',
       'es': '',
     },
     '4de9zmbc': {
-      'en': 'Sources',
+      'en': 'Wallet',
       'es': '',
     },
   },
@@ -1060,7 +1025,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Beginning of Activity',
       'es': '',
     },
-    'zreuhkb1': {
+    '94fk55bk': {
       'en': 'Page Title',
       'es': '',
     },
@@ -1071,7 +1036,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // defaultCurrency
   {
-    '0wg150ir': {
+    'lkew3crp': {
       'en': 'Default Currency',
       'es': '',
     },
@@ -1082,11 +1047,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DefaultPaymentSource
   {
-    '9jbgighv': {
-      'en': 'Back',
-      'es': '',
-    },
-    '9vzkzm0p': {
+    'j2t6q4gr': {
       'en': 'Page Title',
       'es': '',
     },
@@ -1097,23 +1058,31 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Export
   {
-    '9obokdgo': {
-      'en': 'Back',
-      'es': '',
-    },
-    '4coedydz': {
+    'w3gx6kmx': {
       'en': 'Page Title',
       'es': '',
     },
     '9wx2z0jy': {
-      'en': 'Home',
+      'en': 'Reports',
       'es': '',
     },
   },
   // Bills
   {
-    'bci545gq': {
-      'en': 'Below are a summary of your Bills',
+    '54nq1671': {
+      'en': 'example',
+      'es': '',
+    },
+    '0c2u2tcl': {
+      'en': 'Please select...',
+      'es': '',
+    },
+    '7jj25rq3': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'yy242i42': {
+      'en': 'Select Household',
       'es': '',
     },
     'ifo1tyu1': {
@@ -1340,22 +1309,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Paid',
       'es': '',
     },
-    'ttmje8k7': {
+    '7bjer6i3': {
       'en': 'Bills',
       'es': '',
     },
     '5k2ed9dk': {
-      'en': 'Home',
+      'en': 'Bills',
       'es': '',
     },
   },
   // BillDetails
   {
-    'yb536r91': {
-      'en': 'Back',
-      'es': '',
-    },
-    'cji83squ': {
+    '0i4wauti': {
       'en': 'Page Title',
       'es': '',
     },
@@ -1366,11 +1331,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
-    '4ag1byw9': {
-      'en': 'Back',
-      'es': '',
-    },
-    'oe52ejiy': {
+    '2jy10nne': {
       'en': 'Page Title',
       'es': '',
     },
@@ -1451,7 +1412,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Mar 8, 2022',
       'es': '',
     },
-    'q10lzvx2': {
+    'gbn2487e': {
       'en': 'Notifications',
       'es': '',
     },

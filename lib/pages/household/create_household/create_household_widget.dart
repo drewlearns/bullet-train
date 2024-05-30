@@ -57,7 +57,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -66,7 +66,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -77,12 +77,13 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'x9x4ewe6' /* New Household */,
+                      '8x49gfpl' /* New Household */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).headlineLargeFamily,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).headlineLargeFamily),
@@ -295,8 +296,6 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                     );
                                                   },
                                                 );
-
-                                                context.pushNamed('EditPage');
                                               } else {
                                                 await showDialog(
                                                   context: context,

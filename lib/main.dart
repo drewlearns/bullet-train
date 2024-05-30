@@ -172,10 +172,12 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'EditPage': const EditPageWidget(),
       'Ledger': const LedgerWidget(),
-      'AddTransaction': const AddTransactionWidget(),
       'PaymentSources': const PaymentSourcesWidget(),
+      'Bills': const BillsWidget(),
+      'Incomes': const IncomesWidget(),
+      'Export': const ExportWidget(),
+      'AddTransaction': const AddTransactionWidget(),
       'Settings': const SettingsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -191,20 +193,10 @@ class _NavBarPageState extends State<NavBarPage> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
-        showSelectedLabels: false,
+        showSelectedLabels: true,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.edit,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '822sr01o' /* Settings */,
-            ),
-            tooltip: '',
-          ),
           BottomNavigationBarItem(
             icon: const Icon(
               Icons.monetization_on_outlined,
@@ -217,20 +209,50 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.add_circle,
+              Icons.wallet_outlined,
+              size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '05fwsqja' /* Transaction */,
+              '4de9zmbc' /* Wallet */,
             ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.wallet_outlined,
+              Icons.ballot_sharp,
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '4de9zmbc' /* Sources */,
+              '5k2ed9dk' /* Bills */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.inbox,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'qsrie90l' /* Incomes */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.upload_sharp,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              '9wx2z0jy' /* Reports */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.add_circle,
+            ),
+            label: FFLocalizations.of(context).getText(
+              '05fwsqja' /* Transaction */,
             ),
             tooltip: '',
           ),

@@ -161,14 +161,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const EditUserWidget(),
         ),
         FFRoute(
-          name: 'EditPage',
-          path: '/settings',
-          requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'EditPage')
-              : const EditPageWidget(),
-        ),
-        FFRoute(
           name: 'EditMembers',
           path: '/editMembers',
           requireAuth: true,
@@ -222,7 +214,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Incomes',
           path: '/incomes',
           requireAuth: true,
-          builder: (context, params) => const IncomesWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Incomes')
+              : const IncomesWidget(),
         ),
         FFRoute(
           name: 'PaymentSources',
@@ -259,13 +253,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Export',
           path: '/export',
           requireAuth: true,
-          builder: (context, params) => const ExportWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Export')
+              : const ExportWidget(),
         ),
         FFRoute(
           name: 'Bills',
           path: '/bills',
           requireAuth: true,
-          builder: (context, params) => const BillsWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Bills') : const BillsWidget(),
         ),
         FFRoute(
           name: 'BillDetails',

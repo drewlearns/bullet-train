@@ -111,7 +111,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -120,7 +120,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -131,11 +131,13 @@ class _SettingsWidgetState extends State<SettingsWidget>
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'wanc3doe' /* Settings */,
+                      'ib4ulrrm' /* Settings */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).headlineLargeFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).headlineLargeFamily),
@@ -167,53 +169,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'oabp5o41' /* Navigation */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '01ht5zc3' /* Settings */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12.0, 30.0, 12.0, 0.0),
                                 child: Semantics(
                                   label: 'Edit Profile',
                                   child: InkWell(
@@ -235,47 +191,44 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                       );
                                       if ((_model.getUserOutput?.succeeded ??
                                           true)) {
-                                        setState(() {
-                                          FFAppState().email =
-                                              TppbGroup.getUserCall.email(
-                                            (_model.getUserOutput?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().householdIds =
-                                              TppbGroup.getUserCall
-                                                  .householdIds(
-                                                    (_model.getUserOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().phoneNumber =
-                                              TppbGroup.getUserCall.phoneNumber(
-                                            (_model.getUserOutput?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().mailOptIn =
-                                              TppbGroup.getUserCall
-                                                  .mailOptIn(
-                                                    (_model.getUserOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toString();
-                                          FFAppState().confirmedEmail =
-                                              TppbGroup.getUserCall
-                                                  .confirmedEmail(
-                                            (_model.getUserOutput?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().subscriptionEndDate =
-                                              TppbGroup.getUserCall
-                                                  .subscriptionEndDate(
-                                            (_model.getUserOutput?.jsonBody ??
-                                                ''),
-                                          )!;
-                                        });
+                                        FFAppState().email =
+                                            TppbGroup.getUserCall.email(
+                                          (_model.getUserOutput?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().householdIds = TppbGroup
+                                            .getUserCall
+                                            .householdIds(
+                                              (_model.getUserOutput?.jsonBody ??
+                                                  ''),
+                                            )!
+                                            .toList()
+                                            .cast<String>();
+                                        FFAppState().phoneNumber =
+                                            TppbGroup.getUserCall.phoneNumber(
+                                          (_model.getUserOutput?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().mailOptIn = TppbGroup
+                                            .getUserCall
+                                            .mailOptIn(
+                                              (_model.getUserOutput?.jsonBody ??
+                                                  ''),
+                                            )!
+                                            .toString();
+                                        FFAppState().confirmedEmail = TppbGroup
+                                            .getUserCall
+                                            .confirmedEmail(
+                                          (_model.getUserOutput?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().subscriptionEndDate =
+                                            TppbGroup.getUserCall
+                                                .subscriptionEndDate(
+                                          (_model.getUserOutput?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        setState(() {});
 
                                         context.pushNamed(
                                           'EditUser',
@@ -418,47 +371,46 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                       );
                                       if ((_model.getUserOutput2?.succeeded ??
                                           true)) {
-                                        setState(() {
-                                          FFAppState().email =
-                                              TppbGroup.getUserCall.email(
-                                            (_model.getUserOutput2?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().householdIds =
-                                              TppbGroup.getUserCall
-                                                  .householdIds(
-                                                    (_model.getUserOutput2
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().phoneNumber =
-                                              TppbGroup.getUserCall.phoneNumber(
-                                            (_model.getUserOutput2?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().mailOptIn =
-                                              TppbGroup.getUserCall
-                                                  .mailOptIn(
-                                                    (_model.getUserOutput2
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toString();
-                                          FFAppState().confirmedEmail =
-                                              TppbGroup.getUserCall
-                                                  .confirmedEmail(
-                                            (_model.getUserOutput2?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().subscriptionEndDate =
-                                              TppbGroup.getUserCall
-                                                  .subscriptionEndDate(
-                                            (_model.getUserOutput2?.jsonBody ??
-                                                ''),
-                                          )!;
-                                        });
+                                        FFAppState().email =
+                                            TppbGroup.getUserCall.email(
+                                          (_model.getUserOutput2?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().householdIds =
+                                            TppbGroup.getUserCall
+                                                .householdIds(
+                                                  (_model.getUserOutput2
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().phoneNumber =
+                                            TppbGroup.getUserCall.phoneNumber(
+                                          (_model.getUserOutput2?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().mailOptIn =
+                                            TppbGroup.getUserCall
+                                                .mailOptIn(
+                                                  (_model.getUserOutput2
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toString();
+                                        FFAppState().confirmedEmail = TppbGroup
+                                            .getUserCall
+                                            .confirmedEmail(
+                                          (_model.getUserOutput2?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().subscriptionEndDate =
+                                            TppbGroup.getUserCall
+                                                .subscriptionEndDate(
+                                          (_model.getUserOutput2?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        setState(() {});
 
                                         context.pushNamed(
                                           'AddInvite',
@@ -588,6 +540,90 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                     12.0, 0.0, 12.0, 0.0),
                                 child: Semantics(
                                   label: 'Add Invitations',
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 5.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: AnimatedContainer(
+                                      duration: const Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: 300.0,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.cottage_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '8cs5qwjs' /* Add Household */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                'Plus Jakarta Sans'),
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                child: Semantics(
+                                  label: 'Add Invitations',
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -607,47 +643,46 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                       );
                                       if ((_model.getUserOutput4?.succeeded ??
                                           true)) {
-                                        setState(() {
-                                          FFAppState().email =
-                                              TppbGroup.getUserCall.email(
-                                            (_model.getUserOutput4?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().householdIds =
-                                              TppbGroup.getUserCall
-                                                  .householdIds(
-                                                    (_model.getUserOutput4
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().phoneNumber =
-                                              TppbGroup.getUserCall.phoneNumber(
-                                            (_model.getUserOutput4?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().mailOptIn =
-                                              TppbGroup.getUserCall
-                                                  .mailOptIn(
-                                                    (_model.getUserOutput4
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toString();
-                                          FFAppState().confirmedEmail =
-                                              TppbGroup.getUserCall
-                                                  .confirmedEmail(
-                                            (_model.getUserOutput4?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().subscriptionEndDate =
-                                              TppbGroup.getUserCall
-                                                  .subscriptionEndDate(
-                                            (_model.getUserOutput4?.jsonBody ??
-                                                ''),
-                                          )!;
-                                        });
+                                        FFAppState().email =
+                                            TppbGroup.getUserCall.email(
+                                          (_model.getUserOutput4?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().householdIds =
+                                            TppbGroup.getUserCall
+                                                .householdIds(
+                                                  (_model.getUserOutput4
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().phoneNumber =
+                                            TppbGroup.getUserCall.phoneNumber(
+                                          (_model.getUserOutput4?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().mailOptIn =
+                                            TppbGroup.getUserCall
+                                                .mailOptIn(
+                                                  (_model.getUserOutput4
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toString();
+                                        FFAppState().confirmedEmail = TppbGroup
+                                            .getUserCall
+                                            .confirmedEmail(
+                                          (_model.getUserOutput4?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().subscriptionEndDate =
+                                            TppbGroup.getUserCall
+                                                .subscriptionEndDate(
+                                          (_model.getUserOutput4?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        setState(() {});
 
                                         context.pushNamed(
                                           'AddInvite',
@@ -1187,47 +1222,46 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                       );
                                       if ((_model.getUserOutput3?.succeeded ??
                                           true)) {
-                                        setState(() {
-                                          FFAppState().email =
-                                              TppbGroup.getUserCall.email(
-                                            (_model.getUserOutput3?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().householdIds =
-                                              TppbGroup.getUserCall
-                                                  .householdIds(
-                                                    (_model.getUserOutput3
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().phoneNumber =
-                                              TppbGroup.getUserCall.phoneNumber(
-                                            (_model.getUserOutput3?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().mailOptIn =
-                                              TppbGroup.getUserCall
-                                                  .mailOptIn(
-                                                    (_model.getUserOutput3
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                  .toString();
-                                          FFAppState().confirmedEmail =
-                                              TppbGroup.getUserCall
-                                                  .confirmedEmail(
-                                            (_model.getUserOutput3?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          FFAppState().subscriptionEndDate =
-                                              TppbGroup.getUserCall
-                                                  .subscriptionEndDate(
-                                            (_model.getUserOutput3?.jsonBody ??
-                                                ''),
-                                          )!;
-                                        });
+                                        FFAppState().email =
+                                            TppbGroup.getUserCall.email(
+                                          (_model.getUserOutput3?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().householdIds =
+                                            TppbGroup.getUserCall
+                                                .householdIds(
+                                                  (_model.getUserOutput3
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().phoneNumber =
+                                            TppbGroup.getUserCall.phoneNumber(
+                                          (_model.getUserOutput3?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().mailOptIn =
+                                            TppbGroup.getUserCall
+                                                .mailOptIn(
+                                                  (_model.getUserOutput3
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toString();
+                                        FFAppState().confirmedEmail = TppbGroup
+                                            .getUserCall
+                                            .confirmedEmail(
+                                          (_model.getUserOutput3?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        FFAppState().subscriptionEndDate =
+                                            TppbGroup.getUserCall
+                                                .subscriptionEndDate(
+                                          (_model.getUserOutput3?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        setState(() {});
 
                                         context.pushNamed(
                                           'AddInvite',
@@ -1461,7 +1495,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .secondaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -1483,7 +1517,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .alternate,
+                                                              .primaryText,
                                                       size: 16.0,
                                                     ),
                                                     Padding(
@@ -1509,7 +1543,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                                       'Outfit',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .alternate,
+                                                                      .primaryText,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1549,7 +1583,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryBackground,
+                                                      .primary,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),

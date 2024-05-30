@@ -174,37 +174,46 @@ class _SupportPageWidgetState extends State<SupportPageWidget>
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-              automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.arrow_back_rounded,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 30.0,
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(50.0),
+              child: AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).primary,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.pop();
+                  },
                 ),
-                onPressed: () async {
-                  context.pop();
-                },
-              ),
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  '0rfscbo4' /* Get support */,
-                ),
-                style: FlutterFlowTheme.of(context).titleLarge.override(
-                      fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
-                      letterSpacing: 0.0,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).titleLargeFamily),
+                actions: const [],
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    FFLocalizations.of(context).getText(
+                      'ogbjnkmc' /* Get support */,
                     ),
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).headlineLargeFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).headlineLargeFamily),
+                        ),
+                  ),
+                  centerTitle: true,
+                  expandedTitleScale: 1.0,
+                ),
+                elevation: 0.0,
               ),
-              actions: const [],
-              centerTitle: false,
-              elevation: 0.0,
             ),
             body: SafeArea(
               top: true,

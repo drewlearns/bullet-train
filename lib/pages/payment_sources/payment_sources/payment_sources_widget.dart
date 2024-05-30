@@ -54,7 +54,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50.0),
               child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
@@ -63,30 +63,28 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
                     context.pop();
                   },
                 ),
-                actions: const [],
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    FFLocalizations.of(context).getText(
-                      'iaqvidej' /* Payment Sources */,
-                    ),
-                    style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).displaySmallFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).displaySmallFamily),
-                        ),
+                title: Text(
+                  FFLocalizations.of(context).getText(
+                    'z7dady7i' /* Wallet */,
                   ),
-                  centerTitle: true,
-                  expandedTitleScale: 1.0,
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).displaySmallFamily,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).displaySmallFamily),
+                      ),
                 ),
+                actions: const [],
+                centerTitle: true,
                 elevation: 0.0,
               ),
             ),
@@ -100,184 +98,152 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Column(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(12.0),
+                              bottomRight: Radius.circular(12.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 16.0, 0.0, 16.0),
+                            child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 30.0, 0.0, 16.0),
-                                      child: FlutterFlowDropDown<String>(
-                                        controller: _model
-                                                .dropDownValueController ??=
-                                            FormFieldController<String>(null),
-                                        options: [
-                                          FFLocalizations.of(context).getText(
-                                            '4k5t4ems' /* example */,
-                                          )
-                                        ],
-                                        onChanged: (val) async {
-                                          setState(
-                                              () => _model.dropDownValue = val);
-                                          _model.apiResult37n = await TppbGroup
-                                              .getHouseholdMembersCall
-                                              .call(
-                                            authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            householdId: _model.dropDownValue,
-                                          );
-                                          if ((_model.apiResult37n?.succeeded ??
-                                              true)) {
-                                            setState(() {});
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: const Text('Error'),
-                                                  content: Text(TppbGroup
-                                                      .getHouseholdMembersCall
-                                                      .message(
-                                                    (_model.apiResult37n
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
-                                        },
-                                        width: 300.0,
-                                        height: 56.0,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
-                                            ),
-                                        hintText:
-                                            FFLocalizations.of(context).getText(
-                                          '5e1lbvdq' /* Please select... */,
-                                        ),
-                                        icon: Icon(
-                                          Icons.keyboard_arrow_down_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        elevation: 5.0,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                        borderWidth: 2.0,
-                                        borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
-                                        hidesUnderline: true,
-                                        isOverButton: true,
-                                        isSearchable: false,
-                                        isMultiSelect: false,
-                                        labelText:
-                                            FFLocalizations.of(context).getText(
-                                          'z8my2sk5' /* Select Household */,
-                                        ),
-                                        labelTextStyle: FlutterFlowTheme.of(
-                                                context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMediumFamily),
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                                FlutterFlowDropDown<String>(
+                                  controller: _model.dropDownValueController ??=
+                                      FormFieldController<String>(null),
+                                  options: [
                                     FFLocalizations.of(context).getText(
-                                      '66djhrvd' /* Below are your Payment Sources... */,
+                                      '4k5t4ems' /* example */,
+                                    )
+                                  ],
+                                  onChanged: (val) async {
+                                    setState(() => _model.dropDownValue = val);
+                                    _model.apiResult37n = await TppbGroup
+                                        .getHouseholdMembersCall
+                                        .call(
+                                      authorizationToken:
+                                          FFAppState().authorizationToken,
+                                      householdId: _model.dropDownValue,
+                                    );
+                                    if ((_model.apiResult37n?.succeeded ??
+                                        true)) {
+                                      setState(() {});
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: const Text('Error'),
+                                            content: Text(TppbGroup
+                                                .getHouseholdMembersCall
+                                                .message(
+                                              (_model.apiResult37n?.jsonBody ??
+                                                  ''),
+                                            )!),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: const Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+
+                                    setState(() {});
+                                  },
+                                  width: 300.0,
+                                  height: 56.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '5e1lbvdq' /* Please select... */,
+                                  ),
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 5.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  borderWidth: 2.0,
+                                  borderRadius: 8.0,
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  hidesUnderline: true,
+                                  isOverButton: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'z8my2sk5' /* Select Household */,
+                                  ),
+                                  labelTextStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
+                                      ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      borderRadius: 20.0,
+                                      borderWidth: 2.0,
+                                      buttonSize: 40.0,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      icon: Icon(
+                                        Icons.add,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
-                                        ),
                                   ),
                                 ),
                               ],
                             ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 16.0, 0.0),
-                                child: FlutterFlowIconButton(
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                  borderRadius: 20.0,
-                                  borderWidth: 2.0,
-                                  buttonSize: 40.0,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  icon: Icon(
-                                    Icons.add,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
+                              6.0, 12.0, 0.0, 0.0),
                           child: ListView(
                             padding: EdgeInsets.zero,
                             primary: false,
