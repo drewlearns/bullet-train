@@ -1236,11 +1236,27 @@ class GetHouseholdByIdCall {
 }
 
 class AddPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? sourceName = '',
+    String? sourceType = '',
+    String? details = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
-""''';
+{
+  "authorizationToken": "eyJraWQiOiJrZ1FJcEZkYUlVRUhETGQ4NmIyYkh0a1lvbitKOVRsbkdzSUZoaElld0VzPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1NDk4YTQ4OC0wMDQxLTcwOTctOGRlYy00MWNjMWQ0ZGZkYzkiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV84UVA2MkdoQ0EiLCJjbGllbnRfaWQiOiJoNm81ZmhqNDAycXZnbG50MDE1MTdzaHAxIiwib3JpZ2luX2p0aSI6Ijk3YjFjODMyLTk0NTEtNDA4Ny05NDUzLTExZjJiN2NkNWQ1YyIsImV2ZW50X2lkIjoiMzMwYTcxMTQtNTU0Ny00ODg5LTk3MGEtZmUwMjI4Njg0YTliIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTcxNzMyOTg2MywiZXhwIjoxNzE3MzMzNDYzLCJpYXQiOjE3MTczMjk4NjMsImp0aSI6ImQ3NWI4NjM1LWZhMzctNDM0Yy1iYWJjLTgyZDZkZWNmMjVlZiIsInVzZXJuYW1lIjoiZHJld2xlYXJucysxMEBoZXkuY29tIn0.hMUXOnQr-aVMCMbIcG_Mn1MYUygA-V4dujiQYvXeYpiVuCF8yS_m85xftnuWiVQj-8NOZhZcJCAayHfvMzaUZzfXzpyOBp7jRkasjeov7ifGReoLopy8-j_u5UtOPv0S8UXsPLcDHmsOPnFzWiZhGk2D0lfLLXbwO7R0fuyCg6pkaqEUDAG_x3Rv1gRwP7w8H6P8_OhXsP-lmVUoxNSGFVcmy-Svsqalwst2Q8PRZXfxI5hrOS1-YuKy2FVL-1Y6udgvXgIMqnpF33Odm1ZophE7vDZiDljLh83UrWZP-2lPcH4bknFt12YD9bCI3WlQC6WmD9EJBrgbRW_LOk-iwA",
+  "householdId": "5601068c-ae76-49ad-a938-0ea4d90b5865",
+  "sourceName": "Ally Bank",
+  "sourceType": "Bank",
+  "details": "Joint Account",
+  "ipAddress": "192.168.1.1",
+  "deviceDetails": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'addPaymentSource',
       apiUrl: '$baseUrl/addPaymentSource',
@@ -1258,6 +1274,39 @@ class AddPaymentSourceCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.sourceId''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.householdId''',
+      ));
+  String? sourceName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.sourceName''',
+      ));
+  String? sourceType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.sourceType''',
+      ));
+  String? details(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.details''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSource.updatedAt''',
+      ));
 }
 
 class DeletePaymentSourceCall {
@@ -1311,11 +1360,21 @@ class EditPaymentSourceCall {
 }
 
 class GetPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getPaymentSource',
       apiUrl: '$baseUrl/getPaymentSource',
@@ -1333,6 +1392,44 @@ class GetPaymentSourceCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List? paymentSources(dynamic response) => getJsonField(
+        response,
+        r'''$.paymentSources''',
+        true,
+      ) as List?;
+  String? sourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].sourceId''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].householdId''',
+      ));
+  String? sourceName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].sourceName''',
+      ));
+  String? sourceType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].sourceType''',
+      ));
+  String? details(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].details''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSources[:].updatedAt''',
+      ));
 }
 
 class AddBillCall {
@@ -1618,11 +1715,25 @@ class GetTransactionCall {
 }
 
 class GetTransactionByMonthCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? transactionId = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+    int? month,
+    int? year,
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "transactionId": "$transactionId",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails",
+  "month": $month,
+  "year": $year
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTransactionByMonth',
       apiUrl: '$baseUrl/getTransactionsByMonth',
@@ -1640,6 +1751,11 @@ class GetTransactionByMonthCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class SearchTransactionsCall {
@@ -2133,9 +2249,21 @@ class DeleteIncomeJsCall {
 }
 
 class GetRunningTotalCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? paymentSourceId = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "paymentSourceId": "$paymentSourceId",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getRunningTotal',
       apiUrl: '$baseUrl/getRunningTotal',
@@ -2144,7 +2272,8 @@ class GetRunningTotalCall {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2152,6 +2281,19 @@ class GetRunningTotalCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  int? runningTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.runningTotal''',
+      ));
+  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.paymentSourceId''',
+      ));
 }
 
 class GetRunningTotalsByDateCall {
@@ -2243,16 +2385,24 @@ class ExportLedgerToQBOCall {
 }
 
 class GetLedgerCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    int? month,
+    int? year,
+    String? ipAddress = '',
+    String? deviceDetails = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-{ "authorizationToken":"eyJraWQiOiJrZ1FJcEZkYUlVRUhETGQ4NmIyYkh0a1lvbitKOVRsbkdzSUZoaElld0VzPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1NDk4YTQ4OC0wMDQxLTcwOTctOGRlYy00MWNjMWQ0ZGZkYzkiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV84UVA2MkdoQ0EiLCJjbGllbnRfaWQiOiJoNm81ZmhqNDAycXZnbG50MDE1MTdzaHAxIiwib3JpZ2luX2p0aSI6IjEzMWYyZTczLWIxZDItNDhiMS05Y2RkLTVlY2NlOTc0ZGFmMSIsImV2ZW50X2lkIjoiODUwYWI1ZGQtZWMyNy00ZWMwLTkyZTEtZjJlODgyMTExNDAwIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTcxNzI4ODI5NywiZXhwIjoxNzE3MjkxODk3LCJpYXQiOjE3MTcyODgyOTcsImp0aSI6IjJhYzg3NDY5LWM2MjItNDg2Yy1iMzJiLTk0MzE4YzFmOTUwNSIsInVzZXJuYW1lIjoiZHJld2xlYXJucysxMEBoZXkuY29tIn0.LTtZI5M67nv9wLs2k2Ea9zBH6bRrtHoXSLsNWOXvzzRuibRuKfdxENe6bcpt5fCBlpFvNdx6WO7t4PwFhxDiDWt18Q6vtMPZe-IIHaNQLAuyUuBzSiObWSezlQU7nRgWqrn1ffyJFgiWqb-OQ71eljBdvubI89e8Rw_7Oj6_9xJeAqgpkYHpBMeOa_zaJps6oeBPV4AKUeyR9Bk5533Q8ZKkjtbLpRfODi2ctpp-Q-0QApJjnD7qY6cErP2kEA2ZgeURrWh-oNMqp-6FBM9-nHj4hXlbf3l_hT5lg25wICr4dmAg_HMNlHtFSJvdOziqUupw31z5ZV3L9gk6AsjWwQ",
-    "householdId": "5601068c-ae76-49ad-a938-0ea4d90b5865",
-  "month": 5,
-  "year": 2024,
-  "ipAddress": "192.168.1.1",
-  "deviceDetails": "Device details here"
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "month": $month,
+  "year": $year,
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLedger',
@@ -2272,6 +2422,10 @@ class GetLedgerCall {
     );
   }
 
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
   List? entries(dynamic response) => getJsonField(
         response,
         r'''$.ledgerEntries''',
@@ -2313,11 +2467,11 @@ class GetLedgerCall {
         response,
         r'''$.ledgerEntries[:].status''',
       ));
-  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+  String? createdat(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.ledgerEntries[:].createdAt''',
       ));
-  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+  String? updatedat(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.ledgerEntries[:].updatedAt''',
       ));

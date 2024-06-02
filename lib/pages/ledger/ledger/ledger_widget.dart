@@ -1,26 +1,17 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/components/transaction_block_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ledger_model.dart';
 export 'ledger_model.dart';
 
 class LedgerWidget extends StatefulWidget {
-  const LedgerWidget({
-    super.key,
-    this.householdIds,
-    this.householdNames,
-  });
-
-  final List<String>? householdIds;
-  final List<String>? householdNames;
+  const LedgerWidget({super.key});
 
   @override
   State<LedgerWidget> createState() => _LedgerWidgetState();
@@ -36,39 +27,6 @@ class _LedgerWidgetState extends State<LedgerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LedgerModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
-      _model.ledgerGetHouseholdOutput = await TppbGroup.getHouseholdCall.call(
-        authorizationToken: currentAuthenticationToken,
-        ipAddress: currentUserLocationValue?.toString(),
-        deviceDetails: '',
-        page: 1,
-      );
-      if ((_model.ledgerGetHouseholdOutput?.succeeded ?? true)) {
-        Navigator.pop(context);
-      } else {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return AlertDialog(
-              title: const Text('Error:'),
-              content: Text(TppbGroup.getHouseholdCall.message(
-                (_model.ledgerGetHouseholdOutput?.jsonBody ?? ''),
-              )!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: const Text('Ok'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    });
 
     getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
@@ -231,18 +189,15 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   options: List<String>.from(
                                                       TppbGroup.getHouseholdCall
                                                           .householdId(
-                                                            dropDownGetHouseholdResponse
-                                                                .jsonBody,
-                                                          )!
-                                                          .sortedList(
-                                                              (e) => e)),
-                                                  optionLabels:
-                                                      TppbGroup.getHouseholdCall
-                                                          .householdName(
-                                                            dropDownGetHouseholdResponse
-                                                                .jsonBody,
-                                                          )!
-                                                          .sortedList((e) => e),
+                                                    dropDownGetHouseholdResponse
+                                                        .jsonBody,
+                                                  )!),
+                                                  optionLabels: TppbGroup
+                                                      .getHouseholdCall
+                                                      .householdName(
+                                                    dropDownGetHouseholdResponse
+                                                        .jsonBody,
+                                                  )!,
                                                   onChanged: (val) => setState(
                                                       () => _model
                                                           .dropDownValue = val),
@@ -329,7 +284,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 0.0),
+                                                  16.0, 16.0, 0.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
@@ -545,19 +500,133 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                     ],
                   ),
                 ),
-                if (_model.dropDownValue != null && _model.dropDownValue != '')
-                  SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        wrapWithModel(
-                          model: _model.transactionBlockModel,
-                          updateCallback: () => setState(() {}),
-                          child: const TransactionBlockWidget(),
-                        ),
-                      ],
+                Expanded(
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: TppbGroup.getLedgerCall.call(
+                      authorizationToken: currentAuthenticationToken,
+                      householdId: _model.dropDownValue,
+                      month: 5,
+                      year: 2024,
+                      ipAddress: currentUserLocationValue?.toString(),
+                      deviceDetails: '',
                     ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                      final listViewGetLedgerResponse = snapshot.data!;
+                      return Builder(
+                        builder: (context) {
+                          final ledgerEntries = TppbGroup.getLedgerCall
+                                  .entries(
+                                    listViewGetLedgerResponse.jsonBody,
+                                  )
+                                  ?.toList() ??
+                              [];
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: ledgerEntries.length,
+                            itemBuilder: (context, ledgerEntriesIndex) {
+                              final ledgerEntriesItem =
+                                  ledgerEntries[ledgerEntriesIndex];
+                              return Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 5.0),
+                                      child: Container(
+                                        width: 300.0,
+                                        height: 90.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  listViewGetLedgerResponse
+                                                      .jsonBody,
+                                                  r'''$.ledgerEntries[:].amount''',
+                                                )?.toString(),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  listViewGetLedgerResponse
+                                                      .jsonBody,
+                                                  r'''$.ledgerEntries[:].description''',
+                                                )?.toString(),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      );
+                    },
                   ),
+                ),
               ],
             ),
           ),

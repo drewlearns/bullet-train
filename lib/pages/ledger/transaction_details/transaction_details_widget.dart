@@ -7,7 +7,12 @@ import 'transaction_details_model.dart';
 export 'transaction_details_model.dart';
 
 class TransactionDetailsWidget extends StatefulWidget {
-  const TransactionDetailsWidget({super.key});
+  const TransactionDetailsWidget({
+    super.key,
+    required this.transactionId,
+  });
+
+  final String? transactionId;
 
   @override
   State<TransactionDetailsWidget> createState() =>

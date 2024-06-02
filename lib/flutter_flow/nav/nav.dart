@@ -144,7 +144,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddPaymentSource',
           path: '/addPaymentSource',
           requireAuth: true,
-          builder: (context, params) => const AddPaymentSourceWidget(),
+          builder: (context, params) => AddPaymentSourceWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'AddTransaction',
@@ -183,18 +188,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Ledger')
-              : LedgerWidget(
-                  householdIds: params.getParam<String>(
-                    'householdIds',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                  householdNames: params.getParam<String>(
-                    'householdNames',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                ),
+              : const LedgerWidget(),
         ),
         FFRoute(
           name: 'Settings',
@@ -274,7 +268,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TransactionDetails',
           path: '/transactionDetails',
           requireAuth: true,
-          builder: (context, params) => const TransactionDetailsWidget(),
+          builder: (context, params) => TransactionDetailsWidget(
+            transactionId: params.getParam(
+              'transactionId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'IncomeDetails',

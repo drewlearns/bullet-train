@@ -854,54 +854,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'atf029tl': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'z28gj15y': {
-      'en': '\$120.00',
-      'es': '',
-    },
-    'hr61n2tn': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'v9nlfh9d': {
-      'en': '\$120.00',
-      'es': '',
-    },
-    'n26odeom': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'p01xyz1i': {
-      'en': '\$120.00',
-      'es': '',
-    },
-    'a3v9syjw': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'mxgoy2c7': {
-      'en': '\$120.00',
-      'es': '',
-    },
-    '745c82ft': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'p1dka7ii': {
-      'en': '\$120.00',
-      'es': '',
-    },
-    'nddrt8gu': {
-      'en': 'Ally Bank',
-      'es': '',
-    },
-    'donjp6bd': {
-      'en': '\$120.00',
-      'es': '',
-    },
     'z7dady7i': {
       'en': 'Wallet',
       'es': '',
@@ -1373,25 +1325,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '9mr8s7gi': {
       'en': 'New Password',
-      'es': '',
-    },
-  },
-  // TransactionBlock
-  {
-    'o4h47nqc': {
-      'en': 'Go Far Rewards',
-      'es': '',
-    },
-    'u0kvzdj9': {
-      'en': 'Income',
-      'es': '',
-    },
-    'vljujvjp': {
-      'en': '-\$50.00',
-      'es': '',
-    },
-    'zzfywvhz': {
-      'en': 'Tues. 15, 4:32',
       'es': '',
     },
   },

@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -10,7 +12,12 @@ import 'add_payment_source_model.dart';
 export 'add_payment_source_model.dart';
 
 class AddPaymentSourceWidget extends StatefulWidget {
-  const AddPaymentSourceWidget({super.key});
+  const AddPaymentSourceWidget({
+    super.key,
+    required this.householdId,
+  });
+
+  final String? householdId;
 
   @override
   State<AddPaymentSourceWidget> createState() => _AddPaymentSourceWidgetState();
@@ -20,12 +27,15 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
   late AddPaymentSourceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AddPaymentSourceModel());
 
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -44,6 +54,23 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return Title(
         title: 'Add Payment Source',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -343,35 +370,73 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'ulu3nsub' /* Create Payment Source */,
+                      child: FutureBuilder<ApiCallResponse>(
+                        future: TppbGroup.addPaymentSourceCall.call(
+                          authorizationToken: currentAuthenticationToken,
+                          householdId: widget.householdId,
+                          sourceName: valueOrDefault<String>(
+                            _model.textController1.text,
+                            'None Provided',
+                          ),
+                          sourceType: valueOrDefault<String>(
+                            _model.dropDownValue,
+                            'Checking Account',
+                          ),
+                          details: valueOrDefault<String>(
+                            _model.textController2.text,
+                            'Hello World!',
+                          ),
+                          ipAddress: currentUserLocationValue?.toString(),
+                          deviceDetails: '',
                         ),
-                        options: FFButtonOptions(
-                          width: 300.0,
-                          height: 60.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
                               ),
-                          elevation: 2.0,
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
+                            );
+                          }
+                          final buttonAddPaymentSourceResponse = snapshot.data!;
+                          return FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'ulu3nsub' /* Create Payment Source */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 300.0,
+                              height: 60.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleMediumFamily,
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleMediumFamily),
+                                  ),
+                              elevation: 2.0,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
