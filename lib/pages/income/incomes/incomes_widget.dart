@@ -48,20 +48,6 @@ class _IncomesWidgetState extends State<IncomesWidget> {
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 30.0,
-                ),
-                onPressed: () async {
-                  context.pop();
-                },
-              ),
               title: Text(
                 FFLocalizations.of(context).getText(
                   'pyfe4td3' /* Incomes */,

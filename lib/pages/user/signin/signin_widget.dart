@@ -169,6 +169,7 @@ class _SigninWidgetState extends State<SigninWidget>
                         borderRadius: BorderRadius.circular(12.0),
                         child: SvgPicture.asset(
                           'assets/images/app-banner.svg',
+                          height: 300.0,
                           fit: BoxFit.contain,
                         ),
                       ),

@@ -607,6 +607,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Ledger
   {
+    'cw2zxs05': {
+      'en': 'Ledger',
+      'es': '',
+    },
     'o57j60hj': {
       'en': 'example',
       'es': '',
@@ -641,62 +645,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x6cbubt4': {
       'en': '\$2,502',
-      'es': '',
-    },
-    'oadllask': {
-      'en': 'Transactions',
-      'es': '',
-    },
-    'cve2djz2': {
-      'en': 'Go Far Rewards',
-      'es': '',
-    },
-    'l9hvnq40': {
-      'en': 'Income',
-      'es': '',
-    },
-    '1q3dntw0': {
-      'en': '-\$50.00',
-      'es': '',
-    },
-    'vydx5qj9': {
-      'en': 'Tues. 15, 4:32',
-      'es': '',
-    },
-    'm5tsp1d9': {
-      'en': 'Go Far Rewards',
-      'es': '',
-    },
-    'kwc5xhzw': {
-      'en': 'Income',
-      'es': '',
-    },
-    '7e13bgv9': {
-      'en': '-\$50.00',
-      'es': '',
-    },
-    '1hzpszut': {
-      'en': 'Tues. 15, 4:32',
-      'es': '',
-    },
-    'xnfg9etb': {
-      'en': 'Go Far Rewards',
-      'es': '',
-    },
-    '7rz7ayr1': {
-      'en': 'Income',
-      'es': '',
-    },
-    'kg7v6da4': {
-      'en': '\$50.00',
-      'es': '',
-    },
-    '6swqw26e': {
-      'en': 'Tues. 15, 4:32',
-      'es': '',
-    },
-    'cw2zxs05': {
-      'en': 'Ledger',
       'es': '',
     },
     'zu5jz6j9': {
@@ -1425,6 +1373,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '9mr8s7gi': {
       'en': 'New Password',
+      'es': '',
+    },
+  },
+  // TransactionBlock
+  {
+    'o4h47nqc': {
+      'en': 'Go Far Rewards',
+      'es': '',
+    },
+    'u0kvzdj9': {
+      'en': 'Income',
+      'es': '',
+    },
+    'vljujvjp': {
+      'en': '-\$50.00',
+      'es': '',
+    },
+    'zzfywvhz': {
+      'en': 'Tues. 15, 4:32',
       'es': '',
     },
   },

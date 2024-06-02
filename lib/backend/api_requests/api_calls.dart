@@ -2246,6 +2246,14 @@ class GetLedgerCall {
   Future<ApiCallResponse> call() async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    const ffApiRequestBody = '''
+{ "authorizationToken":"eyJraWQiOiJrZ1FJcEZkYUlVRUhETGQ4NmIyYkh0a1lvbitKOVRsbkdzSUZoaElld0VzPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1NDk4YTQ4OC0wMDQxLTcwOTctOGRlYy00MWNjMWQ0ZGZkYzkiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV84UVA2MkdoQ0EiLCJjbGllbnRfaWQiOiJoNm81ZmhqNDAycXZnbG50MDE1MTdzaHAxIiwib3JpZ2luX2p0aSI6IjEzMWYyZTczLWIxZDItNDhiMS05Y2RkLTVlY2NlOTc0ZGFmMSIsImV2ZW50X2lkIjoiODUwYWI1ZGQtZWMyNy00ZWMwLTkyZTEtZjJlODgyMTExNDAwIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTcxNzI4ODI5NywiZXhwIjoxNzE3MjkxODk3LCJpYXQiOjE3MTcyODgyOTcsImp0aSI6IjJhYzg3NDY5LWM2MjItNDg2Yy1iMzJiLTk0MzE4YzFmOTUwNSIsInVzZXJuYW1lIjoiZHJld2xlYXJucysxMEBoZXkuY29tIn0.LTtZI5M67nv9wLs2k2Ea9zBH6bRrtHoXSLsNWOXvzzRuibRuKfdxENe6bcpt5fCBlpFvNdx6WO7t4PwFhxDiDWt18Q6vtMPZe-IIHaNQLAuyUuBzSiObWSezlQU7nRgWqrn1ffyJFgiWqb-OQ71eljBdvubI89e8Rw_7Oj6_9xJeAqgpkYHpBMeOa_zaJps6oeBPV4AKUeyR9Bk5533Q8ZKkjtbLpRfODi2ctpp-Q-0QApJjnD7qY6cErP2kEA2ZgeURrWh-oNMqp-6FBM9-nHj4hXlbf3l_hT5lg25wICr4dmAg_HMNlHtFSJvdOziqUupw31z5ZV3L9gk6AsjWwQ",
+    "householdId": "5601068c-ae76-49ad-a938-0ea4d90b5865",
+  "month": 5,
+  "year": 2024,
+  "ipAddress": "192.168.1.1",
+  "deviceDetails": "Device details here"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLedger',
       apiUrl: '$baseUrl/getLedger',
@@ -2254,7 +2262,8 @@ class GetLedgerCall {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2262,6 +2271,69 @@ class GetLedgerCall {
       alwaysAllowBody: false,
     );
   }
+
+  List? entries(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries''',
+        true,
+      ) as List?;
+  String? ledgerId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].ledgerId''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].householdId''',
+      ));
+  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].paymentSourceId''',
+      ));
+  int? amount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].amount''',
+      ));
+  String? transactionType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].transactionType''',
+      ));
+  String? transactionDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].transactionDate''',
+      ));
+  String? category(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].category''',
+      ));
+  String? description(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].description''',
+      ));
+  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].status''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].updatedAt''',
+      ));
+  String? updatedBy(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].updatedBy''',
+      ));
+  int? runningTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.ledgerEntries[:].runningTotal''',
+      ));
+  List? transactions(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].transactions''',
+        true,
+      ) as List?;
 }
 
 /// End TPPB Group Code
