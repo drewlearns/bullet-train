@@ -1247,15 +1247,15 @@ class AddPaymentSourceCall {
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
-  "authorizationToken": "eyJraWQiOiJrZ1FJcEZkYUlVRUhETGQ4NmIyYkh0a1lvbitKOVRsbkdzSUZoaElld0VzPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1NDk4YTQ4OC0wMDQxLTcwOTctOGRlYy00MWNjMWQ0ZGZkYzkiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV84UVA2MkdoQ0EiLCJjbGllbnRfaWQiOiJoNm81ZmhqNDAycXZnbG50MDE1MTdzaHAxIiwib3JpZ2luX2p0aSI6Ijk3YjFjODMyLTk0NTEtNDA4Ny05NDUzLTExZjJiN2NkNWQ1YyIsImV2ZW50X2lkIjoiMzMwYTcxMTQtNTU0Ny00ODg5LTk3MGEtZmUwMjI4Njg0YTliIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTcxNzMyOTg2MywiZXhwIjoxNzE3MzMzNDYzLCJpYXQiOjE3MTczMjk4NjMsImp0aSI6ImQ3NWI4NjM1LWZhMzctNDM0Yy1iYWJjLTgyZDZkZWNmMjVlZiIsInVzZXJuYW1lIjoiZHJld2xlYXJucysxMEBoZXkuY29tIn0.hMUXOnQr-aVMCMbIcG_Mn1MYUygA-V4dujiQYvXeYpiVuCF8yS_m85xftnuWiVQj-8NOZhZcJCAayHfvMzaUZzfXzpyOBp7jRkasjeov7ifGReoLopy8-j_u5UtOPv0S8UXsPLcDHmsOPnFzWiZhGk2D0lfLLXbwO7R0fuyCg6pkaqEUDAG_x3Rv1gRwP7w8H6P8_OhXsP-lmVUoxNSGFVcmy-Svsqalwst2Q8PRZXfxI5hrOS1-YuKy2FVL-1Y6udgvXgIMqnpF33Odm1ZophE7vDZiDljLh83UrWZP-2lPcH4bknFt12YD9bCI3WlQC6WmD9EJBrgbRW_LOk-iwA",
-  "householdId": "5601068c-ae76-49ad-a938-0ea4d90b5865",
-  "sourceName": "Ally Bank",
-  "sourceType": "Bank",
-  "details": "Joint Account",
-  "ipAddress": "192.168.1.1",
-  "deviceDetails": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "sourceName": "$sourceName",
+  "sourceType": "$sourceType",
+  "details": "$details",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addPaymentSource',
@@ -1665,11 +1665,39 @@ class GetNotificationsCall {
 }
 
 class AddTransactionCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? amount = '',
+    String? transactionType = '',
+    String? transactionDate = '',
+    String? category = '',
+    String? description = '',
+    String? ipAddress = '',
+    String? deviceDetails = '',
+    String? status = '',
+    String? sourceId = '',
+    String? tags = '',
+    String? image = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "amount": "$amount",
+  "transactionType": "$transactionType",
+  "transactionDate": "$transactionDate",
+  "category": "$category",
+  "description": "$description",
+  "ipAddress": "$ipAddress",
+  "deviceDetails": "$deviceDetails",
+  "status": "$status",
+  "sourceId": "$sourceId",
+  "tags": "$tags",
+  "image": "$image"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'addTransaction',
       apiUrl: '$baseUrl/addTransaction',
@@ -1687,6 +1715,47 @@ class AddTransactionCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  dynamic transaction(dynamic response) => getJsonField(
+        response,
+        r'''$.transaction''',
+      );
+  String? transactionId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.transactionId''',
+      ));
+  String? ledgerId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.ledgerId''',
+      ));
+  String? sourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.sourceId''',
+      ));
+  int? amount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.transaction.amount''',
+      ));
+  String? transactionDate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.transactionDate''',
+      ));
+  String? description(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.description''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.transaction.updatedAt''',
+      ));
 }
 
 class GetTransactionCall {
@@ -2431,58 +2500,123 @@ class GetLedgerCall {
         r'''$.ledgerEntries''',
         true,
       ) as List?;
-  String? ledgerId(dynamic response) => castToType<String>(getJsonField(
+  List<String>? ledgerId(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].ledgerId''',
-      ));
-  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? householdId(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].householdId''',
-      ));
-  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? paymentSourceId(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].paymentSourceId''',
-      ));
-  int? amount(dynamic response) => castToType<int>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? amount(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].amount''',
-      ));
-  String? transactionType(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionType(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].transactionType''',
-      ));
-  String? transactionDate(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionDate(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].transactionDate''',
-      ));
-  String? category(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? category(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].category''',
-      ));
-  String? description(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? description(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].description''',
-      ));
-  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<bool>? status(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].status''',
-      ));
-  String? createdat(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  List<String>? createdat(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].createdAt''',
-      ));
-  String? updatedat(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updatedat(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].updatedAt''',
-      ));
-  String? updatedBy(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updatedBy(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].updatedBy''',
-      ));
-  int? runningTotal(dynamic response) => castToType<int>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? runningTotal(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].runningTotal''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List? transactions(dynamic response) => getJsonField(
         response,
         r'''$.ledgerEntries[:].transactions''',

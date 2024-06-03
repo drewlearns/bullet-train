@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_payment_source_widget.dart' show AddPaymentSourceWidget;
@@ -18,6 +19,8 @@ class AddPaymentSourceModel extends FlutterFlowModel<AddPaymentSourceWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // Stores action output result for [Backend Call - API (addPaymentSource)] action in Button widget.
+  ApiCallResponse? apiResult501;
 
   @override
   void initState(BuildContext context) {}

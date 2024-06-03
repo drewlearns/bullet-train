@@ -448,7 +448,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '7yhlzdh9': {
-      'en': 'Wallet',
+      'en': 'Add Wallet',
       'es': '',
     },
     '7ixebahq': {
@@ -627,24 +627,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'cq2735d7': {
-      'en': '\$25,000',
-      'es': '',
-    },
-    'bfeyrj0r': {
-      'en': 'Per Month',
-      'es': '',
-    },
     'lfic0wqw': {
       'en': 'View Spending Habits',
       'es': '',
     },
-    'eusmn3vw': {
-      'en': 'Total Spent',
-      'es': '',
-    },
-    'x6cbubt4': {
-      'en': '\$2,502',
+    'pmodmx6j': {
+      'en': 'Running Total: ',
       'es': '',
     },
     'zu5jz6j9': {
