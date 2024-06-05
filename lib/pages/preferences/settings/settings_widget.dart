@@ -1,5 +1,7 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,6 @@ class _SettingsWidgetState extends State<SettingsWidget>
   late SettingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -112,7 +113,29 @@ class _SettingsWidgetState extends State<SettingsWidget>
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
-                actions: const [],
+                actions: [
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                    child: FlutterFlowIconButton(
+                      borderRadius: 20.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.logout,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        GoRouter.of(context).prepareAuthEvent();
+                        await authManager.signOut();
+                        GoRouter.of(context).clearRedirectLocation();
+
+                        context.goNamedAuth('Login', context.mounted);
+                      },
+                    ),
+                  ),
+                ],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
@@ -153,6 +176,48 @@ class _SettingsWidgetState extends State<SettingsWidget>
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Hello ${FFAppState().firstName},',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'You are signed in as ${FFAppState().email}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
+                                    ),
+                                  ],
+                                ),
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
@@ -166,16 +231,10 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      const LatLng(0.0, 0.0));
                                           _model.getUserOutput =
                                               await TppbGroup.getUserCall.call(
                                             authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
+                                                currentAuthenticationToken,
                                           );
                                           if ((_model
                                                   .getUserOutput?.succeeded ??
@@ -194,29 +253,9 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                     )!
                                                     .toList()
                                                     .cast<String>();
-                                            FFAppState().phoneNumber = TppbGroup
-                                                .getUserCall
-                                                .phoneNumber(
-                                              (_model.getUserOutput?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().mailOptIn =
-                                                TppbGroup.getUserCall
-                                                    .mailOptIn(
-                                                      (_model.getUserOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toString();
                                             FFAppState().confirmedEmail =
                                                 TppbGroup.getUserCall
                                                     .confirmedEmail(
-                                              (_model.getUserOutput?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().subscriptionEndDate =
-                                                TppbGroup.getUserCall
-                                                    .subscriptionEndDate(
                                               (_model.getUserOutput?.jsonBody ??
                                                   ''),
                                             )!;
@@ -313,213 +352,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '4aqkug6y' /* Edit Profile */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Plus Jakarta Sans'),
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Semantics(
-                                      label: 'Add Invitations',
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      const LatLng(0.0, 0.0));
-                                          _model.getUserOutput2 =
-                                              await TppbGroup.getUserCall.call(
-                                            authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
-                                          );
-                                          if ((_model
-                                                  .getUserOutput2?.succeeded ??
-                                              true)) {
-                                            FFAppState().email =
-                                                TppbGroup.getUserCall.email(
-                                              (_model.getUserOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().householdIds =
-                                                TppbGroup.getUserCall
-                                                    .householdIds(
-                                                      (_model.getUserOutput2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().phoneNumber = TppbGroup
-                                                .getUserCall
-                                                .phoneNumber(
-                                              (_model.getUserOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().mailOptIn =
-                                                TppbGroup.getUserCall
-                                                    .mailOptIn(
-                                                      (_model.getUserOutput2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toString();
-                                            FFAppState().confirmedEmail =
-                                                TppbGroup.getUserCall
-                                                    .confirmedEmail(
-                                              (_model.getUserOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().subscriptionEndDate =
-                                                TppbGroup.getUserCall
-                                                    .subscriptionEndDate(
-                                              (_model.getUserOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            setState(() {});
-
-                                            context.pushNamed(
-                                              'AddInvite',
-                                              queryParameters: {
-                                                'householdId': serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .bottomToTop,
-                                                  duration: Duration(
-                                                      milliseconds: 30),
-                                                ),
-                                              },
-                                            );
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: const Text('Sorry'),
-                                                  content: const Text(
-                                                      'We are having trouble\'s pulling your profile temporarily. Try again.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
-                                        },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: AnimatedContainer(
-                                            duration:
-                                                const Duration(milliseconds: 200),
-                                            curve: Curves.easeInOut,
-                                            width: 300.0,
-                                            height: 44.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                              shape: BoxShape.rectangle,
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.security,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'y80indk0' /* View Security Logs */,
+                                                          '4aqkug6y' /* Change Email / Phone number */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -673,16 +506,10 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      const LatLng(0.0, 0.0));
                                           _model.getUserOutput4 =
                                               await TppbGroup.getUserCall.call(
                                             authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
+                                                currentAuthenticationToken,
                                           );
                                           if ((_model
                                                   .getUserOutput4?.succeeded ??
@@ -702,21 +529,6 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                     )!
                                                     .toList()
                                                     .cast<String>();
-                                            FFAppState().phoneNumber = TppbGroup
-                                                .getUserCall
-                                                .phoneNumber(
-                                              (_model.getUserOutput4
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().mailOptIn =
-                                                TppbGroup.getUserCall
-                                                    .mailOptIn(
-                                                      (_model.getUserOutput4
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toString();
                                             FFAppState().confirmedEmail =
                                                 TppbGroup.getUserCall
                                                     .confirmedEmail(
@@ -879,17 +691,10 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      const LatLng(0.0, 0.0));
                                           _model.getUserOutput1 =
                                               await TppbGroup.getUserCall.call(
                                             authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
-                                            deviceDetails: '',
+                                                currentAuthenticationToken,
                                           );
                                           if ((_model
                                                   .getUserOutput1?.succeeded ??
@@ -897,12 +702,8 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                             _model.getHouseholdOutput1 =
                                                 await TppbGroup.getHouseholdCall
                                                     .call(
-                                              authorizationToken: FFAppState()
-                                                  .authorizationToken,
-                                              ipAddress:
-                                                  currentUserLocationValue
-                                                      ?.toString(),
-                                              deviceDetails: '',
+                                              authorizationToken:
+                                                  currentAuthenticationToken,
                                               page: 1,
                                             );
                                             if ((_model.getHouseholdOutput1
@@ -1297,16 +1098,10 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      const LatLng(0.0, 0.0));
                                           _model.getUserOutput3 =
                                               await TppbGroup.getUserCall.call(
                                             authorizationToken:
-                                                FFAppState().authorizationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
+                                                currentAuthenticationToken,
                                           );
                                           if ((_model
                                                   .getUserOutput3?.succeeded ??
@@ -1326,21 +1121,6 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                     )!
                                                     .toList()
                                                     .cast<String>();
-                                            FFAppState().phoneNumber = TppbGroup
-                                                .getUserCall
-                                                .phoneNumber(
-                                              (_model.getUserOutput3
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().mailOptIn =
-                                                TppbGroup.getUserCall
-                                                    .mailOptIn(
-                                                      (_model.getUserOutput3
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toString();
                                             FFAppState().confirmedEmail =
                                                 TppbGroup.getUserCall
                                                     .confirmedEmail(
@@ -1490,80 +1270,6 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                       ),
                                     ),
                                   ),
-                                ),
-                                SwitchListTile.adaptive(
-                                  value: _model.switchListTileValue1 ??= true,
-                                  onChanged: (newValue) async {
-                                    setState(() => _model.switchListTileValue1 =
-                                        newValue);
-                                  },
-                                  title: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'e1amm7ef' /* Camera Access */,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
-                                        ),
-                                  ),
-                                  tileColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  activeTrackColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  dense: false,
-                                  controlAffinity:
-                                      ListTileControlAffinity.trailing,
-                                  contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          50.0, 0.0, 50.0, 0.0),
-                                ),
-                                SwitchListTile.adaptive(
-                                  value: _model.switchListTileValue2 ??= true,
-                                  onChanged: (newValue) async {
-                                    setState(() => _model.switchListTileValue2 =
-                                        newValue);
-                                  },
-                                  title: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'rlx2bfkx' /* Location Services */,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
-                                        ),
-                                  ),
-                                  tileColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  activeTrackColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  dense: false,
-                                  controlAffinity:
-                                      ListTileControlAffinity.trailing,
-                                  contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          50.0, 0.0, 50.0, 0.0),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),

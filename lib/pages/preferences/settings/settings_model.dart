@@ -9,8 +9,6 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getUser)] action in EditProfileContainer widget.
   ApiCallResponse? getUserOutput;
-  // Stores action output result for [Backend Call - API (getUser)] action in ViewSecurityLogs widget.
-  ApiCallResponse? getUserOutput2;
   // Stores action output result for [Backend Call - API (getUser)] action in invitationsContainer widget.
   ApiCallResponse? getUserOutput4;
   // Stores action output result for [Backend Call - API (getUser)] action in editMembersContainer widget.
@@ -19,10 +17,6 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
   ApiCallResponse? getHouseholdOutput1;
   // Stores action output result for [Backend Call - API (getUser)] action in setThresholdContainer widget.
   ApiCallResponse? getUserOutput3;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue1;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue2;
 
   @override
   void initState(BuildContext context) {}

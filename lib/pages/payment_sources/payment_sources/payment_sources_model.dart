@@ -11,7 +11,7 @@ class PaymentSourcesModel extends FlutterFlowModel<PaymentSourcesWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  // Stores action output result for [Backend Call - API (getHouseholdMembers)] action in DropDown widget.
+  // Stores action output result for [Backend Call - API (getHousehold)] action in DropDown widget.
   ApiCallResponse? apiResult37n;
 
   @override

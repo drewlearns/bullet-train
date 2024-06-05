@@ -71,12 +71,6 @@ class TppbGroup {
       GetDefaultPaymentSourcePreferenceCall();
   static EditDefaultPaymentSourceCall editDefaultPaymentSourceCall =
       EditDefaultPaymentSourceCall();
-  static SetCurrencyPreferenceCall setCurrencyPreferenceCall =
-      SetCurrencyPreferenceCall();
-  static GetCurrencyPreferenceCall getCurrencyPreferenceCall =
-      GetCurrencyPreferenceCall();
-  static EditCurrencyPreferenceCall editCurrencyPreferenceCall =
-      EditCurrencyPreferenceCall();
   static SetThresholdCall setThresholdCall = SetThresholdCall();
   static EditThresholdCall editThresholdCall = EditThresholdCall();
   static GetThresholdBreakersCall getThresholdBreakersCall =
@@ -95,6 +89,18 @@ class TppbGroup {
   static ExportLedgerToCsvCall exportLedgerToCsvCall = ExportLedgerToCsvCall();
   static ExportLedgerToQBOCall exportLedgerToQBOCall = ExportLedgerToQBOCall();
   static GetLedgerCall getLedgerCall = GetLedgerCall();
+  static GetLedgerEntryCall getLedgerEntryCall = GetLedgerEntryCall();
+  static DeleteLedgerEntryCall deleteLedgerEntryCall = DeleteLedgerEntryCall();
+  static ExportSearchCall exportSearchCall = ExportSearchCall();
+  static ChangePasswordCall changePasswordCall = ChangePasswordCall();
+  static GetDueBillsCall getDueBillsCall = GetDueBillsCall();
+  static EditLedgerEntryCall editLedgerEntryCall = EditLedgerEntryCall();
+  static GetMonthlyIncomeTotalCall getMonthlyIncomeTotalCall =
+      GetMonthlyIncomeTotalCall();
+  static GetPaidBillsCall getPaidBillsCall = GetPaidBillsCall();
+  static GetPastDueBillsCall getPastDueBillsCall = GetPastDueBillsCall();
+  static GetTotalSpentCall getTotalSpentCall = GetTotalSpentCall();
+  static GetBillCall getBillCall = GetBillCall();
 }
 
 class AddUserCall {
@@ -106,8 +112,6 @@ class AddUserCall {
     String? phoneNumber = '',
     String? firstName = '',
     String? lastName = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -119,9 +123,7 @@ class AddUserCall {
   "mailOptIn": "$mailOptIn",
   "phoneNumber": "$phoneNumber",
   "firstName": "$firstName",
-  "lastName": "$lastName",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "lastName": "$lastName"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addUser',
@@ -244,17 +246,13 @@ class ConfirmSignupCall {
   Future<ApiCallResponse> call({
     String? username = '',
     String? confirmationCode = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "username": "$username",
-  "confirmationCode": "$confirmationCode",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "confirmationCode": "$confirmationCode"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmSignup',
@@ -342,19 +340,13 @@ class LoginCall {
   Future<ApiCallResponse> call({
     String? username = '',
     String? password = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
-    String? locationDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "username": "$username",
-  "password": "$password",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails",
-  "locationDetails": "$locationDetails"
+  "password": "$password"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'login',
@@ -403,16 +395,12 @@ class LoginCall {
 class GetUserCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "authorizationToken": "$authorizationToken",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "authorizationToken": "$authorizationToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUser',
@@ -503,8 +491,6 @@ class EditUserCall {
     String? email = '',
     String? newUsername = '',
     String? phoneNumber = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -513,9 +499,7 @@ class EditUserCall {
   "authorizationToken": "$authorizationToken",
   "email": "$email",
   "newUsername": "$newUsername",
-  "phoneNumber": "$phoneNumber",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "phoneNumber": "$phoneNumber"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'editUser',
@@ -682,15 +666,12 @@ class RevokeTokenCall {
 class ForgotPasswordCall {
   Future<ApiCallResponse> call({
     String? email = '',
-    String? ipAddress = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "username": "$email",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": ""
+  "username": "$email"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'forgotPassword',
@@ -725,8 +706,6 @@ class ConfirmPasswordResetCodeCall {
     String? username = '',
     String? code = '',
     String? newPassword = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -734,9 +713,7 @@ class ConfirmPasswordResetCodeCall {
 {
   "username": "$username",
   "code": "$code",
-  "newPassword": "$newPassword",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "newPassword": "$newPassword"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmPasswordResetCode',
@@ -768,8 +745,6 @@ class AddHouseholdCall {
     String? authorizationToken = '',
     String? customHouseholdNameSuchAsCrew = '',
     String? account = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -777,10 +752,7 @@ class AddHouseholdCall {
 {
   "householdName": "$householdName",
   "authorizationToken": "$authorizationToken",
-  "customHouseholdNameSuchAsCrew": "$customHouseholdNameSuchAsCrew",
-  "account": "standard",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "customHouseholdNameSuchAsCrew": "$customHouseholdNameSuchAsCrew"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addHousehold',
@@ -828,8 +800,6 @@ class AddInviteCall {
     String? authorizationToken = '',
     String? email = '',
     String? householdId = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -837,9 +807,7 @@ class AddInviteCall {
 {
   "authorizationToken": "$authorizationToken",
   "email": "$email",
-  "householdId": "$householdId",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "householdId": "$householdId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addInvite',
@@ -895,8 +863,6 @@ class DeleteMemberFromHouseholdCall {
     String? authorizationToken = '',
     String? householdId = '',
     String? memberUuid = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -904,9 +870,7 @@ class DeleteMemberFromHouseholdCall {
 {
   "authorizationToken": "$authorizationToken",
   "householdId": "$householdId",
-  "memberUuid": "$memberUuid",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "memberUuid": "$memberUuid"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteMemberFromHousehold',
@@ -1057,8 +1021,6 @@ class DeleteHouseholdCall {
 class GetHouseholdCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
     int? page = 1,
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
@@ -1066,8 +1028,6 @@ class GetHouseholdCall {
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails",
   "page": $page
 }''';
     return ApiManager.instance.makeApiCall(
@@ -1137,17 +1097,13 @@ class GetHouseholdByIdCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "householdId": "$householdId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdById',
@@ -1242,8 +1198,6 @@ class AddPaymentSourceCall {
     String? sourceName = '',
     String? sourceType = '',
     String? details = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
@@ -1253,9 +1207,7 @@ class AddPaymentSourceCall {
   "householdId": "$householdId",
   "sourceName": "$sourceName",
   "sourceType": "$sourceType",
-  "details": "$details",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "details": "$details"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addPaymentSource',
@@ -1363,17 +1315,13 @@ class GetPaymentSourceCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "householdId": "$householdId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getPaymentSource',
@@ -1673,8 +1621,6 @@ class AddTransactionCall {
     String? transactionDate = '',
     String? category = '',
     String? description = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
     String? status = '',
     String? sourceId = '',
     String? tags = '',
@@ -1691,8 +1637,6 @@ class AddTransactionCall {
   "transactionDate": "$transactionDate",
   "category": "$category",
   "description": "$description",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails",
   "status": "$status",
   "sourceId": "$sourceId",
   "tags": "$tags",
@@ -1759,11 +1703,17 @@ class AddTransactionCall {
 }
 
 class GetTransactionCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? transactionId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "transactionId": "$transactionId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTransaction',
       apiUrl: '$baseUrl/getTransaction',
@@ -1781,14 +1731,17 @@ class GetTransactionCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetTransactionByMonthCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? transactionId = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
     int? month,
     int? year,
   }) async {
@@ -1798,8 +1751,6 @@ class GetTransactionByMonthCall {
 {
   "authorizationToken": "$authorizationToken",
   "transactionId": "$transactionId",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails",
   "month": $month,
   "year": $year
 }''';
@@ -2002,81 +1953,6 @@ class EditDefaultPaymentSourceCall {
   }
 }
 
-class SetCurrencyPreferenceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'setCurrencyPreference',
-      apiUrl: '$baseUrl/setCurrencyPreference',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class GetCurrencyPreferenceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getCurrencyPreference',
-      apiUrl: '$baseUrl/getCurrencyPreference',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class EditCurrencyPreferenceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'editCurrencyPreference',
-      apiUrl: '$baseUrl/editCurrencyPreference',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class SetThresholdCall {
   Future<ApiCallResponse> call() async {
     final baseUrl = TppbGroup.getBaseUrl();
@@ -2186,24 +2062,20 @@ class AddIncomeCall {
     String? firstPayDay = '',
     String? frequency = '',
     String? description = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
     String? paymentSourceId = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
-    "authorizationToken": "",
-    "householdId": "",
-    "name": "",
-    "amount": "",
-    "firstPayDay": "",
-    "frequency": "",
-    "description": "",
-    "ipAddress": "",
-    "deviceDetails": "",
-    "paymentSourceId": ""
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "name": "$name",
+  "amount": "$amount",
+  "firstPayDay": "$firstPayDay",
+  "frequency": "$frequency",
+  "description": "$description",
+  "paymentSourceId": "$paymentSourceId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addIncome',
@@ -2274,9 +2146,17 @@ class GetIncomesCall {
 }
 
 class GetIncomeCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? incomeId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "incomeId": "$incomeId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getIncome',
       apiUrl: '$baseUrl/getIncome',
@@ -2285,7 +2165,8 @@ class GetIncomeCall {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2293,6 +2174,11 @@ class GetIncomeCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class DeleteIncomeJsCall {
@@ -2321,17 +2207,13 @@ class GetRunningTotalCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? paymentSourceId = '',
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "paymentSourceId": "$paymentSourceId",
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "paymentSourceId": "$paymentSourceId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getRunningTotal',
@@ -2457,21 +2339,13 @@ class GetLedgerCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
-    int? month,
-    int? year,
-    String? ipAddress = '',
-    String? deviceDetails = '',
   }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId",
-  "month": $month,
-  "year": $year,
-  "ipAddress": "$ipAddress",
-  "deviceDetails": "$deviceDetails"
+  "householdId": "$householdId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLedger',
@@ -2491,11 +2365,7 @@ class GetLedgerCall {
     );
   }
 
-  String? message(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.message''',
-      ));
-  List? entries(dynamic response) => getJsonField(
+  List? ledgerEntriesList(dynamic response) => getJsonField(
         response,
         r'''$.ledgerEntries''',
         true,
@@ -2581,7 +2451,7 @@ class GetLedgerCall {
           .map((x) => castToType<bool>(x))
           .withoutNulls
           .toList();
-  List<String>? createdat(dynamic response) => (getJsonField(
+  List<String>? createdAt(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].createdAt''',
         true,
@@ -2590,7 +2460,7 @@ class GetLedgerCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  List<String>? updatedat(dynamic response) => (getJsonField(
+  List<String>? updatedAt(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].updatedAt''',
         true,
@@ -2608,6 +2478,16 @@ class GetLedgerCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List? billId(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].billId''',
+        true,
+      ) as List?;
+  List? incomeId(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].incomeId''',
+        true,
+      ) as List?;
   List<int>? runningTotal(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].runningTotal''',
@@ -2617,11 +2497,319 @@ class GetLedgerCall {
           .map((x) => castToType<int>(x))
           .withoutNulls
           .toList();
-  List? transactions(dynamic response) => getJsonField(
+  List? interestRate(dynamic response) => getJsonField(
         response,
-        r'''$.ledgerEntries[:].transactions''',
+        r'''$.ledgerEntries[:].interestRate''',
         true,
       ) as List?;
+  List? cacheBack(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].cashBack''',
+        true,
+      ) as List?;
+  List? tags(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].tags''',
+        true,
+      ) as List?;
+  List? bill(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].bill''',
+        true,
+      ) as List?;
+  List? income(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].income''',
+        true,
+      ) as List?;
+  List? paymentsourceList(dynamic response) => getJsonField(
+        response,
+        r'''$.ledgerEntries[:].paymentSource''',
+        true,
+      ) as List?;
+  List<String>? paymentSourceSourceId(dynamic response) => (getJsonField(
+        response,
+        r'''$.ledgerEntries[:].paymentSource.sourceId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? paymentSourceSourceName(dynamic response) => (getJsonField(
+        response,
+        r'''$.ledgerEntries[:].paymentSource.sourceName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionId(dynamic response) => (getJsonField(
+        response,
+        r'''$.ledgerEntries[:].transactionId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class GetLedgerEntryCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getLedgerEntry',
+      apiUrl: '$baseUrl/getLedgerEntry',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class DeleteLedgerEntryCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'deleteLedgerEntry',
+      apiUrl: '$baseUrl/deleteLedgerEntry',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ExportSearchCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'exportSearch',
+      apiUrl: '$baseUrl/exportSearch',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ChangePasswordCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'changePassword',
+      apiUrl: '$baseUrl/changePassword',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetDueBillsCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getDueBills',
+      apiUrl: '$baseUrl/getDueBills',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class EditLedgerEntryCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'editLedgerEntry',
+      apiUrl: '$baseUrl/editLedgerEntry',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetMonthlyIncomeTotalCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getMonthlyIncomeTotal',
+      apiUrl: '$baseUrl/getMonthlyIncomeTotal',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetPaidBillsCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPaidBills',
+      apiUrl: '$baseUrl/getPaidBills',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetPastDueBillsCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPastDueBills',
+      apiUrl: '${baseUrl}getPastDueBills/',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetTotalSpentCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getTotalSpent',
+      apiUrl: '${baseUrl}getTotalSpent/',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetBillCall {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? billId = '',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "billId": "$billId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getBill',
+      apiUrl: '$baseUrl/getBill',
+      callType: ApiCallType.POST,
+      headers: {
+        'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 /// End TPPB Group Code

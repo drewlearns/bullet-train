@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'payment_sources_model.dart';
 export 'payment_sources_model.dart';
 
@@ -22,15 +21,12 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
   late PaymentSourcesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PaymentSourcesModel());
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -43,24 +39,6 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                FlutterFlowTheme.of(context).primary,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
     return Title(
         title: 'PaymentSources',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -133,9 +111,6 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                               TppbGroup.getHouseholdCall.call(
                                             authorizationToken:
                                                 currentAuthenticationToken,
-                                            ipAddress: currentUserLocationValue
-                                                ?.toString(),
-                                            deviceDetails: '',
                                           ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
@@ -184,17 +159,18 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                     _model.dropDownValue = val);
                                                 _model.apiResult37n =
                                                     await TppbGroup
-                                                        .getHouseholdMembersCall
+                                                        .getHouseholdCall
                                                         .call(
                                                   authorizationToken:
-                                                      FFAppState()
-                                                          .authorizationToken,
-                                                  householdId:
-                                                      _model.dropDownValue,
+                                                      currentAuthenticationToken,
+                                                  page: 1,
                                                 );
                                                 if ((_model.apiResult37n
                                                         ?.succeeded ??
                                                     true)) {
+                                                  FFAppState()
+                                                          .defaultHouseholdId =
+                                                      _model.dropDownValue!;
                                                   setState(() {});
                                                 } else {
                                                   await showDialog(
@@ -204,7 +180,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                       return AlertDialog(
                                                         title: const Text('Error'),
                                                         content: Text(TppbGroup
-                                                            .getHouseholdMembersCall
+                                                            .getHouseholdCall
                                                             .message(
                                                           (_model.apiResult37n
                                                                   ?.jsonBody ??
@@ -357,8 +333,6 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                   _model.dropDownValue,
                                   'N/A',
                                 ),
-                                ipAddress: currentUserLocationValue?.toString(),
-                                deviceDetails: '',
                               ),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.

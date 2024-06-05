@@ -24,15 +24,12 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
   late AddTransactionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AddTransactionModel());
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -58,23 +55,6 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                FlutterFlowTheme.of(context).primary,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
     return Title(
         title: 'AddTransaction',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -147,10 +127,6 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                     future: TppbGroup.getHouseholdCall.call(
                                       authorizationToken:
                                           currentAuthenticationToken,
-                                      ipAddress:
-                                          currentUserLocationValue?.toString(),
-                                      deviceDetails: '',
-                                      page: 1,
                                     ),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
@@ -258,84 +234,93 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 16.0, 16.0),
-                        child: FutureBuilder<ApiCallResponse>(
-                          future: TppbGroup.getPaymentSourceCall.call(
-                            authorizationToken: currentAuthenticationToken,
-                            householdId: _model.dropDownValue1,
-                            ipAddress: currentUserLocationValue?.toString(),
-                            deviceDetails: '',
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
+                      if (_model.dropDownValue1 != null &&
+                          _model.dropDownValue1 != '')
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 16.0, 16.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: TppbGroup.getPaymentSourceCall.call(
+                              authorizationToken: currentAuthenticationToken,
+                              householdId: _model.dropDownValue1,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                     ),
                                   ),
+                                );
+                              }
+                              final dropDownGetPaymentSourceResponse =
+                                  snapshot.data!;
+                              return FlutterFlowDropDown<String>(
+                                controller: _model.dropDownValueController2 ??=
+                                    FormFieldController<String>(
+                                  _model.dropDownValue2 ??= '',
                                 ),
+                                options: List<String>.from((getJsonField(
+                                  dropDownGetPaymentSourceResponse.jsonBody,
+                                  r'''$.paymentSources[:].sourceId''',
+                                  true,
+                                ) as List)
+                                    .map<String>((s) => s.toString())
+                                    .toList()),
+                                optionLabels: (getJsonField(
+                                  dropDownGetPaymentSourceResponse.jsonBody,
+                                  r'''$.paymentSources[:].sourceName''',
+                                  true,
+                                ) as List)
+                                    .map<String>((s) => s.toString())
+                                    .toList(),
+                                onChanged: (val) =>
+                                    setState(() => _model.dropDownValue2 = val),
+                                width: 300.0,
+                                height: 60.0,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
+                                    ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'uhtw2gk0' /* Select Payment Source */,
+                                ),
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                borderWidth: 2.0,
+                                borderRadius: 8.0,
+                                margin: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 4.0, 16.0, 4.0),
+                                hidesUnderline: true,
+                                isOverButton: true,
+                                isSearchable: false,
+                                isMultiSelect: false,
                               );
-                            }
-                            final dropDownGetPaymentSourceResponse =
-                                snapshot.data!;
-                            return FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController2 ??=
-                                  FormFieldController<String>(null),
-                              options: (getJsonField(
-                                dropDownGetPaymentSourceResponse.jsonBody,
-                                r'''$.paymentSources[:].sourceName''',
-                                true,
-                              ) as List)
-                                  .map<String>((s) => s.toString())
-                                  .toList(),
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue2 = val),
-                              width: 300.0,
-                              height: 60.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                'uhtw2gk0' /* Select Payment Source */,
-                              ),
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
-                              borderWidth: 2.0,
-                              borderRadius: 8.0,
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 4.0, 16.0, 4.0),
-                              hidesUnderline: true,
-                              isOverButton: true,
-                              isSearchable: false,
-                              isMultiSelect: false,
-                            );
-                          },
+                            },
+                          ),
                         ),
-                      ),
                       if (_model.dropDownValue1 != null &&
                           _model.dropDownValue1 != '')
                         Padding(
@@ -862,7 +847,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                           children: [
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
+                                  0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   final selectedMedia =
@@ -940,77 +925,104 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 ),
                               ),
                             ),
-                            FutureBuilder<ApiCallResponse>(
-                              future: TppbGroup.addTransactionCall.call(
-                                authorizationToken: currentAuthenticationToken,
-                                amount: _model.textController1.text,
-                                householdId: _model.dropDownValue1,
-                                transactionType: _model.dropDownValue3,
-                                transactionDate: _model
-                                    .datePicked?.secondsSinceEpoch
-                                    .toString(),
-                                category: _model.textController2.text,
-                                description: _model.textController3.text,
-                                ipAddress: currentUserLocationValue?.toString(),
-                                deviceDetails: '',
-                                status: _model.switchValue?.toString(),
-                                sourceId: _model.dropDownValue2,
-                                tags: _model.textController4.text,
-                                image:
-                                    _model.uploadedLocalFile.width?.toString(),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
-                                      ),
-                                    ),
+                            FFButtonWidget(
+                              onPressed: () async {
+                                _model.addTransactionOutput =
+                                    await TppbGroup.addTransactionCall.call(
+                                  authorizationToken:
+                                      currentAuthenticationToken,
+                                  amount: _model.textController1.text,
+                                  householdId: _model.dropDownValue1,
+                                  transactionType: _model.dropDownValue3,
+                                  transactionDate:
+                                      _model.datePicked?.toString(),
+                                  category: _model.textController2.text,
+                                  description: _model.textController3.text,
+                                  status: _model.switchValue?.toString(),
+                                  sourceId: _model.dropDownValue2,
+                                  tags: _model.textController4.text,
+                                  image: _model.uploadedLocalFile.height
+                                      ?.toString(),
+                                );
+                                if ((_model.addTransactionOutput?.succeeded ??
+                                    true)) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: const Text('Success!'),
+                                        content: const Text(
+                                            'Successfully added transaction to the ledger'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: const Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  setState(() {
+                                    _model.textController1?.clear();
+                                    _model.textController2?.clear();
+                                    _model.textController3?.clear();
+                                    _model.textController4?.clear();
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: const Text('Error:'),
+                                        content: Text(TppbGroup
+                                            .addTransactionCall
+                                            .message(
+                                          (_model.addTransactionOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: const Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
                                 }
-                                final buttonAddTransactionResponse =
-                                    snapshot.data!;
-                                return FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    '4bisizbg' /* Add Transaction */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    height: 60.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleMediumFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMediumFamily),
-                                        ),
-                                    elevation: 2.0,
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                );
+
+                                setState(() {});
                               },
+                              text: FFLocalizations.of(context).getText(
+                                '4bisizbg' /* Add Transaction */,
+                              ),
+                              options: FFButtonOptions(
+                                height: 60.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMediumFamily),
+                                    ),
+                                elevation: 2.0,
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
                             ),
                           ],
                         ),

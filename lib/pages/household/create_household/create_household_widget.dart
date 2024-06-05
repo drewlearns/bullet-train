@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -5,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_household_model.dart';
 export 'create_household_model.dart';
 
@@ -20,7 +20,6 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
   late CreateHouseholdModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -42,8 +41,6 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'CreateHousehold',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -249,25 +246,14 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                         children: [
                                           FFButtonWidget(
                                             onPressed: () async {
-                                              currentUserLocationValue =
-                                                  await getCurrentUserLocation(
-                                                      defaultLocation:
-                                                          const LatLng(0.0, 0.0));
                                               _model.addHouseholdOutput =
                                                   await TppbGroup
                                                       .addHouseholdCall
                                                       .call(
-                                                authorizationToken: FFAppState()
-                                                    .authorizationToken,
-                                                account: 'Standard',
+                                                authorizationToken:
+                                                    currentAuthenticationToken,
                                                 householdName:
                                                     _model.textController.text,
-                                                customHouseholdNameSuchAsCrew:
-                                                    'Crew',
-                                                ipAddress:
-                                                    currentUserLocationValue
-                                                        ?.toString(),
-                                                deviceDetails: '',
                                               );
                                               if ((_model.addHouseholdOutput
                                                       ?.succeeded ??
@@ -296,6 +282,10 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                     );
                                                   },
                                                 );
+                                                setState(() {
+                                                  _model.textController
+                                                      ?.clear();
+                                                });
                                               } else {
                                                 await showDialog(
                                                   context: context,
@@ -335,6 +325,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                               'xhd4vi2y' /* Create */,
                                             ),
                                             options: FFButtonOptions(
+                                              width: 300.0,
                                               height: 40.0,
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(

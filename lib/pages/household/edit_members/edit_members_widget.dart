@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -8,7 +9,6 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'edit_members_model.dart';
 export 'edit_members_model.dart';
 
@@ -30,7 +30,6 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
   late EditMembersModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -54,8 +53,6 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Edit Members',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -168,8 +165,8 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                                 await TppbGroup
                                                     .getHouseholdMembersCall
                                                     .call(
-                                              authorizationToken: FFAppState()
-                                                  .authorizationToken,
+                                              authorizationToken:
+                                                  currentAuthenticationToken,
                                               householdId: _model.dropDownValue,
                                             );
                                             if ((_model
@@ -579,10 +576,6 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
-                                              currentUserLocationValue =
-                                                  await getCurrentUserLocation(
-                                                      defaultLocation:
-                                                          const LatLng(0.0, 0.0));
                                               var confirmDialogResponse =
                                                   await showDialog<bool>(
                                                         context: context,
@@ -619,8 +612,8 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                                   await TppbGroup
                                                       .deleteMemberFromHouseholdCall
                                                       .call(
-                                                authorizationToken: FFAppState()
-                                                    .authorizationToken,
+                                                authorizationToken:
+                                                    currentAuthenticationToken,
                                                 householdId:
                                                     _model.dropDownValue,
                                                 memberUuid: TppbGroup
@@ -630,10 +623,6 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                                           ?.jsonBody ??
                                                       ''),
                                                 )?[listOfMembersIndex],
-                                                ipAddress:
-                                                    currentUserLocationValue
-                                                        ?.toString(),
-                                                deviceDetails: '',
                                               );
                                               if ((_model
                                                       .deleteMemberFromHouseholdOutput

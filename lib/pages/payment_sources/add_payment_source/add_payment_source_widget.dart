@@ -27,7 +27,6 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
   late AddPaymentSourceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -375,9 +374,6 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                 0.0, 24.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                currentUserLocationValue =
-                                    await getCurrentUserLocation(
-                                        defaultLocation: const LatLng(0.0, 0.0));
                                 _model.apiResult501 =
                                     await TppbGroup.addPaymentSourceCall.call(
                                   authorizationToken:
@@ -386,9 +382,6 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                   sourceName: _model.textController1.text,
                                   sourceType: _model.dropDownValue,
                                   details: _model.textController2.text,
-                                  ipAddress:
-                                      currentUserLocationValue?.toString(),
-                                  deviceDetails: '',
                                 );
                                 if ((_model.apiResult501?.succeeded ?? true)) {
                                   await showDialog(

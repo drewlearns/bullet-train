@@ -217,7 +217,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               _model.forgotPasswordOutput =
-                                  await TppbGroup.forgotPasswordCall.call();
+                                  await TppbGroup.forgotPasswordCall.call(
+                                email: _model.textController.text,
+                              );
                               if ((_model.forgotPasswordOutput?.succeeded ??
                                   true)) {
                                 await showDialog(
@@ -283,7 +285,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                             options: FFButtonOptions(
                               width: 300.0,
                               height: 60.0,
-                              padding: const EdgeInsets.all(24.0),
+                              padding: const EdgeInsets.all(0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,

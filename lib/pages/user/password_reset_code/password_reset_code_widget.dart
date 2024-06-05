@@ -469,7 +469,12 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                       _model.confirmSignupOutput =
                                           await TppbGroup
                                               .confirmPasswordResetCodeCall
-                                              .call();
+                                              .call(
+                                        username: widget.email,
+                                        code: _model.pinCodeController!.text,
+                                        newPassword:
+                                            _model.textController2.text,
+                                      );
                                       if ((_model
                                               .confirmSignupOutput?.succeeded ??
                                           true)) {
@@ -497,7 +502,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                           },
                                         );
 
-                                        context.pushNamed('Signin');
+                                        context.pushNamed('Login');
                                       } else {
                                         await showDialog(
                                           context: context,

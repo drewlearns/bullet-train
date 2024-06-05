@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_transaction_widget.dart' show AddTransactionWidget;
@@ -39,6 +40,9 @@ class AddTransactionModel extends FlutterFlowModel<AddTransactionWidget> {
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Backend Call - API (addTransaction)] action in Button widget.
+  ApiCallResponse? addTransactionOutput;
 
   @override
   void initState(BuildContext context) {}

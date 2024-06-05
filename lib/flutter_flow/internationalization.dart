@@ -105,18 +105,10 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // Signin
+  // Login
   {
     '3o0aopk8': {
       'en': 'Create Account',
-      'es': '',
-    },
-    'qlwdvlx9': {
-      'en': 'Create Account',
-      'es': '',
-    },
-    '575sz4c5': {
-      'en': 'Let\'s get started by filling out the form below.',
       'es': '',
     },
     'szzj6l6s': {
@@ -173,6 +165,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ufx7k0mh': {
       'en': 'Forgot Password?',
+      'es': '',
+    },
+    '5sz8a6gy': {
+      'en': 'Verify Email',
+      'es': '',
+    },
+    'q9229y1u': {
+      'en': 'Disclaimer: The Purple Piggy Bank LLC is not a bank. ',
       'es': '',
     },
     'vtgmm7q4': {
@@ -631,7 +631,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'View Spending Habits',
       'es': '',
     },
-    'pmodmx6j': {
+    'ni2ucw2y': {
+      'en': 'Wallet: ',
+      'es': '',
+    },
+    '89bg5izz': {
       'en': 'Running Total: ',
       'es': '',
     },
@@ -643,11 +647,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Settings
   {
     '4aqkug6y': {
-      'en': 'Edit Profile',
-      'es': '',
-    },
-    'y80indk0': {
-      'en': 'View Security Logs',
+      'en': 'Change Email / Phone number',
       'es': '',
     },
     '8cs5qwjs': {
@@ -672,14 +672,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'c0560gxy': {
       'en': 'Set Threshold',
-      'es': '',
-    },
-    'e1amm7ef': {
-      'en': 'Camera Access',
-      'es': '',
-    },
-    'rlx2bfkx': {
-      'en': 'Location Services',
       'es': '',
     },
     'v9sa2szt': {
@@ -1219,10 +1211,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
-    '2jy10nne': {
-      'en': 'Page Title',
-      'es': '',
-    },
     '2q12y4mj': {
       'en': 'Home',
       'es': '',
@@ -1320,6 +1308,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '57fllogz': {
       'en': 'Please provide Camera access so you can upload receipts',
+      'es': '',
+    },
+    'hqjyswpi': {
+      'en': '',
       'es': '',
     },
     'gqnpf09i': {

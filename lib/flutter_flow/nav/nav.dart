@@ -75,18 +75,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const OnboardingWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const OnboardingWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
         ),
         FFRoute(
-          name: 'Signin',
-          path: '/signin',
-          builder: (context, params) => const SigninWidget(),
+          name: 'Login',
+          path: '/login',
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'ConfirmEmail',
@@ -138,6 +138,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Onboarding',
           path: '/onboarding',
+          requireAuth: true,
           builder: (context, params) => const OnboardingWidget(),
         ),
         FFRoute(
@@ -271,6 +272,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => TransactionDetailsWidget(
             transactionId: params.getParam(
               'transactionId',
+              ParamType.String,
+            ),
+            billId: params.getParam(
+              'billId',
+              ParamType.String,
+            ),
+            incomeId: params.getParam(
+              'incomeId',
+              ParamType.String,
+            ),
+            transaction: params.getParam(
+              'transaction',
               ParamType.String,
             ),
           ),
@@ -462,7 +475,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/onboarding';
+            return '/login';
           }
           return null;
         },
@@ -476,17 +489,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: FlutterFlowTheme.of(context).primary,
+                      child: Image.asset(
+                        'assets/images/DALLE_2024-01-16_08.55.01_-_Depict_an_1800s-style_painting_of_a_human_with_a_pigs_head,_radiating_happiness_and_modernity._The_character,_dressed_in_an_elegant_blend_of_1800s_at.png',
+                        fit: BoxFit.cover,
                       ),
-                    ),
-                  ),
-                )
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;

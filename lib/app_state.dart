@@ -22,15 +22,6 @@ class FFAppState extends ChangeNotifier {
       _email = await secureStorage.getString('ff_email') ?? _email;
     });
     await _safeInitAsync(() async {
-      _authorizationToken =
-          await secureStorage.getString('ff_authorizationToken') ??
-              _authorizationToken;
-    });
-    await _safeInitAsync(() async {
-      _refreshToken =
-          await secureStorage.getString('ff_refreshToken') ?? _refreshToken;
-    });
-    await _safeInitAsync(() async {
       _householdIds =
           await secureStorage.getStringList('ff_householdIds') ?? _householdIds;
     });
@@ -38,17 +29,6 @@ class FFAppState extends ChangeNotifier {
       _defaultHouseholdId =
           await secureStorage.getString('ff_defaultHouseholdId') ??
               _defaultHouseholdId;
-    });
-    await _safeInitAsync(() async {
-      _defaultCurrency = await secureStorage.getString('ff_defaultCurrency') ??
-          _defaultCurrency;
-    });
-    await _safeInitAsync(() async {
-      _phoneNumber =
-          await secureStorage.getString('ff_phoneNumber') ?? _phoneNumber;
-    });
-    await _safeInitAsync(() async {
-      _mailOptIn = await secureStorage.getString('ff_mailOptIn') ?? _mailOptIn;
     });
     await _safeInitAsync(() async {
       _confirmedEmail =
@@ -76,13 +56,20 @@ class FFAppState extends ChangeNotifier {
       _lightmode = await secureStorage.getBool('ff_lightmode') ?? _lightmode;
     });
     await _safeInitAsync(() async {
-      _expiresIn = await secureStorage.getInt('ff_expiresIn') ?? _expiresIn;
-    });
-    await _safeInitAsync(() async {
       _expiresAt = await secureStorage.read(key: 'ff_expiresAt') != null
           ? DateTime.fromMillisecondsSinceEpoch(
               (await secureStorage.getInt('ff_expiresAt'))!)
           : _expiresAt;
+    });
+    await _safeInitAsync(() async {
+      _phoneNumber =
+          await secureStorage.getString('ff_phoneNumber') ?? _phoneNumber;
+    });
+    await _safeInitAsync(() async {
+      _firstName = await secureStorage.getString('ff_firstName') ?? _firstName;
+    });
+    await _safeInitAsync(() async {
+      _lastName = await secureStorage.getString('ff_lastName') ?? _lastName;
     });
   }
 
@@ -93,7 +80,7 @@ class FFAppState extends ChangeNotifier {
 
   late FlutterSecureStorage secureStorage;
 
-  String _email = '';
+  String _email = 'email@example.com';
   String get email => _email;
   set email(String value) {
     _email = value;
@@ -102,28 +89,6 @@ class FFAppState extends ChangeNotifier {
 
   void deleteEmail() {
     secureStorage.delete(key: 'ff_email');
-  }
-
-  String _authorizationToken = '';
-  String get authorizationToken => _authorizationToken;
-  set authorizationToken(String value) {
-    _authorizationToken = value;
-    secureStorage.setString('ff_authorizationToken', value);
-  }
-
-  void deleteAuthorizationToken() {
-    secureStorage.delete(key: 'ff_authorizationToken');
-  }
-
-  String _refreshToken = '';
-  String get refreshToken => _refreshToken;
-  set refreshToken(String value) {
-    _refreshToken = value;
-    secureStorage.setString('ff_refreshToken', value);
-  }
-
-  void deleteRefreshToken() {
-    secureStorage.delete(key: 'ff_refreshToken');
   }
 
   List<String> _householdIds = [];
@@ -174,39 +139,6 @@ class FFAppState extends ChangeNotifier {
 
   void deleteDefaultHouseholdId() {
     secureStorage.delete(key: 'ff_defaultHouseholdId');
-  }
-
-  String _defaultCurrency = '';
-  String get defaultCurrency => _defaultCurrency;
-  set defaultCurrency(String value) {
-    _defaultCurrency = value;
-    secureStorage.setString('ff_defaultCurrency', value);
-  }
-
-  void deleteDefaultCurrency() {
-    secureStorage.delete(key: 'ff_defaultCurrency');
-  }
-
-  String _phoneNumber = '';
-  String get phoneNumber => _phoneNumber;
-  set phoneNumber(String value) {
-    _phoneNumber = value;
-    secureStorage.setString('ff_phoneNumber', value);
-  }
-
-  void deletePhoneNumber() {
-    secureStorage.delete(key: 'ff_phoneNumber');
-  }
-
-  String _mailOptIn = '';
-  String get mailOptIn => _mailOptIn;
-  set mailOptIn(String value) {
-    _mailOptIn = value;
-    secureStorage.setString('ff_mailOptIn', value);
-  }
-
-  void deleteMailOptIn() {
-    secureStorage.delete(key: 'ff_mailOptIn');
   }
 
   bool _confirmedEmail = false;
@@ -275,18 +207,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_lightmode');
   }
 
-  int _expiresIn = 0;
-  int get expiresIn => _expiresIn;
-  set expiresIn(int value) {
-    _expiresIn = value;
-    secureStorage.setInt('ff_expiresIn', value);
-  }
-
-  void deleteExpiresIn() {
-    secureStorage.delete(key: 'ff_expiresIn');
-  }
-
-  DateTime? _expiresAt = DateTime.fromMillisecondsSinceEpoch(1717079520000);
+  DateTime? _expiresAt = DateTime.fromMillisecondsSinceEpoch(1717571100000);
   DateTime? get expiresAt => _expiresAt;
   set expiresAt(DateTime? value) {
     _expiresAt = value;
@@ -297,6 +218,45 @@ class FFAppState extends ChangeNotifier {
 
   void deleteExpiresAt() {
     secureStorage.delete(key: 'ff_expiresAt');
+  }
+
+  String _phoneNumber = '';
+  String get phoneNumber => _phoneNumber;
+  set phoneNumber(String value) {
+    _phoneNumber = value;
+    secureStorage.setString('ff_phoneNumber', value);
+  }
+
+  void deletePhoneNumber() {
+    secureStorage.delete(key: 'ff_phoneNumber');
+  }
+
+  int _expiresIn = 3600;
+  int get expiresIn => _expiresIn;
+  set expiresIn(int value) {
+    _expiresIn = value;
+  }
+
+  String _firstName = '';
+  String get firstName => _firstName;
+  set firstName(String value) {
+    _firstName = value;
+    secureStorage.setString('ff_firstName', value);
+  }
+
+  void deleteFirstName() {
+    secureStorage.delete(key: 'ff_firstName');
+  }
+
+  String _lastName = '';
+  String get lastName => _lastName;
+  set lastName(String value) {
+    _lastName = value;
+    secureStorage.setString('ff_lastName', value);
+  }
+
+  void deleteLastName() {
+    secureStorage.delete(key: 'ff_lastName');
   }
 }
 

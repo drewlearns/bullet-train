@@ -7,18 +7,22 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<void> updateExpiresAtAction(BuildContext context) async {
-  // Fetching the expiresIn value from the app state
-  final int expiresIn = FFAppState().expiresIn;
+Future updateExpiresAtAction(BuildContext context) async {
+  // Retrieve the expiresIn value from the appState
+  final expiresIn = FFAppState().expiresIn;
 
-  // Getting the current time
+  // Get the current time
   final DateTime currentTime = DateTime.now();
 
-  // Adding expiresIn to the current time
-  final DateTime expiresAt = currentTime.add(Duration(seconds: expiresIn));
+  // Subtract 100 seconds from the current time
+  final DateTime adjustedTime = currentTime.subtract(Duration(seconds: 100));
 
-  // Updating the app state with the new expiresAt value
-  FFAppState().update(() {
-    FFAppState().expiresAt = expiresAt;
-  });
+  // Add the expiresIn value to the adjusted time
+  final DateTime expiresAt = adjustedTime.add(Duration(seconds: expiresIn));
+
+  // Print or return the calculated expiresAt time
+  print('Expires At: $expiresAt');
+
+  // Update appState or perform further actions as needed
+  FFAppState().expiresAt = expiresAt;
 }

@@ -21,15 +21,12 @@ class _LedgerWidgetState extends State<LedgerWidget> {
   late LedgerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => LedgerModel());
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -42,23 +39,6 @@ class _LedgerWidgetState extends State<LedgerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                FlutterFlowTheme.of(context).primary,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
     return Title(
         title: 'Ledger',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -150,11 +130,6 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   .call(
                                                 authorizationToken:
                                                     currentAuthenticationToken,
-                                                ipAddress:
-                                                    currentUserLocationValue
-                                                        ?.toString(),
-                                                deviceDetails: '',
-                                                page: 1,
                                               ),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
@@ -361,10 +336,6 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                     future: TppbGroup.getLedgerCall.call(
                       authorizationToken: currentAuthenticationToken,
                       householdId: _model.dropDownValue,
-                      month: 5,
-                      year: 2024,
-                      ipAddress: currentUserLocationValue?.toString(),
-                      deviceDetails: '',
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -385,7 +356,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                       return Builder(
                         builder: (context) {
                           final ledgerEntries = TppbGroup.getLedgerCall
-                                  .entries(
+                                  .ledgerEntriesList(
                                     listViewGetLedgerResponse.jsonBody,
                                   )
                                   ?.map((e) => e)
@@ -394,7 +365,6 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                               [];
                           return ListView.builder(
                             padding: EdgeInsets.zero,
-                            shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: ledgerEntries.length,
                             itemBuilder: (context, ledgerEntriesIndex) {
@@ -426,30 +396,88 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    FlutterFlowIconButton(
-                                                      borderColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
-                                                      borderRadius: 20.0,
-                                                      borderWidth: 1.0,
-                                                      buttonSize: 40.0,
-                                                      fillColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryBackground,
-                                                      icon: Icon(
-                                                        Icons.add,
-                                                        color:
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                        size: 24.0,
+                                                                .alternate,
+                                                        borderRadius: 20.0,
+                                                        borderWidth: 1.0,
+                                                        buttonSize: 40.0,
+                                                        fillColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBackground,
+                                                        icon: Icon(
+                                                          FFIcons.kpiggyBank,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 24.0,
+                                                        ),
+                                                        onPressed: () async {
+                                                          context.pushNamed(
+                                                            'TransactionDetails',
+                                                            queryParameters: {
+                                                              'transactionId':
+                                                                  serializeParam(
+                                                                TppbGroup
+                                                                    .getLedgerCall
+                                                                    .transactionId(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex],
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'billId':
+                                                                  serializeParam(
+                                                                (TppbGroup
+                                                                        .getLedgerCall
+                                                                        .billId(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex])
+                                                                    ?.toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'incomeId':
+                                                                  serializeParam(
+                                                                (TppbGroup
+                                                                        .getLedgerCall
+                                                                        .incomeId(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex])
+                                                                    ?.toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'transaction':
+                                                                  serializeParam(
+                                                                TppbGroup
+                                                                    .getLedgerCall
+                                                                    .description(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex],
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        },
                                                       ),
-                                                      onPressed: () {
-                                                        print(
-                                                            'IconButton pressed ...');
-                                                      },
                                                     ),
                                                   ],
                                                 ),
@@ -486,10 +514,15 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                       .jsonBody,
                                                                 )?[ledgerEntriesIndex],
                                                                 'N/A',
+                                                              ).maybeHandleOverflow(
+                                                                maxChars: 30,
+                                                                replacement:
+                                                                    '…',
                                                               ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .start,
+                                                              maxLines: 1,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .labelLarge
@@ -505,6 +538,59 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                             FlutterFlowTheme.of(context).labelLargeFamily),
                                                                   ),
                                                             ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'ni2ucw2y' /* Wallet:  */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    TppbGroup
+                                                                        .getLedgerCall
+                                                                        .paymentSourceSourceName(
+                                                                      listViewGetLedgerResponse
+                                                                          .jsonBody,
+                                                                    )?[ledgerEntriesIndex],
+                                                                    'N/A',
+                                                                  ).maybeHandleOverflow(
+                                                                    maxChars:
+                                                                        16,
+                                                                    replacement:
+                                                                        '…',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -515,7 +601,8 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                       .jsonBody,
                                                                 )?[ledgerEntriesIndex],
                                                                 'N/A',
-                                                              ),
+                                                              ).maybeHandleOverflow(
+                                                                  maxChars: 10),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -534,41 +621,86 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                           ],
                                                         ),
                                                       ),
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          (TppbGroup
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                (TppbGroup
+                                                                        .getLedgerCall
+                                                                        .amount(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex])
+                                                                    ?.toString(),
+                                                                'N/A',
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .start,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              TppbGroup
                                                                   .getLedgerCall
-                                                                  .amount(
-                                                            listViewGetLedgerResponse
-                                                                .jsonBody,
-                                                          )?[ledgerEntriesIndex])
-                                                              ?.toString(),
-                                                          'N/A',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge
+                                                                  .transactionType(
+                                                                listViewGetLedgerResponse
+                                                                    .jsonBody,
+                                                              )?[ledgerEntriesIndex],
+                                                              'N/A',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLargeFamily,
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily),
+                                                                              .bodyMediumFamily),
                                                                 ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
@@ -580,38 +712,11 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                   .fromSTEB(0.0, 0.0, 8.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.end,
                                                 children: [
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      TppbGroup.getLedgerCall
-                                                          .transactionType(
-                                                        listViewGetLedgerResponse
-                                                            .jsonBody,
-                                                      )?[ledgerEntriesIndex],
-                                                      'N/A',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
-                                                  ),
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -622,7 +727,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'pmodmx6j' /* Running Total:  */,
+                                                          '89bg5izz' /* Running Total:  */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(

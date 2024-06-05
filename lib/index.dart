@@ -1,5 +1,5 @@
 // Export pages
-export '/pages/user/signin/signin_widget.dart' show SigninWidget;
+export '/pages/user/login/login_widget.dart' show LoginWidget;
 export '/pages/user/confirm_email/confirm_email_widget.dart'
     show ConfirmEmailWidget;
 export '/pages/user/forgot_password/forgot_password_widget.dart'

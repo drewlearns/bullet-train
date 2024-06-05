@@ -265,7 +265,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                     8.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    context.pushNamed('Signin');
+                                    context.pushNamed('Login');
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'otv926su' /* Login */,

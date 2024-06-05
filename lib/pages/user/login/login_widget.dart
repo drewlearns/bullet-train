@@ -1,7 +1,9 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,29 +14,28 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'signin_model.dart';
-export 'signin_model.dart';
+import 'login_model.dart';
+export 'login_model.dart';
 
-class SigninWidget extends StatefulWidget {
-  const SigninWidget({super.key});
+class LoginWidget extends StatefulWidget {
+  const LoginWidget({super.key});
 
   @override
-  State<SigninWidget> createState() => _SigninWidgetState();
+  State<LoginWidget> createState() => _LoginWidgetState();
 }
 
-class _SigninWidgetState extends State<SigninWidget>
+class _LoginWidgetState extends State<LoginWidget>
     with TickerProviderStateMixin {
-  late SigninModel _model;
+  late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SigninModel());
+    _model = createModel(context, () => LoginModel());
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -154,30 +155,64 @@ class _SigninWidgetState extends State<SigninWidget>
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(50.0),
+              preferredSize: const Size.fromHeight(100.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 actions: const [],
                 flexibleSpace: FlexibleSpaceBar(
                   background: Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: SvgPicture.asset(
-                          'assets/images/app-banner.svg',
-                          height: 300.0,
-                          fit: BoxFit.contain,
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Semantics(
+                      label:
+                          'Application Banner \"The Purple Piggy Bank\" in white letters with Logo of a pig wearing a monocle to its left.',
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: FlutterFlowExpandedImageView(
+                                image: SvgPicture.asset(
+                                  'assets/images/app-banner.svg',
+                                  fit: BoxFit.contain,
+                                  alignment: const Alignment(0.0, 0.0),
+                                ),
+                                allowRotation: false,
+                                tag: 'imageTag',
+                                useHeroAnimation: true,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Hero(
+                          tag: 'imageTag',
+                          transitionOnUserGestures: true,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12.0),
+                            child: SvgPicture.asset(
+                              'assets/images/app-banner.svg',
+                              height: 300.0,
+                              fit: BoxFit.contain,
+                              alignment: const Alignment(0.0, 0.0),
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(70.0),
+                  child: Container(),
+                ),
                 centerTitle: true,
-                elevation: 0.0,
+                toolbarHeight: 100.0,
+                elevation: 5.0,
               ),
             ),
             body: SafeArea(
@@ -272,10 +307,13 @@ class _SigninWidgetState extends State<SigninWidget>
                                           ),
                                         ),
                                       ),
-                                      Tab(
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'g4xt8jzj' /* Log In */,
+                                      Semantics(
+                                        label: 'Login',
+                                        child: Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'g4xt8jzj' /* Log In */,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -316,57 +354,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                           .secondaryBackground,
                                                     ),
                                                   ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'qlwdvlx9' /* Create Account */,
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineMediumFamily),
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 24.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '575sz4c5' /* Let's get started by filling o... */,
-                                                    ),
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily),
-                                                        ),
-                                                  ),
-                                                ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1018,7 +1005,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                       SwitchListTile.adaptive(
                                                     value: _model
                                                             .mailOptInValue ??=
-                                                        true,
+                                                        false,
                                                     onChanged:
                                                         (newValue) async {
                                                       setState(() => _model
@@ -1077,11 +1064,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 0.0, 16.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        currentUserLocationValue =
-                                                            await getCurrentUserLocation(
-                                                                defaultLocation:
-                                                                    const LatLng(0.0,
-                                                                        0.0));
                                                         _model.signUpOutput =
                                                             await TppbGroup
                                                                 .addUserCall
@@ -1107,14 +1089,33 @@ class _SigninWidgetState extends State<SigninWidget>
                                                           lastName: _model
                                                               .lastNameTextController
                                                               .text,
-                                                          ipAddress:
-                                                              currentUserLocationValue
-                                                                  ?.toString(),
-                                                          deviceDetails: '',
                                                         );
                                                         if ((_model.signUpOutput
                                                                 ?.succeeded ??
                                                             true)) {
+                                                          FFAppState().email =
+                                                              _model
+                                                                  .emailSignUpTextController
+                                                                  .text;
+                                                          FFAppState()
+                                                                  .confirmedEmail =
+                                                              false;
+                                                          FFAppState()
+                                                                  .phoneNumber =
+                                                              _model
+                                                                  .phoneNumberTextController
+                                                                  .text;
+                                                          FFAppState()
+                                                                  .firstName =
+                                                              _model
+                                                                  .firstNameTextController
+                                                                  .text;
+                                                          FFAppState()
+                                                                  .lastName =
+                                                              _model
+                                                                  .lastNameTextController
+                                                                  .text;
+
                                                           context.pushNamed(
                                                             'ConfirmEmail',
                                                             queryParameters: {
@@ -1151,13 +1152,11 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 title: const Text(
                                                                     'Error'),
                                                                 content: Text(
-                                                                    TppbGroup
-                                                                        .addUserCall
-                                                                        .message(
+                                                                    'Be sure that you put in a country code for your phone number! Error: ${TppbGroup.addUserCall.message(
                                                                   (_model.signUpOutput
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )!),
+                                                                )}'),
                                                                 actions: [
                                                                   TextButton(
                                                                     onPressed: () =>
@@ -1425,9 +1424,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                         fillColor: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        contentPadding:
-                                                            const EdgeInsets.all(
-                                                                24.0),
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1572,13 +1568,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                         fillColor: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        contentPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0),
                                                         suffixIcon: InkWell(
                                                           onTap: () => setState(
                                                             () => _model
@@ -1639,11 +1628,6 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 0.0, 16.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        currentUserLocationValue =
-                                                            await getCurrentUserLocation(
-                                                                defaultLocation:
-                                                                    const LatLng(0.0,
-                                                                        0.0));
                                                         Function() navigate =
                                                             () {};
                                                         _model.loginOutput =
@@ -1656,47 +1640,10 @@ class _SigninWidgetState extends State<SigninWidget>
                                                           password: _model
                                                               .passwordSigninTextController
                                                               .text,
-                                                          ipAddress:
-                                                              currentUserLocationValue
-                                                                  ?.toString(),
-                                                          deviceDetails: '',
-                                                          locationDetails:
-                                                              currentUserLocationValue
-                                                                  ?.toString(),
                                                         );
                                                         if ((_model.loginOutput
                                                                 ?.succeeded ??
                                                             true)) {
-                                                          FFAppState().email =
-                                                              FFAppState()
-                                                                  .email;
-                                                          FFAppState()
-                                                                  .authorizationToken =
-                                                              TppbGroup
-                                                                  .loginCall
-                                                                  .accessToken(
-                                                            (_model.loginOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!;
-                                                          FFAppState()
-                                                                  .refreshToken =
-                                                              TppbGroup
-                                                                  .loginCall
-                                                                  .refreshToken(
-                                                            (_model.loginOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!;
-                                                          FFAppState()
-                                                                  .expiresIn =
-                                                              TppbGroup
-                                                                  .loginCall
-                                                                  .expiresIn(
-                                                            (_model.loginOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!;
                                                           await actions
                                                               .updateExpiresAtAction(
                                                             context,
@@ -1706,17 +1653,63 @@ class _SigninWidgetState extends State<SigninWidget>
                                                           await authManager
                                                               .signIn(
                                                             authenticationToken:
-                                                                FFAppState()
-                                                                    .authorizationToken,
+                                                                TppbGroup
+                                                                    .loginCall
+                                                                    .accessToken(
+                                                              (_model.loginOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
                                                             refreshToken:
-                                                                FFAppState()
-                                                                    .refreshToken,
+                                                                TppbGroup
+                                                                    .loginCall
+                                                                    .refreshToken(
+                                                              (_model.loginOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
                                                             tokenExpiration:
                                                                 FFAppState()
                                                                     .expiresAt,
-                                                            authUid:
-                                                                FFAppState()
-                                                                    .email,
+                                                            authUid: _model
+                                                                .emailAddressSignInTextController
+                                                                .text,
+                                                            userData:
+                                                                UserStruct(
+                                                              accessToken:
+                                                                  TppbGroup
+                                                                      .loginCall
+                                                                      .accessToken(
+                                                                (_model.loginOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
+                                                              expiresIn:
+                                                                  TppbGroup
+                                                                      .loginCall
+                                                                      .expiresIn(
+                                                                (_model.loginOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
+                                                              idToken: TppbGroup
+                                                                  .loginCall
+                                                                  .idToken(
+                                                                (_model.loginOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
+                                                              refreshToken:
+                                                                  TppbGroup
+                                                                      .loginCall
+                                                                      .refreshToken(
+                                                                (_model.loginOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
+                                                              tokenType:
+                                                                  'Bearer',
+                                                            ),
                                                           );
                                                           navigate = () =>
                                                               context.goNamedAuth(
@@ -1731,8 +1724,12 @@ class _SigninWidgetState extends State<SigninWidget>
                                                               return AlertDialog(
                                                                 title: const Text(
                                                                     'Error'),
-                                                                content: const Text(
-                                                                    'Failed to Log In, check your username and password.'),
+                                                                content: Text(
+                                                                    'Failed to log In. Check Your Username and Password and try again. ${TppbGroup.loginCall.message(
+                                                                  (_model.loginOutput
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}'),
                                                                 actions: [
                                                                   TextButton(
                                                                     onPressed: () =>
@@ -1817,77 +1814,180 @@ class _SigninWidgetState extends State<SigninWidget>
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 16.0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () async {
-                                                        context.pushNamed(
-                                                          'ForgotPassword',
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                const TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .bottomToTop,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      30),
-                                                            ),
-                                                          },
-                                                        );
-                                                      },
-                                                      text: FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'ufx7k0mh' /* Forgot Password? */,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        height: 44.0,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    32.0,
-                                                                    0.0,
-                                                                    32.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
+                                                    child: Semantics(
+                                                      label: 'Forgot Password',
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          context.pushNamed(
+                                                            'ForgotPassword',
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              kTransitionInfoKey:
+                                                                  const TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .bottomToTop,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        30),
+                                                              ),
+                                                            },
+                                                          );
+                                                        },
+                                                        text:
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
+                                                                .getText(
+                                                          'ufx7k0mh' /* Forgot Password? */,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          height: 44.0,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      32.0,
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                        elevation: 0.0,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(40.0),
-                                                        hoverColor:
-                                                            FlutterFlowTheme.of(
+                                                                      32.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      40.0),
+                                                          hoverColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryBackground,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
+                                                    child: Semantics(
+                                                      label: 'Verify Email',
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          context.pushNamed(
+                                                            'ConfirmEmail',
+                                                            queryParameters: {
+                                                              'email':
+                                                                  serializeParam(
+                                                                FFAppState()
+                                                                    .email,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              kTransitionInfoKey:
+                                                                  const TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .bottomToTop,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        30),
+                                                              ),
+                                                            },
+                                                          );
+                                                        },
+                                                        text:
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .primaryBackground,
+                                                                .getText(
+                                                          '5sz8a6gy' /* Verify Email */,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          height: 44.0,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      32.0,
+                                                                      0.0,
+                                                                      32.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      40.0),
+                                                          hoverColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryBackground,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1908,6 +2008,19 @@ class _SigninWidgetState extends State<SigninWidget>
                             animationsMap['containerOnPageLoadAnimation']!),
                       ),
                     ),
+                  ),
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      'q9229y1u' /* Disclaimer: The Purple Piggy B... */,
+                    ),
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                        ),
                   ),
                 ],
               ),

@@ -7,100 +7,117 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UserStruct extends BaseStruct {
   UserStruct({
-    String? uid,
-    String? displayName,
-    String? createTime,
-    List<String>? ledgerDescription,
-  })  : _uid = uid,
-        _displayName = displayName,
-        _createTime = createTime,
-        _ledgerDescription = ledgerDescription;
+    String? accessToken,
+    int? expiresIn,
+    String? idToken,
+    String? refreshToken,
+    String? tokenType,
+  })  : _accessToken = accessToken,
+        _expiresIn = expiresIn,
+        _idToken = idToken,
+        _refreshToken = refreshToken,
+        _tokenType = tokenType;
 
-  // "uid" field.
-  String? _uid;
-  String get uid => _uid ?? '';
-  set uid(String? val) => _uid = val;
-  bool hasUid() => _uid != null;
+  // "AccessToken" field.
+  String? _accessToken;
+  String get accessToken => _accessToken ?? '';
+  set accessToken(String? val) => _accessToken = val;
+  bool hasAccessToken() => _accessToken != null;
 
-  // "display_name" field.
-  String? _displayName;
-  String get displayName => _displayName ?? '';
-  set displayName(String? val) => _displayName = val;
-  bool hasDisplayName() => _displayName != null;
+  // "ExpiresIn" field.
+  int? _expiresIn;
+  int get expiresIn => _expiresIn ?? 3600;
+  set expiresIn(int? val) => _expiresIn = val;
+  void incrementExpiresIn(int amount) => _expiresIn = expiresIn + amount;
+  bool hasExpiresIn() => _expiresIn != null;
 
-  // "create_time" field.
-  String? _createTime;
-  String get createTime => _createTime ?? '';
-  set createTime(String? val) => _createTime = val;
-  bool hasCreateTime() => _createTime != null;
+  // "IdToken" field.
+  String? _idToken;
+  String get idToken => _idToken ?? '';
+  set idToken(String? val) => _idToken = val;
+  bool hasIdToken() => _idToken != null;
 
-  // "ledgerDescription" field.
-  List<String>? _ledgerDescription;
-  List<String> get ledgerDescription => _ledgerDescription ?? const [];
-  set ledgerDescription(List<String>? val) => _ledgerDescription = val;
-  void updateLedgerDescription(Function(List<String>) updateFn) =>
-      updateFn(_ledgerDescription ??= []);
-  bool hasLedgerDescription() => _ledgerDescription != null;
+  // "RefreshToken" field.
+  String? _refreshToken;
+  String get refreshToken => _refreshToken ?? '';
+  set refreshToken(String? val) => _refreshToken = val;
+  bool hasRefreshToken() => _refreshToken != null;
+
+  // "TokenType" field.
+  String? _tokenType;
+  String get tokenType => _tokenType ?? 'Bearer';
+  set tokenType(String? val) => _tokenType = val;
+  bool hasTokenType() => _tokenType != null;
 
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(
-        uid: data['uid'] as String?,
-        displayName: data['display_name'] as String?,
-        createTime: data['create_time'] as String?,
-        ledgerDescription: getDataList(data['ledgerDescription']),
+        accessToken: data['AccessToken'] as String?,
+        expiresIn: castToType<int>(data['ExpiresIn']),
+        idToken: data['IdToken'] as String?,
+        refreshToken: data['RefreshToken'] as String?,
+        tokenType: data['TokenType'] as String?,
       );
 
   static UserStruct? maybeFromMap(dynamic data) =>
       data is Map ? UserStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'uid': _uid,
-        'display_name': _displayName,
-        'create_time': _createTime,
-        'ledgerDescription': _ledgerDescription,
+        'AccessToken': _accessToken,
+        'ExpiresIn': _expiresIn,
+        'IdToken': _idToken,
+        'RefreshToken': _refreshToken,
+        'TokenType': _tokenType,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'uid': serializeParam(
-          _uid,
+        'AccessToken': serializeParam(
+          _accessToken,
           ParamType.String,
         ),
-        'display_name': serializeParam(
-          _displayName,
+        'ExpiresIn': serializeParam(
+          _expiresIn,
+          ParamType.int,
+        ),
+        'IdToken': serializeParam(
+          _idToken,
           ParamType.String,
         ),
-        'create_time': serializeParam(
-          _createTime,
+        'RefreshToken': serializeParam(
+          _refreshToken,
           ParamType.String,
         ),
-        'ledgerDescription': serializeParam(
-          _ledgerDescription,
+        'TokenType': serializeParam(
+          _tokenType,
           ParamType.String,
-          true,
         ),
       }.withoutNulls;
 
   static UserStruct fromSerializableMap(Map<String, dynamic> data) =>
       UserStruct(
-        uid: deserializeParam(
-          data['uid'],
+        accessToken: deserializeParam(
+          data['AccessToken'],
           ParamType.String,
           false,
         ),
-        displayName: deserializeParam(
-          data['display_name'],
+        expiresIn: deserializeParam(
+          data['ExpiresIn'],
+          ParamType.int,
+          false,
+        ),
+        idToken: deserializeParam(
+          data['IdToken'],
           ParamType.String,
           false,
         ),
-        createTime: deserializeParam(
-          data['create_time'],
+        refreshToken: deserializeParam(
+          data['RefreshToken'],
           ParamType.String,
           false,
         ),
-        ledgerDescription: deserializeParam<String>(
-          data['ledgerDescription'],
+        tokenType: deserializeParam(
+          data['TokenType'],
           ParamType.String,
-          true,
+          false,
         ),
       );
 
@@ -109,26 +126,30 @@ class UserStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
-    const listEquality = ListEquality();
     return other is UserStruct &&
-        uid == other.uid &&
-        displayName == other.displayName &&
-        createTime == other.createTime &&
-        listEquality.equals(ledgerDescription, other.ledgerDescription);
+        accessToken == other.accessToken &&
+        expiresIn == other.expiresIn &&
+        idToken == other.idToken &&
+        refreshToken == other.refreshToken &&
+        tokenType == other.tokenType;
   }
 
   @override
   int get hashCode => const ListEquality()
-      .hash([uid, displayName, createTime, ledgerDescription]);
+      .hash([accessToken, expiresIn, idToken, refreshToken, tokenType]);
 }
 
 UserStruct createUserStruct({
-  String? uid,
-  String? displayName,
-  String? createTime,
+  String? accessToken,
+  int? expiresIn,
+  String? idToken,
+  String? refreshToken,
+  String? tokenType,
 }) =>
     UserStruct(
-      uid: uid,
-      displayName: displayName,
-      createTime: createTime,
+      accessToken: accessToken,
+      expiresIn: expiresIn,
+      idToken: idToken,
+      refreshToken: refreshToken,
+      tokenType: tokenType,
     );

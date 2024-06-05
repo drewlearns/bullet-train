@@ -1,10 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/globall_widgets/passwordfield/passwordfield_widget.dart';
-import 'signin_widget.dart' show SigninWidget;
+import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
 
-class SigninModel extends FlutterFlowModel<SigninWidget> {
+class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

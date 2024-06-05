@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,7 +21,6 @@ class _EditUserWidgetState extends State<EditUserWidget> {
   late EditUserModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -341,9 +341,6 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              currentUserLocationValue =
-                                  await getCurrentUserLocation(
-                                      defaultLocation: const LatLng(0.0, 0.0));
                               var confirmDialogResponse =
                                   await showDialog<bool>(
                                         context: context,
@@ -370,16 +367,16 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                       false;
                               _model.apiResultc5j =
                                   await TppbGroup.editUserCall.call(
-                                authorizationToken:
-                                    FFAppState().authorizationToken,
+                                authorizationToken: currentAuthenticationToken,
                                 newUsername: _model.textController1.text,
                                 phoneNumber:
                                     _model.phoneNumberTextController.text,
                                 email: FFAppState().email,
-                                ipAddress: currentUserLocationValue?.toString(),
-                                deviceDetails: '',
                               );
                               if ((_model.apiResultc5j?.succeeded ?? true)) {
+                                FFAppState().phoneNumber =
+                                    _model.phoneNumberTextController.text;
+                                setState(() {});
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {

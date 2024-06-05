@@ -23,7 +23,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
   late AcceptInviteModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -882,9 +881,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    currentUserLocationValue =
-                                        await getCurrentUserLocation(
-                                            defaultLocation: const LatLng(0.0, 0.0));
                                     _model.signUpOutput =
                                         await TppbGroup.addUserCall.call(
                                       username: _model
@@ -900,9 +896,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           _model.firstNameTextController.text,
                                       lastName:
                                           _model.lastNameTextController.text,
-                                      ipAddress:
-                                          currentUserLocationValue?.toString(),
-                                      deviceDetails: '',
                                     );
                                     if ((_model.signUpOutput?.succeeded ??
                                         true)) {
