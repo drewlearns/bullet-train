@@ -286,6 +286,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'transaction',
               ParamType.String,
             ),
+            type: params.getParam(
+              'type',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(

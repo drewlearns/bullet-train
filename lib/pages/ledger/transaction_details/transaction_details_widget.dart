@@ -13,16 +13,22 @@ export 'transaction_details_model.dart';
 class TransactionDetailsWidget extends StatefulWidget {
   const TransactionDetailsWidget({
     super.key,
-    required this.transactionId,
-    required this.billId,
-    required this.incomeId,
-    required this.transaction,
-  });
+    String? transactionId,
+    String? billId,
+    String? incomeId,
+    String? transaction,
+    String? type,
+  })  : transactionId = transactionId ?? 'null',
+        billId = billId ?? 'null',
+        incomeId = incomeId ?? 'null',
+        transaction = transaction ?? 'null',
+        type = type ?? 'transaction';
 
-  final String? transactionId;
-  final String? billId;
-  final String? incomeId;
-  final String? transaction;
+  final String transactionId;
+  final String billId;
+  final String incomeId;
+  final String transaction;
+  final String type;
 
   @override
   State<TransactionDetailsWidget> createState() =>
@@ -41,20 +47,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if ((widget.transactionId != '') && (widget.transactionId != 'null')) {
+      if (widget.type == 'transaction') {
         _model.getTransactionOutput = await TppbGroup.getTransactionCall.call(
           authorizationToken: currentAuthenticationToken,
           transactionId: widget.transactionId,
         );
-        if ((_model.getTransactionOutput?.succeeded ?? true) == false) {
+        if ((_model.getTransactionOutput?.succeeded ?? true)) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Success'),
-                content: Text(TppbGroup.getTransactionCall.message(
-                  (_model.getTransactionOutput?.jsonBody ?? ''),
-                )!),
+                title: const Text('Test Successful!'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
@@ -78,11 +81,10 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
               context: context,
               builder: (alertDialogContext) {
                 return AlertDialog(
-                  title: const Text('Error'),
-                  content: Text(
-                      'There was an error getting the attachment for this transaction. ${TppbGroup.getFilePathCall.message(
+                  title: const Text('Error:'),
+                  content: Text(TppbGroup.getFilePathCall.message(
                     (_model.getFilePathOutput?.jsonBody ?? ''),
-                  )}'),
+                  )!),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(alertDialogContext),
@@ -98,10 +100,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Error'),
-                content: Text(TppbGroup.getTransactionCall.message(
-                  (_model.getTransactionOutput?.jsonBody ?? ''),
-                )!),
+                title: const Text('Error:'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(alertDialogContext),
@@ -112,17 +111,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             },
           );
         }
-      } else if ((widget.billId != '') && (widget.billId != 'null')) {
+      } else if (widget.type == 'bill') {
         _model.getBillOutput = await TppbGroup.getBillCall.call(
           authorizationToken: currentAuthenticationToken,
           billId: widget.billId,
         );
-        if ((_model.getBillOutput?.succeeded ?? true) == false) {
+        if ((_model.getBillOutput?.succeeded ?? true)) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Success'),
+                title: const Text('Test Successful!'),
                 content: Text(TppbGroup.getBillCall.message(
                   (_model.getBillOutput?.jsonBody ?? ''),
                 )!),
@@ -140,7 +139,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Error'),
+                title: const Text('Error:'),
                 content: Text(TppbGroup.getBillCall.message(
                   (_model.getBillOutput?.jsonBody ?? ''),
                 )!),
@@ -154,17 +153,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             },
           );
         }
-      } else if ((widget.incomeId != '') && (widget.incomeId != 'null')) {
+      } else if (widget.type == 'income') {
         _model.getIncomeOutput = await TppbGroup.getIncomeCall.call(
-          authorizationToken: currentAuthenticationToken,
+          authorizationToken: currentUserData?.accessToken,
           incomeId: widget.incomeId,
         );
-        if ((_model.getIncomeOutput?.succeeded ?? true) == false) {
+        if ((_model.getIncomeOutput?.succeeded ?? true)) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Success!'),
+                title: const Text('Test Successful!'),
                 content: Text(TppbGroup.getIncomeCall.message(
                   (_model.getIncomeOutput?.jsonBody ?? ''),
                 )!),
@@ -182,7 +181,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             context: context,
             builder: (alertDialogContext) {
               return AlertDialog(
-                title: const Text('Error'),
+                title: const Text('Error:'),
                 content: Text(TppbGroup.getIncomeCall.message(
                   (_model.getIncomeOutput?.jsonBody ?? ''),
                 )!),
@@ -201,9 +200,9 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
           context: context,
           builder: (alertDialogContext) {
             return AlertDialog(
-              title: const Text('Ope, something went terribly wrong'),
+              title: const Text('Ope, something went terribly wrong!'),
               content: const Text(
-                  'This transaction is neither a transaction, a bill, or an income.'),
+                  'The transaction type doesn\'t exist for this entry. Please contact support for help.'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
@@ -296,49 +295,40 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (TppbGroup.getFilePathCall.url(
-                              (_model.getFilePathOutput?.jsonBody ?? ''),
-                            ) !=
-                            null &&
-                        TppbGroup.getFilePathCall.url(
-                              (_model.getFilePathOutput?.jsonBody ?? ''),
-                            ) !=
-                            '')
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            TppbGroup.getFilePathCall.url(
-                              (_model.getFilePathOutput?.jsonBody ?? ''),
-                            )!,
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network(
+                          TppbGroup.getFilePathCall.url(
+                            (_model.getFilePathOutput?.jsonBody ?? ''),
+                          )!,
+                          width: 300.0,
+                          height: 200.0,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            'assets/images/error_image.webp',
                             width: 300.0,
                             height: 200.0,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                    if (TppbGroup.getFilePathCall.url(
-                              (_model.getFilePathOutput?.jsonBody ?? ''),
-                            ) !=
-                            null &&
-                        TppbGroup.getFilePathCall.url(
-                              (_model.getFilePathOutput?.jsonBody ?? ''),
-                            ) !=
-                            '')
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          '4y9mnn2i' /* Link to Receipt Image is copie... */,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
-                            ),
+                    ),
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        '4y9mnn2i' /* Link to Receipt Image is copie... */,
                       ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            fontSize: 10.0,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                          ),
+                    ),
                   ],
                 ),
               ),

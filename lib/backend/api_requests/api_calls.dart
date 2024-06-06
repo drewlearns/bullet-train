@@ -2576,6 +2576,15 @@ class GetLedgerCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? type(dynamic response) => (getJsonField(
+        response,
+        r'''$.ledgerEntries[:].type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLedgerEntryCall {
