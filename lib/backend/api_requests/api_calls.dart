@@ -2415,13 +2415,13 @@ class GetLedgerCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  List<int>? amount(dynamic response) => (getJsonField(
+  List<double>? amount(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].amount''',
         true,
       ) as List?)
           ?.withoutNulls
-          .map((x) => castToType<int>(x))
+          .map((x) => castToType<double>(x))
           .withoutNulls
           .toList();
   List<String>? transactionType(dynamic response) => (getJsonField(
@@ -2506,13 +2506,13 @@ class GetLedgerCall {
         r'''$.ledgerEntries[:].incomeId''',
         true,
       ) as List?;
-  List<int>? runningTotal(dynamic response) => (getJsonField(
+  List<double>? runningTotal(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].runningTotal''',
         true,
       ) as List?)
           ?.withoutNulls
-          .map((x) => castToType<int>(x))
+          .map((x) => castToType<double>(x))
           .withoutNulls
           .toList();
   List? interestRate(dynamic response) => getJsonField(
@@ -2525,11 +2525,15 @@ class GetLedgerCall {
         r'''$.ledgerEntries[:].cashBack''',
         true,
       ) as List?;
-  List? tags(dynamic response) => getJsonField(
+  List<String>? tags(dynamic response) => (getJsonField(
         response,
         r'''$.ledgerEntries[:].tags''',
         true,
-      ) as List?;
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List? bill(dynamic response) => getJsonField(
         response,
         r'''$.ledgerEntries[:].bill''',
