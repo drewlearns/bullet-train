@@ -10,6 +10,8 @@ class TransactionDetailsModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getTransaction)] action in TransactionDetails widget.
   ApiCallResponse? getTransactionOutput;
+  // Stores action output result for [Backend Call - API (getFilePath)] action in TransactionDetails widget.
+  ApiCallResponse? getFilePathOutput;
   // Stores action output result for [Backend Call - API (getBill)] action in TransactionDetails widget.
   ApiCallResponse? getBillOutput;
   // Stores action output result for [Backend Call - API (getIncome)] action in TransactionDetails widget.

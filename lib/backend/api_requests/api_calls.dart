@@ -1447,9 +1447,17 @@ class DeleteBillCall {
 }
 
 class GetFilePathCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? transactionId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "transactionId": "$transactionId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getFilePath',
       apiUrl: '$baseUrl/getFilePath',
@@ -1458,7 +1466,8 @@ class GetFilePathCall {
         'x-auth': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1466,6 +1475,15 @@ class GetFilePathCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? url(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.url''',
+      ));
 }
 
 class EditBillCall {

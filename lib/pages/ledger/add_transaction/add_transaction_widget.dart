@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -283,7 +284,6 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue2 = val),
                                 width: 300.0,
-                                height: 60.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -435,7 +435,6 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue3 = val),
                                   width: 136.0,
-                                  height: 60.0,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -463,8 +462,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       FlutterFlowTheme.of(context).alternate,
                                   borderWidth: 2.0,
                                   borderRadius: 12.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
+                                  margin: const EdgeInsets.all(0.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
                                   isSearchable: false,
@@ -890,6 +888,13 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       return;
                                     }
                                   }
+
+                                  _model.base64ImageString =
+                                      await actions.imageToBase64String(
+                                    _model.uploadedLocalFile,
+                                  );
+
+                                  setState(() {});
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   '63be80wb' /* Upload Receipt */,
@@ -941,8 +946,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   status: _model.switchValue?.toString(),
                                   sourceId: _model.dropDownValue2,
                                   tags: _model.textController4.text,
-                                  image: _model.uploadedLocalFile.height
-                                      ?.toString(),
+                                  image: _model.base64ImageString,
                                 );
                                 if ((_model.addTransactionOutput?.succeeded ??
                                     true)) {

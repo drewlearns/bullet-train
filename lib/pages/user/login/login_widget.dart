@@ -1874,7 +1874,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .bold,
+                                                                            .normal,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -1972,7 +1972,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .bold,
+                                                                            .normal,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(

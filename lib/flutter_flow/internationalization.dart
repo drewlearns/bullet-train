@@ -631,7 +631,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'View Spending Habits',
       'es': '',
     },
-    'ni2ucw2y': {
+    '7x7x9djt': {
       'en': 'Wallet: ',
       'es': '',
     },
@@ -1211,6 +1211,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
+    '4y9mnn2i': {
+      'en': 'Link to Receipt Image is copied to your clipboard',
+      'es': '',
+    },
     '2q12y4mj': {
       'en': 'Home',
       'es': '',

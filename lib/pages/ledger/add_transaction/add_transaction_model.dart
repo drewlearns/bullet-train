@@ -41,6 +41,8 @@ class AddTransactionModel extends FlutterFlowModel<AddTransactionWidget> {
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  // Stores action output result for [Custom Action - imageToBase64String] action in Button widget.
+  String? base64ImageString;
   // Stores action output result for [Backend Call - API (addTransaction)] action in Button widget.
   ApiCallResponse? addTransactionOutput;
 

@@ -547,7 +547,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'ni2ucw2y' /* Wallet:  */,
+                                                                    '7x7x9djt' /* Wallet:  */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -636,13 +636,21 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                (TppbGroup
-                                                                        .getLedgerCall
-                                                                        .amount(
-                                                                  listViewGetLedgerResponse
-                                                                      .jsonBody,
-                                                                )?[ledgerEntriesIndex])
-                                                                    ?.toString(),
+                                                                formatNumber(
+                                                                  TppbGroup
+                                                                      .getLedgerCall
+                                                                      .amount(
+                                                                    listViewGetLedgerResponse
+                                                                        .jsonBody,
+                                                                  )?[ledgerEntriesIndex],
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .custom,
+                                                                  currency: '',
+                                                                  format:
+                                                                      '#,###.##',
+                                                                  locale: '',
+                                                                ),
                                                                 'N/A',
                                                               ),
                                                               textAlign:

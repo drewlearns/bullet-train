@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'transaction_details_model.dart';
 export 'transaction_details_model.dart';
@@ -63,6 +64,35 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
               );
             },
           );
+          _model.getFilePathOutput = await TppbGroup.getFilePathCall.call(
+            authorizationToken: currentAuthenticationToken,
+            transactionId: widget.transactionId,
+          );
+          if ((_model.getFilePathOutput?.succeeded ?? true)) {
+            await Clipboard.setData(ClipboardData(
+                text: TppbGroup.getFilePathCall.url(
+              (_model.getFilePathOutput?.jsonBody ?? ''),
+            )!));
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return AlertDialog(
+                  title: const Text('Error'),
+                  content: Text(
+                      'There was an error getting the attachment for this transaction. ${TppbGroup.getFilePathCall.message(
+                    (_model.getFilePathOutput?.jsonBody ?? ''),
+                  )}'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: const Text('Ok'),
+                    ),
+                  ],
+                );
+              },
+            );
+          }
         } else {
           await showDialog(
             context: context,
@@ -229,27 +259,26 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                 ),
                 actions: const [],
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      valueOrDefault<String>(
-                        widget.transaction,
-                        'Transaction Details',
+                  title: Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.transaction,
+                          'Transaction Details',
+                        ),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .titleSmallFamily),
+                            ),
                       ),
-                      textAlign: TextAlign.center,
-                      style:
-                          FlutterFlowTheme.of(context).headlineLarge.override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineLargeFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                fontSize: 32.0,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .headlineLargeFamily),
-                              ),
                     ),
                   ),
                   centerTitle: true,
@@ -258,11 +287,60 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                 elevation: 0.0,
               ),
             ),
-            body: const SafeArea(
+            body: SafeArea(
               top: true,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
+              child: Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    if (TppbGroup.getFilePathCall.url(
+                              (_model.getFilePathOutput?.jsonBody ?? ''),
+                            ) !=
+                            null &&
+                        TppbGroup.getFilePathCall.url(
+                              (_model.getFilePathOutput?.jsonBody ?? ''),
+                            ) !=
+                            '')
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            TppbGroup.getFilePathCall.url(
+                              (_model.getFilePathOutput?.jsonBody ?? ''),
+                            )!,
+                            width: 300.0,
+                            height: 200.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    if (TppbGroup.getFilePathCall.url(
+                              (_model.getFilePathOutput?.jsonBody ?? ''),
+                            ) !=
+                            null &&
+                        TppbGroup.getFilePathCall.url(
+                              (_model.getFilePathOutput?.jsonBody ?? ''),
+                            ) !=
+                            '')
+                      Text(
+                        FFLocalizations.of(context).getText(
+                          '4y9mnn2i' /* Link to Receipt Image is copie... */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
