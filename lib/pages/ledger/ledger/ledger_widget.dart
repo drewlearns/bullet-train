@@ -636,21 +636,13 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                formatNumber(
-                                                                  TppbGroup
-                                                                      .getLedgerCall
-                                                                      .amount(
-                                                                    listViewGetLedgerResponse
-                                                                        .jsonBody,
-                                                                  )?[ledgerEntriesIndex],
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .custom,
-                                                                  currency: '',
-                                                                  format:
-                                                                      '#,###.##',
-                                                                  locale: '',
-                                                                ),
+                                                                (TppbGroup
+                                                                        .getLedgerCall
+                                                                        .amount(
+                                                                  listViewGetLedgerResponse
+                                                                      .jsonBody,
+                                                                )?[ledgerEntriesIndex])
+                                                                    ?.toString(),
                                                                 'N/A',
                                                               ),
                                                               textAlign:
@@ -756,13 +748,20 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          (TppbGroup
-                                                                  .getLedgerCall
-                                                                  .runningTotal(
-                                                            listViewGetLedgerResponse
-                                                                .jsonBody,
-                                                          )?[ledgerEntriesIndex])
-                                                              ?.toString(),
+                                                          formatNumber(
+                                                            TppbGroup
+                                                                .getLedgerCall
+                                                                .runningTotal(
+                                                              listViewGetLedgerResponse
+                                                                  .jsonBody,
+                                                            )?[ledgerEntriesIndex],
+                                                            formatType:
+                                                                FormatType
+                                                                    .custom,
+                                                            currency: '',
+                                                            format: '#,###.##',
+                                                            locale: '',
+                                                          ),
                                                           'N/A',
                                                         ),
                                                         style:
