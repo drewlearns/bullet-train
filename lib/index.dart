@@ -44,3 +44,5 @@ export '/pages/income/income_details/income_details_widget.dart'
 export '/pages/income/add_income/add_income_widget.dart' show AddIncomeWidget;
 export '/pages/notifications/notifications/notifications_widget.dart'
     show NotificationsWidget;
+export '/pages/ledger/categories/categories_widget.dart' show CategoriesWidget;
+export '/pages/bills/add_bill/add_bill_widget.dart' show AddBillWidget;

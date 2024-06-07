@@ -12,10 +12,6 @@ class TransactionDetailsModel
   ApiCallResponse? getTransactionOutput;
   // Stores action output result for [Backend Call - API (getFilePath)] action in TransactionDetails widget.
   ApiCallResponse? getFilePathOutput;
-  // Stores action output result for [Backend Call - API (getBill)] action in TransactionDetails widget.
-  ApiCallResponse? getBillOutput;
-  // Stores action output result for [Backend Call - API (getIncome)] action in TransactionDetails widget.
-  ApiCallResponse? getIncomeOutput;
 
   @override
   void initState(BuildContext context) {}

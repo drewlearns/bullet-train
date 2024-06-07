@@ -309,6 +309,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/notifications',
           requireAuth: true,
           builder: (context, params) => const NotificationsWidget(),
+        ),
+        FFRoute(
+          name: 'Categories',
+          path: '/categories',
+          requireAuth: true,
+          builder: (context, params) => CategoriesWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AddBill',
+          path: '/addBill',
+          requireAuth: true,
+          builder: (context, params) => AddBillWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

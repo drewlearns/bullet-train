@@ -817,6 +817,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   validator: _model
                                       .phoneNumberTextControllerValidator
                                       .asValidator(context),
+                                  inputFormatters: [_model.phoneNumberMask],
                                 ),
                               ),
                             ),

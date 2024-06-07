@@ -299,27 +299,152 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                       children: [
                                         if (_model.dropDownValue != null &&
                                             _model.dropDownValue != '')
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'lfic0wqw' /* View Spending Habits */,
+                                          Semantics(
+                                            label: 'Get spending Habits',
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (Navigator.of(context)
+                                                    .canPop()) {
+                                                  context.pop();
+                                                }
+                                                context.pushNamed(
+                                                  'Categories',
+                                                  queryParameters: {
+                                                    'householdId':
+                                                        serializeParam(
+                                                      _model.dropDownValue,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'lfic0wqw' /* View Spending Habits */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmallFamily,
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmallFamily),
+                                                        ),
+                                              ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily:
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                if (_model.dropDownValue != null &&
+                                    _model.dropDownValue != '')
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 0.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'qb0yb1mj' /* Total Spent This month:  */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        FutureBuilder<ApiCallResponse>(
+                                          future:
+                                              TppbGroup.getTotalSpentCall.call(
+                                            authorizationToken:
+                                                currentAuthenticationToken,
+                                            householdId: _model.dropDownValue,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodySmallFamily,
-                                                  color: Colors.black,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                                          .primary,
+                                                    ),
+                                                  ),
                                                 ),
-                                          ),
+                                              );
+                                            }
+                                            final totalSpentQueryGetTotalSpentResponse =
+                                                snapshot.data!;
+                                            return Text(
+                                              formatNumber(
+                                                TppbGroup.getTotalSpentCall
+                                                    .totalSpent(
+                                                  totalSpentQueryGetTotalSpentResponse
+                                                      .jsonBody,
+                                                ),
+                                                formatType: FormatType.custom,
+                                                currency: '',
+                                                format: '#,###.##',
+                                                locale: '',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily),
+                                                      ),
+                                            );
+                                          },
+                                        ),
                                       ],
                                     ),
                                   ),

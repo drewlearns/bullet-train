@@ -631,6 +631,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'View Spending Habits',
       'es': '',
     },
+    'qb0yb1mj': {
+      'en': 'Total Spent This month: ',
+      'es': '',
+    },
     '7x7x9djt': {
       'en': 'Wallet: ',
       'es': '',
@@ -1211,9 +1215,85 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
+    'l444keke': {
+      'en': 'Transaction Details',
+      'es': '',
+    },
+    'l7b2ij55': {
+      'en': 'Description',
+      'es': 'Descripción',
+    },
+    '1gzga15u': {
+      'en': 'Amount',
+      'es': '',
+    },
+    'pq6woc9k': {
+      'en': 'Cleared?',
+      'es': '',
+    },
+    'af538eym': {
+      'en': 'TransactionDate',
+      'es': '',
+    },
+    'oesdwhvr': {
+      'en': 'Created At',
+      'es': '',
+    },
+    'd56uzuns': {
+      'en': 'Updated At',
+      'es': '',
+    },
+    '8xbwvi7r': {
+      'en': 'Transaction Type',
+      'es': '',
+    },
+    '2d2ku081': {
+      'en': 'Category',
+      'es': '',
+    },
+    'lbn14rpe': {
+      'en': 'Updated By',
+      'es': '',
+    },
+    'bdmuypo4': {
+      'en': 'Tags',
+      'es': '',
+    },
     '4y9mnn2i': {
       'en': 'Link to Receipt Image is copied to your clipboard',
       'es': '',
+    },
+    'b2ox7zr3': {
+      'en': 'Payment Source Details',
+      'es': '',
+    },
+    'moaawwut': {
+      'en': 'Payment Source',
+      'es': '',
+    },
+    'ujvetoik': {
+      'en': 'Running Total',
+      'es': '',
+    },
+    'gnlba36h': {
+      'en': 'Payment Type',
+      'es': '',
+    },
+    'azc4mkfz': {
+      'en': 'Description',
+      'es': '',
+    },
+    '5sbye8b0': {
+      'en': 'Created At',
+      'es': '',
+    },
+    '40c1xcgi': {
+      'en': 'Updated At',
+      'es': '',
+    },
+    'du3x0b8q': {
+      'en': 'Transaction Details',
+      'es': 'Detalles de la transacción',
     },
     '2q12y4mj': {
       'en': 'Home',
@@ -1297,6 +1377,276 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '978adqpz': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // Categories
+  {
+    '5p9wanmn': {
+      'en': 'Categories',
+      'es': '',
+    },
+    '822sr01o': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
+  // AddBill
+  {
+    'darvweyn': {
+      'en': 'Add Bill',
+      'es': '',
+    },
+    'p15zgwzp': {
+      'en': 'Name of Bill',
+      'es': '',
+    },
+    '2fv2dw5h': {
+      'en': 'Acme Inc LLC',
+      'es': '',
+    },
+    'vqap2xom': {
+      'en': 'Amount',
+      'es': '',
+    },
+    '701848re': {
+      'en': '0.00',
+      'es': '',
+    },
+    'brk00jnf': {
+      'en': 'Category',
+      'es': '',
+    },
+    'kcify1bl': {
+      'en': 'Bill',
+      'es': '',
+    },
+    'rdpqbccr': {
+      'en': '1',
+      'es': '',
+    },
+    'zdnoflbu': {
+      'en': '2',
+      'es': '',
+    },
+    '5bs7apel': {
+      'en': '3',
+      'es': '',
+    },
+    'pgp012yy': {
+      'en': '4',
+      'es': '',
+    },
+    'lo8xxqz5': {
+      'en': '5',
+      'es': '',
+    },
+    'aa6m39d9': {
+      'en': '6',
+      'es': '',
+    },
+    'w4m534mz': {
+      'en': '7',
+      'es': '',
+    },
+    'ourrngqh': {
+      'en': '8',
+      'es': '',
+    },
+    'fqaiezsv': {
+      'en': '9',
+      'es': '',
+    },
+    '6bnfj3e0': {
+      'en': '10',
+      'es': '',
+    },
+    '3q11g0th': {
+      'en': '11',
+      'es': '',
+    },
+    'om9wiw8k': {
+      'en': '12',
+      'es': '',
+    },
+    '5rnnkezh': {
+      'en': '13',
+      'es': '',
+    },
+    'yz1lbps7': {
+      'en': '14',
+      'es': '',
+    },
+    'uqm18jnp': {
+      'en': '15',
+      'es': '',
+    },
+    'tdqma8ul': {
+      'en': '16',
+      'es': '',
+    },
+    '17iaquqo': {
+      'en': '17',
+      'es': '',
+    },
+    '82ipyhha': {
+      'en': '18',
+      'es': '',
+    },
+    'tymdoj1a': {
+      'en': '19',
+      'es': '',
+    },
+    '6oghcb5q': {
+      'en': '20',
+      'es': '',
+    },
+    'p63t95zg': {
+      'en': '21',
+      'es': '',
+    },
+    'fn1uxoy8': {
+      'en': '22',
+      'es': '',
+    },
+    'dqpsoov6': {
+      'en': '23',
+      'es': '',
+    },
+    'c26l9sf9': {
+      'en': '24',
+      'es': '',
+    },
+    '1t05mlb0': {
+      'en': '25',
+      'es': '',
+    },
+    'r3mq2ddy': {
+      'en': '26',
+      'es': '',
+    },
+    'utn7ltir': {
+      'en': '27',
+      'es': '',
+    },
+    '4wckng6q': {
+      'en': '28',
+      'es': '',
+    },
+    'f3epna2q': {
+      'en': '29',
+      'es': '',
+    },
+    'tqpjisfw': {
+      'en': '30',
+      'es': '',
+    },
+    'lrhkn9cp': {
+      'en': 'Day of the month was this most recently due',
+      'es': '',
+    },
+    'm5857s2k': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'yuyiikuq': {
+      'en': 'Day Of the Month Due (Most Recent)',
+      'es': '',
+    },
+    '8dywafaw': {
+      'en': 'Monthly',
+      'es': '',
+    },
+    '4ls4v43m': {
+      'en': 'once',
+      'es': '',
+    },
+    'oomb3n9w': {
+      'en': 'weekly',
+      'es': '',
+    },
+    'i5lpimk0': {
+      'en': 'bi-weekly',
+      'es': '',
+    },
+    '04cyut2j': {
+      'en': 'monthly',
+      'es': '',
+    },
+    'p73qg2fr': {
+      'en': 'bi-monthly',
+      'es': '',
+    },
+    'bxzdha6g': {
+      'en': 'quarterly',
+      'es': '',
+    },
+    'j34pxve8': {
+      'en': 'annually',
+      'es': '',
+    },
+    'ahiiwfnb': {
+      'en': 'Frequency',
+      'es': '',
+    },
+    'oki5snjx': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'dwbrk6it': {
+      'en': 'Frequency',
+      'es': '',
+    },
+    '0urtkhkg': {
+      'en': 'Cash Back Rate (If applicable)',
+      'es': '',
+    },
+    'mtdtuxub': {
+      'en': 'Description',
+      'es': '',
+    },
+    'mrroojlu': {
+      'en': 'Biller URL',
+      'es': '',
+    },
+    'pe7cj4bt': {
+      'en': 'Please Provide a link to the biller\'s webpage',
+      'es': '',
+    },
+    'rc8a4ng7': {
+      'en': 'Username',
+      'es': '',
+    },
+    'vlm911c6': {
+      'en': 'Password',
+      'es': '',
+    },
+    'rhb6rnf2': {
+      'en': 'Option 1',
+      'es': '',
+    },
+    '6qcs1xkz': {
+      'en': 'PaymentSource',
+      'es': '',
+    },
+    'qor4umsl': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    '0gvyybt2': {
+      'en': 'Is it a Debt?',
+      'es': '',
+    },
+    '9sqp0d07': {
+      'en': 'Interest Rate (if applicable)',
+      'es': '',
+    },
+    'wbdt2f45': {
+      'en': 'Add Bill',
+      'es': '',
+    },
+    'smhrb5vq': {
       'en': 'Home',
       'es': '',
     },
