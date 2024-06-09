@@ -639,7 +639,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Safe To Spend: ',
       'es': '',
     },
-    'mamx0tsh': {
+    'ifo1tyu1': {
       'en': 'All',
       'es': '',
     },
@@ -647,7 +647,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Wallet: ',
       'es': '',
     },
-    '4htbe8zh': {
+    '9lfzaqnh': {
       'en': 'This Month',
       'es': '',
     },
@@ -655,7 +655,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Wallet: ',
       'es': '',
     },
-    'sekinoq9': {
+    'qs0tglvt': {
       'en': 'Cleared',
       'es': '',
     },
