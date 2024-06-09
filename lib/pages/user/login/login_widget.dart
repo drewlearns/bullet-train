@@ -650,9 +650,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       validator: _model
                                                           .phoneNumberTextControllerValidator
                                                           .asValidator(context),
-                                                      inputFormatters: [
-                                                        _model.phoneNumberMask
-                                                      ],
                                                     ),
                                                   ),
                                                 ),

@@ -73,7 +73,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '5p9wanmn' /* Categories */,
+                      'bqv43vpw' /* Categories */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:

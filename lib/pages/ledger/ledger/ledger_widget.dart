@@ -17,7 +17,8 @@ class LedgerWidget extends StatefulWidget {
   State<LedgerWidget> createState() => _LedgerWidgetState();
 }
 
-class _LedgerWidgetState extends State<LedgerWidget> {
+class _LedgerWidgetState extends State<LedgerWidget>
+    with TickerProviderStateMixin {
   late LedgerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -27,6 +28,11 @@ class _LedgerWidgetState extends State<LedgerWidget> {
     super.initState();
     _model = createModel(context, () => LedgerModel());
 
+    _model.tabBarController = TabController(
+      vsync: this,
+      length: 3,
+      initialIndex: 1,
+    )..addListener(() => setState(() {}));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -74,349 +80,438 @@ class _LedgerWidgetState extends State<LedgerWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primary,
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 5.0,
-                                color: Color(0x32171717),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(16.0),
-                              bottomRight: Radius.circular(16.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primary,
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 5.0,
+                              color: Color(0x32171717),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(16.0),
+                            bottomRight: Radius.circular(16.0),
+                            topLeft: Radius.circular(0.0),
+                            topRight: Radius.circular(0.0),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child:
-                                                FutureBuilder<ApiCallResponse>(
-                                              future: TppbGroup.getHouseholdCall
-                                                  .call(
-                                                authorizationToken:
-                                                    currentAuthenticationToken,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                final dropDownGetHouseholdResponse =
-                                                    snapshot.data!;
-                                                return FlutterFlowDropDown<
-                                                    String>(
-                                                  controller: _model
-                                                          .dropDownValueController ??=
-                                                      FormFieldController<
-                                                          String>(
-                                                    _model.dropDownValue ??= '',
-                                                  ),
-                                                  options: List<String>.from(
-                                                      TppbGroup.getHouseholdCall
-                                                          .householdId(
-                                                    dropDownGetHouseholdResponse
-                                                        .jsonBody,
-                                                  )!),
-                                                  optionLabels: TppbGroup
-                                                      .getHouseholdCall
-                                                      .householdName(
-                                                    dropDownGetHouseholdResponse
-                                                        .jsonBody,
-                                                  )!,
-                                                  onChanged: (val) => setState(
-                                                      () => _model
-                                                          .dropDownValue = val),
-                                                  width: 300.0,
-                                                  height: 56.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts: GoogleFonts
-                                                                    .asMap()
-                                                                .containsKey(
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumFamily),
-                                                          ),
-                                                  hintText: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'rb34tajy' /* Please select... */,
-                                                  ),
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  elevation: 5.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .alternate,
-                                                  borderWidth: 2.0,
-                                                  borderRadius: 8.0,
-                                                  margin: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 16.0, 0.0),
-                                                  hidesUnderline: true,
-                                                  isOverButton: true,
-                                                  isSearchable: false,
-                                                  isMultiSelect: false,
-                                                  labelText: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'bonlneeh' /* Select Household */,
-                                                  ),
-                                                  labelTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts: GoogleFonts
-                                                                    .asMap()
-                                                                .containsKey(
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMediumFamily),
-                                                          ),
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      if (_model.dropDownValue != null &&
-                                          _model.dropDownValue != '')
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 0.0, 0.0),
-                                          child: FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                            borderRadius: 20.0,
-                                            borderWidth: 1.0,
-                                            buttonSize: 40.0,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            icon: Icon(
-                                              Icons.add,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 24.0,
+                                                  0.0, 16.0, 0.0, 0.0),
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future:
+                                                TppbGroup.getHouseholdCall.call(
+                                              authorizationToken:
+                                                  currentAuthenticationToken,
                                             ),
-                                            showLoadingIndicator: true,
-                                            onPressed: () async {
-                                              context
-                                                  .pushNamed('AddTransaction');
-                                            },
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                                if (_model.dropDownValue != null &&
-                                    _model.dropDownValue != '')
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 8.0, 20.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        if (_model.dropDownValue != null &&
-                                            _model.dropDownValue != '')
-                                          Semantics(
-                                            label: 'Get spending Habits',
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                if (Navigator.of(context)
-                                                    .canPop()) {
-                                                  context.pop();
-                                                }
-                                                context.pushNamed(
-                                                  'Categories',
-                                                  queryParameters: {
-                                                    'householdId':
-                                                        serializeParam(
-                                                      _model.dropDownValue,
-                                                      ParamType.String,
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
                                                     ),
-                                                  }.withoutNulls,
+                                                  ),
                                                 );
-                                              },
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'lfic0wqw' /* View Spending Habits */,
+                                              }
+                                              final householdIdDropDownGetHouseholdResponse =
+                                                  snapshot.data!;
+                                              return FlutterFlowDropDown<
+                                                  String>(
+                                                controller: _model
+                                                        .householdIdDropDownValueController ??=
+                                                    FormFieldController<String>(
+                                                  _model.householdIdDropDownValue ??=
+                                                      '',
                                                 ),
-                                                style:
+                                                options: List<String>.from(
+                                                    TppbGroup.getHouseholdCall
+                                                        .householdId(
+                                                  householdIdDropDownGetHouseholdResponse
+                                                      .jsonBody,
+                                                )!),
+                                                optionLabels: TppbGroup
+                                                    .getHouseholdCall
+                                                    .householdName(
+                                                  householdIdDropDownGetHouseholdResponse
+                                                      .jsonBody,
+                                                )!,
+                                                onChanged: (val) => setState(() =>
+                                                    _model.householdIdDropDownValue =
+                                                        val),
+                                                width: 300.0,
+                                                height: 56.0,
+                                                textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodySmallFamily,
-                                                          color: Colors.black,
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmallFamily),
+                                                                      .bodyMediumFamily),
                                                         ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'rb34tajy' /* Please select... */,
+                                                ),
+                                                icon: Icon(
+                                                  Icons
+                                                      .keyboard_arrow_down_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 24.0,
+                                                ),
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                elevation: 5.0,
+                                                borderColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                borderWidth: 2.0,
+                                                borderRadius: 8.0,
+                                                margin: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                hidesUnderline: true,
+                                                isOverButton: true,
+                                                isSearchable: false,
+                                                isMultiSelect: false,
+                                                labelText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'bonlneeh' /* Select Household */,
+                                                ),
+                                                labelTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
+                                                        ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    if (_model.householdIdDropDownValue !=
+                                            null &&
+                                        _model.householdIdDropDownValue != '')
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 0.0, 0.0),
+                                        child: FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          borderRadius: 20.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 40.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          icon: Icon(
+                                            Icons.add,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
+                                          showLoadingIndicator: true,
+                                          onPressed: () async {
+                                            context.pushNamed('AddTransaction');
+                                          },
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                              if (_model.householdIdDropDownValue != null &&
+                                  _model.householdIdDropDownValue != '')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 8.0, 20.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      if (_model.householdIdDropDownValue !=
+                                              null &&
+                                          _model.householdIdDropDownValue != '')
+                                        Semantics(
+                                          label: 'Get spending Habits',
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              if (Navigator.of(context)
+                                                  .canPop()) {
+                                                context.pop();
+                                              }
+                                              context.pushNamed(
+                                                'Categories',
+                                                queryParameters: {
+                                                  'householdId': serializeParam(
+                                                    _model
+                                                        .householdIdDropDownValue,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            },
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'lfic0wqw' /* View Spending Habits */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmallFamily,
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmallFamily),
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              if (_model.householdIdDropDownValue != null &&
+                                  _model.householdIdDropDownValue != '')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'aqz1p02h' /* Total Spent This month:  */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                      ),
+                                      FutureBuilder<ApiCallResponse>(
+                                        future:
+                                            TppbGroup.getTotalSpentCall.call(
+                                          authorizationToken:
+                                              currentAuthenticationToken,
+                                          householdId:
+                                              _model.householdIdDropDownValue,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          final totalSpentQueryGetTotalSpentResponse =
+                                              snapshot.data!;
+                                          return Text(
+                                            formatNumber(
+                                              TppbGroup.getTotalSpentCall
+                                                  .totalSpent(
+                                                totalSpentQueryGetTotalSpentResponse
+                                                    .jsonBody,
+                                              ),
+                                              formatType: FormatType.custom,
+                                              currency: '',
+                                              format: '#,###.##',
+                                              locale: '',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily),
+                                                ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (_model.householdIdDropDownValue != null &&
+                                  _model.householdIdDropDownValue != '')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 0.0, 0.0),
+                                  child: FutureBuilder<ApiCallResponse>(
+                                    future: TppbGroup.getSafeToSpendCall.call(
+                                      authorizationToken:
+                                          currentAuthenticationToken,
+                                      householdId:
+                                          _model.householdIdDropDownValue,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
                                               ),
                                             ),
                                           ),
-                                      ],
-                                    ),
-                                  ),
-                                if (_model.dropDownValue != null &&
-                                    _model.dropDownValue != '')
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'qb0yb1mj' /* Total Spent This month:  */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
-                                              ),
-                                        ),
-                                        FutureBuilder<ApiCallResponse>(
-                                          future:
-                                              TppbGroup.getTotalSpentCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                            householdId: _model.dropDownValue,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
+                                        );
+                                      }
+                                      final rowGetSafeToSpendResponse =
+                                          snapshot.data!;
+                                      return Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'jjxlbdrz' /* Safe To Spend:  */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primary,
-                                                    ),
-                                                  ),
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
                                                 ),
-                                              );
-                                            }
-                                            final totalSpentQueryGetTotalSpentResponse =
-                                                snapshot.data!;
-                                            return Text(
+                                          ),
+                                          Text(
+                                            valueOrDefault<String>(
                                               formatNumber(
-                                                TppbGroup.getTotalSpentCall
-                                                    .totalSpent(
-                                                  totalSpentQueryGetTotalSpentResponse
+                                                TppbGroup.getSafeToSpendCall
+                                                    .safeToSpend(
+                                                  rowGetSafeToSpendResponse
                                                       .jsonBody,
                                                 ),
                                                 formatType: FormatType.custom,
@@ -424,252 +519,439 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 format: '#,###.##',
                                                 locale: '',
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMediumFamily),
-                                                      ),
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
+                                              'Loading...',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumFamily,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily),
+                                                ),
+                                          ),
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 12.0),
+                                              child: FlutterFlowIconButton(
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 48.0,
+                                                icon: Icon(
+                                                  Icons.info,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  size: 15.0,
+                                                ),
+                                                onPressed: () async {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return AlertDialog(
+                                                        title: const Text(
+                                                            'What is Safe To Spend?'),
+                                                        content: Text(
+                                                            'Safe To Spend is the amount you can safely spend between now and ${valueOrDefault<String>(
+                                                          TppbGroup
+                                                              .getSafeToSpendCall
+                                                              .nextPayday(
+                                                            rowGetSafeToSpendResponse
+                                                                .jsonBody,
+                                                          ),
+                                                          'Loading....',
+                                                        )} without going over what you have available in your account.'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: const Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  1.0, 0.0),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 16.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderRadius: 20.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: Icon(
+                                                    Icons.manage_search_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   ),
-                              ],
-                            ),
+                                ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Expanded(
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: TppbGroup.getLedgerCall.call(
-                      authorizationToken: currentAuthenticationToken,
-                      householdId: _model.dropDownValue,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: TabBarView(
+                          controller: _model.tabBarController,
+                          children: [
+                            FutureBuilder<ApiCallResponse>(
+                              future: TppbGroup.getLedgerCall.call(
+                                authorizationToken: currentAuthenticationToken,
+                                householdId: _model.householdIdDropDownValue,
+                                clearedOnly: false,
+                                currentMonthOnly: false,
                               ),
-                            ),
-                          ),
-                        );
-                      }
-                      final listViewGetLedgerResponse = snapshot.data!;
-                      return Builder(
-                        builder: (context) {
-                          final ledgerEntries = TppbGroup.getLedgerCall
-                                  .ledgerEntriesList(
-                                    listViewGetLedgerResponse.jsonBody,
-                                  )
-                                  ?.map((e) => e)
-                                  .toList()
-                                  .toList() ??
-                              [];
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            scrollDirection: Axis.vertical,
-                            itemCount: ledgerEntries.length,
-                            itemBuilder: (context, ledgerEntriesIndex) {
-                              final ledgerEntriesItem =
-                                  ledgerEntries[ledgerEntriesIndex];
-                              return Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 5.0),
-                                      child: Container(
-                                        width: 300.0,
-                                        height: 90.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
-                                        child: Semantics(
-                                          label:
-                                              'Click/touch entry for more details about ledger entry',
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'TransactionDetails',
-                                                queryParameters: {
-                                                  'transactionId':
-                                                      serializeParam(
-                                                    TppbGroup.getLedgerCall
-                                                        .transactionId(
-                                                      listViewGetLedgerResponse
-                                                          .jsonBody,
-                                                    )?[ledgerEntriesIndex],
-                                                    ParamType.String,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final allGetLedgerResponse = snapshot.data!;
+                                return Builder(
+                                  builder: (context) {
+                                    final ledgerEntries =
+                                        TppbGroup.getLedgerCall
+                                                .ledgerEntriesList(
+                                                  allGetLedgerResponse.jsonBody,
+                                                )
+                                                ?.map((e) => e)
+                                                .toList()
+                                                .toList() ??
+                                            [];
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: ledgerEntries.length,
+                                      itemBuilder:
+                                          (context, ledgerEntriesIndex) {
+                                        final ledgerEntriesItem =
+                                            ledgerEntries[ledgerEntriesIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 5.0),
+                                                child: Container(
+                                                  width: 300.0,
+                                                  height: 90.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
                                                   ),
-                                                  'billId': serializeParam(
-                                                    (TppbGroup.getLedgerCall
-                                                            .billId(
-                                                      listViewGetLedgerResponse
-                                                          .jsonBody,
-                                                    )?[ledgerEntriesIndex])
-                                                        ?.toString(),
-                                                    ParamType.String,
-                                                  ),
-                                                  'incomeId': serializeParam(
-                                                    (TppbGroup.getLedgerCall
-                                                            .incomeId(
-                                                      listViewGetLedgerResponse
-                                                          .jsonBody,
-                                                    )?[ledgerEntriesIndex])
-                                                        ?.toString(),
-                                                    ParamType.String,
-                                                  ),
-                                                  'transaction': serializeParam(
-                                                    TppbGroup.getLedgerCall
-                                                        .description(
-                                                      listViewGetLedgerResponse
-                                                          .jsonBody,
-                                                    )?[ledgerEntriesIndex],
-                                                    ParamType.String,
-                                                  ),
-                                                  'type': serializeParam(
-                                                    TppbGroup.getLedgerCall
-                                                        .type(
-                                                      listViewGetLedgerResponse
-                                                          .jsonBody,
-                                                    )?[ledgerEntriesIndex],
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Text(
-                                                                  valueOrDefault<
-                                                                      String>(
+                                                  child: Semantics(
+                                                    label:
+                                                        'Click/touch entry for more details about ledger entry',
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'TransactionDetails',
+                                                                queryParameters:
+                                                                    {
+                                                                  'transactionId':
+                                                                      serializeParam(
+                                                                    TppbGroup
+                                                                        .getLedgerCall
+                                                                        .transactionId(
+                                                                      allGetLedgerResponse
+                                                                          .jsonBody,
+                                                                    )?[ledgerEntriesIndex],
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'billId':
+                                                                      serializeParam(
+                                                                    (TppbGroup
+                                                                            .getLedgerCall
+                                                                            .billId(
+                                                                      allGetLedgerResponse
+                                                                          .jsonBody,
+                                                                    )?[ledgerEntriesIndex])
+                                                                        ?.toString(),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'incomeId':
+                                                                      serializeParam(
+                                                                    (TppbGroup
+                                                                            .getLedgerCall
+                                                                            .incomeId(
+                                                                      allGetLedgerResponse
+                                                                          .jsonBody,
+                                                                    )?[ledgerEntriesIndex])
+                                                                        ?.toString(),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'transaction':
+                                                                      serializeParam(
                                                                     TppbGroup
                                                                         .getLedgerCall
                                                                         .description(
-                                                                      listViewGetLedgerResponse
+                                                                      allGetLedgerResponse
                                                                           .jsonBody,
                                                                     )?[ledgerEntriesIndex],
-                                                                    'N/A',
-                                                                  ).maybeHandleOverflow(
-                                                                    maxChars:
-                                                                        30,
-                                                                    replacement:
-                                                                        '…',
+                                                                    ParamType
+                                                                        .String,
                                                                   ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  maxLines: 1,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                  'type':
+                                                                      serializeParam(
+                                                                    TppbGroup
+                                                                        .getLedgerCall
+                                                                        .type(
+                                                                      allGetLedgerResponse
+                                                                          .jsonBody,
+                                                                    )?[ledgerEntriesIndex],
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      const TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .bottomToTop,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            150),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          TppbGroup
+                                                                              .getLedgerCall
+                                                                              .description(
+                                                                            allGetLedgerResponse.jsonBody,
+                                                                          )?[ledgerEntriesIndex],
+                                                                          'N/A',
+                                                                        ).maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              30,
+                                                                          replacement:
+                                                                              '…',
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                        maxLines:
+                                                                            1,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                            ),
                                                                       ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Text(
+                                                                            FFLocalizations.of(context).getText(
+                                                                              '7x7x9djt' /* Wallet:  */,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getLedgerCall.paymentSourceSourceName(
+                                                                                allGetLedgerResponse.jsonBody,
+                                                                              )?[ledgerEntriesIndex],
+                                                                              'N/A',
+                                                                            ).maybeHandleOverflow(
+                                                                              maxChars: 16,
+                                                                              replacement: '…',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          TppbGroup
+                                                                              .getLedgerCall
+                                                                              .transactionDate(
+                                                                            allGetLedgerResponse.jsonBody,
+                                                                          )?[ledgerEntriesIndex],
+                                                                          'N/A',
+                                                                        ).maybeHandleOverflow(
+                                                                            maxChars:
+                                                                                10),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
                                                                 ),
-                                                                Row(
+                                                                Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
                                                                   children: [
-                                                                    Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '7x7x9djt' /* Wallet:  */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          formatNumber(
+                                                                            TppbGroup.getLedgerCall.amount(
+                                                                              allGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                            formatType:
+                                                                                FormatType.custom,
+                                                                            currency:
+                                                                                '',
+                                                                            format:
+                                                                                '#,###.##',
+                                                                            locale:
+                                                                                '',
                                                                           ),
+                                                                          'N/A',
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                     Text(
                                                                       valueOrDefault<
                                                                           String>(
                                                                         TppbGroup
                                                                             .getLedgerCall
-                                                                            .paymentSourceSourceName(
-                                                                          listViewGetLedgerResponse
+                                                                            .transactionType(
+                                                                          allGetLedgerResponse
                                                                               .jsonBody,
                                                                         )?[ledgerEntriesIndex],
                                                                         'N/A',
-                                                                      ).maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            16,
-                                                                        replacement:
-                                                                            '…',
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -677,6 +959,8 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             useGoogleFonts:
@@ -685,212 +969,1139 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                                Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    TppbGroup
-                                                                        .getLedgerCall
-                                                                        .transactionDate(
-                                                                      listViewGetLedgerResponse
-                                                                          .jsonBody,
-                                                                    )?[ledgerEntriesIndex],
-                                                                    'N/A',
-                                                                  ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          10),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                      ),
-                                                                ),
                                                               ],
                                                             ),
                                                           ),
-                                                          Column(
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .end,
                                                             children: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
                                                                             8.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    (TppbGroup
-                                                                            .getLedgerCall
-                                                                            .amount(
-                                                                      listViewGetLedgerResponse
-                                                                          .jsonBody,
-                                                                    )?[ledgerEntriesIndex])
-                                                                        ?.toString(),
-                                                                    'N/A',
-                                                                  ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLarge
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        letterSpacing:
                                                                             0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Semantics(
+                                                                      label:
+                                                                          'Toggle status of this entry as cleared of not',
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          _model.editLedgerEntryAsClearedOutput = await TppbGroup
+                                                                              .editLedgerEntryAsClearedCall
+                                                                              .call(
+                                                                            authorizationToken:
+                                                                                currentAuthenticationToken,
+                                                                            ledgerId:
+                                                                                TppbGroup.getLedgerCall.ledgerId(
+                                                                              allGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                          );
+                                                                          if ((_model.editLedgerEntryAsClearedOutput?.succeeded ??
+                                                                              true)) {
+                                                                            setState(() {});
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return AlertDialog(
+                                                                                  title: const Text('Error Updating the status of this Ledger Entry'),
+                                                                                  content: Text(TppbGroup.editLedgerEntryAsClearedCall.message(
+                                                                                    (_model.editLedgerEntryAsClearedOutput?.jsonBody ?? ''),
+                                                                                  )!),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: const Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          }
+
+                                                                          setState(
+                                                                              () {});
+                                                                        },
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .check_box,
+                                                                          color: (TppbGroup.getLedgerCall.status(
+                                                                                    allGetLedgerResponse.jsonBody,
+                                                                                  )?[ledgerEntriesIndex]) ==
+                                                                                  true
+                                                                              ? FlutterFlowTheme.of(context).primary
+                                                                              : FlutterFlowTheme.of(context).alternate,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
                                                                       ),
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  TppbGroup
-                                                                      .getLedgerCall
-                                                                      .transactionType(
-                                                                    listViewGetLedgerResponse
-                                                                        .jsonBody,
-                                                                  )?[ledgerEntriesIndex],
-                                                                  'N/A',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Running Total: ${valueOrDefault<String>(
+                                                                      formatNumber(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .runningTotal(
+                                                                          allGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        formatType:
+                                                                            FormatType.custom,
+                                                                        currency:
+                                                                            '',
+                                                                        format:
+                                                                            '#,###.##',
+                                                                        locale:
+                                                                            '',
+                                                                      ),
+                                                                      'N/A',
+                                                                    )}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                        ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ],
                                                           ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.end,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '89bg5izz' /* Running Total:  */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              formatNumber(
-                                                                TppbGroup
-                                                                    .getLedgerCall
-                                                                    .runningTotal(
-                                                                  listViewGetLedgerResponse
-                                                                      .jsonBody,
-                                                                )?[ledgerEntriesIndex],
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: '',
-                                                                format:
-                                                                    '#,###.##',
-                                                                locale: '',
-                                                              ),
-                                                              'N/A',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
                                                   ),
                                                 ),
-                                              ],
+                                              ),
                                             ),
-                                          ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                            FutureBuilder<ApiCallResponse>(
+                              future: TppbGroup.getLedgerCall.call(
+                                authorizationToken: currentAuthenticationToken,
+                                householdId: _model.householdIdDropDownValue,
+                                clearedOnly: false,
+                                currentMonthOnly: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      );
-                    },
+                                  );
+                                }
+                                final thisMonthListViewGetLedgerResponse =
+                                    snapshot.data!;
+                                return Builder(
+                                  builder: (context) {
+                                    final ledgerEntries =
+                                        TppbGroup.getLedgerCall
+                                                .ledgerEntriesList(
+                                                  thisMonthListViewGetLedgerResponse
+                                                      .jsonBody,
+                                                )
+                                                ?.map((e) => e)
+                                                .toList()
+                                                .toList() ??
+                                            [];
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: ledgerEntries.length,
+                                      itemBuilder:
+                                          (context, ledgerEntriesIndex) {
+                                        final ledgerEntriesItem =
+                                            ledgerEntries[ledgerEntriesIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 5.0),
+                                                child: Container(
+                                                  width: 300.0,
+                                                  height: 90.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  child: Semantics(
+                                                    label:
+                                                        'Click/touch entry for more details about ledger entry',
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'TransactionDetails',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'transactionId':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .transactionId(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'billId':
+                                                                          serializeParam(
+                                                                        (TppbGroup.getLedgerCall.billId(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex])
+                                                                            ?.toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'incomeId':
+                                                                          serializeParam(
+                                                                        (TppbGroup.getLedgerCall.incomeId(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex])
+                                                                            ?.toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'transaction':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .description(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'type':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .type(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.bottomToTop,
+                                                                        duration:
+                                                                            Duration(milliseconds: 150),
+                                                                      ),
+                                                                    },
+                                                                  );
+                                                                },
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getLedgerCall.description(
+                                                                                thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                              )?[ledgerEntriesIndex],
+                                                                              'N/A',
+                                                                            ).maybeHandleOverflow(
+                                                                              maxChars: 30,
+                                                                              replacement: '…',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            maxLines:
+                                                                                1,
+                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'otx99nq7' /* Wallet:  */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      letterSpacing: 0.0,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                              Text(
+                                                                                valueOrDefault<String>(
+                                                                                  TppbGroup.getLedgerCall.paymentSourceSourceName(
+                                                                                    thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                                  )?[ledgerEntriesIndex],
+                                                                                  'N/A',
+                                                                                ).maybeHandleOverflow(
+                                                                                  maxChars: 16,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      letterSpacing: 0.0,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getLedgerCall.transactionDate(
+                                                                                thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                              )?[ledgerEntriesIndex],
+                                                                              'N/A',
+                                                                            ).maybeHandleOverflow(maxChars: 10),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              formatNumber(
+                                                                                TppbGroup.getLedgerCall.amount(
+                                                                                  thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                                )?[ledgerEntriesIndex],
+                                                                                formatType: FormatType.custom,
+                                                                                currency: '',
+                                                                                format: '#,###.##',
+                                                                                locale: '',
+                                                                              ),
+                                                                              'N/A',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            TppbGroup.getLedgerCall.transactionType(
+                                                                              thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                            'N/A',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Semantics(
+                                                                      label:
+                                                                          'Toggle status of this entry as cleared of not',
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          _model.editLedgerEntryAsClearedOutput2 = await TppbGroup
+                                                                              .editLedgerEntryAsClearedCall
+                                                                              .call(
+                                                                            authorizationToken:
+                                                                                currentAuthenticationToken,
+                                                                            ledgerId:
+                                                                                TppbGroup.getLedgerCall.ledgerId(
+                                                                              thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                          );
+                                                                          if ((_model.editLedgerEntryAsClearedOutput2?.succeeded ??
+                                                                              true)) {
+                                                                            setState(() {});
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return AlertDialog(
+                                                                                  title: const Text('Error Updating the status of this Ledger Entry'),
+                                                                                  content: Text(TppbGroup.editLedgerEntryAsClearedCall.message(
+                                                                                    (_model.editLedgerEntryAsClearedOutput2?.jsonBody ?? ''),
+                                                                                  )!),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: const Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          }
+
+                                                                          setState(
+                                                                              () {});
+                                                                        },
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .check_box,
+                                                                          color: (TppbGroup.getLedgerCall.status(
+                                                                                    thisMonthListViewGetLedgerResponse.jsonBody,
+                                                                                  )?[ledgerEntriesIndex]) ==
+                                                                                  true
+                                                                              ? FlutterFlowTheme.of(context).primary
+                                                                              : FlutterFlowTheme.of(context).alternate,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Running Total: ${valueOrDefault<String>(
+                                                                      formatNumber(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .runningTotal(
+                                                                          thisMonthListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        formatType:
+                                                                            FormatType.custom,
+                                                                        currency:
+                                                                            '',
+                                                                        format:
+                                                                            '#,###.##',
+                                                                        locale:
+                                                                            '',
+                                                                      ),
+                                                                      'N/A',
+                                                                    )}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                            FutureBuilder<ApiCallResponse>(
+                              future: TppbGroup.getLedgerCall.call(
+                                authorizationToken: currentAuthenticationToken,
+                                householdId: _model.householdIdDropDownValue,
+                                clearedOnly: true,
+                                currentMonthOnly: false,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final clearedListViewGetLedgerResponse =
+                                    snapshot.data!;
+                                return Builder(
+                                  builder: (context) {
+                                    final ledgerEntries =
+                                        TppbGroup.getLedgerCall
+                                                .ledgerEntriesList(
+                                                  clearedListViewGetLedgerResponse
+                                                      .jsonBody,
+                                                )
+                                                ?.map((e) => e)
+                                                .toList()
+                                                .toList() ??
+                                            [];
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: ledgerEntries.length,
+                                      itemBuilder:
+                                          (context, ledgerEntriesIndex) {
+                                        final ledgerEntriesItem =
+                                            ledgerEntries[ledgerEntriesIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 5.0),
+                                                child: Container(
+                                                  width: 300.0,
+                                                  height: 90.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  child: Semantics(
+                                                    label:
+                                                        'Click/touch entry for more details about ledger entry',
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'TransactionDetails',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'transactionId':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .transactionId(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'billId':
+                                                                          serializeParam(
+                                                                        (TppbGroup.getLedgerCall.billId(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex])
+                                                                            ?.toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'incomeId':
+                                                                          serializeParam(
+                                                                        (TppbGroup.getLedgerCall.incomeId(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex])
+                                                                            ?.toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'transaction':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .description(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'type':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .type(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.bottomToTop,
+                                                                        duration:
+                                                                            Duration(milliseconds: 150),
+                                                                      ),
+                                                                    },
+                                                                  );
+                                                                },
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getLedgerCall.description(
+                                                                                clearedListViewGetLedgerResponse.jsonBody,
+                                                                              )?[ledgerEntriesIndex],
+                                                                              'N/A',
+                                                                            ).maybeHandleOverflow(
+                                                                              maxChars: 30,
+                                                                              replacement: '…',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            maxLines:
+                                                                                1,
+                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'z323cmeq' /* Wallet:  */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      letterSpacing: 0.0,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                              Text(
+                                                                                valueOrDefault<String>(
+                                                                                  TppbGroup.getLedgerCall.paymentSourceSourceName(
+                                                                                    clearedListViewGetLedgerResponse.jsonBody,
+                                                                                  )?[ledgerEntriesIndex],
+                                                                                  'N/A',
+                                                                                ).maybeHandleOverflow(
+                                                                                  maxChars: 16,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      letterSpacing: 0.0,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getLedgerCall.transactionDate(
+                                                                                clearedListViewGetLedgerResponse.jsonBody,
+                                                                              )?[ledgerEntriesIndex],
+                                                                              'N/A',
+                                                                            ).maybeHandleOverflow(maxChars: 10),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              formatNumber(
+                                                                                TppbGroup.getLedgerCall.amount(
+                                                                                  clearedListViewGetLedgerResponse.jsonBody,
+                                                                                )?[ledgerEntriesIndex],
+                                                                                formatType: FormatType.custom,
+                                                                                currency: '',
+                                                                                format: '#,###.##',
+                                                                                locale: '',
+                                                                              ),
+                                                                              'N/A',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            TppbGroup.getLedgerCall.transactionType(
+                                                                              clearedListViewGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                            'N/A',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Semantics(
+                                                                      label:
+                                                                          'Toggle status of this entry as cleared of not',
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          _model.editLedgerEntryAsClearedOutput1 = await TppbGroup
+                                                                              .editLedgerEntryAsClearedCall
+                                                                              .call(
+                                                                            authorizationToken:
+                                                                                currentAuthenticationToken,
+                                                                            ledgerId:
+                                                                                TppbGroup.getLedgerCall.ledgerId(
+                                                                              clearedListViewGetLedgerResponse.jsonBody,
+                                                                            )?[ledgerEntriesIndex],
+                                                                          );
+                                                                          if ((_model.editLedgerEntryAsClearedOutput1?.succeeded ??
+                                                                              true)) {
+                                                                            setState(() {});
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return AlertDialog(
+                                                                                  title: const Text('Error Updating the status of this Ledger Entry'),
+                                                                                  content: Text(TppbGroup.editLedgerEntryAsClearedCall.message(
+                                                                                    (_model.editLedgerEntryAsClearedOutput1?.jsonBody ?? ''),
+                                                                                  )!),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: const Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          }
+
+                                                                          setState(
+                                                                              () {});
+                                                                        },
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .check_box,
+                                                                          color: (TppbGroup.getLedgerCall.status(
+                                                                                    clearedListViewGetLedgerResponse.jsonBody,
+                                                                                  )?[ledgerEntriesIndex]) ==
+                                                                                  true
+                                                                              ? FlutterFlowTheme.of(context).primary
+                                                                              : FlutterFlowTheme.of(context).alternate,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Running Total: ${valueOrDefault<String>(
+                                                                      formatNumber(
+                                                                        TppbGroup
+                                                                            .getLedgerCall
+                                                                            .runningTotal(
+                                                                          clearedListViewGetLedgerResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerEntriesIndex],
+                                                                        formatType:
+                                                                            FormatType.custom,
+                                                                        currency:
+                                                                            '',
+                                                                        format:
+                                                                            '#,###.##',
+                                                                        locale:
+                                                                            '',
+                                                                      ),
+                                                                      'N/A',
+                                                                    )}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: const Alignment(0.0, 0),
+                        child: TabBar(
+                          labelColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                          unselectedLabelColor:
+                              FlutterFlowTheme.of(context).primaryText,
+                          labelStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleMediumFamily,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleMediumFamily),
+                              ),
+                          unselectedLabelStyle: const TextStyle(),
+                          indicatorColor: FlutterFlowTheme.of(context).primary,
+                          padding: const EdgeInsets.all(4.0),
+                          tabs: [
+                            Tab(
+                              text: FFLocalizations.of(context).getText(
+                                'mamx0tsh' /* All */,
+                              ),
+                            ),
+                            Tab(
+                              text: FFLocalizations.of(context).getText(
+                                '4htbe8zh' /* This Month */,
+                              ),
+                            ),
+                            Tab(
+                              text: FFLocalizations.of(context).getText(
+                                'sekinoq9' /* Cleared */,
+                              ),
+                            ),
+                          ],
+                          controller: _model.tabBarController,
+                          onTap: (i) async {
+                            [() async {}, () async {}, () async {}][i]();
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

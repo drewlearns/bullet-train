@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'ledger_widget.dart' show LedgerWidget;
@@ -46,13 +47,26 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for HouseholdIdDropDown widget.
+  String? householdIdDropDownValue;
+  FormFieldController<String>? householdIdDropDownValueController;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in AllIcon widget.
+  ApiCallResponse? editLedgerEntryAsClearedOutput;
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in ThisMonthIcon widget.
+  ApiCallResponse? editLedgerEntryAsClearedOutput2;
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in ClearedIcon widget.
+  ApiCallResponse? editLedgerEntryAsClearedOutput1;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    tabBarController?.dispose();
+  }
 }

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_bill_widget.dart' show AddBillWidget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AddBillModel extends FlutterFlowModel<AddBillWidget> {
   ///  State fields for stateful widgets in this page.
@@ -16,7 +15,6 @@ class AddBillModel extends FlutterFlowModel<AddBillWidget> {
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
-  final textFieldMask2 = MaskTextInputFormatter(mask: '##.##');
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for CategoryField widget.
   FocusNode? categoryFieldFocusNode;
@@ -31,7 +29,6 @@ class AddBillModel extends FlutterFlowModel<AddBillWidget> {
   // State field(s) for CashBackRate widget.
   FocusNode? cashBackRateFocusNode;
   TextEditingController? cashBackRateTextController;
-  final cashBackRateMask = MaskTextInputFormatter(mask: '##.##%');
   String? Function(BuildContext, String?)? cashBackRateTextControllerValidator;
   // State field(s) for DescriptionField widget.
   FocusNode? descriptionFieldFocusNode;
@@ -59,7 +56,6 @@ class AddBillModel extends FlutterFlowModel<AddBillWidget> {
   // State field(s) for InterestRateField widget.
   FocusNode? interestRateFieldFocusNode;
   TextEditingController? interestRateFieldTextController;
-  final interestRateFieldMask = MaskTextInputFormatter(mask: '##.##%');
   String? Function(BuildContext, String?)?
       interestRateFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (addBill)] action in Button widget.

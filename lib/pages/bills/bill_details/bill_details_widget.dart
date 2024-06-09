@@ -1,13 +1,19 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'bill_details_model.dart';
 export 'bill_details_model.dart';
 
 class BillDetailsWidget extends StatefulWidget {
-  const BillDetailsWidget({super.key});
+  const BillDetailsWidget({
+    super.key,
+    required this.billId,
+  });
+
+  final String? billId;
 
   @override
   State<BillDetailsWidget> createState() => _BillDetailsWidgetState();
@@ -36,7 +42,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'BillDetails',
+        title: 'Bill Details',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -69,17 +75,21 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                   title: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                    child: Text(
+                    child: AutoSizeText(
                       FFLocalizations.of(context).getText(
-                        '0i4wauti' /* Page Title */,
+                        'oitptc4o' /* Bill Details */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyMediumFamily),
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineLarge.override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineLargeFamily,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineLargeFamily),
+                              ),
                     ),
                   ),
                   centerTitle: true,

@@ -42,7 +42,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
     _model.categoryFieldTextController ??= TextEditingController();
     _model.categoryFieldFocusNode ??= FocusNode();
 
-    _model.cashBackRateTextController ??= TextEditingController();
+    _model.cashBackRateTextController ??= TextEditingController(text: '');
     _model.cashBackRateFocusNode ??= FocusNode();
 
     _model.descriptionFieldTextController ??= TextEditingController();
@@ -57,19 +57,16 @@ class _AddBillWidgetState extends State<AddBillWidget> {
     _model.passwordFielTextController ??= TextEditingController();
     _model.passwordFielFocusNode ??= FocusNode();
 
-    _model.interestRateFieldTextController ??= TextEditingController();
+    _model.interestRateFieldTextController ??= TextEditingController(text: '');
     _model.interestRateFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController1?.text = FFLocalizations.of(context).getText(
-            '2fv2dw5h' /* Acme Inc LLC */,
-          );
-          _model.textController2?.text = FFLocalizations.of(context).getText(
-            '701848re' /* 0.00 */,
+            'hgwdxa3c' /* Acme Inc LLC */,
           );
           _model.categoryFieldTextController?.text =
               FFLocalizations.of(context).getText(
-            'kcify1bl' /* Bill */,
+            'w2axq1ox' /* Bill */,
           );
         }));
   }
@@ -116,7 +113,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'darvweyn' /* Add Bill */,
+                      'bq7qnlsa' /* Add Bill */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -165,7 +162,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'p15zgwzp' /* Name of Bill */,
+                                          '1ff3s5jd' /* Name of Bill */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -355,9 +352,11 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMediumFamily),
                                           ),
+                                      keyboardType:
+                                          const TextInputType.numberWithOptions(
+                                              decimal: true),
                                       validator: _model.textController2Validator
                                           .asValidator(context),
-                                      inputFormatters: [_model.textFieldMask2],
                                     ),
                                   ),
                                 ),
@@ -383,7 +382,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'brk00jnf' /* Category */,
+                                          'r79yylov' /* Category */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -518,98 +517,102 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       '27th',
                                       '28th',
                                       '29th',
-                                      '30th'
+                                      '30th',
+                                      '30'
                                     ]),
                                     optionLabels: [
                                       FFLocalizations.of(context).getText(
-                                        'rdpqbccr' /* 1 */,
+                                        'v4vayj1u' /* 1 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'zdnoflbu' /* 2 */,
+                                        'w8m39b4m' /* 2 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '5bs7apel' /* 3 */,
+                                        'wqvraug3' /* 3 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'pgp012yy' /* 4 */,
+                                        't5qsdcps' /* 4 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'lo8xxqz5' /* 5 */,
+                                        '930u2h2h' /* 5 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'aa6m39d9' /* 6 */,
+                                        'hh3jvsl8' /* 6 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'w4m534mz' /* 7 */,
+                                        '6juorp05' /* 7 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'ourrngqh' /* 8 */,
+                                        'bnql2hwg' /* 8 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'fqaiezsv' /* 9 */,
+                                        'gn38sk2q' /* 9 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '6bnfj3e0' /* 10 */,
+                                        'jahk96ae' /* 10 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '3q11g0th' /* 11 */,
+                                        'faovx2sl' /* 11 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'om9wiw8k' /* 12 */,
+                                        '8j6c6zoq' /* 12 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '5rnnkezh' /* 13 */,
+                                        'bz9704xf' /* 13 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'yz1lbps7' /* 14 */,
+                                        'k4u54bz7' /* 14 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'uqm18jnp' /* 15 */,
+                                        'f9lqi3ox' /* 15 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'tdqma8ul' /* 16 */,
+                                        'a4uw4rqp' /* 16 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '17iaquqo' /* 17 */,
+                                        '8gfvg5f5' /* 17 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '82ipyhha' /* 18 */,
+                                        '9mgkih0m' /* 18 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'tymdoj1a' /* 19 */,
+                                        'wywjbvoc' /* 19 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '6oghcb5q' /* 20 */,
+                                        'lm5i79uf' /* 20 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'p63t95zg' /* 21 */,
+                                        'rwng4r27' /* 21 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'fn1uxoy8' /* 22 */,
+                                        'bkhctvq9' /* 22 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'dqpsoov6' /* 23 */,
+                                        '3e4d9960' /* 23 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'c26l9sf9' /* 24 */,
+                                        '69rytq54' /* 24 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '1t05mlb0' /* 25 */,
+                                        'gu1gwkfc' /* 25 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'r3mq2ddy' /* 26 */,
+                                        '1pl0xd1w' /* 26 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'utn7ltir' /* 27 */,
+                                        '4dxcax6o' /* 27 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '4wckng6q' /* 28 */,
+                                        'a7diaa16' /* 28 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'f3epna2q' /* 29 */,
+                                        '6c4kgyke' /* 29 */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'tqpjisfw' /* 30 */,
+                                        'ua5kebkx' /* 30 */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'hjql9cdn' /* 30 */,
                                       )
                                     ],
                                     onChanged: (val) => setState(() =>
@@ -630,7 +633,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'lrhkn9cp' /* Day of the month was this most... */,
+                                      '01kx7zyv' /* Day of the month was this most... */,
                                     ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
@@ -646,14 +649,14 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                     borderWidth: 2.0,
                                     borderRadius: 8.0,
                                     margin: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 4.0, 16.0, 4.0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
                                     isSearchable: false,
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'yuyiikuq' /* Day Of the Month Due (Most Rec... */,
+                                      'fvw9ecl2' /* Day Of the Month Due (Most Rec... */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -683,40 +686,37 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                   child: FlutterFlowDropDown<String>(
                                     controller: _model
                                             .frequencyDropDownValueController ??=
-                                        FormFieldController<String>(
-                                      _model.frequencyDropDownValue ??=
-                                          'Monthly',
-                                    ),
+                                        FormFieldController<String>(null),
                                     options: List<String>.from([
-                                      'Once',
-                                      'Weekly',
-                                      'Bi-Weekly (every 2 weeks)',
-                                      'Monthly',
-                                      'Bi-Monthly (every 60 days)',
-                                      'Quarterly',
-                                      'Annually'
+                                      'once',
+                                      'weekly',
+                                      'biweekly',
+                                      'monthly',
+                                      'bi-monthly',
+                                      'quarterly',
+                                      'annually'
                                     ]),
                                     optionLabels: [
                                       FFLocalizations.of(context).getText(
-                                        '4ls4v43m' /* once */,
+                                        'u8qllptl' /* Once */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'oomb3n9w' /* weekly */,
+                                        'xtpwl9l0' /* Weekly */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'i5lpimk0' /* bi-weekly */,
+                                        'mit220a3' /* Bi-Weekly (Every 2 weeks) */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '04cyut2j' /* monthly */,
+                                        's2htk243' /* Monthly (Every 30 days) */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'p73qg2fr' /* bi-monthly */,
+                                        'mbg8xmkj' /* Bi-Monthly (Every 60 days) */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'bxzdha6g' /* quarterly */,
+                                        'k4pid9w4' /* Quarterly (Every 90 days) */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'j34pxve8' /* annually */,
+                                        'zm384tki' /* Annually (Yearly) */,
                                       )
                                     ],
                                     onChanged: (val) => setState(() =>
@@ -737,7 +737,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'ahiiwfnb' /* Frequency */,
+                                      'xv80dolm' /* Frequency */,
                                     ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
@@ -753,14 +753,14 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                     borderWidth: 2.0,
                                     borderRadius: 8.0,
                                     margin: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 4.0, 16.0, 4.0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
                                     isSearchable: false,
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'dwbrk6it' /* Frequency */,
+                                      'xry6730d' /* Frequency */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -801,7 +801,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            '0urtkhkg' /* Cash Back Rate (If applicable) */,
+                                            'kiqv4fyp' /* Cash Back Rate (If applicable) */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -893,12 +893,11 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                               context)
                                                           .bodyMediumFamily),
                                             ),
+                                        keyboardType: const TextInputType
+                                            .numberWithOptions(decimal: true),
                                         validator: _model
                                             .cashBackRateTextControllerValidator
                                             .asValidator(context),
-                                        inputFormatters: [
-                                          _model.cashBackRateMask
-                                        ],
                                       ),
                                     ),
                                   ),
@@ -926,7 +925,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'mtdtuxub' /* Description */,
+                                          'lljo571u' /* Description */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -1039,7 +1038,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            'mrroojlu' /* Biller URL */,
+                                            'g8wlxgzl' /* Biller URL */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1058,7 +1057,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'pe7cj4bt' /* Please Provide a link to the b... */,
+                                            'wizo4hw8' /* Please Provide a link to the b... */,
                                           ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1168,7 +1167,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            'rc8a4ng7' /* Username */,
+                                            'vjogfd2j' /* Username */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1293,7 +1292,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            'vlm911c6' /* Password */,
+                                            'qp3jab4n' /* Password */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1451,12 +1450,27 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       return FlutterFlowDropDown<String>(
                                         controller: _model
                                                 .paymentSourceFieldValueController ??=
-                                            FormFieldController<String>(null),
-                                        options: [
-                                          FFLocalizations.of(context).getText(
-                                            'rhb6rnf2' /* Option 1 */,
-                                          )
-                                        ],
+                                            FormFieldController<String>(
+                                          _model.paymentSourceFieldValue ??= '',
+                                        ),
+                                        options: List<String>.from(
+                                            (getJsonField(
+                                          paymentSourceFieldGetPaymentSourceResponse
+                                              .jsonBody,
+                                          r'''$.paymentSources[:].sourceId''',
+                                          true,
+                                        ) as List)
+                                                .map<String>(
+                                                    (s) => s.toString())
+                                                .toList()),
+                                        optionLabels: (getJsonField(
+                                          paymentSourceFieldGetPaymentSourceResponse
+                                              .jsonBody,
+                                          r'''$.paymentSources[:].sourceName''',
+                                          true,
+                                        ) as List)
+                                            .map<String>((s) => s.toString())
+                                            .toList(),
                                         onChanged: (val) => setState(() =>
                                             _model.paymentSourceFieldValue =
                                                 val),
@@ -1478,7 +1492,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          '6qcs1xkz' /* PaymentSource */,
+                                          '4i7s7lpy' /* PaymentSource */,
                                         ),
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
@@ -1495,7 +1509,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
                                         margin: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 4.0),
+                                            16.0, 0.0, 16.0, 0.0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -1517,14 +1531,14 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                   width: 300.0,
                                   decoration: const BoxDecoration(),
                                   child: SwitchListTile.adaptive(
-                                    value: _model.isDebtValue ??= true,
+                                    value: _model.isDebtValue ??= false,
                                     onChanged: (newValue) async {
                                       setState(
                                           () => _model.isDebtValue = newValue);
                                     },
                                     title: Text(
                                       FFLocalizations.of(context).getText(
-                                        '0gvyybt2' /* Is it a Debt? */,
+                                        'a40jxn1v' /* Is it a Debt? */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
@@ -1579,7 +1593,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                             labelText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              '9sqp0d07' /* Interest Rate (if applicable) */,
+                                              'xjp2l2t9' /* Interest Rate (if applicable) */,
                                             ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -1673,12 +1687,12 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                                 context)
                                                             .bodyMediumFamily),
                                               ),
+                                          keyboardType: const TextInputType
+                                              .numberWithOptions(
+                                              signed: true, decimal: true),
                                           validator: _model
                                               .interestRateFieldTextControllerValidator
                                               .asValidator(context),
-                                          inputFormatters: [
-                                            _model.interestRateFieldMask
-                                          ],
                                         ),
                                       ),
                                     ),
@@ -1695,33 +1709,27 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                           householdId: widget.householdId,
                           category: _model.categoryFieldTextController.text,
                           billName: _model.textController1.text,
-                          amount: _model.textController2.text,
+                          amount: double.tryParse(_model.textController2.text),
                           dayOfMonth: _model.dayOfMonthDropDownValue,
                           frequency: _model.frequencyDropDownValue,
-                          isDebt: valueOrDefault<String>(
-                            _model.isDebtValue?.toString(),
-                            'false',
-                          ),
-                          interestRate: valueOrDefault<String>(
-                            _model.interestRateFieldTextController.text,
-                            'null',
-                          ),
+                          isDebt: _model.isDebtValue?.toString(),
+                          interestRate:
+                              _model.interestRateFieldTextController.text,
                           cashBack: _model.cashBackRateTextController.text,
                           description:
                               _model.descriptionFieldTextController.text,
                           url: _model.urlFieldTextController.text,
                           password: _model.passwordFielTextController.text,
                           paymentSourceId: _model.paymentSourceFieldValue,
-                          username: currentUserUid,
+                          username: _model.usernameFieldTextController.text,
                         );
                         if ((_model.addBillOutput?.succeeded ?? true)) {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
                               return AlertDialog(
-                                title: const Text('Success'),
-                                content: Text(
-                                    'You\'ve added ${_model.textController1.text} to the Ledger.'),
+                                title: const Text('Success!'),
+                                content: const Text('Bill Added To the Ledger'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>
@@ -1736,12 +1744,12 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                             _model.textController1?.clear();
                             _model.textController2?.clear();
                             _model.categoryFieldTextController?.clear();
-                            _model.interestRateFieldTextController?.clear();
                             _model.cashBackRateTextController?.clear();
                             _model.descriptionFieldTextController?.clear();
                             _model.urlFieldTextController?.clear();
                             _model.usernameFieldTextController?.clear();
                             _model.passwordFielTextController?.clear();
+                            _model.interestRateFieldTextController?.clear();
                           });
                         } else {
                           await showDialog(
@@ -1767,7 +1775,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                         setState(() {});
                       },
                       text: FFLocalizations.of(context).getText(
-                        'wbdt2f45' /* Add Bill */,
+                        'p42lwg23' /* Add Bill */,
                       ),
                       options: FFButtonOptions(
                         width: 300.0,

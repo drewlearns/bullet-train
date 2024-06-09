@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'add_transaction_model.dart';
@@ -328,39 +326,34 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               0.0, 0.0, 16.0, 16.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await showModalBottomSheet<bool>(
+                              final datePickedDate = await showDatePicker(
+                                context: context,
+                                initialDate: getCurrentTimestamp,
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime(2050),
+                              );
+
+                              TimeOfDay? datePickedTime;
+                              if (datePickedDate != null) {
+                                datePickedTime = await showTimePicker(
                                   context: context,
-                                  builder: (context) {
-                                    return ScrollConfiguration(
-                                      behavior: const MaterialScrollBehavior()
-                                          .copyWith(
-                                        dragDevices: {
-                                          PointerDeviceKind.mouse,
-                                          PointerDeviceKind.touch,
-                                          PointerDeviceKind.stylus,
-                                          PointerDeviceKind.unknown
-                                        },
-                                      ),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                3,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        child: CupertinoDatePicker(
-                                          mode: CupertinoDatePickerMode.date,
-                                          minimumDate: DateTime(1900),
-                                          initialDateTime: getCurrentTimestamp,
-                                          maximumDate: DateTime(2050),
-                                          use24hFormat: false,
-                                          onDateTimeChanged: (newDateTime) =>
-                                              safeSetState(() {
-                                            _model.datePicked = newDateTime;
-                                          }),
-                                        ),
-                                      ),
-                                    );
-                                  });
+                                  initialTime: TimeOfDay.fromDateTime(
+                                      getCurrentTimestamp),
+                                );
+                              }
+
+                              if (datePickedDate != null &&
+                                  datePickedTime != null) {
+                                safeSetState(() {
+                                  _model.datePicked = DateTime(
+                                    datePickedDate.year,
+                                    datePickedDate.month,
+                                    datePickedDate.day,
+                                    datePickedTime!.hour,
+                                    datePickedTime.minute,
+                                  );
+                                });
+                              }
                             },
                             text: valueOrDefault<String>(
                               dateTimeFormat(
@@ -374,7 +367,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                             icon: Icon(
                               Icons.calendar_month,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 50.0,
+                              size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: 300.0,

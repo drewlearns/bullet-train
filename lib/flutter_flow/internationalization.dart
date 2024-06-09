@@ -631,16 +631,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'View Spending Habits',
       'es': '',
     },
-    'qb0yb1mj': {
+    'aqz1p02h': {
       'en': 'Total Spent This month: ',
+      'es': '',
+    },
+    'jjxlbdrz': {
+      'en': 'Safe To Spend: ',
+      'es': '',
+    },
+    'mamx0tsh': {
+      'en': 'All',
       'es': '',
     },
     '7x7x9djt': {
       'en': 'Wallet: ',
       'es': '',
     },
-    '89bg5izz': {
-      'en': 'Running Total: ',
+    '4htbe8zh': {
+      'en': 'This Month',
+      'es': '',
+    },
+    'otx99nq7': {
+      'en': 'Wallet: ',
+      'es': '',
+    },
+    'sekinoq9': {
+      'en': 'Cleared',
+      'es': '',
+    },
+    'z323cmeq': {
+      'en': 'Wallet: ',
       'es': '',
     },
     'zu5jz6j9': {
@@ -767,10 +787,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Incomes
   {
-    'satbhtrh': {
-      'en': 'Option 1',
-      'es': '',
-    },
     'a530epg0': {
       'en': 'Please select...',
       'es': '',
@@ -791,24 +807,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Acme Inc',
       'es': '',
     },
-    '7oom76xr': {
-      'en': '\$3000.00',
-      'es': '',
-    },
-    'mg0mr8c8': {
-      'en': 'Acme Inc',
-      'es': '',
-    },
-    'tu79wndh': {
-      'en': '\$3000.00',
-      'es': '',
-    },
     'jdny7ygk': {
-      'en': 'Total',
+      'en': 'This Month',
       'es': '',
     },
-    'ghug1m83': {
-      'en': '\$6000.00',
+    '9kvmgx0t': {
+      'en': 'Safe To Spend',
+      'es': '',
+    },
+    'texmx1s6': {
+      'en': 'Next Payday',
       'es': '',
     },
     'pyfe4td3': {
@@ -969,228 +977,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Household',
       'es': '',
     },
-    'ifo1tyu1': {
-      'en': 'All',
-      'es': '',
-    },
-    'pfgaf7dc': {
-      'en': 'Today',
-      'es': '',
-    },
-    'neyuia0m': {
-      'en': 'Slack Ltd',
-      'es': '',
-    },
-    'znyzx6r6': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    '8a4t4juz': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    'jzc72of9': {
-      'en': 'DUE',
-      'es': '',
-    },
-    'fc5q1xex': {
-      'en': 'ScreenStudio App',
-      'es': '',
-    },
-    'eyoif7vr': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'h6khncqu': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    '1yjjj1q5': {
-      'en': 'DUE',
-      'es': '',
-    },
-    'm3ahks1r': {
-      'en': 'Earlier Invoices',
-      'es': '',
-    },
-    'pukfjxrt': {
-      'en': 'Dribbble LTD.',
-      'es': '',
-    },
-    '6hv8xbik': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'frptin19': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'rzuvx9et': {
-      'en': 'Overdue',
-      'es': '',
-    },
-    '3dnl7ny9': {
-      'en': 'FlutterFlow',
-      'es': '',
-    },
-    'ky1avjgg': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'xxkfz4ed': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'w868mcom': {
-      'en': 'Overdue',
-      'es': '',
-    },
-    'q4ypjfhc': {
-      'en': 'ScreenStudio App',
-      'es': '',
-    },
-    '820sjjwm': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    '4eaycglv': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    'i839v43q': {
-      'en': 'Paid',
-      'es': '',
-    },
-    'hkrjqyze': {
-      'en': 'Slack Ltd',
-      'es': '',
-    },
-    'olojvsr7': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'd5spgbt7': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    '95fwx38g': {
-      'en': 'Paid',
-      'es': '',
-    },
     'ombth8rz': {
-      'en': 'Open',
+      'en': 'Due',
       'es': '',
     },
-    'wp671g1j': {
-      'en': 'Today',
-      'es': '',
-    },
-    'i635bo1z': {
-      'en': 'ScreenStudio App',
-      'es': '',
-    },
-    '66uhiem5': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    't0fdbdnu': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    'xj2dkir1': {
+    'vp0s9rci': {
       'en': 'DUE',
       'es': '',
     },
-    'huc0mfw4': {
-      'en': 'Slack Ltd',
-      'es': '',
-    },
-    'hxupmatf': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'xl2auvn4': {
-      'en': '\$24.99',
-      'es': '',
-    },
-    'dfbwz9v5': {
-      'en': 'DUE',
-      'es': '',
-    },
-    'at84fekj': {
-      'en': 'Earlier Invoices',
-      'es': '',
-    },
-    '6h8dovgx': {
-      'en': 'Dribbble LTD.',
-      'es': '',
-    },
-    'hj7dgcnn': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    '5fvs7v45': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'zz6grios': {
-      'en': 'Overdue',
-      'es': '',
-    },
-    '6zhxks33': {
-      'en': 'FlutterFlow',
-      'es': '',
-    },
-    'xoapghk7': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'ddqnepeq': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'ph7k2jpr': {
-      'en': 'Overdue',
+    '4ts0z1yw': {
+      'en': 'PAST DUE',
       'es': '',
     },
     'hlhurnt6': {
       'en': 'Paid',
       'es': '',
     },
-    '8e05mlke': {
-      'en': 'Earlier Invoices',
+    'mw3fxbya': {
+      'en': 'PAID',
       'es': '',
     },
-    'ywrr65c8': {
-      'en': 'Dribbble LTD.',
+    '7337bw1y': {
+      'en': 'Future',
       'es': '',
     },
-    'f9miu7fp': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    '2yu5tw1p': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'xle1qzox': {
-      'en': 'Paid',
-      'es': '',
-    },
-    'ebn3d2u1': {
-      'en': 'FlutterFlow',
-      'es': '',
-    },
-    'tcsndfnv': {
-      'en': 'Paid on: May, 4th 2023',
-      'es': '',
-    },
-    'q77ojuna': {
-      'en': '\$500.00',
-      'es': '',
-    },
-    'sun5s64a': {
-      'en': 'Paid',
+    'hpfwbosi': {
+      'en': 'Not Due Yet',
       'es': '',
     },
     '7bjer6i3': {
@@ -1204,8 +1016,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BillDetails
   {
-    '0i4wauti': {
-      'en': 'Page Title',
+    'oitptc4o': {
+      'en': 'Bill Details',
       'es': '',
     },
     'seycjexv': {
@@ -1302,12 +1114,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // IncomeDetails
   {
-    '4ln0slbh': {
-      'en': 'Back',
-      'es': '',
-    },
-    'a8rtf58o': {
-      'en': 'Page Title',
+    'aiuy1h5x': {
+      'en': 'Income Details',
       'es': '',
     },
     '5560t94s': {
@@ -1317,12 +1125,96 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AddIncome
   {
-    'wf8geyc7': {
-      'en': 'Back',
+    'bpxel73u': {
+      'en': 'Income Name',
       'es': '',
     },
-    'e4sglg88': {
-      'en': 'Page Title',
+    '1fnkt2ei': {
+      'en': 'Description',
+      'es': '',
+    },
+    '8ihgnfl6': {
+      'en': 'Amount',
+      'es': '',
+    },
+    'dmhai1j7': {
+      'en': 'One Time',
+      'es': '',
+    },
+    'lrx5e8n8': {
+      'en': 'Weekly',
+      'es': '',
+    },
+    'zptp9ob4': {
+      'en': 'Bi-Weekly - Every 2 weeks',
+      'es': '',
+    },
+    'v16lwgtm': {
+      'en': 'Monthly - Every 30 days',
+      'es': '',
+    },
+    'nzr44uyu': {
+      'en': 'Bi-Monthly - Every 60 days',
+      'es': '',
+    },
+    '32bhcg8a': {
+      'en': 'Quarterly - Every 90 days',
+      'es': '',
+    },
+    'ppynddbu': {
+      'en': 'Annually',
+      'es': '',
+    },
+    'w72t7zeu': {
+      'en': 'How Often Do You Get Paid?',
+      'es': '',
+    },
+    'm5857s2k': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    '73onef6i': {
+      'en': 'One Time',
+      'es': '',
+    },
+    'kplk0xkq': {
+      'en': 'Weekly',
+      'es': '',
+    },
+    'uqw30vl4': {
+      'en': 'Bi-Weekly - Every 2 weeks',
+      'es': '',
+    },
+    'jsdfptbo': {
+      'en': 'Monthly - Every 30 days',
+      'es': '',
+    },
+    'fyxdut9a': {
+      'en': 'Bi-Monthly - Every 60 days',
+      'es': '',
+    },
+    'sc4eyh1r': {
+      'en': 'Quarterly - Every 90 days',
+      'es': '',
+    },
+    'yi7lmxu9': {
+      'en': 'Annually',
+      'es': '',
+    },
+    'vrpddlmm': {
+      'en': 'Connect To Payment Source',
+      'es': '',
+    },
+    'drxj8fg1': {
+      'en': 'Search for an item...',
+      'es': '',
+    },
+    'hrypo08q': {
+      'en': 'Add Income',
+      'es': '',
+    },
+    'ra8r4cs8': {
+      'en': 'Add Income',
       'es': '',
     },
     '34yo6nw6': {
@@ -1383,7 +1275,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Categories
   {
-    '5p9wanmn': {
+    'bqv43vpw': {
       'en': 'Categories',
       'es': '',
     },
@@ -1394,15 +1286,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AddBill
   {
-    'darvweyn': {
+    'bq7qnlsa': {
       'en': 'Add Bill',
       'es': '',
     },
-    'p15zgwzp': {
+    '1ff3s5jd': {
       'en': 'Name of Bill',
       'es': '',
     },
-    '2fv2dw5h': {
+    'hgwdxa3c': {
       'en': 'Acme Inc LLC',
       'es': '',
     },
@@ -1410,243 +1302,239 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Amount',
       'es': '',
     },
-    '701848re': {
-      'en': '0.00',
-      'es': '',
-    },
-    'brk00jnf': {
+    'r79yylov': {
       'en': 'Category',
       'es': '',
     },
-    'kcify1bl': {
+    'w2axq1ox': {
       'en': 'Bill',
       'es': '',
     },
-    'rdpqbccr': {
+    'v4vayj1u': {
       'en': '1',
       'es': '',
     },
-    'zdnoflbu': {
+    'w8m39b4m': {
       'en': '2',
       'es': '',
     },
-    '5bs7apel': {
+    'wqvraug3': {
       'en': '3',
       'es': '',
     },
-    'pgp012yy': {
+    't5qsdcps': {
       'en': '4',
       'es': '',
     },
-    'lo8xxqz5': {
+    '930u2h2h': {
       'en': '5',
       'es': '',
     },
-    'aa6m39d9': {
+    'hh3jvsl8': {
       'en': '6',
       'es': '',
     },
-    'w4m534mz': {
+    '6juorp05': {
       'en': '7',
       'es': '',
     },
-    'ourrngqh': {
+    'bnql2hwg': {
       'en': '8',
       'es': '',
     },
-    'fqaiezsv': {
+    'gn38sk2q': {
       'en': '9',
       'es': '',
     },
-    '6bnfj3e0': {
+    'jahk96ae': {
       'en': '10',
       'es': '',
     },
-    '3q11g0th': {
+    'faovx2sl': {
       'en': '11',
       'es': '',
     },
-    'om9wiw8k': {
+    '8j6c6zoq': {
       'en': '12',
       'es': '',
     },
-    '5rnnkezh': {
+    'bz9704xf': {
       'en': '13',
       'es': '',
     },
-    'yz1lbps7': {
+    'k4u54bz7': {
       'en': '14',
       'es': '',
     },
-    'uqm18jnp': {
+    'f9lqi3ox': {
       'en': '15',
       'es': '',
     },
-    'tdqma8ul': {
+    'a4uw4rqp': {
       'en': '16',
       'es': '',
     },
-    '17iaquqo': {
+    '8gfvg5f5': {
       'en': '17',
       'es': '',
     },
-    '82ipyhha': {
+    '9mgkih0m': {
       'en': '18',
       'es': '',
     },
-    'tymdoj1a': {
+    'wywjbvoc': {
       'en': '19',
       'es': '',
     },
-    '6oghcb5q': {
+    'lm5i79uf': {
       'en': '20',
       'es': '',
     },
-    'p63t95zg': {
+    'rwng4r27': {
       'en': '21',
       'es': '',
     },
-    'fn1uxoy8': {
+    'bkhctvq9': {
       'en': '22',
       'es': '',
     },
-    'dqpsoov6': {
+    '3e4d9960': {
       'en': '23',
       'es': '',
     },
-    'c26l9sf9': {
+    '69rytq54': {
       'en': '24',
       'es': '',
     },
-    '1t05mlb0': {
+    'gu1gwkfc': {
       'en': '25',
       'es': '',
     },
-    'r3mq2ddy': {
+    '1pl0xd1w': {
       'en': '26',
       'es': '',
     },
-    'utn7ltir': {
+    '4dxcax6o': {
       'en': '27',
       'es': '',
     },
-    '4wckng6q': {
+    'a7diaa16': {
       'en': '28',
       'es': '',
     },
-    'f3epna2q': {
+    '6c4kgyke': {
       'en': '29',
       'es': '',
     },
-    'tqpjisfw': {
+    'ua5kebkx': {
       'en': '30',
       'es': '',
     },
-    'lrhkn9cp': {
+    'hjql9cdn': {
+      'en': '30',
+      'es': '',
+    },
+    '01kx7zyv': {
       'en': 'Day of the month was this most recently due',
       'es': '',
     },
-    'm5857s2k': {
+    'srs8ebvc': {
       'en': 'Search for an item...',
       'es': '',
     },
-    'yuyiikuq': {
+    'fvw9ecl2': {
       'en': 'Day Of the Month Due (Most Recent)',
       'es': '',
     },
-    '8dywafaw': {
+    'rmnk9p8g': {
       'en': 'Monthly',
       'es': '',
     },
-    '4ls4v43m': {
-      'en': 'once',
+    'u8qllptl': {
+      'en': 'Once',
       'es': '',
     },
-    'oomb3n9w': {
-      'en': 'weekly',
+    'xtpwl9l0': {
+      'en': 'Weekly',
       'es': '',
     },
-    'i5lpimk0': {
-      'en': 'bi-weekly',
+    'mit220a3': {
+      'en': 'Bi-Weekly (Every 2 weeks)',
       'es': '',
     },
-    '04cyut2j': {
-      'en': 'monthly',
+    's2htk243': {
+      'en': 'Monthly (Every 30 days)',
       'es': '',
     },
-    'p73qg2fr': {
-      'en': 'bi-monthly',
+    'mbg8xmkj': {
+      'en': 'Bi-Monthly (Every 60 days)',
       'es': '',
     },
-    'bxzdha6g': {
-      'en': 'quarterly',
+    'k4pid9w4': {
+      'en': 'Quarterly (Every 90 days)',
       'es': '',
     },
-    'j34pxve8': {
-      'en': 'annually',
+    'zm384tki': {
+      'en': 'Annually (Yearly)',
       'es': '',
     },
-    'ahiiwfnb': {
+    'xv80dolm': {
       'en': 'Frequency',
       'es': '',
     },
-    'oki5snjx': {
+    '6gslvggc': {
       'en': 'Search for an item...',
       'es': '',
     },
-    'dwbrk6it': {
+    'xry6730d': {
       'en': 'Frequency',
       'es': '',
     },
-    '0urtkhkg': {
+    'kiqv4fyp': {
       'en': 'Cash Back Rate (If applicable)',
       'es': '',
     },
-    'mtdtuxub': {
+    'lljo571u': {
       'en': 'Description',
       'es': '',
     },
-    'mrroojlu': {
+    'g8wlxgzl': {
       'en': 'Biller URL',
       'es': '',
     },
-    'pe7cj4bt': {
+    'wizo4hw8': {
       'en': 'Please Provide a link to the biller\'s webpage',
       'es': '',
     },
-    'rc8a4ng7': {
+    'vjogfd2j': {
       'en': 'Username',
       'es': '',
     },
-    'vlm911c6': {
+    'qp3jab4n': {
       'en': 'Password',
       'es': '',
     },
-    'rhb6rnf2': {
-      'en': 'Option 1',
-      'es': '',
-    },
-    '6qcs1xkz': {
+    '4i7s7lpy': {
       'en': 'PaymentSource',
       'es': '',
     },
-    'qor4umsl': {
+    'jv67qlbu': {
       'en': 'Search for an item...',
       'es': '',
     },
-    '0gvyybt2': {
+    'a40jxn1v': {
       'en': 'Is it a Debt?',
       'es': '',
     },
-    '9sqp0d07': {
+    'xjp2l2t9': {
       'en': 'Interest Rate (if applicable)',
       'es': '',
     },
-    'wbdt2f45': {
+    'p42lwg23': {
       'en': 'Add Bill',
       'es': '',
     },
-    'smhrb5vq': {
+    'mo5n9cmm': {
       'en': 'Home',
       'es': '',
     },

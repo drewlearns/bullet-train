@@ -263,7 +263,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'BillDetails',
           path: '/billDetails',
           requireAuth: true,
-          builder: (context, params) => const BillDetailsWidget(),
+          builder: (context, params) => BillDetailsWidget(
+            billId: params.getParam(
+              'billId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'TransactionDetails',
@@ -296,13 +301,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'IncomeDetails',
           path: '/incomeDetails',
           requireAuth: true,
-          builder: (context, params) => const IncomeDetailsWidget(),
+          builder: (context, params) => IncomeDetailsWidget(
+            incomeId: params.getParam(
+              'incomeId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'AddIncome',
           path: '/addIncome',
           requireAuth: true,
-          builder: (context, params) => const AddIncomeWidget(),
+          builder: (context, params) => AddIncomeWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Notifications',
@@ -515,15 +530,17 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? isWeb
-                  ? Container()
-                  : Container(
-                      color: FlutterFlowTheme.of(context).primary,
-                      child: Image.asset(
-                        'assets/images/DALLE_2024-01-16_08.55.01_-_Depict_an_1800s-style_painting_of_a_human_with_a_pigs_head,_radiating_happiness_and_modernity._The_character,_dressed_in_an_elegant_blend_of_1800s_at.png',
-                        fit: BoxFit.cover,
+              ? Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
                       ),
-                    )
+                    ),
+                  ),
+                )
               : page;
 
           final transitionInfo = state.transitionInfo;

@@ -100,6 +100,39 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
             },
           );
         }
+      } else if (widget.type == 'bill') {
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
+        context.pushNamed(
+          'BillDetails',
+          queryParameters: {
+            'billId': serializeParam(
+              widget.billId,
+              ParamType.String,
+            ),
+          }.withoutNulls,
+          extra: <String, dynamic>{
+            kTransitionInfoKey: const TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.bottomToTop,
+              duration: Duration(milliseconds: 150),
+            ),
+          },
+        );
+      } else if (widget.type == 'income') {
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+        }
+        context.pushNamed(
+          'IncomeDetails',
+          queryParameters: {
+            'incomeId': serializeParam(
+              widget.incomeId,
+              ParamType.String,
+            ),
+          }.withoutNulls,
+        );
       } else {
         await showDialog(
           context: context,

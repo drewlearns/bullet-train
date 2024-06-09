@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_transaction_widget.dart' show AddTransactionWidget;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AddTransactionModel extends FlutterFlowModel<AddTransactionWidget> {
