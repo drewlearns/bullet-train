@@ -1713,7 +1713,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           );
                                                           navigate = () =>
                                                               context.goNamedAuth(
-                                                                  'AddTransaction',
+                                                                  'Ledger',
                                                                   context
                                                                       .mounted);
                                                         } else {

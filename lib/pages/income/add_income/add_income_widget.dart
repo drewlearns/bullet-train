@@ -364,12 +364,63 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                 },
                               );
 
+                              TimeOfDay? datePickedTime;
                               if (datePickedDate != null) {
+                                datePickedTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.fromDateTime(
+                                      getCurrentTimestamp),
+                                  builder: (context, child) {
+                                    return wrapInMaterialTimePickerTheme(
+                                      context,
+                                      child!,
+                                      headerBackgroundColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      headerForegroundColor:
+                                          FlutterFlowTheme.of(context).info,
+                                      headerTextStyle: FlutterFlowTheme.of(
+                                              context)
+                                          .headlineLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineLargeFamily,
+                                            fontSize: 32.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLargeFamily),
+                                          ),
+                                      pickerBackgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      pickerForegroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      selectedDateTimeBackgroundColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      selectedDateTimeForegroundColor:
+                                          FlutterFlowTheme.of(context).info,
+                                      actionButtonForegroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      iconSize: 24.0,
+                                    );
+                                  },
+                                );
+                              }
+
+                              if (datePickedDate != null &&
+                                  datePickedTime != null) {
                                 safeSetState(() {
                                   _model.datePicked = DateTime(
                                     datePickedDate.year,
                                     datePickedDate.month,
                                     datePickedDate.day,
+                                    datePickedTime!.hour,
+                                    datePickedTime.minute,
                                   );
                                 });
                               }

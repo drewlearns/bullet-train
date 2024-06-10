@@ -393,36 +393,34 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                               GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
                                                                         ),
                                                                   ),
-                                                                  ListView(
-                                                                    padding:
-                                                                        EdgeInsets
-                                                                            .zero,
-                                                                    shrinkWrap:
-                                                                        true,
-                                                                    scrollDirection:
-                                                                        Axis.vertical,
-                                                                    children: [
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          TppbGroup
-                                                                              .getIncomesCall
-                                                                              .payday(
-                                                                            listViewGetIncomesResponse.jsonBody,
-                                                                          )?[incomesIndex],
-                                                                          'Error',
+                                                                  Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      TppbGroup
+                                                                          .getIncomesCall
+                                                                          .payday(
+                                                                        listViewGetIncomesResponse
+                                                                            .jsonBody,
+                                                                      )?[incomesIndex],
+                                                                      'Error',
+                                                                    ).maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            10),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).titleLargeFamily,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleLarge
-                                                                            .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              fontSize: 14.0,
-                                                                              letterSpacing: 0.0,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
-                                                                            ),
-                                                                      ),
-                                                                    ],
                                                                   ),
                                                                 ],
                                                               ),
@@ -480,13 +478,6 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                   context)
                                                               .alternate,
                                                     ),
-                                                    Divider(
-                                                      thickness: 1.0,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent4,
-                                                    ),
                                                   ],
                                                 );
                                               },
@@ -495,325 +486,344 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                         );
                                       },
                                     ),
-                                    Divider(
-                                      thickness: 1.0,
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 8.0),
-                                      child: FutureBuilder<ApiCallResponse>(
-                                        future: TppbGroup
-                                            .getCurrentMonthIncomeCall
-                                            .call(
-                                          authorizationToken:
-                                              currentAuthenticationToken,
-                                          householdId: _model.dropDownValue,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                  ),
+                                    FutureBuilder<ApiCallResponse>(
+                                      future: TppbGroup
+                                          .getCurrentMonthIncomeCall
+                                          .call(
+                                        authorizationToken:
+                                            currentAuthenticationToken,
+                                        householdId: _model.dropDownValue,
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                                 ),
                                               ),
-                                            );
-                                          }
-                                          final priceSummaryGetCurrentMonthIncomeResponse =
-                                              snapshot.data!;
-                                          return SingleChildScrollView(
-                                            primary: false,
-                                            child: Column(
+                                            ),
+                                          );
+                                        }
+                                        final listViewGetCurrentMonthIncomeResponse =
+                                            snapshot.data!;
+                                        return ListView(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          children: [
+                                            Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 8.0, 0.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'jdny7ygk' /* This Month */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
+                                                          0.0, 0.0, 0.0, 8.0),
+                                                  child: SingleChildScrollView(
+                                                    primary: false,
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Outfit'),
-                                                                ),
-                                                            minFontSize: 12.0,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          TppbGroup
-                                                              .getCurrentMonthIncomeCall
-                                                              .totalIncome(
-                                                            priceSummaryGetCurrentMonthIncomeResponse
-                                                                .jsonBody,
-                                                          ),
-                                                          'Error',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallFamily,
-                                                                  letterSpacing:
+                                                                      8.0,
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .displaySmallFamily),
-                                                                ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '9kvmgx0t' /* Safe To Spend */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Outfit'),
-                                                                ),
-                                                            minFontSize: 12.0,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      FutureBuilder<
-                                                          ApiCallResponse>(
-                                                        future: TppbGroup
-                                                            .getSafeToSpendCall
-                                                            .call(
-                                                          authorizationToken:
-                                                              currentAuthenticationToken,
-                                                          householdId: _model
-                                                              .dropDownValue,
-                                                        ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
-                                                                child:
-                                                                    CircularProgressIndicator(
-                                                                  valueColor:
-                                                                      AlwaysStoppedAnimation<
-                                                                          Color>(
-                                                                    FlutterFlowTheme.of(
+                                                                      8.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    FFLocalizations.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .getText(
+                                                                      'jdny7ygk' /* This Month  */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey('Outfit'),
+                                                                        ),
+                                                                    minFontSize:
+                                                                        12.0,
                                                                   ),
-                                                                ),
+                                                                ],
                                                               ),
-                                                            );
-                                                          }
-                                                          final textGetSafeToSpendResponse =
-                                                              snapshot.data!;
-                                                          return AutoSizeText(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              formatNumber(
-                                                                TppbGroup
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  TppbGroup
+                                                                      .getCurrentMonthIncomeCall
+                                                                      .totalIncome(
+                                                                    listViewGetCurrentMonthIncomeResponse
+                                                                        .jsonBody,
+                                                                  ),
+                                                                  'Error',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .displaySmallFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      8.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '9kvmgx0t' /* Safe To Spend  */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey('Outfit'),
+                                                                        ),
+                                                                    minFontSize:
+                                                                        12.0,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              FutureBuilder<
+                                                                  ApiCallResponse>(
+                                                                future: TppbGroup
                                                                     .getSafeToSpendCall
-                                                                    .safeToSpend(
-                                                                  textGetSafeToSpendResponse
-                                                                      .jsonBody,
+                                                                    .call(
+                                                                  authorizationToken:
+                                                                      currentAuthenticationToken,
+                                                                  householdId:
+                                                                      _model
+                                                                          .dropDownValue,
                                                                 ),
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: '',
-                                                                format:
-                                                                    '#,###.##',
-                                                                locale: '',
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            50.0,
+                                                                        child:
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                  final textGetSafeToSpendResponse =
+                                                                      snapshot
+                                                                          .data!;
+                                                                  return AutoSizeText(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      formatNumber(
+                                                                        TppbGroup
+                                                                            .getSafeToSpendCall
+                                                                            .safeToSpend(
+                                                                          textGetSafeToSpendResponse
+                                                                              .jsonBody,
+                                                                        ),
+                                                                        formatType:
+                                                                            FormatType.custom,
+                                                                        currency:
+                                                                            '',
+                                                                        format:
+                                                                            '#,###.##',
+                                                                        locale:
+                                                                            '',
+                                                                      ),
+                                                                      'Loading...',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                        ),
+                                                                  );
+                                                                },
                                                               ),
-                                                              'Loading...',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .displaySmallFamily),
-                                                                ),
-                                                          );
-                                                        },
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'texmx1s6' /* Next Payday */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Outfit'),
-                                                                ),
-                                                            minFontSize: 12.0,
+                                                            ],
                                                           ),
-                                                        ],
-                                                      ),
-                                                      AutoSizeText(
-                                                        valueOrDefault<String>(
-                                                          TppbGroup
-                                                              .getCurrentMonthIncomeCall
-                                                              .nextPayday(
-                                                            priceSummaryGetCurrentMonthIncomeResponse
-                                                                .jsonBody,
-                                                          ),
-                                                          'Loading...',
-                                                        ).maybeHandleOverflow(
-                                                            maxChars: 10),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallFamily,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
+                                                                      8.0,
+                                                                      0.0,
+                                                                      8.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'texmx1s6' /* Next Payday  */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey('Outfit'),
+                                                                        ),
+                                                                    minFontSize:
+                                                                        12.0,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              AutoSizeText(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  TppbGroup
+                                                                      .getCurrentMonthIncomeCall
+                                                                      .nextPayday(
+                                                                    listViewGetCurrentMonthIncomeResponse
+                                                                        .jsonBody,
+                                                                  ),
+                                                                  'Loading...',
+                                                                ).maybeHandleOverflow(
+                                                                    maxChars:
+                                                                        10),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .displaySmallFamily),
-                                                                ),
-                                                      ),
-                                                    ],
+                                                                              .displaySmallFamily,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                          );
-                                        },
-                                      ),
+                                          ],
+                                        );
+                                      },
                                     ),
                                   ],
                                 ),

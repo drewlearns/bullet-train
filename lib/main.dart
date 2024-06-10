@@ -151,7 +151,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'AddTransaction';
+  String _currentPageName = 'Ledger';
   late Widget? _currentPage;
 
   @override
@@ -168,7 +168,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'PaymentSources': const PaymentSourcesWidget(),
       'Bills': const BillsWidget(),
       'Incomes': const IncomesWidget(),
-      'Export': const ExportWidget(),
       'AddTransaction': const AddTransactionWidget(),
       'Settings': const SettingsWidget(),
     };
@@ -226,16 +225,6 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'qsrie90l' /* Incomes */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.upload_sharp,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '9wx2z0jy' /* Reports */,
             ),
             tooltip: '',
           ),

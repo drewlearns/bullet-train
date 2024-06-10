@@ -639,28 +639,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Safe To Spend: ',
       'es': '',
     },
-    'ifo1tyu1': {
-      'en': 'All',
-      'es': '',
-    },
-    '7x7x9djt': {
-      'en': 'Wallet: ',
-      'es': '',
-    },
     '9lfzaqnh': {
+      'en': 'Everything',
+      'es': 'Todo',
+    },
+    'pptwt2a3': {
       'en': 'This Month',
       'es': '',
     },
-    'otx99nq7': {
-      'en': 'Wallet: ',
-      'es': '',
-    },
-    'qs0tglvt': {
+    'coyp2r0z': {
       'en': 'Cleared',
-      'es': '',
-    },
-    'z323cmeq': {
-      'en': 'Wallet: ',
       'es': '',
     },
     'zu5jz6j9': {
@@ -808,15 +796,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'jdny7ygk': {
-      'en': 'This Month',
+      'en': 'This Month ',
       'es': '',
     },
     '9kvmgx0t': {
-      'en': 'Safe To Spend',
+      'en': 'Safe To Spend ',
       'es': '',
     },
     'texmx1s6': {
-      'en': 'Next Payday',
+      'en': 'Next Payday ',
       'es': '',
     },
     'pyfe4td3': {
@@ -1539,10 +1527,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // PaymentSourceDetails
+  {
+    'ewzly7ka': {
+      'en': 'Wallet Details',
+      'es': '',
+    },
+    'smhrb5vq': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
   // passwordfield
   {
     '9mr8s7gi': {
       'en': 'New Password',
+      'es': '',
+    },
+  },
+  // LedgerEntry
+  {
+    '4knaveeg': {
+      'en': 'Wallet: ',
       'es': '',
     },
   },

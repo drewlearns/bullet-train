@@ -8,8 +8,6 @@ class TransactionDetailsModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (getTransaction)] action in TransactionDetails widget.
-  ApiCallResponse? getTransactionOutput;
   // Stores action output result for [Backend Call - API (getFilePath)] action in TransactionDetails widget.
   ApiCallResponse? getFilePathOutput;
 

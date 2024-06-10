@@ -248,9 +248,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Export',
           path: '/export',
           requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Export')
-              : const ExportWidget(),
+          builder: (context, params) => const ExportWidget(),
         ),
         FFRoute(
           name: 'Bills',
@@ -277,22 +275,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => TransactionDetailsWidget(
             transactionId: params.getParam(
               'transactionId',
-              ParamType.String,
-            ),
-            billId: params.getParam(
-              'billId',
-              ParamType.String,
-            ),
-            incomeId: params.getParam(
-              'incomeId',
-              ParamType.String,
-            ),
-            transaction: params.getParam(
-              'transaction',
-              ParamType.String,
-            ),
-            type: params.getParam(
-              'type',
               ParamType.String,
             ),
           ),
@@ -343,6 +325,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AddBillWidget(
             householdId: params.getParam(
               'householdId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'PaymentSourceDetails',
+          path: '/paymentSourceDetails',
+          requireAuth: true,
+          builder: (context, params) => PaymentSourceDetailsWidget(
+            paymentSourceId: params.getParam(
+              'paymentSourceId',
               ParamType.String,
             ),
           ),
@@ -583,7 +576,11 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(
+        hasTransition: true,
+        transitionType: PageTransitionType.rightToLeft,
+        duration: Duration(milliseconds: 300),
+      );
 }
 
 class RootPageContext {

@@ -46,3 +46,5 @@ export '/pages/notifications/notifications/notifications_widget.dart'
     show NotificationsWidget;
 export '/pages/ledger/categories/categories_widget.dart' show CategoriesWidget;
 export '/pages/bills/add_bill/add_bill_widget.dart' show AddBillWidget;
+export '/payment_source_details/payment_source_details_widget.dart'
+    show PaymentSourceDetailsWidget;

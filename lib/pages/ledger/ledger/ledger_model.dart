@@ -1,6 +1,6 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/globall_widgets/ledger_entry/ledger_entry_widget.dart';
 import 'ledger_widget.dart' show LedgerWidget;
 import 'package:flutter/material.dart';
 
@@ -55,18 +55,25 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in AllIcon widget.
-  ApiCallResponse? editLedgerEntryAsClearedOutput;
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in ThisMonthIcon widget.
-  ApiCallResponse? editLedgerEntryAsClearedOutput2;
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in ClearedIcon widget.
-  ApiCallResponse? editLedgerEntryAsClearedOutput1;
+  // Models for LedgerEntry dynamic component.
+  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels1;
+  // Models for LedgerEntry dynamic component.
+  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels2;
+  // Models for LedgerEntry dynamic component.
+  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels3;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    ledgerEntryModels1 = FlutterFlowDynamicModels(() => LedgerEntryModel());
+    ledgerEntryModels2 = FlutterFlowDynamicModels(() => LedgerEntryModel());
+    ledgerEntryModels3 = FlutterFlowDynamicModels(() => LedgerEntryModel());
+  }
 
   @override
   void dispose() {
     tabBarController?.dispose();
+    ledgerEntryModels1.dispose();
+    ledgerEntryModels2.dispose();
+    ledgerEntryModels3.dispose();
   }
 }
