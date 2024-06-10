@@ -270,7 +270,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'vqap2xom' /* Amount */,
+                                          '0dvyk67v' /* Amount */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium

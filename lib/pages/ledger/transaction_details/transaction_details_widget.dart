@@ -925,25 +925,61 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                      child: Image.network(
-                                                        valueOrDefault<String>(
-                                                          TppbGroup
-                                                              .getFilePathCall
-                                                              .url(
-                                                            (_model.getFilePathOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ),
-                                                          'https://images.unsplash.com/photo-1607434472257-d9f8e57a643d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxsb2FkaW5nfGVufDB8fHx8MTcxNzY3NzM0NXww&ixlib=rb-4.0.3&q=80&w=1080',
-                                                        ),
-                                                        width: 300.0,
-                                                        height: 200.0,
-                                                        fit: BoxFit.cover,
+                                                    child: FutureBuilder<
+                                                        ApiCallResponse>(
+                                                      future: TppbGroup
+                                                          .getFilePathCall
+                                                          .call(
+                                                        authorizationToken:
+                                                            currentAuthenticationToken,
+                                                        transactionId: widget
+                                                            .transactionId,
                                                       ),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final imageGetFilePathResponse =
+                                                            snapshot.data!;
+                                                        return ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                          child: Image.network(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              TppbGroup
+                                                                  .getFilePathCall
+                                                                  .url(
+                                                                imageGetFilePathResponse
+                                                                    .jsonBody,
+                                                              ),
+                                                              'https://images.unsplash.com/photo-1607434472257-d9f8e57a643d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxsb2FkaW5nfGVufDB8fHx8MTcxNzY3NzM0NXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                            ),
+                                                            width: 300.0,
+                                                            height: 200.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        );
+                                                      },
                                                     ),
                                                   ),
                                                 ),

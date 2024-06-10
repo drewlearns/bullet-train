@@ -393,44 +393,71 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Expanded(
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Flexible(
-                                                        child: Text(
-                                                          getJsonField(
-                                                            walletItemsItem,
-                                                            r'''$.sourceName''',
-                                                          ).toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLargeFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily),
+                                                  child: Semantics(
+                                                    label:
+                                                        'View Payment Source details',
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                          'PaymentSourceDetails',
+                                                          queryParameters: {
+                                                            'paymentSourceId':
+                                                                serializeParam(
+                                                              TppbGroup
+                                                                  .getPaymentSourceCall
+                                                                  .sourceId(
+                                                                listViewGetPaymentSourceResponse
+                                                                    .jsonBody,
                                                               ),
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        getJsonField(
-                                                          walletItemsItem,
-                                                          r'''$.sourceType''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Flexible(
+                                                            child: Text(
+                                                              getJsonField(
+                                                                walletItemsItem,
+                                                                r'''$.sourceName''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelLargeFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            getJsonField(
+                                                              walletItemsItem,
+                                                              r'''$.sourceType''',
+                                                            ).toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
@@ -444,8 +471,10 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .bodyMediumFamily),
                                                                 ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ),
                                               ],

@@ -1106,6 +1106,46 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Income Details',
       'es': '',
     },
+    'yjvxooo9': {
+      'en': 'Name',
+      'es': '',
+    },
+    'mtdtuxub': {
+      'en': 'Description',
+      'es': '',
+    },
+    'vqap2xom': {
+      'en': 'Amount',
+      'es': '',
+    },
+    'x7h0m9sv': {
+      'en': 'First Payday',
+      'es': '',
+    },
+    'ahiiwfnb': {
+      'en': 'Frequency',
+      'es': '',
+    },
+    'v3mi9agk': {
+      'en': 'Created At',
+      'es': '',
+    },
+    'jehs6tob': {
+      'en': 'Updated At',
+      'es': '',
+    },
+    'ufmj808m': {
+      'en': 'Household',
+      'es': '',
+    },
+    'kcur2liw': {
+      'en': 'Transaction Type',
+      'es': '',
+    },
+    'zzyfxnq6': {
+      'en': 'Updated By',
+      'es': '',
+    },
     '5560t94s': {
       'en': 'Home',
       'es': '',
@@ -1286,7 +1326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Acme Inc LLC',
       'es': '',
     },
-    'vqap2xom': {
+    '0dvyk67v': {
       'en': 'Amount',
       'es': '',
     },

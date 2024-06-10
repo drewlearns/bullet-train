@@ -405,8 +405,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                         await _model
                                                             .waitForApiRequestCompleted3();
                                                       },
-                                                      child: ReorderableListView
-                                                          .builder(
+                                                      child: ListView.builder(
                                                         padding:
                                                             EdgeInsets.zero,
                                                         primary: false,
@@ -420,186 +419,205 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           final dueBillsItem =
                                                               dueBills[
                                                                   dueBillsIndex];
-                                                          return Container(
-                                                            key: ValueKey(
-                                                                "ListView_mmjthoxx" '_' +
-                                                                    dueBillsIndex
-                                                                        .toString()),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          12.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  boxShadow: const [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          3.0,
-                                                                      color: Color(
-                                                                          0x33000000),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        1.0,
+                                                          return Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        12.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            child: Semantics(
+                                                              label:
+                                                                  'View bill details',
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'BillDetails',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'billId':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getDueBillsCall
+                                                                            .billId(
+                                                                          dueBillsListViewGetDueBillsResponse
+                                                                              .jsonBody,
+                                                                        )?[dueBillsIndex],
+                                                                        ParamType
+                                                                            .String,
                                                                       ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                          .all(
-                                                                              12.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    boxShadow: const [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            3.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          1.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            12.0),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            12.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Expanded(
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  TppbGroup.getDueBillsCall.billName(
-                                                                                    dueBillsListViewGetDueBillsResponse.jsonBody,
-                                                                                  )?[dueBillsIndex],
-                                                                                  'Error Getting Bill Name',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                      letterSpacing: 0.0,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                                    ),
-                                                                              ),
-                                                                              Text(
-                                                                                'Payment Source: ${valueOrDefault<String>(
-                                                                                  TppbGroup.getDueBillsCall.paymentSourceName(
-                                                                                    dueBillsListViewGetDueBillsResponse.jsonBody,
-                                                                                  )?[dueBillsIndex],
-                                                                                  'Error Getting Bill Name',
-                                                                                )}',
-                                                                                style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
-                                                                                      letterSpacing: 0.0,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
-                                                                                    ),
-                                                                              ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'Due on: ${TppbGroup.getDueBillsCall.dueDate(
-                                                                                    dueBillsListViewGetDueBillsResponse.jsonBody,
-                                                                                  )?[dueBillsIndex]}'
-                                                                                      .maybeHandleOverflow(maxChars: 18),
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    TppbGroup.getDueBillsCall.billName(
+                                                                                      dueBillsListViewGetDueBillsResponse.jsonBody,
+                                                                                    )?[dueBillsIndex],
+                                                                                    'Error Getting Bill Name',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                        letterSpacing: 0.0,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                      ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'Payment Source: ${valueOrDefault<String>(
+                                                                                    TppbGroup.getDueBillsCall.paymentSourceName(
+                                                                                      dueBillsListViewGetDueBillsResponse.jsonBody,
+                                                                                    )?[dueBillsIndex],
+                                                                                    'Error Getting Bill Name',
+                                                                                  )}',
                                                                                   style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                       ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    'Due on: ${TppbGroup.getDueBillsCall.dueDate(
+                                                                                      dueBillsListViewGetDueBillsResponse.jsonBody,
+                                                                                    )?[dueBillsIndex]}'
+                                                                                        .maybeHandleOverflow(maxChars: 18),
+                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
+                                                                                          letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                      Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.end,
-                                                                        children: [
-                                                                          Text(
-                                                                            formatNumber(
-                                                                              TppbGroup.getDueBillsCall.amountDue(
-                                                                                dueBillsListViewGetDueBillsResponse.jsonBody,
-                                                                              )![dueBillsIndex],
-                                                                              formatType: FormatType.custom,
-                                                                              currency: '',
-                                                                              format: '#,###.##',
-                                                                              locale: '',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                  letterSpacing: 0.0,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                8.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Container(
-                                                                              height: 32.0,
-                                                                              decoration: BoxDecoration(
-                                                                                color: FlutterFlowTheme.of(context).warning,
-                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                border: Border.all(
-                                                                                  color: FlutterFlowTheme.of(context).alternate,
-                                                                                  width: 2.0,
-                                                                                ),
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.end,
+                                                                          children: [
+                                                                            Text(
+                                                                              formatNumber(
+                                                                                TppbGroup.getDueBillsCall.amountDue(
+                                                                                  dueBillsListViewGetDueBillsResponse.jsonBody,
+                                                                                )![dueBillsIndex],
+                                                                                formatType: FormatType.custom,
+                                                                                currency: '',
+                                                                                format: '#,###.##',
+                                                                                locale: '',
                                                                               ),
-                                                                              child: Align(
-                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                                                                                  child: Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      'vp0s9rci' /* DUE */,
+                                                                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                    letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                  ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                              child: Container(
+                                                                                height: 32.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).warning,
+                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                  border: Border.all(
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    width: 2.0,
+                                                                                  ),
+                                                                                ),
+                                                                                child: Align(
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                    child: Text(
+                                                                                      FFLocalizations.of(context).getText(
+                                                                                        'vp0s9rci' /* DUE */,
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                        ),
                                                                                   ),
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
                                                           );
                                                         },
-                                                        onReorder: (int
-                                                                reorderableOldIndex,
-                                                            int reorderableNewIndex) async {},
                                                       ),
                                                     );
                                                   },
@@ -672,8 +690,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                         await _model
                                                             .waitForApiRequestCompleted2();
                                                       },
-                                                      child: ReorderableListView
-                                                          .builder(
+                                                      child: ListView.builder(
                                                         padding:
                                                             EdgeInsets.zero,
                                                         primary: false,
@@ -687,186 +704,205 @@ class _BillsWidgetState extends State<BillsWidget>
                                                           final pastDueBillsItem =
                                                               pastDueBills[
                                                                   pastDueBillsIndex];
-                                                          return Container(
-                                                            key: ValueKey(
-                                                                "ListView_m2tqa7n5" '_' +
-                                                                    pastDueBillsIndex
-                                                                        .toString()),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          12.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  boxShadow: const [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          3.0,
-                                                                      color: Color(
-                                                                          0x33000000),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        1.0,
+                                                          return Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        12.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            child: Semantics(
+                                                              label:
+                                                                  'View Bill Details',
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'BillDetails',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'billId':
+                                                                          serializeParam(
+                                                                        TppbGroup
+                                                                            .getPastDueBillsCall
+                                                                            .billId(
+                                                                          pastDueBillsGetPastDueBillsResponse
+                                                                              .jsonBody,
+                                                                        )?[pastDueBillsIndex],
+                                                                        ParamType
+                                                                            .String,
                                                                       ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                          .all(
-                                                                              12.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    boxShadow: const [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            3.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          1.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            12.0),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            12.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Expanded(
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  TppbGroup.getPastDueBillsCall.billName(
-                                                                                    pastDueBillsGetPastDueBillsResponse.jsonBody,
-                                                                                  )?[pastDueBillsIndex],
-                                                                                  'Error Getting Bill Name',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                      letterSpacing: 0.0,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                                    ),
-                                                                              ),
-                                                                              Text(
-                                                                                'Payment Source: ${valueOrDefault<String>(
-                                                                                  TppbGroup.getPastDueBillsCall.paymentSourceName(
-                                                                                    pastDueBillsGetPastDueBillsResponse.jsonBody,
-                                                                                  )?[pastDueBillsIndex],
-                                                                                  'Error Getting Bill Name',
-                                                                                )}',
-                                                                                style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
-                                                                                      letterSpacing: 0.0,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
-                                                                                    ),
-                                                                              ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'Due on: ${TppbGroup.getPastDueBillsCall.dueDate(
-                                                                                    pastDueBillsGetPastDueBillsResponse.jsonBody,
-                                                                                  )?[pastDueBillsIndex]}'
-                                                                                      .maybeHandleOverflow(maxChars: 18),
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    TppbGroup.getPastDueBillsCall.billName(
+                                                                                      pastDueBillsGetPastDueBillsResponse.jsonBody,
+                                                                                    )?[pastDueBillsIndex],
+                                                                                    'Error Getting Bill Name',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                        letterSpacing: 0.0,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                      ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'Payment Source: ${valueOrDefault<String>(
+                                                                                    TppbGroup.getPastDueBillsCall.paymentSourceName(
+                                                                                      pastDueBillsGetPastDueBillsResponse.jsonBody,
+                                                                                    )?[pastDueBillsIndex],
+                                                                                    'Error Getting Bill Name',
+                                                                                  )}',
                                                                                   style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                       ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    'Due on: ${TppbGroup.getPastDueBillsCall.dueDate(
+                                                                                      pastDueBillsGetPastDueBillsResponse.jsonBody,
+                                                                                    )?[pastDueBillsIndex]}'
+                                                                                        .maybeHandleOverflow(maxChars: 18),
+                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
+                                                                                          letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                      Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.end,
-                                                                        children: [
-                                                                          Text(
-                                                                            formatNumber(
-                                                                              TppbGroup.getPastDueBillsCall.amount(
-                                                                                pastDueBillsGetPastDueBillsResponse.jsonBody,
-                                                                              )![pastDueBillsIndex],
-                                                                              formatType: FormatType.custom,
-                                                                              currency: '',
-                                                                              format: '#,###.##',
-                                                                              locale: '',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                  letterSpacing: 0.0,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                8.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Container(
-                                                                              height: 32.0,
-                                                                              decoration: BoxDecoration(
-                                                                                color: FlutterFlowTheme.of(context).error,
-                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                border: Border.all(
-                                                                                  color: FlutterFlowTheme.of(context).alternate,
-                                                                                  width: 2.0,
-                                                                                ),
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.end,
+                                                                          children: [
+                                                                            Text(
+                                                                              formatNumber(
+                                                                                TppbGroup.getPastDueBillsCall.amount(
+                                                                                  pastDueBillsGetPastDueBillsResponse.jsonBody,
+                                                                                )![pastDueBillsIndex],
+                                                                                formatType: FormatType.custom,
+                                                                                currency: '',
+                                                                                format: '#,###.##',
+                                                                                locale: '',
                                                                               ),
-                                                                              child: Align(
-                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                                                                                  child: Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      '4ts0z1yw' /* PAST DUE */,
+                                                                              style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                    letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                  ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                              child: Container(
+                                                                                height: 32.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).error,
+                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                  border: Border.all(
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    width: 2.0,
+                                                                                  ),
+                                                                                ),
+                                                                                child: Align(
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                                    child: Text(
+                                                                                      FFLocalizations.of(context).getText(
+                                                                                        '4ts0z1yw' /* PAST DUE */,
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.bold,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                        ),
                                                                                   ),
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
                                                           );
                                                         },
-                                                        onReorder: (int
-                                                                reorderableOldIndex,
-                                                            int reorderableNewIndex) async {},
                                                       ),
                                                     );
                                                   },
@@ -912,7 +948,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                               snapshot.data!;
                                           return Builder(
                                             builder: (context) {
-                                              final dueBills =
+                                              final paidBills =
                                                   TppbGroup.getPastDueBillsCall
                                                           .billsList(
                                                             dueBillsListViewGetPastDueBillsResponse
@@ -937,240 +973,248 @@ class _BillsWidgetState extends State<BillsWidget>
                                                   await _model
                                                       .waitForApiRequestCompleted4();
                                                 },
-                                                child:
-                                                    ReorderableListView.builder(
+                                                child: ListView.builder(
                                                   padding: EdgeInsets.zero,
                                                   primary: false,
                                                   shrinkWrap: true,
                                                   scrollDirection:
                                                       Axis.vertical,
-                                                  itemCount: dueBills.length,
-                                                  itemBuilder:
-                                                      (context, dueBillsIndex) {
-                                                    final dueBillsItem =
-                                                        dueBills[dueBillsIndex];
-                                                    return Container(
-                                                      key: ValueKey(
-                                                          "ListView_vh22ojnh" '_' +
-                                                              dueBillsIndex
-                                                                  .toString()),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    12.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            boxShadow: const [
-                                                              BoxShadow(
-                                                                blurRadius: 3.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  1.0,
+                                                  itemCount: paidBills.length,
+                                                  itemBuilder: (context,
+                                                      paidBillsIndex) {
+                                                    final paidBillsItem =
+                                                        paidBills[
+                                                            paidBillsIndex];
+                                                    return Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Semantics(
+                                                        label:
+                                                            'View bill details',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'BillDetails',
+                                                              queryParameters: {
+                                                                'billId':
+                                                                    serializeParam(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    TppbGroup
+                                                                        .getPastDueBillsCall
+                                                                        .billId(
+                                                                      dueBillsListViewGetPastDueBillsResponse
+                                                                          .jsonBody,
+                                                                    )?[paidBillsIndex],
+                                                                    'Loading...',
+                                                                  ),
+                                                                  ParamType
+                                                                      .String,
                                                                 ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets.all(
-                                                                    12.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          child: Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              boxShadow: const [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      3.0,
+                                                                  color: Color(
+                                                                      0x33000000),
+                                                                  offset:
+                                                                      Offset(
+                                                                    0.0,
+                                                                    1.0,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(
+                                                                          12.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
                                                                     child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            TppbGroup.getPastDueBillsCall.billName(
-                                                                              dueBillsListViewGetPastDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex],
-                                                                            'Error Getting Bill Name',
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyLarge
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                              ),
-                                                                        ),
-                                                                        Text(
-                                                                          'Payment Source: ${valueOrDefault<String>(
-                                                                            TppbGroup.getPastDueBillsCall.paymentSourceName(
-                                                                              dueBillsListViewGetPastDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex],
-                                                                            'Error Getting Bill Name',
-                                                                          )}',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelSmall
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
-                                                                              ),
-                                                                        ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              4.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Due on: ${TppbGroup.getPastDueBillsCall.dueDate(
-                                                                              dueBillsListViewGetPastDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex]}'
-                                                                                .maybeHandleOverflow(maxChars: 18),
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.center,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getPastDueBillsCall.billName(
+                                                                                dueBillsListViewGetPastDueBillsResponse.jsonBody,
+                                                                              )?[paidBillsIndex],
+                                                                              'Error Getting Bill Name',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            'Payment Source: ${valueOrDefault<String>(
+                                                                              TppbGroup.getPastDueBillsCall.paymentSourceName(
+                                                                                dueBillsListViewGetPastDueBillsResponse.jsonBody,
+                                                                              )?[paidBillsIndex],
+                                                                              'Error Getting Bill Name',
+                                                                            )}',
                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                   letterSpacing: 0.0,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                 ),
                                                                           ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    Text(
-                                                                      formatNumber(
-                                                                        TppbGroup
-                                                                            .getPastDueBillsCall
-                                                                            .amount(
-                                                                          dueBillsListViewGetPastDueBillsResponse
-                                                                              .jsonBody,
-                                                                        )![dueBillsIndex],
-                                                                        formatType:
-                                                                            FormatType.custom,
-                                                                        currency:
-                                                                            '',
-                                                                        format:
-                                                                            '#,###.##',
-                                                                        locale:
-                                                                            '',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                          ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Container(
-                                                                        height:
-                                                                            32.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Align(
-                                                                          alignment: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Padding(
+                                                                          Padding(
                                                                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
                                                                                 0.0,
-                                                                                12.0,
+                                                                                4.0,
+                                                                                0.0,
                                                                                 0.0),
                                                                             child:
                                                                                 Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'mw3fxbya' /* PAID */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              'Due on: ${TppbGroup.getPastDueBillsCall.dueDate(
+                                                                                dueBillsListViewGetPastDueBillsResponse.jsonBody,
+                                                                              )?[paidBillsIndex]}'
+                                                                                  .maybeHandleOverflow(maxChars: 18),
+                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                     letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                   ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Text(
+                                                                        formatNumber(
+                                                                          TppbGroup
+                                                                              .getPastDueBillsCall
+                                                                              .amount(
+                                                                            dueBillsListViewGetPastDueBillsResponse.jsonBody,
+                                                                          )![paidBillsIndex],
+                                                                          formatType:
+                                                                              FormatType.custom,
+                                                                          currency:
+                                                                              '',
+                                                                          format:
+                                                                              '#,###.##',
+                                                                          locale:
+                                                                              '',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              32.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                              child: Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'mw3fxbya' /* PAID */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     );
                                                   },
-                                                  onReorder: (int
-                                                          reorderableOldIndex,
-                                                      int reorderableNewIndex) async {},
                                                 ),
                                               );
                                             },
@@ -1237,8 +1281,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                   await _model
                                                       .waitForApiRequestCompleted1();
                                                 },
-                                                child:
-                                                    ReorderableListView.builder(
+                                                child: ListView.builder(
                                                   padding: EdgeInsets.zero,
                                                   primary: false,
                                                   shrinkWrap: true,
@@ -1249,229 +1292,233 @@ class _BillsWidgetState extends State<BillsWidget>
                                                       (context, dueBillsIndex) {
                                                     final dueBillsItem =
                                                         dueBills[dueBillsIndex];
-                                                    return Container(
-                                                      key: ValueKey(
-                                                          "ListView_fremvdwa" '_' +
-                                                              dueBillsIndex
-                                                                  .toString()),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    12.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            boxShadow: const [
-                                                              BoxShadow(
-                                                                blurRadius: 3.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  1.0,
+                                                    return Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Semantics(
+                                                        label:
+                                                            'View bill details',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'BillDetails',
+                                                              queryParameters: {
+                                                                'billId':
+                                                                    serializeParam(
+                                                                  TppbGroup
+                                                                      .getFutureDueBillsCall
+                                                                      .billId(
+                                                                    dueBillsListViewGetFutureDueBillsResponse
+                                                                        .jsonBody,
+                                                                  )?[dueBillsIndex],
+                                                                  ParamType
+                                                                      .String,
                                                                 ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets.all(
-                                                                    12.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          child: Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              boxShadow: const [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      3.0,
+                                                                  color: Color(
+                                                                      0x33000000),
+                                                                  offset:
+                                                                      Offset(
+                                                                    0.0,
+                                                                    1.0,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(
+                                                                          12.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
                                                                     child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            TppbGroup.getFutureDueBillsCall.billName(
-                                                                              dueBillsListViewGetFutureDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex],
-                                                                            'Error Getting Bill Name',
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyLarge
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                              ),
-                                                                        ),
-                                                                        Text(
-                                                                          'Payment Source: ${valueOrDefault<String>(
-                                                                            TppbGroup.getFutureDueBillsCall.paymentSourceName(
-                                                                              dueBillsListViewGetFutureDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex],
-                                                                            'Error Getting Bill Name',
-                                                                          )}',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelSmall
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
-                                                                              ),
-                                                                        ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              4.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Due on: ${TppbGroup.getFutureDueBillsCall.dueDate(
-                                                                              dueBillsListViewGetFutureDueBillsResponse.jsonBody,
-                                                                            )?[dueBillsIndex]}'
-                                                                                .maybeHandleOverflow(maxChars: 18),
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.center,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              TppbGroup.getFutureDueBillsCall.billName(
+                                                                                dueBillsListViewGetFutureDueBillsResponse.jsonBody,
+                                                                              )?[dueBillsIndex],
+                                                                              'Error Getting Bill Name',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            'Payment Source: ${valueOrDefault<String>(
+                                                                              TppbGroup.getFutureDueBillsCall.paymentSourceName(
+                                                                                dueBillsListViewGetFutureDueBillsResponse.jsonBody,
+                                                                              )?[dueBillsIndex],
+                                                                              'Error Getting Bill Name',
+                                                                            )}',
                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                   letterSpacing: 0.0,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                 ),
                                                                           ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    Text(
-                                                                      formatNumber(
-                                                                        TppbGroup
-                                                                            .getFutureDueBillsCall
-                                                                            .amount(
-                                                                          dueBillsListViewGetFutureDueBillsResponse
-                                                                              .jsonBody,
-                                                                        )![dueBillsIndex],
-                                                                        formatType:
-                                                                            FormatType.custom,
-                                                                        currency:
-                                                                            '',
-                                                                        format:
-                                                                            '#,###.##',
-                                                                        locale:
-                                                                            '',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                          ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Container(
-                                                                        height:
-                                                                            32.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Align(
-                                                                          alignment: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Padding(
+                                                                          Padding(
                                                                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
                                                                                 0.0,
-                                                                                12.0,
+                                                                                4.0,
+                                                                                0.0,
                                                                                 0.0),
                                                                             child:
                                                                                 Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'hpfwbosi' /* Not Due Yet */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              'Due on: ${TppbGroup.getFutureDueBillsCall.dueDate(
+                                                                                dueBillsListViewGetFutureDueBillsResponse.jsonBody,
+                                                                              )?[dueBillsIndex]}'
+                                                                                  .maybeHandleOverflow(maxChars: 18),
+                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
                                                                                     letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                                   ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Text(
+                                                                        formatNumber(
+                                                                          TppbGroup
+                                                                              .getFutureDueBillsCall
+                                                                              .amount(
+                                                                            dueBillsListViewGetFutureDueBillsResponse.jsonBody,
+                                                                          )![dueBillsIndex],
+                                                                          formatType:
+                                                                              FormatType.custom,
+                                                                          currency:
+                                                                              '',
+                                                                          format:
+                                                                              '#,###.##',
+                                                                          locale:
+                                                                              '',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              32.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                              width: 2.0,
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                                                                              child: Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'hpfwbosi' /* Not Due Yet */,
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                    ),
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     );
                                                   },
-                                                  onReorder: (int
-                                                          reorderableOldIndex,
-                                                      int reorderableNewIndex) async {},
                                                 ),
                                               );
                                             },

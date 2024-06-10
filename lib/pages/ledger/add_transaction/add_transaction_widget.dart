@@ -408,16 +408,17 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                             Flexible(
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 16.0, 16.0),
+                                    0.0, 0.0, 10.0, 16.0),
                                 child: FlutterFlowDropDown<String>(
                                   controller:
                                       _model.dropDownValueController3 ??=
                                           FormFieldController<String>(
-                                    _model.dropDownValue3 ??= 'Debit',
+                                    _model.dropDownValue3 ??=
+                                        FFLocalizations.of(context).getText(
+                                      '3rxdjor6' /* Debit */,
+                                    ),
                                   ),
-                                  options:
-                                      List<String>.from(['Debit', 'Credit']),
-                                  optionLabels: [
+                                  options: [
                                     FFLocalizations.of(context).getText(
                                       'qbi4j055' /* Debit */,
                                     ),

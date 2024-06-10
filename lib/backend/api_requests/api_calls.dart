@@ -2406,6 +2406,74 @@ class GetIncomeCall {
         response,
         r'''$.message''',
       ));
+  String? incomeId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.incomeId''',
+      ));
+  String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.name''',
+      ));
+  double? amount(dynamic response) => castToType<double>(getJsonField(
+        response,
+        r'''$.income.amount''',
+      ));
+  String? frequency(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.frequency''',
+      ));
+  String? firstPayDay(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.firstPayDay''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.updatedAt''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.household.householdId''',
+      ));
+  String? householdName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.household.householdName''',
+      ));
+  String? ledgerIID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].ledgerId''',
+      ));
+  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].paymentSourceId''',
+      ));
+  String? transactionType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].transactionType''',
+      ));
+  String? category(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].category''',
+      ));
+  String? description(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].description''',
+      ));
+  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].status''',
+      ));
+  String? ledgerupdatedBy(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].updatedBy''',
+      ));
+  double? runningTotal(dynamic response) => castToType<double>(getJsonField(
+        response,
+        r'''$.income.ledgers[:].runningTotal''',
+      ));
 }
 
 class DeleteIncomeJsCall {
