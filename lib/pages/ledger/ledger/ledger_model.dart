@@ -1,49 +1,16 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/globall_widgets/ledger_entry/ledger_entry_widget.dart';
+import '/flutter_flow/request_manager.dart';
+
 import 'ledger_widget.dart' show LedgerWidget;
 import 'package:flutter/material.dart';
 
 class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   ///  Local state fields for this page.
 
-  List<String> transactionNames = [];
-  void addToTransactionNames(String item) => transactionNames.add(item);
-  void removeFromTransactionNames(String item) => transactionNames.remove(item);
-  void removeAtIndexFromTransactionNames(int index) =>
-      transactionNames.removeAt(index);
-  void insertAtIndexInTransactionNames(int index, String item) =>
-      transactionNames.insert(index, item);
-  void updateTransactionNamesAtIndex(int index, Function(String) updateFn) =>
-      transactionNames[index] = updateFn(transactionNames[index]);
-
-  List<String> amounts = [];
-  void addToAmounts(String item) => amounts.add(item);
-  void removeFromAmounts(String item) => amounts.remove(item);
-  void removeAtIndexFromAmounts(int index) => amounts.removeAt(index);
-  void insertAtIndexInAmounts(int index, String item) =>
-      amounts.insert(index, item);
-  void updateAmountsAtIndex(int index, Function(String) updateFn) =>
-      amounts[index] = updateFn(amounts[index]);
-
-  List<String> transactionType = [];
-  void addToTransactionType(String item) => transactionType.add(item);
-  void removeFromTransactionType(String item) => transactionType.remove(item);
-  void removeAtIndexFromTransactionType(int index) =>
-      transactionType.removeAt(index);
-  void insertAtIndexInTransactionType(int index, String item) =>
-      transactionType.insert(index, item);
-  void updateTransactionTypeAtIndex(int index, Function(String) updateFn) =>
-      transactionType[index] = updateFn(transactionType[index]);
-
-  List<DateTime> dates = [];
-  void addToDates(DateTime item) => dates.add(item);
-  void removeFromDates(DateTime item) => dates.remove(item);
-  void removeAtIndexFromDates(int index) => dates.removeAt(index);
-  void insertAtIndexInDates(int index, DateTime item) =>
-      dates.insert(index, item);
-  void updateDatesAtIndex(int index, Function(DateTime) updateFn) =>
-      dates[index] = updateFn(dates[index]);
+  String? householdId;
 
   ///  State fields for stateful widgets in this page.
 
@@ -62,6 +29,83 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   // Models for LedgerEntry dynamic component.
   late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels3;
 
+  /// Query cache managers for this widget.
+
+  final _totalSpentManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> totalSpent({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _totalSpentManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearTotalSpentCache() => _totalSpentManager.clear();
+  void clearTotalSpentCacheKey(String? uniqueKey) =>
+      _totalSpentManager.clearRequest(uniqueKey);
+
+  final _safeToSpendManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> safeToSpend({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _safeToSpendManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSafeToSpendCache() => _safeToSpendManager.clear();
+  void clearSafeToSpendCacheKey(String? uniqueKey) =>
+      _safeToSpendManager.clearRequest(uniqueKey);
+
+  final _allManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> all({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _allManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearAllCache() => _allManager.clear();
+  void clearAllCacheKey(String? uniqueKey) =>
+      _allManager.clearRequest(uniqueKey);
+
+  final _thisMonthManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> thisMonth({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _thisMonthManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearThisMonthCache() => _thisMonthManager.clear();
+  void clearThisMonthCacheKey(String? uniqueKey) =>
+      _thisMonthManager.clearRequest(uniqueKey);
+
+  final _clearedManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> cleared({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _clearedManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearClearedCache() => _clearedManager.clear();
+  void clearClearedCacheKey(String? uniqueKey) =>
+      _clearedManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     ledgerEntryModels1 = FlutterFlowDynamicModels(() => LedgerEntryModel());
@@ -75,5 +119,17 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
     ledgerEntryModels1.dispose();
     ledgerEntryModels2.dispose();
     ledgerEntryModels3.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearTotalSpentCache();
+
+    clearSafeToSpendCache();
+
+    clearAllCache();
+
+    clearThisMonthCache();
+
+    clearClearedCache();
   }
 }

@@ -130,14 +130,17 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Padding(
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 8.0, 16.0, 8.0),
                                   child: Container(
@@ -148,7 +151,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 30.0, 0.0, 0.0),
+                                          16.0, 8.0, 16.0, 8.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -177,7 +180,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'yjvxooo9' /* Name */,
+                                                          'qiek02k1' /* Name */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -259,7 +262,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'mtdtuxub' /* Description */,
+                                                          'lljo571u' /* Description */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -341,7 +344,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'vqap2xom' /* Amount */,
+                                                          '8ihgnfl6' /* Amount */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -424,7 +427,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'x7h0m9sv' /* First Payday */,
+                                                          'ozwoobmw' /* First Payday */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -506,7 +509,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'ahiiwfnb' /* Frequency */,
+                                                          'vmmh318c' /* Frequency */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -588,7 +591,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'v3mi9agk' /* Created At */,
+                                                          '0wqdvzy3' /* Created At */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -670,7 +673,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'jehs6tob' /* Updated At */,
+                                                          'dmcmufu1' /* Updated At */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -752,7 +755,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'ufmj808m' /* Household */,
+                                                          'fhbpi6gf' /* Household */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -834,7 +837,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'kcur2liw' /* Transaction Type */,
+                                                          '96155r76' /* Transaction Type */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -916,7 +919,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'zzyfxnq6' /* Updated By */,
+                                                          'p9surem7' /* Updated By */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -978,10 +981,10 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

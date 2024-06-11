@@ -490,7 +490,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  '8ihgnfl6' /* Amount */,
+                                  'vqap2xom' /* Amount */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium

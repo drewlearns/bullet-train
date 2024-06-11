@@ -134,8 +134,6 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                 ),
                               }.withoutNulls,
                             );
-                          } else if (widget.type == 'Loading...') {
-                            context.pushNamed('Ledger');
                           } else {
                             await showDialog(
                               context: context,
@@ -344,7 +342,7 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                     if ((_model.editLedgerEntryAsClearedOutput
                                             ?.succeeded ??
                                         true)) {
-                                      _model.updatePage(() {});
+                                      setState(() {});
                                     } else {
                                       await showDialog(
                                         context: context,

@@ -799,10 +799,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'This Month ',
       'es': '',
     },
-    '9kvmgx0t': {
-      'en': 'Safe To Spend ',
-      'es': '',
-    },
     'texmx1s6': {
       'en': 'Next Payday ',
       'es': '',
@@ -1106,43 +1102,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Income Details',
       'es': '',
     },
-    'yjvxooo9': {
+    'qiek02k1': {
       'en': 'Name',
       'es': '',
     },
-    'mtdtuxub': {
+    'lljo571u': {
       'en': 'Description',
       'es': '',
     },
-    'vqap2xom': {
+    '8ihgnfl6': {
       'en': 'Amount',
       'es': '',
     },
-    'x7h0m9sv': {
+    'ozwoobmw': {
       'en': 'First Payday',
       'es': '',
     },
-    'ahiiwfnb': {
+    'vmmh318c': {
       'en': 'Frequency',
       'es': '',
     },
-    'v3mi9agk': {
+    '0wqdvzy3': {
       'en': 'Created At',
       'es': '',
     },
-    'jehs6tob': {
+    'dmcmufu1': {
       'en': 'Updated At',
       'es': '',
     },
-    'ufmj808m': {
+    'fhbpi6gf': {
       'en': 'Household',
       'es': '',
     },
-    'kcur2liw': {
+    '96155r76': {
       'en': 'Transaction Type',
       'es': '',
     },
-    'zzyfxnq6': {
+    'p9surem7': {
       'en': 'Updated By',
       'es': '',
     },
@@ -1161,7 +1157,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Description',
       'es': '',
     },
-    '8ihgnfl6': {
+    'vqap2xom': {
       'en': 'Amount',
       'es': '',
     },
@@ -1326,7 +1322,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Acme Inc LLC',
       'es': '',
     },
-    '0dvyk67v': {
+    's8bbyiir': {
       'en': 'Amount',
       'es': '',
     },
@@ -1522,7 +1518,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Cash Back Rate (If applicable)',
       'es': '',
     },
-    'lljo571u': {
+    'mtdtuxub': {
       'en': 'Description',
       'es': '',
     },
@@ -1569,7 +1565,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PaymentSourceDetails
   {
-    'ewzly7ka': {
+    'aau7mbav': {
       'en': 'Wallet Details',
       'es': '',
     },
