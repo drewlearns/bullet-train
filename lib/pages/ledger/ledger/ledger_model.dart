@@ -61,51 +61,6 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   void clearSafeToSpendCacheKey(String? uniqueKey) =>
       _safeToSpendManager.clearRequest(uniqueKey);
 
-  final _allManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> all({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _allManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearAllCache() => _allManager.clear();
-  void clearAllCacheKey(String? uniqueKey) =>
-      _allManager.clearRequest(uniqueKey);
-
-  final _thisMonthManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> thisMonth({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _thisMonthManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearThisMonthCache() => _thisMonthManager.clear();
-  void clearThisMonthCacheKey(String? uniqueKey) =>
-      _thisMonthManager.clearRequest(uniqueKey);
-
-  final _clearedManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> cleared({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _clearedManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearClearedCache() => _clearedManager.clear();
-  void clearClearedCacheKey(String? uniqueKey) =>
-      _clearedManager.clearRequest(uniqueKey);
-
   @override
   void initState(BuildContext context) {
     ledgerEntryModels1 = FlutterFlowDynamicModels(() => LedgerEntryModel());
@@ -125,11 +80,5 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
     clearTotalSpentCache();
 
     clearSafeToSpendCache();
-
-    clearAllCache();
-
-    clearThisMonthCache();
-
-    clearClearedCache();
   }
 }

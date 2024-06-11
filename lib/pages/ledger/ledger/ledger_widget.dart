@@ -138,7 +138,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 0.0, 0.0),
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -648,21 +648,17 @@ class _LedgerWidgetState extends State<LedgerWidget>
                       ),
                     ],
                   ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: TabBarView(
-                            controller: _model.tabBarController,
-                            children: [
-                              FutureBuilder<ApiCallResponse>(
-                                future: _model.all(
-                                  uniqueQueryKey: valueOrDefault<String>(
-                                    _model.householdIdDropDownValue,
-                                    'Loading...',
-                                  ),
-                                  requestFn: () =>
-                                      TppbGroup.getLedgerAllCall.call(
+                  if (_model.householdIdDropDownValue != null &&
+                      _model.householdIdDropDownValue != '')
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: TabBarView(
+                              controller: _model.tabBarController,
+                              children: [
+                                FutureBuilder<ApiCallResponse>(
+                                  future: TppbGroup.getLedgerAllCall.call(
                                     authorizationToken:
                                         currentAuthenticationToken,
                                     householdId:
@@ -670,174 +666,172 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                     clearedOnly: false,
                                     currentMonthOnly: false,
                                   ),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                  final everythingListViewGetLedgerAllResponse =
-                                      snapshot.data!;
-                                  return Builder(
-                                    builder: (context) {
-                                      final ledgerEntriesAll =
-                                          TppbGroup.getLedgerAllCall
-                                                  .ledgerEntriesList(
+                                      );
+                                    }
+                                    final everythingListViewGetLedgerAllResponse =
+                                        snapshot.data!;
+                                    return Builder(
+                                      builder: (context) {
+                                        final ledgerEntriesAll =
+                                            TppbGroup.getLedgerAllCall
+                                                    .ledgerEntriesList(
+                                                      everythingListViewGetLedgerAllResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.map((e) => e)
+                                                    .toList()
+                                                    .toList() ??
+                                                [];
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: ledgerEntriesAll.length,
+                                          itemBuilder:
+                                              (context, ledgerEntriesAllIndex) {
+                                            final ledgerEntriesAllItem =
+                                                ledgerEntriesAll[
+                                                    ledgerEntriesAllIndex];
+                                            return wrapWithModel(
+                                              model: _model.ledgerEntryModels1
+                                                  .getModel(
+                                                ledgerEntriesAllIndex
+                                                    .toString(),
+                                                ledgerEntriesAllIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              updateOnChange: true,
+                                              child: LedgerEntryWidget(
+                                                key: Key(
+                                                  'Key2zb_${ledgerEntriesAllIndex.toString()}',
+                                                ),
+                                                name: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .description(
                                                     everythingListViewGetLedgerAllResponse
                                                         .jsonBody,
-                                                  )
-                                                  ?.map((e) => e)
-                                                  .toList()
-                                                  .toList() ??
-                                              [];
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: ledgerEntriesAll.length,
-                                        itemBuilder:
-                                            (context, ledgerEntriesAllIndex) {
-                                          final ledgerEntriesAllItem =
-                                              ledgerEntriesAll[
-                                                  ledgerEntriesAllIndex];
-                                          return wrapWithModel(
-                                            model: _model.ledgerEntryModels1
-                                                .getModel(
-                                              ledgerEntriesAllIndex.toString(),
-                                              ledgerEntriesAllIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            updateOnChange: true,
-                                            child: LedgerEntryWidget(
-                                              key: Key(
-                                                'Key2zb_${ledgerEntriesAllIndex.toString()}',
-                                              ),
-                                              name: valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .description(
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
+                                                paymentSource:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .paymentSourceSourceName(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
+                                                date: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .transactionDate(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
+                                                amount: valueOrDefault<double>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .amount(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  0.00,
+                                                ),
+                                                transactionType:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .transactionType(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'transaction',
+                                                ),
+                                                type: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .type(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
+                                                transactionId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .transactionId(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
+                                                status: TppbGroup
+                                                    .getLedgerAllCall
+                                                    .status(
                                                   everythingListViewGetLedgerAllResponse
                                                       .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
+                                                )![ledgerEntriesAllIndex],
+                                                runningTotal:
+                                                    valueOrDefault<double>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .runningTotal(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  0.00,
+                                                ),
+                                                billId: valueOrDefault<String>(
+                                                  (TppbGroup.getLedgerAllCall
+                                                          .billId(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                incomeId:
+                                                    valueOrDefault<String>(
+                                                  (TppbGroup.getLedgerAllCall
+                                                          .incomeId(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                ledgerId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerAllCall
+                                                      .ledgerId(
+                                                    everythingListViewGetLedgerAllResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesAllIndex],
+                                                  'Loading...',
+                                                ),
                                               ),
-                                              paymentSource:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .paymentSourceSourceName(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
-                                              ),
-                                              date: valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .transactionDate(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
-                                              ),
-                                              amount: valueOrDefault<double>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .amount(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                0.00,
-                                              ),
-                                              transactionType:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .transactionType(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'transaction',
-                                              ),
-                                              type: valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall.type(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
-                                              ),
-                                              transactionId:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .transactionId(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
-                                              ),
-                                              status: TppbGroup.getLedgerAllCall
-                                                  .status(
-                                                everythingListViewGetLedgerAllResponse
-                                                    .jsonBody,
-                                              )![ledgerEntriesAllIndex],
-                                              runningTotal:
-                                                  valueOrDefault<double>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .runningTotal(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                0.00,
-                                              ),
-                                              billId: valueOrDefault<String>(
-                                                (TppbGroup.getLedgerAllCall
-                                                        .billId(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              incomeId: valueOrDefault<String>(
-                                                (TppbGroup.getLedgerAllCall
-                                                        .incomeId(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              ledgerId: valueOrDefault<String>(
-                                                TppbGroup.getLedgerAllCall
-                                                    .ledgerId(
-                                                  everythingListViewGetLedgerAllResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesAllIndex],
-                                                'Loading...',
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                              FutureBuilder<ApiCallResponse>(
-                                future: _model.thisMonth(
-                                  uniqueQueryKey: valueOrDefault<String>(
-                                    _model.householdIdDropDownValue,
-                                    'Loading...',
-                                  ),
-                                  requestFn: () =>
-                                      TppbGroup.getLedgerThisMonthCall.call(
+                                            );
+                                          },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                                FutureBuilder<ApiCallResponse>(
+                                  future: TppbGroup.getLedgerThisMonthCall.call(
                                     authorizationToken:
                                         currentAuthenticationToken,
                                     householdId:
@@ -845,180 +839,184 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                     clearedOnly: false,
                                     currentMonthOnly: true,
                                   ),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                  final thisMonthListViewGetLedgerThisMonthResponse =
-                                      snapshot.data!;
-                                  return Builder(
-                                    builder: (context) {
-                                      final ledgerEntriesThisMonth =
-                                          TppbGroup.getLedgerThisMonthCall
-                                                  .ledgerEntriesList(
+                                      );
+                                    }
+                                    final thisMonthListViewGetLedgerThisMonthResponse =
+                                        snapshot.data!;
+                                    return Builder(
+                                      builder: (context) {
+                                        final ledgerEntriesThisMonth =
+                                            TppbGroup.getLedgerThisMonthCall
+                                                    .ledgerEntriesList(
+                                                      thisMonthListViewGetLedgerThisMonthResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.map((e) => e)
+                                                    .toList()
+                                                    .toList() ??
+                                                [];
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              ledgerEntriesThisMonth.length,
+                                          itemBuilder: (context,
+                                              ledgerEntriesThisMonthIndex) {
+                                            final ledgerEntriesThisMonthItem =
+                                                ledgerEntriesThisMonth[
+                                                    ledgerEntriesThisMonthIndex];
+                                            return wrapWithModel(
+                                              model: _model.ledgerEntryModels2
+                                                  .getModel(
+                                                ledgerEntriesThisMonthIndex
+                                                    .toString(),
+                                                ledgerEntriesThisMonthIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              updateOnChange: true,
+                                              child: LedgerEntryWidget(
+                                                key: Key(
+                                                  'Key9c8_${ledgerEntriesThisMonthIndex.toString()}',
+                                                ),
+                                                name: valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .description(
                                                     thisMonthListViewGetLedgerThisMonthResponse
                                                         .jsonBody,
-                                                  )
-                                                  ?.map((e) => e)
-                                                  .toList()
-                                                  .toList() ??
-                                              [];
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            ledgerEntriesThisMonth.length,
-                                        itemBuilder: (context,
-                                            ledgerEntriesThisMonthIndex) {
-                                          final ledgerEntriesThisMonthItem =
-                                              ledgerEntriesThisMonth[
-                                                  ledgerEntriesThisMonthIndex];
-                                          return wrapWithModel(
-                                            model: _model.ledgerEntryModels2
-                                                .getModel(
-                                              ledgerEntriesThisMonthIndex
-                                                  .toString(),
-                                              ledgerEntriesThisMonthIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            updateOnChange: true,
-                                            child: LedgerEntryWidget(
-                                              key: Key(
-                                                'Key9c8_${ledgerEntriesThisMonthIndex.toString()}',
-                                              ),
-                                              name: valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .description(
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
+                                                paymentSource:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .paymentSourceSourceName(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
+                                                date: valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .transactionDate(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
+                                                amount: valueOrDefault<double>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .amount(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  0.00,
+                                                ),
+                                                transactionType:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .transactionType(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
+                                                type: valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .type(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'transaction',
+                                                ),
+                                                transactionId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .transactionId(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
+                                                status: TppbGroup
+                                                    .getLedgerThisMonthCall
+                                                    .status(
                                                   thisMonthListViewGetLedgerThisMonthResponse
                                                       .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
+                                                )![ledgerEntriesThisMonthIndex],
+                                                runningTotal:
+                                                    valueOrDefault<double>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .runningTotal(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  0.00,
+                                                ),
+                                                billId: valueOrDefault<String>(
+                                                  (TppbGroup
+                                                          .getLedgerThisMonthCall
+                                                          .billId(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                incomeId:
+                                                    valueOrDefault<String>(
+                                                  (TppbGroup
+                                                          .getLedgerThisMonthCall
+                                                          .incomeId(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                ledgerId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup
+                                                      .getLedgerThisMonthCall
+                                                      .ledgerId(
+                                                    thisMonthListViewGetLedgerThisMonthResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesThisMonthIndex],
+                                                  'Loading...',
+                                                ),
                                               ),
-                                              paymentSource:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .paymentSourceSourceName(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
-                                              ),
-                                              date: valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .transactionDate(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
-                                              ),
-                                              amount: valueOrDefault<double>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .amount(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                0.00,
-                                              ),
-                                              transactionType:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .transactionType(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
-                                              ),
-                                              type: valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .type(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'transaction',
-                                              ),
-                                              transactionId:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .transactionId(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
-                                              ),
-                                              status: TppbGroup
-                                                  .getLedgerThisMonthCall
-                                                  .status(
-                                                thisMonthListViewGetLedgerThisMonthResponse
-                                                    .jsonBody,
-                                              )![ledgerEntriesThisMonthIndex],
-                                              runningTotal:
-                                                  valueOrDefault<double>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .runningTotal(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                0.00,
-                                              ),
-                                              billId: valueOrDefault<String>(
-                                                (TppbGroup
-                                                        .getLedgerThisMonthCall
-                                                        .billId(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              incomeId: valueOrDefault<String>(
-                                                (TppbGroup
-                                                        .getLedgerThisMonthCall
-                                                        .incomeId(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              ledgerId: valueOrDefault<String>(
-                                                TppbGroup.getLedgerThisMonthCall
-                                                    .ledgerId(
-                                                  thisMonthListViewGetLedgerThisMonthResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesThisMonthIndex],
-                                                'Loading...',
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                              FutureBuilder<ApiCallResponse>(
-                                future: _model.cleared(
-                                  uniqueQueryKey: valueOrDefault<String>(
-                                    _model.householdIdDropDownValue,
-                                    'Loading...',
-                                  ),
-                                  requestFn: () =>
-                                      TppbGroup.getLedgerClearedCall.call(
+                                            );
+                                          },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                                FutureBuilder<ApiCallResponse>(
+                                  future: TppbGroup.getLedgerClearedCall.call(
                                     authorizationToken:
                                         currentAuthenticationToken,
                                     householdId:
@@ -1026,219 +1024,224 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                     clearedOnly: true,
                                     currentMonthOnly: false,
                                   ),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                  final clearedListviewGetLedgerClearedResponse =
-                                      snapshot.data!;
-                                  return Builder(
-                                    builder: (context) {
-                                      final ledgerEntriesCleared =
-                                          TppbGroup.getLedgerClearedCall
-                                                  .ledgerEntriesList(
+                                      );
+                                    }
+                                    final clearedListviewGetLedgerClearedResponse =
+                                        snapshot.data!;
+                                    return Builder(
+                                      builder: (context) {
+                                        final ledgerEntriesCleared =
+                                            TppbGroup.getLedgerClearedCall
+                                                    .ledgerEntriesList(
+                                                      clearedListviewGetLedgerClearedResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.map((e) => e)
+                                                    .toList()
+                                                    .toList() ??
+                                                [];
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              ledgerEntriesCleared.length,
+                                          itemBuilder: (context,
+                                              ledgerEntriesClearedIndex) {
+                                            final ledgerEntriesClearedItem =
+                                                ledgerEntriesCleared[
+                                                    ledgerEntriesClearedIndex];
+                                            return wrapWithModel(
+                                              model: _model.ledgerEntryModels3
+                                                  .getModel(
+                                                ledgerEntriesClearedIndex
+                                                    .toString(),
+                                                ledgerEntriesClearedIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: LedgerEntryWidget(
+                                                key: Key(
+                                                  'Keyqzb_${ledgerEntriesClearedIndex.toString()}',
+                                                ),
+                                                name: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .description(
                                                     clearedListviewGetLedgerClearedResponse
                                                         .jsonBody,
-                                                  )
-                                                  ?.map((e) => e)
-                                                  .toList()
-                                                  .toList() ??
-                                              [];
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: ledgerEntriesCleared.length,
-                                        itemBuilder: (context,
-                                            ledgerEntriesClearedIndex) {
-                                          final ledgerEntriesClearedItem =
-                                              ledgerEntriesCleared[
-                                                  ledgerEntriesClearedIndex];
-                                          return wrapWithModel(
-                                            model: _model.ledgerEntryModels3
-                                                .getModel(
-                                              ledgerEntriesClearedIndex
-                                                  .toString(),
-                                              ledgerEntriesClearedIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child: LedgerEntryWidget(
-                                              key: Key(
-                                                'Keyqzb_${ledgerEntriesClearedIndex.toString()}',
-                                              ),
-                                              name: valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .description(
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
+                                                paymentSource:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .paymentSourceSourceName(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
+                                                date: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .transactionDate(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
+                                                amount: valueOrDefault<double>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .amount(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  0.00,
+                                                ),
+                                                transactionType:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .transactionType(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
+                                                type: valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .type(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'transaction',
+                                                ),
+                                                transactionId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .transactionId(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
+                                                status: TppbGroup
+                                                    .getLedgerClearedCall
+                                                    .status(
                                                   clearedListviewGetLedgerClearedResponse
                                                       .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
+                                                )![ledgerEntriesClearedIndex],
+                                                runningTotal:
+                                                    valueOrDefault<double>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .runningTotal(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  0.00,
+                                                ),
+                                                billId: valueOrDefault<String>(
+                                                  (TppbGroup
+                                                          .getLedgerClearedCall
+                                                          .billId(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                incomeId:
+                                                    valueOrDefault<String>(
+                                                  (TppbGroup
+                                                          .getLedgerClearedCall
+                                                          .incomeId(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex])
+                                                      ?.toString(),
+                                                  'Loading...',
+                                                ),
+                                                ledgerId:
+                                                    valueOrDefault<String>(
+                                                  TppbGroup.getLedgerClearedCall
+                                                      .ledgerId(
+                                                    clearedListviewGetLedgerClearedResponse
+                                                        .jsonBody,
+                                                  )?[ledgerEntriesClearedIndex],
+                                                  'Loading...',
+                                                ),
                                               ),
-                                              paymentSource:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .paymentSourceSourceName(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
-                                              ),
-                                              date: valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .transactionDate(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
-                                              ),
-                                              amount: valueOrDefault<double>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .amount(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                0.00,
-                                              ),
-                                              transactionType:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .transactionType(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
-                                              ),
-                                              type: valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .type(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'transaction',
-                                              ),
-                                              transactionId:
-                                                  valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .transactionId(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
-                                              ),
-                                              status: TppbGroup
-                                                  .getLedgerClearedCall
-                                                  .status(
-                                                clearedListviewGetLedgerClearedResponse
-                                                    .jsonBody,
-                                              )![ledgerEntriesClearedIndex],
-                                              runningTotal:
-                                                  valueOrDefault<double>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .runningTotal(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                0.00,
-                                              ),
-                                              billId: valueOrDefault<String>(
-                                                (TppbGroup.getLedgerClearedCall
-                                                        .billId(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              incomeId: valueOrDefault<String>(
-                                                (TppbGroup.getLedgerClearedCall
-                                                        .incomeId(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex])
-                                                    ?.toString(),
-                                                'Loading...',
-                                              ),
-                                              ledgerId: valueOrDefault<String>(
-                                                TppbGroup.getLedgerClearedCall
-                                                    .ledgerId(
-                                                  clearedListviewGetLedgerClearedResponse
-                                                      .jsonBody,
-                                                )?[ledgerEntriesClearedIndex],
-                                                'Loading...',
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Align(
-                          alignment: const Alignment(0.0, 0),
-                          child: TabBar(
-                            labelColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            unselectedLabelColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
+                          Align(
+                            alignment: const Alignment(0.0, 0),
+                            child: TabBar(
+                              labelColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
+                              unselectedLabelColor:
+                                  FlutterFlowTheme.of(context).primaryText,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleMediumFamily,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleMediumFamily),
+                                  ),
+                              unselectedLabelStyle: const TextStyle(),
+                              indicatorColor:
+                                  FlutterFlowTheme.of(context).primary,
+                              padding: const EdgeInsets.all(4.0),
+                              tabs: [
+                                Tab(
+                                  text: FFLocalizations.of(context).getText(
+                                    '9lfzaqnh' /* Everything */,
+                                  ),
                                 ),
-                            unselectedLabelStyle: const TextStyle(),
-                            indicatorColor:
-                                FlutterFlowTheme.of(context).primary,
-                            padding: const EdgeInsets.all(4.0),
-                            tabs: [
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  '9lfzaqnh' /* Everything */,
+                                Tab(
+                                  text: FFLocalizations.of(context).getText(
+                                    'pptwt2a3' /* This Month */,
+                                  ),
                                 ),
-                              ),
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'pptwt2a3' /* This Month */,
+                                Tab(
+                                  text: FFLocalizations.of(context).getText(
+                                    'coyp2r0z' /* Cleared */,
+                                  ),
                                 ),
-                              ),
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'coyp2r0z' /* Cleared */,
-                                ),
-                              ),
-                            ],
-                            controller: _model.tabBarController,
-                            onTap: (i) async {
-                              [() async {}, () async {}, () async {}][i]();
-                            },
+                              ],
+                              controller: _model.tabBarController,
+                              onTap: (i) async {
+                                [() async {}, () async {}, () async {}][i]();
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
                 ],
               ),
             ));
