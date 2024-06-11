@@ -651,11 +651,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Everything',
       'es': 'Todo',
     },
-    '4htbe8zh': {
+    'pptwt2a3': {
       'en': 'This Month',
       'es': '',
     },
-    'sekinoq9': {
+    'qs0tglvt': {
       'en': 'Cleared',
       'es': '',
     },
@@ -1593,6 +1593,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '4knaveeg': {
       'en': 'Wallet: ',
+      'es': '',
+    },
+  },
+  // SearchTransactions
+  {
+    '303xzq0l': {
+      'en': 'Search Transactions',
+      'es': '',
+    },
+    'li1qov6i': {
+      'en': 'Keyword Search',
+      'es': '',
+    },
+    'l5sbvpxy': {
+      'en': 'Search Everything',
+      'es': '',
+    },
+    '1plf41wb': {
+      'en': 'Search',
       'es': '',
     },
   },

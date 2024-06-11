@@ -1,11 +1,11 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/components/search_results_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/pages/ledger/search_transactions/search_transactions_widget.dart';
 import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -303,7 +303,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const SearchResultsWidget(),
+                                                            const SearchTransactionsWidget(),
                                                       );
                                                     },
                                                   ).then((value) =>
@@ -2095,12 +2095,12 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                 ),
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    '4htbe8zh' /* This Month */,
+                                    'pptwt2a3' /* This Month */,
                                   ),
                                 ),
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'sekinoq9' /* Cleared */,
+                                    'qs0tglvt' /* Cleared */,
                                   ),
                                 ),
                               ],
