@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/globall_widgets/ledger_entry/ledger_entry_widget.dart';
 import '/flutter_flow/request_manager.dart';
 
+import 'dart:async';
 import 'ledger_widget.dart' show LedgerWidget;
 import 'package:flutter/material.dart';
 
@@ -22,12 +22,13 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  // Models for LedgerEntry dynamic component.
-  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels1;
-  // Models for LedgerEntry dynamic component.
-  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels2;
-  // Models for LedgerEntry dynamic component.
-  late FlutterFlowDynamicModels<LedgerEntryModel> ledgerEntryModels3;
+  Completer<ApiCallResponse>? apiRequestCompleter;
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
+  ApiCallResponse? editLedgerEntryClearedAll;
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
+  ApiCallResponse? editLedgerEntryCleared;
+  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
+  ApiCallResponse? editLedgerEntryClearedClear;
 
   /// Query cache managers for this widget.
 
@@ -62,23 +63,32 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
       _safeToSpendManager.clearRequest(uniqueKey);
 
   @override
-  void initState(BuildContext context) {
-    ledgerEntryModels1 = FlutterFlowDynamicModels(() => LedgerEntryModel());
-    ledgerEntryModels2 = FlutterFlowDynamicModels(() => LedgerEntryModel());
-    ledgerEntryModels3 = FlutterFlowDynamicModels(() => LedgerEntryModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
     tabBarController?.dispose();
-    ledgerEntryModels1.dispose();
-    ledgerEntryModels2.dispose();
-    ledgerEntryModels3.dispose();
 
     /// Dispose query cache managers for this widget.
 
     clearTotalSpentCache();
 
     clearSafeToSpendCache();
+  }
+
+  /// Additional helper methods.
+  Future waitForApiRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
   }
 }

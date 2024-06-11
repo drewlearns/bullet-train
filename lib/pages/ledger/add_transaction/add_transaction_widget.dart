@@ -207,7 +207,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                         isMultiSelect: false,
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          '40l6c4aq' /* Select Household */,
+                                          '40l6c4aq' /* Select Household* */,
                                         ),
                                         labelTextStyle: FlutterFlowTheme.of(
                                                 context)
@@ -294,7 +294,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                                   .bodyMediumFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'uhtw2gk0' /* Select Payment Source */,
+                                  'uhtw2gk0' /* Please Select... */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
@@ -315,6 +315,20 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 isOverButton: true,
                                 isSearchable: false,
                                 isMultiSelect: false,
+                                labelText: FFLocalizations.of(context).getText(
+                                  'j6mwafog' /* Select Payment Source* */,
+                                ),
+                                labelTextStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .labelMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily),
+                                    ),
                               );
                             },
                           ),
@@ -461,6 +475,21 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   isOverButton: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'ho2od1ny' /* Select Debit Or Credit */,
+                                  ),
+                                  labelTextStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
+                                      ),
                                 ),
                               ),
                             ),

@@ -471,15 +471,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '40l6c4aq': {
-      'en': 'Select Household',
+      'en': 'Select Household*',
       'es': '',
     },
     'uhtw2gk0': {
-      'en': 'Select Payment Source',
+      'en': 'Please Select...',
       'es': '',
     },
     'n58ce5nj': {
       'en': 'Search for an item...',
+      'es': '',
+    },
+    'j6mwafog': {
+      'en': 'Select Payment Source*',
       'es': '',
     },
     '3rxdjor6': {
@@ -500,6 +504,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '7juctawh': {
       'en': 'Search for an item...',
+      'es': '',
+    },
+    'ho2od1ny': {
+      'en': 'Select Debit Or Credit',
       'es': '',
     },
     'e9f66mmn': {
@@ -643,11 +651,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Everything',
       'es': 'Todo',
     },
-    'pptwt2a3': {
+    '4htbe8zh': {
       'en': 'This Month',
       'es': '',
     },
-    'coyp2r0z': {
+    'sekinoq9': {
       'en': 'Cleared',
       'es': '',
     },

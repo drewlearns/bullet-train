@@ -212,8 +212,10 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                             ),
                                       ),
                                       Text(
-                                        widget.paymentSource!
-                                            .maybeHandleOverflow(
+                                        valueOrDefault<String>(
+                                          widget.paymentSource,
+                                          'Loading...',
+                                        ).maybeHandleOverflow(
                                           maxChars: 16,
                                           replacement: '…',
                                         ),
@@ -235,8 +237,10 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                     ],
                                   ),
                                   Text(
-                                    widget.date!
-                                        .maybeHandleOverflow(maxChars: 10),
+                                    valueOrDefault<String>(
+                                      widget.date,
+                                      'Loading...',
+                                    ).maybeHandleOverflow(maxChars: 10),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -255,17 +259,21 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 8.0, 0.0),
                                   child: Text(
-                                    formatNumber(
-                                      widget.amount,
-                                      formatType: FormatType.custom,
-                                      currency: '',
-                                      format: '#,###.##',
-                                      locale: '',
+                                    valueOrDefault<String>(
+                                      formatNumber(
+                                        widget.amount,
+                                        formatType: FormatType.custom,
+                                        currency: '',
+                                        format: '#,###.##',
+                                        locale: '',
+                                      ),
+                                      'Loading...',
                                     ),
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
@@ -285,21 +293,29 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                         ),
                                   ),
                                 ),
-                                Text(
-                                  widget.transactionType!,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 8.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.transactionType,
+                                      'Loading...',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
+                                        ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -337,7 +353,10 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                             .call(
                                       authorizationToken:
                                           currentAuthenticationToken,
-                                      ledgerId: widget.ledgerId,
+                                      ledgerId: valueOrDefault<String>(
+                                        widget.ledgerId,
+                                        'Loading...',
+                                      ),
                                     );
                                     if ((_model.editLedgerEntryAsClearedOutput
                                             ?.succeeded ??
@@ -382,28 +401,32 @@ class _LedgerEntryWidgetState extends State<LedgerEntryWidget> {
                                 ),
                               ),
                             ),
-                            Text(
-                              'Running Total: ${valueOrDefault<String>(
-                                formatNumber(
-                                  widget.runningTotal,
-                                  formatType: FormatType.custom,
-                                  currency: '',
-                                  format: '#,###.##',
-                                  locale: '',
-                                ),
-                                'Loading...',
-                              )}',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 8.0, 0.0),
+                              child: Text(
+                                'Running Total: ${valueOrDefault<String>(
+                                  formatNumber(
+                                    widget.runningTotal,
+                                    formatType: FormatType.custom,
+                                    currency: '',
+                                    format: '#,###.##',
+                                    locale: '',
                                   ),
+                                  'Loading...',
+                                )}',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
+                                    ),
+                              ),
                             ),
                           ],
                         ),
