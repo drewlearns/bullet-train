@@ -1,32 +1,29 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/ledger/search_transactions/search_transactions_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'categories_model.dart';
-export 'categories_model.dart';
+import 'query_transactions_model.dart';
+export 'query_transactions_model.dart';
 
-class CategoriesWidget extends StatefulWidget {
-  const CategoriesWidget({
-    super.key,
-    required this.householdId,
-  });
-
-  final String? householdId;
+class QueryTransactionsWidget extends StatefulWidget {
+  const QueryTransactionsWidget({super.key});
 
   @override
-  State<CategoriesWidget> createState() => _CategoriesWidgetState();
+  State<QueryTransactionsWidget> createState() =>
+      _QueryTransactionsWidgetState();
 }
 
-class _CategoriesWidgetState extends State<CategoriesWidget> {
-  late CategoriesModel _model;
+class _QueryTransactionsWidgetState extends State<QueryTransactionsWidget> {
+  late QueryTransactionsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CategoriesModel());
+    _model = createModel(context, () => QueryTransactionsModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -41,7 +38,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'Categories',
+        title: 'QueryTransactions',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -73,7 +70,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'bqv43vpw' /* Categories */,
+                      'zrn61of4' /* Search */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -91,14 +88,17 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                 elevation: 0.0,
               ),
             ),
-            body: const SafeArea(
+            body: SafeArea(
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
+                  Expanded(
+                    child: wrapWithModel(
+                      model: _model.searchTransactionsModel,
+                      updateCallback: () => setState(() {}),
+                      child: const SearchTransactionsWidget(),
+                    ),
                   ),
                 ],
               ),

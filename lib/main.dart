@@ -43,12 +43,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  late Stream<ThePurplePiggyBankAuthUser> userStream;
+  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
+
+  late Stream<ThePurplePiggyBankAuthUser> userStream;
 
   @override
   void initState() {
@@ -57,7 +58,9 @@ class _MyAppState extends State<MyApp> {
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
     userStream = thePurplePiggyBankAuthUserStream()
-      ..listen((user) => _appStateNotifier.update(user));
+      ..listen((user) {
+        _appStateNotifier.update(user);
+      });
 
     Future.delayed(
       const Duration(milliseconds: 1000),
@@ -165,10 +168,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Ledger': const LedgerWidget(),
-      'PaymentSources': const PaymentSourcesWidget(),
       'Bills': const BillsWidget(),
       'Incomes': const IncomesWidget(),
-      'AddTransaction': const AddTransactionWidget(),
+      'Threshold': const ThresholdWidget(),
       'Settings': const SettingsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -185,7 +187,7 @@ class _NavBarPageState extends State<NavBarPage> {
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
         showSelectedLabels: true,
-        showUnselectedLabels: false,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -195,16 +197,6 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'zu5jz6j9' /* Ledger */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.wallet_outlined,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              '4de9zmbc' /* Wallet */,
             ),
             tooltip: '',
           ),
@@ -230,10 +222,11 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.add_circle,
+              Icons.data_thresholding,
+              size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '05fwsqja' /* Transaction */,
+              'myerdmah' /* Threshold */,
             ),
             tooltip: '',
           ),

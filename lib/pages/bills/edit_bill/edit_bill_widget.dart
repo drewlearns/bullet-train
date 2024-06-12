@@ -3,30 +3,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'categories_model.dart';
-export 'categories_model.dart';
+import 'edit_bill_model.dart';
+export 'edit_bill_model.dart';
 
-class CategoriesWidget extends StatefulWidget {
-  const CategoriesWidget({
-    super.key,
-    required this.householdId,
-  });
-
-  final String? householdId;
+class EditBillWidget extends StatefulWidget {
+  const EditBillWidget({super.key});
 
   @override
-  State<CategoriesWidget> createState() => _CategoriesWidgetState();
+  State<EditBillWidget> createState() => _EditBillWidgetState();
 }
 
-class _CategoriesWidgetState extends State<CategoriesWidget> {
-  late CategoriesModel _model;
+class _EditBillWidgetState extends State<EditBillWidget> {
+  late EditBillModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CategoriesModel());
+    _model = createModel(context, () => EditBillModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -41,7 +36,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'Categories',
+        title: 'EditBill',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -73,7 +68,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'bqv43vpw' /* Categories */,
+                      'zad938an' /* Edit Bill */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -95,12 +90,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                ],
+                children: [],
               ),
             ),
           ),

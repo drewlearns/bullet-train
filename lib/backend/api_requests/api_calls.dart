@@ -63,7 +63,6 @@ class TppbGroup {
   static GetTransactionsByPaymentSourceCall getTransactionsByPaymentSourceCall =
       GetTransactionsByPaymentSourceCall();
   static GetAuditTrailCall getAuditTrailCall = GetAuditTrailCall();
-  static GetSecurityLogCall getSecurityLogCall = GetSecurityLogCall();
   static SetDefaultPaymentSourceCall setDefaultPaymentSourceCall =
       SetDefaultPaymentSourceCall();
   static GetDefaultPaymentSourcePreferenceCall
@@ -1454,9 +1453,17 @@ class AddBillCall {
 }
 
 class GetBillPasswordCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? billId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "billId": "$billId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBillPassword',
       apiUrl: '$baseUrl/getBillPassword',
@@ -1465,7 +1472,8 @@ class GetBillPasswordCall {
         'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1473,6 +1481,15 @@ class GetBillPasswordCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? secretUsername(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.secret.username''',
+      ));
+  String? secretPassword(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.secret.password''',
+      ));
 }
 
 class DeleteBillCall {
@@ -1560,9 +1577,17 @@ class EditBillCall {
 }
 
 class GetBillsCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBills',
       apiUrl: '$baseUrl/getBills',
@@ -1571,7 +1596,8 @@ class GetBillsCall {
         'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1579,6 +1605,84 @@ class GetBillsCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List? allBillsList(dynamic response) => getJsonField(
+        response,
+        r'''$.allBills''',
+        true,
+      ) as List?;
+  String? billId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].billId''',
+      ));
+  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].householdId''',
+      ));
+  String? category(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].category''',
+      ));
+  String? billName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].billName''',
+      ));
+  int? amount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.allBills[:].amount''',
+      ));
+  int? dayOfMonth(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.allBills[:].dayOfMonth''',
+      ));
+  String? frequency(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].frequency''',
+      ));
+  bool? isDebt(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.allBills[:].isDebt''',
+      ));
+  int? interestRate(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.allBills[:].interestRate''',
+      ));
+  int? cashBack(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.allBills[:].cashBack''',
+      ));
+  String? description(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].description''',
+      ));
+  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.allBills[:].status''',
+      ));
+  String? url(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].url''',
+      ));
+  String? username(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].username''',
+      ));
+  String? password(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].password''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.allBills[:].updatedAt''',
+      ));
 }
 
 class AddNotificationCall {
@@ -2185,31 +2289,6 @@ class GetAuditTrailCall {
   }
 }
 
-class GetSecurityLogCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getSecurityLog',
-      apiUrl: '$baseUrl/getSecurityLog',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class SetDefaultPaymentSourceCall {
   Future<ApiCallResponse> call() async {
     final baseUrl = TppbGroup.getBaseUrl();
@@ -2336,11 +2415,21 @@ class EditThresholdCall {
 }
 
 class GetThresholdBreakersCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? threshold = '',
+    String? paymentSourceId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "threshold": "$threshold",
+  "paymentSourceId": "$paymentSourceId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getThresholdBreakers',
       apiUrl: '$baseUrl/getThresholdBreakers',
@@ -2358,6 +2447,48 @@ class GetThresholdBreakersCall {
       alwaysAllowBody: false,
     );
   }
+
+  List? entriesList(dynamic response) => getJsonField(
+        response,
+        r'''$.entries''',
+        true,
+      ) as List?;
+  List<String>? transactionDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.entries[:].transactionDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<double>? amount(dynamic response) => (getJsonField(
+        response,
+        r'''$.entries[:].amount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<double>? runningTotal(dynamic response) => (getJsonField(
+        response,
+        r'''$.entries[:].runningTotal''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<String>? description(dynamic response) => (getJsonField(
+        response,
+        r'''$.entries[:].description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetThresholdPreferenceCall {
@@ -2558,19 +2689,11 @@ class GetIncomeCall {
     );
   }
 
-  String? message(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.message''',
-      ));
-  String? incomeId(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.incomeId''',
-      ));
   String? name(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.income.name''',
       ));
-  double? amount(dynamic response) => castToType<double>(getJsonField(
+  int? amount(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.income.amount''',
       ));
@@ -2590,45 +2713,9 @@ class GetIncomeCall {
         response,
         r'''$.income.updatedAt''',
       ));
-  String? householdId(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.household.householdId''',
-      ));
   String? householdName(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.income.household.householdName''',
-      ));
-  String? ledgerIID(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].ledgerId''',
-      ));
-  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].paymentSourceId''',
-      ));
-  String? transactionType(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].transactionType''',
-      ));
-  String? category(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].category''',
-      ));
-  String? description(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].description''',
-      ));
-  bool? status(dynamic response) => castToType<bool>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].status''',
-      ));
-  String? ledgerupdatedBy(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].updatedBy''',
-      ));
-  double? runningTotal(dynamic response) => castToType<double>(getJsonField(
-        response,
-        r'''$.income.ledgers[:].runningTotal''',
+        r'''$.income.householdName''',
       ));
 }
 
@@ -3990,6 +4077,62 @@ class GetBillCall {
   String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',
+      ));
+  String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.billName''',
+      ));
+  int? amount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.bill.amount''',
+      ));
+  String? frequency(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.frequency''',
+      ));
+  String? category(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.category''',
+      ));
+  String? description(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.description''',
+      ));
+  int? dayofMonth(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.bill.dayOfMonth''',
+      ));
+  bool? isDebt(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.bill.isDebt''',
+      ));
+  int? interestRate(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.bill.interestRate''',
+      ));
+  int? cashBack(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.bill.cashBack''',
+      ));
+  String? url(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.url''',
+      ));
+  String? usernameRef(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.username''',
+      ));
+  String? passwordRef(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.password''',
+      ));
+  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.createdAt''',
+      ));
+  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.bill.updatedAt''',
       ));
 }
 

@@ -54,21 +54,39 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
-                title: Text(
-                  FFLocalizations.of(context).getText(
-                    'z7dady7i' /* Wallet */,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
                   ),
-                  style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).displaySmallFamily,
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        letterSpacing: 0.0,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).displaySmallFamily),
-                      ),
+                  onPressed: () async {
+                    context.pop();
+                  },
                 ),
                 actions: const [],
-                centerTitle: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    FFLocalizations.of(context).getText(
+                      'htuooqgc' /* Wallet */,
+                    ),
+                    style: FlutterFlowTheme.of(context).displaySmall.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).displaySmallFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).displaySmallFamily),
+                        ),
+                  ),
+                  centerTitle: true,
+                  expandedTitleScale: 1.0,
+                ),
                 elevation: 0.0,
               ),
             ),

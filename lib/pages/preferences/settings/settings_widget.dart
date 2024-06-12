@@ -734,7 +734,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                           ''),
                                                     ),
                                                     ParamType.String,
-                                                    true,
+                                                    isList: true,
                                                   ),
                                                   'householdNames':
                                                       serializeParam(
@@ -745,7 +745,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                           ''),
                                                     ),
                                                     ParamType.String,
-                                                    true,
+                                                    isList: true,
                                                   ),
                                                 }.withoutNulls,
                                                 extra: <String, dynamic>{
@@ -914,271 +914,13 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Semantics(
                                       label: 'Add Invitations',
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        elevation: 5.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: AnimatedContainer(
-                                          duration: const Duration(milliseconds: 200),
-                                          curve: Curves.easeInOut,
-                                          width: 300.0,
-                                          height: 44.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                            shape: BoxShape.rectangle,
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.wallet_outlined,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 24.0,
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '8umt9gnn' /* Default Payment Source */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Plus Jakarta Sans',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Plus Jakarta Sans'),
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Semantics(
-                                      label: 'Add Invitations',
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        elevation: 5.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: AnimatedContainer(
-                                          duration: const Duration(milliseconds: 200),
-                                          curve: Curves.easeInOut,
-                                          width: 300.0,
-                                          height: 44.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                            shape: BoxShape.rectangle,
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.attach_money_sharp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 24.0,
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'ia9ir3ju' /* Default Currency */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Plus Jakarta Sans',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Plus Jakarta Sans'),
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Semantics(
-                                      label: 'Add Invitations',
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.getUserOutput3 =
-                                              await TppbGroup.getUserCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                          );
-                                          if ((_model
-                                                  .getUserOutput3?.succeeded ??
-                                              true)) {
-                                            FFAppState().email =
-                                                TppbGroup.getUserCall.email(
-                                              (_model.getUserOutput3
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().householdIds =
-                                                TppbGroup.getUserCall
-                                                    .householdIds(
-                                                      (_model.getUserOutput3
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().confirmedEmail =
-                                                TppbGroup.getUserCall
-                                                    .confirmedEmail(
-                                              (_model.getUserOutput3
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().subscriptionEndDate =
-                                                TppbGroup.getUserCall
-                                                    .subscriptionEndDate(
-                                              (_model.getUserOutput3
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            setState(() {});
-
-                                            context.pushNamed(
-                                              'AddInvite',
-                                              queryParameters: {
-                                                'householdId': serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .bottomToTop,
-                                                  duration: Duration(
-                                                      milliseconds: 30),
-                                                ),
-                                              },
-                                            );
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: const Text('Sorry'),
-                                                  content: const Text(
-                                                      'We are having trouble\'s pulling your profile temporarily. Try again.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
+                                          context.pushNamed('PaymentSources');
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1215,8 +957,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Icon(
-                                                    Icons
-                                                        .data_thresholding_outlined,
+                                                    Icons.wallet_outlined,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
@@ -1235,7 +976,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'c0560gxy' /* Set Threshold */,
+                                                          '8umt9gnn' /* Wallet */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(

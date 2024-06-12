@@ -28,7 +28,6 @@ export '/pages/misc_pages/support_page/support_page_widget.dart'
 export '/pages/income/incomes/incomes_widget.dart' show IncomesWidget;
 export '/pages/payment_sources/payment_sources/payment_sources_widget.dart'
     show PaymentSourcesWidget;
-export '/pages/security/audit/audit_widget.dart' show AuditWidget;
 export '/pages/preferences/default_currency/default_currency_widget.dart'
     show DefaultCurrencyWidget;
 export '/pages/preferences/default_payment_source/default_payment_source_widget.dart'
@@ -48,3 +47,9 @@ export '/pages/ledger/categories/categories_widget.dart' show CategoriesWidget;
 export '/pages/bills/add_bill/add_bill_widget.dart' show AddBillWidget;
 export '/pages/payment_sources/payment_source_details/payment_source_details_widget.dart'
     show PaymentSourceDetailsWidget;
+export '/pages/ledger/query_transactions/query_transactions_widget.dart'
+    show QueryTransactionsWidget;
+export '/pages/bills/edit_bill/edit_bill_widget.dart' show EditBillWidget;
+export '/pages/income/edit_income/edit_income_widget.dart'
+    show EditIncomeWidget;
+export '/pages/threshold/threshold/threshold_widget.dart' show ThresholdWidget;

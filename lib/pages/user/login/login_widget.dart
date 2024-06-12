@@ -361,6 +361,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 _model
                                                                     .emailSignUpTextController
                                                                     .text;
+                                                            _model.emailSignUpTextController
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .emailSignUpTextController!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         autofocus: true,
@@ -510,6 +517,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 _model
                                                                     .phoneNumberTextController
                                                                     .text;
+                                                            _model.phoneNumberTextController
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .phoneNumberTextController!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         autofocus: true,
@@ -672,6 +686,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       _model
                                                                           .firstNameTextController
                                                                           .text;
+                                                                  _model.firstNameTextController
+                                                                          ?.selection =
+                                                                      TextSelection.collapsed(
+                                                                          offset: _model
+                                                                              .firstNameTextController!
+                                                                              .text
+                                                                              .length);
                                                                 });
                                                               },
                                                               autofocus: true,
@@ -826,6 +847,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       _model
                                                                           .lastNameTextController
                                                                           .text;
+                                                                  _model.lastNameTextController
+                                                                          ?.selection =
+                                                                      TextSelection.collapsed(
+                                                                          offset: _model
+                                                                              .lastNameTextController!
+                                                                              .text
+                                                                              .length);
                                                                 });
                                                               },
                                                               autofocus: true,
@@ -978,6 +1006,16 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .passwordfieldModel
                                                                   .passwordSignUpTextController
                                                                   .text;
+                                                          _model
+                                                                  .passwordfieldModel
+                                                                  .passwordSignUpTextController
+                                                                  ?.selection =
+                                                              TextSelection.collapsed(
+                                                                  offset: _model
+                                                                      .passwordfieldModel
+                                                                      .passwordSignUpTextController!
+                                                                      .text
+                                                                      .length);
                                                         });
                                                       },
                                                       child: wrapWithModel(
@@ -1325,6 +1363,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 _model
                                                                     .emailAddressSignInTextController
                                                                     .text;
+                                                            _model.emailAddressSignInTextController
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .emailAddressSignInTextController!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         autofocus: true,
@@ -1471,6 +1516,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 _model
                                                                     .passwordSigninTextController
                                                                     .text;
+                                                            _model.passwordSigninTextController
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .passwordSigninTextController!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         autofocus: true,

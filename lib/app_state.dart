@@ -103,17 +103,17 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToHouseholdIds(String value) {
-    _householdIds.add(value);
+    householdIds.add(value);
     secureStorage.setStringList('ff_householdIds', _householdIds);
   }
 
   void removeFromHouseholdIds(String value) {
-    _householdIds.remove(value);
+    householdIds.remove(value);
     secureStorage.setStringList('ff_householdIds', _householdIds);
   }
 
   void removeAtIndexFromHouseholdIds(int index) {
-    _householdIds.removeAt(index);
+    householdIds.removeAt(index);
     secureStorage.setStringList('ff_householdIds', _householdIds);
   }
 
@@ -121,12 +121,12 @@ class FFAppState extends ChangeNotifier {
     int index,
     String Function(String) updateFn,
   ) {
-    _householdIds[index] = updateFn(_householdIds[index]);
+    householdIds[index] = updateFn(_householdIds[index]);
     secureStorage.setStringList('ff_householdIds', _householdIds);
   }
 
   void insertAtIndexInHouseholdIds(int index, String value) {
-    _householdIds.insert(index, value);
+    householdIds.insert(index, value);
     secureStorage.setStringList('ff_householdIds', _householdIds);
   }
 

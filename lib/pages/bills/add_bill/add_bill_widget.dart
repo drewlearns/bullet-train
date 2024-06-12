@@ -61,9 +61,6 @@ class _AddBillWidgetState extends State<AddBillWidget> {
     _model.interestRateFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.textController1?.text = FFLocalizations.of(context).getText(
-            'hgwdxa3c' /* Acme Inc LLC */,
-          );
           _model.categoryFieldTextController?.text =
               FFLocalizations.of(context).getText(
             'w2axq1ox' /* Bill */,
@@ -162,7 +159,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          '1ff3s5jd' /* Name of Bill */,
+                                          '1ff3s5jd' /* Name of Bill* */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -270,7 +267,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          's8bbyiir' /* Amount */,
+                                          's8bbyiir' /* Amount* */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -484,9 +481,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                   child: FlutterFlowDropDown<String>(
                                     controller: _model
                                             .dayOfMonthDropDownValueController ??=
-                                        FormFieldController<String>(
-                                      _model.dayOfMonthDropDownValue ??= '1st',
-                                    ),
+                                        FormFieldController<String>(null),
                                     options: List<String>.from([
                                       '1st',
                                       '2nd',
@@ -631,10 +626,6 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily),
                                         ),
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      '01kx7zyv' /* Day of the month was this most... */,
-                                    ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
                                       color: FlutterFlowTheme.of(context)
@@ -656,7 +647,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'fvw9ecl2' /* Day Of the Month Due (Most Rec... */,
+                                      'fvw9ecl2' /* Day Of the Month Due* */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -760,7 +751,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'xry6730d' /* Frequency */,
+                                      'xry6730d' /* Frequency* */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1490,10 +1481,6 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                               context)
                                                           .bodyMediumFamily),
                                             ),
-                                        hintText:
-                                            FFLocalizations.of(context).getText(
-                                          '4i7s7lpy' /* PaymentSource */,
-                                        ),
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
@@ -1514,6 +1501,25 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                         isOverButton: true,
                                         isSearchable: false,
                                         isMultiSelect: false,
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          'e1idkio8' /* Payment Source* */,
+                                        ),
+                                        labelTextStyle: FlutterFlowTheme.of(
+                                                context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily),
+                                            ),
                                       );
                                     },
                                   ),

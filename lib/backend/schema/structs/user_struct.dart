@@ -22,31 +22,37 @@ class UserStruct extends BaseStruct {
   String? _accessToken;
   String get accessToken => _accessToken ?? '';
   set accessToken(String? val) => _accessToken = val;
+
   bool hasAccessToken() => _accessToken != null;
 
   // "ExpiresIn" field.
   int? _expiresIn;
   int get expiresIn => _expiresIn ?? 3600;
   set expiresIn(int? val) => _expiresIn = val;
-  void incrementExpiresIn(int amount) => _expiresIn = expiresIn + amount;
+
+  void incrementExpiresIn(int amount) => expiresIn = expiresIn + amount;
+
   bool hasExpiresIn() => _expiresIn != null;
 
   // "IdToken" field.
   String? _idToken;
   String get idToken => _idToken ?? '';
   set idToken(String? val) => _idToken = val;
+
   bool hasIdToken() => _idToken != null;
 
   // "RefreshToken" field.
   String? _refreshToken;
   String get refreshToken => _refreshToken ?? '';
   set refreshToken(String? val) => _refreshToken = val;
+
   bool hasRefreshToken() => _refreshToken != null;
 
   // "TokenType" field.
   String? _tokenType;
   String get tokenType => _tokenType ?? 'Bearer';
   set tokenType(String? val) => _tokenType = val;
+
   bool hasTokenType() => _tokenType != null;
 
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(

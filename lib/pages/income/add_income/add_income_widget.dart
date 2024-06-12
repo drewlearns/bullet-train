@@ -56,7 +56,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'AddIncome',
+        title: 'Add Income',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -227,7 +227,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               controller: _model.textController2,
                               focusNode: _model.textFieldFocusNode2,
                               autofocus: true,
-                              textCapitalization: TextCapitalization.words,
+                              textCapitalization: TextCapitalization.sentences,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(

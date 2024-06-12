@@ -57,6 +57,9 @@ class _PasswordfieldWidgetState extends State<PasswordfieldWidget> {
             setState(() {
               _model.passwordSignUpTextController?.text =
                   _model.passwordSignUpTextController.text;
+              _model.passwordSignUpTextController?.selection =
+                  TextSelection.collapsed(
+                      offset: _model.passwordSignUpTextController!.text.length);
             });
           },
           autofocus: true,

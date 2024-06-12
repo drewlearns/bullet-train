@@ -1,6 +1,7 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -69,11 +70,25 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.pop();
+                  },
+                ),
                 actions: const [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'lp5a8drp' /* Add Transaction */,
+                      'qpbhzh9o' /* Add Transaction */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -376,7 +391,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               ),
-                              'Select Date',
+                              'Select Date*',
                             ),
                             icon: Icon(
                               Icons.calendar_month,
@@ -427,17 +442,16 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   controller:
                                       _model.dropDownValueController3 ??=
                                           FormFieldController<String>(
-                                    _model.dropDownValue3 ??=
-                                        FFLocalizations.of(context).getText(
-                                      '3rxdjor6' /* Debit */,
-                                    ),
+                                    _model.dropDownValue3 ??= 'Debit',
                                   ),
-                                  options: [
+                                  options:
+                                      List<String>.from(['Debit', 'Credit']),
+                                  optionLabels: [
                                     FFLocalizations.of(context).getText(
-                                      'qbi4j055' /* Debit */,
+                                      'qbi4j055' /* - */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '21e2irl6' /* Credit */,
+                                      '21e2irl6' /* + */,
                                     )
                                   ],
                                   onChanged: (val) => setState(
@@ -455,7 +469,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'hvuu66ls' /* Transaction Type */,
+                                    'hvuu66ls' /* Please Select... */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -477,7 +491,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   isMultiSelect: false,
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'ho2od1ny' /* Select Debit Or Credit */,
+                                    'ho2od1ny' /* +/- */,
                                   ),
                                   labelTextStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -507,9 +521,26 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
+                                      isDense: false,
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'e9f66mmn' /* Amount */,
+                                        'e9f66mmn' /* Amount* */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelLargeFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLargeFamily),
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'xlqsqmp9' /* 0.00 */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -598,7 +629,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'ycld1wwp' /* Category */,
+                                  '7fyxldcf' /* Description* */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -674,7 +705,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  '7fyxldcf' /* Description */,
+                                  'ycld1wwp' /* Category */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -964,8 +995,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   transactionType: _model.dropDownValue3,
                                   transactionDate:
                                       _model.datePicked?.toString(),
-                                  category: _model.textController2.text,
-                                  description: _model.textController3.text,
+                                  category: _model.textController3.text,
+                                  description: _model.textController2.text,
                                   status: _model.switchValue?.toString(),
                                   sourceId: _model.dropDownValue2,
                                   tags: _model.textController4.text,
@@ -992,7 +1023,6 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   );
                                   setState(() {
                                     _model.textController1?.clear();
-                                    _model.textController2?.clear();
                                     _model.textController3?.clear();
                                     _model.textController4?.clear();
                                   });

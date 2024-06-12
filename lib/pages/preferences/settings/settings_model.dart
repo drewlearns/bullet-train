@@ -15,8 +15,6 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
   ApiCallResponse? getUserOutput1;
   // Stores action output result for [Backend Call - API (getHousehold)] action in editMembersContainer widget.
   ApiCallResponse? getHouseholdOutput1;
-  // Stores action output result for [Backend Call - API (getUser)] action in setThresholdContainer widget.
-  ApiCallResponse? getUserOutput3;
 
   @override
   void initState(BuildContext context) {}

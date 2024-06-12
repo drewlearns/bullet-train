@@ -209,6 +209,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                               ?.text =
                                           _model.invitationCodeTextController
                                               .text;
+                                      _model.invitationCodeTextController
+                                              ?.selection =
+                                          TextSelection.collapsed(
+                                              offset: _model
+                                                  .invitationCodeTextController!
+                                                  .text
+                                                  .length);
                                     });
                                   },
                                   autofocus: true,
@@ -305,6 +312,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       _model.emailSignUpTextController1?.text =
                                           _model
                                               .emailSignUpTextController1.text;
+                                      _model.emailSignUpTextController1
+                                              ?.selection =
+                                          TextSelection.collapsed(
+                                              offset: _model
+                                                  .emailSignUpTextController1!
+                                                  .text
+                                                  .length);
                                     });
                                   },
                                   autofocus: true,
@@ -406,6 +420,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                     ?.text =
                                                 _model.firstNameTextController
                                                     .text;
+                                            _model.firstNameTextController
+                                                    ?.selection =
+                                                TextSelection.collapsed(
+                                                    offset: _model
+                                                        .firstNameTextController!
+                                                        .text
+                                                        .length);
                                           });
                                         },
                                         autofocus: true,
@@ -523,6 +544,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                     ?.text =
                                                 _model.lastNameTextController
                                                     .text;
+                                            _model.lastNameTextController
+                                                    ?.selection =
+                                                TextSelection.collapsed(
+                                                    offset: _model
+                                                        .lastNameTextController!
+                                                        .text
+                                                        .length);
                                           });
                                         },
                                         autofocus: true,
@@ -641,6 +669,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       _model.emailSignUpTextController2?.text =
                                           _model
                                               .emailSignUpTextController2.text;
+                                      _model.emailSignUpTextController2
+                                              ?.selection =
+                                          TextSelection.collapsed(
+                                              offset: _model
+                                                  .emailSignUpTextController2!
+                                                  .text
+                                                  .length);
                                     });
                                   },
                                   autofocus: true,
@@ -735,6 +770,13 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     setState(() {
                                       _model.phoneNumberTextController?.text =
                                           _model.phoneNumberTextController.text;
+                                      _model.phoneNumberTextController
+                                              ?.selection =
+                                          TextSelection.collapsed(
+                                              offset: _model
+                                                  .phoneNumberTextController!
+                                                  .text
+                                                  .length);
                                     });
                                   },
                                   autofocus: true,

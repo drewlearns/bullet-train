@@ -156,9 +156,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddTransaction',
           path: '/addTransaction',
           requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'AddTransaction')
-              : const AddTransactionWidget(),
+          builder: (context, params) => const AddTransactionWidget(),
         ),
         FFRoute(
           name: 'EditUser',
@@ -217,15 +215,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PaymentSources',
           path: '/paymentSources',
           requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'PaymentSources')
-              : const PaymentSourcesWidget(),
-        ),
-        FFRoute(
-          name: 'Audit',
-          path: '/audit',
-          requireAuth: true,
-          builder: (context, params) => const AuditWidget(),
+          builder: (context, params) => const PaymentSourcesWidget(),
         ),
         FFRoute(
           name: 'defaultCurrency',
@@ -339,6 +329,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'QueryTransactions',
+          path: '/queryTransactions',
+          requireAuth: true,
+          builder: (context, params) => const QueryTransactionsWidget(),
+        ),
+        FFRoute(
+          name: 'EditBill',
+          path: '/editBill',
+          requireAuth: true,
+          builder: (context, params) => const EditBillWidget(),
+        ),
+        FFRoute(
+          name: 'EditIncome',
+          path: '/editIncome',
+          requireAuth: true,
+          builder: (context, params) => const EditIncomeWidget(),
+        ),
+        FFRoute(
+          name: 'Threshold',
+          path: '/threshold',
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Threshold')
+              : const ThresholdWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

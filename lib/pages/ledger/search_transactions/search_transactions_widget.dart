@@ -72,24 +72,6 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              AutoSizeText(
-                                FFLocalizations.of(context).getText(
-                                  '303xzq0l' /* Search Transactions */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineLarge
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .headlineLargeFamily,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLargeFamily),
-                                    ),
-                              ),
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Row(
@@ -120,7 +102,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                               labelText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'li1qov6i' /* Keyword Search */,
+                                                'i346y9fb' /* Keyword Search */,
                                               ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
@@ -141,7 +123,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'l5sbvpxy' /* Search Everything */,
+                                                'd6gh8wzl' /* Search Everything */,
                                               ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
@@ -265,36 +247,15 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                                     ?.succeeded ??
                                                 true) ==
                                             false) {
-                                          _model.searchButtonPressed = true;
                                           _model.updatePage(() {});
                                         } else {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: const Text('Error'),
-                                                content: Text(
-                                                    (_model.searchTransactionsOutput
-                                                                ?.statusCode ??
-                                                            200)
-                                                        .toString()),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: const Text('Ok'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
+                                          _model.updatePage(() {});
                                         }
 
                                         setState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        '1plf41wb' /* Search */,
+                                        '57h9csyj' /* Search */,
                                       ),
                                       options: FFButtonOptions(
                                         height: 52.0,
@@ -339,8 +300,8 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                     ),
                   ),
                 ),
-                if (_model.searchButtonPressed == true)
-                  Builder(
+                Expanded(
+                  child: Builder(
                     builder: (context) {
                       final searchResults = TppbGroup.searchTransactionsCall
                               .transactionsList(
@@ -362,438 +323,328 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                           return Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 8.0, 16.0, 8.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if ((TppbGroup.searchTransactionsCall.incomeId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        null &&
-                                    (TppbGroup.searchTransactionsCall.incomeId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        '') {
-                                  context.pushNamed(
-                                    'IncomeDetails',
-                                    queryParameters: {
-                                      'incomeId': serializeParam(
-                                        TppbGroup.searchTransactionsCall
-                                            .incomeId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[valueOrDefault<int>(
-                                          searchResultsItem,
-                                          0,
-                                        )],
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                } else if ((TppbGroup.searchTransactionsCall
-                                            .billId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        null &&
-                                    (TppbGroup.searchTransactionsCall.billId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        '') {
-                                  context.pushNamed(
-                                    'BillDetails',
-                                    queryParameters: {
-                                      'billId': serializeParam(
-                                        TppbGroup.searchTransactionsCall.billId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[valueOrDefault<int>(
-                                          searchResultsItem,
-                                          0,
-                                        )],
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                } else if ((TppbGroup.searchTransactionsCall
-                                            .transactionId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        null &&
-                                    (TppbGroup.searchTransactionsCall
-                                            .transactionId(
-                                          (_model.searchTransactionsOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?[searchResultsIndex]) !=
-                                        '') {
-                                  context.pushNamed(
-                                    'TransactionDetails',
-                                    queryParameters: {
-                                      'transactionId': serializeParam(
-                                        valueOrDefault<String>(
-                                          TppbGroup.searchTransactionsCall
-                                              .transactionId(
-                                            (_model.searchTransactionsOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?[searchResultsIndex],
-                                          'Loading...',
-                                        ),
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: const Text('Error'),
-                                        content: const Text('Unable to view item.'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: const Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                }
-                              },
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 5.0,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
+                            child: Material(
+                              color: Colors.transparent,
+                              elevation: 5.0,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
+                                ),
+                              ),
+                              child: Container(
+                                width: 300.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(12.0),
                                     bottomRight: Radius.circular(12.0),
                                     topLeft: Radius.circular(12.0),
                                     topRight: Radius.circular(12.0),
                                   ),
                                 ),
-                                child: Container(
-                                  width: 300.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(12.0),
-                                      bottomRight: Radius.circular(12.0),
-                                      topLeft: Radius.circular(12.0),
-                                      topRight: Radius.circular(12.0),
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 8.0, 16.0, 8.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Expanded(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          TppbGroup
-                                                              .searchTransactionsCall
-                                                              .description(
-                                                            (_model.searchTransactionsOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?[searchResultsIndex],
-                                                          'Loading...',
-                                                        ).maybeHandleOverflow(
-                                                          maxChars: 28,
-                                                          replacement: '…',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 8.0, 16.0, 8.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        TppbGroup
+                                                            .searchTransactionsCall
+                                                            .description(
+                                                          (_model.searchTransactionsOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?[searchResultsIndex],
+                                                        'Loading...',
+                                                      ).maybeHandleOverflow(
+                                                        maxChars: 28,
+                                                        replacement: '…',
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLargeFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelLargeFamily),
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'Category: ${valueOrDefault<String>(
+                                                              TppbGroup
+                                                                  .searchTransactionsCall
+                                                                  .category(
+                                                                (_model.searchTransactionsOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?[searchResultsIndex],
+                                                              'Loading...',
+                                                            )}'
+                                                                .maybeHandleOverflow(
+                                                              maxChars: 20,
+                                                              replacement: '…',
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLines: 1,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelLargeFamily,
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .labelLargeFamily),
+                                                                              .bodyMediumFamily),
                                                                 ),
+                                                          ),
+                                                          Text(
+                                                            'Tags: ${valueOrDefault<String>(
+                                                              TppbGroup
+                                                                  .searchTransactionsCall
+                                                                  .tags(
+                                                                (_model.searchTransactionsOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?[searchResultsIndex],
+                                                              'Loading...',
+                                                            )}'
+                                                                .maybeHandleOverflow(
+                                                              maxChars: 20,
+                                                              replacement: '…',
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLines: 1,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              TppbGroup
+                                                                  .searchTransactionsCall
+                                                                  .transactionDate(
+                                                                (_model.searchTransactionsOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?[searchResultsIndex],
+                                                              'Loading...',
+                                                            ).maybeHandleOverflow(
+                                                                maxChars: 10),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              'Category: ${valueOrDefault<String>(
-                                                                TppbGroup
-                                                                    .searchTransactionsCall
-                                                                    .category(
-                                                                  (_model.searchTransactionsOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?[searchResultsIndex],
-                                                                'Loading...',
-                                                              )}'
-                                                                  .maybeHandleOverflow(
-                                                                maxChars: 20,
-                                                                replacement:
-                                                                    '…',
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            ),
-                                                            Text(
-                                                              'Tags: ${valueOrDefault<String>(
-                                                                TppbGroup
-                                                                    .searchTransactionsCall
-                                                                    .tags(
-                                                                  (_model.searchTransactionsOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?[searchResultsIndex],
-                                                                'Loading...',
-                                                              )}'
-                                                                  .maybeHandleOverflow(
-                                                                maxChars: 20,
-                                                                replacement:
-                                                                    '…',
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            ),
-                                                            Text(
+                                                    ),
+                                                    Expanded(
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            '${valueOrDefault<String>(
                                                               valueOrDefault<
-                                                                  String>(
+                                                                          String>(
+                                                                        TppbGroup
+                                                                            .searchTransactionsCall
+                                                                            .transactionType(
+                                                                          (_model.searchTransactionsOutput?.jsonBody ??
+                                                                              ''),
+                                                                        )?[searchResultsIndex],
+                                                                        'Loading...',
+                                                                      ) ==
+                                                                      'Debit'
+                                                                  ? '-'
+                                                                  : '+',
+                                                              '-',
+                                                            )}${valueOrDefault<String>(
+                                                              formatNumber(
                                                                 TppbGroup
                                                                     .searchTransactionsCall
-                                                                    .transactionDate(
+                                                                    .amount(
                                                                   (_model.searchTransactionsOutput
                                                                           ?.jsonBody ??
                                                                       ''),
                                                                 )?[searchResultsIndex],
-                                                                'Loading...',
-                                                              ).maybeHandleOverflow(
-                                                                  maxChars: 10),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              '${valueOrDefault<String>(
-                                                                valueOrDefault<
-                                                                            String>(
-                                                                          TppbGroup
-                                                                              .searchTransactionsCall
-                                                                              .transactionType(
-                                                                            (_model.searchTransactionsOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )?[searchResultsIndex],
-                                                                          'Loading...',
-                                                                        ) ==
-                                                                        'Debit'
-                                                                    ? '-'
-                                                                    : '+',
-                                                                '-',
-                                                              )}${valueOrDefault<String>(
-                                                                (TppbGroup
-                                                                        .searchTransactionsCall
-                                                                        .amount(
-                                                                  (_model.searchTransactionsOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?[searchResultsIndex])
-                                                                    ?.toString(),
-                                                                'Loading...',
-                                                              )}',
-                                                              textAlign:
-                                                                  TextAlign.end,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineMediumFamily,
-                                                                    color: valueOrDefault<
-                                                                                String>(
-                                                                              TppbGroup.searchTransactionsCall.transactionType(
-                                                                                (_model.searchTransactionsOutput?.jsonBody ?? ''),
-                                                                              )?[searchResultsIndex],
-                                                                              'Loading...',
-                                                                            ) ==
-                                                                            'Debit'
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .error
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .tertiary,
-                                                                    fontSize:
-                                                                        24.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineMediumFamily),
-                                                                  ),
-                                                            ),
-                                                            Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                TppbGroup
-                                                                    .searchTransactionsCall
-                                                                    .transactionDate(
-                                                                  (_model.searchTransactionsOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?[searchResultsIndex],
-                                                                'Loading...',
-                                                              ).maybeHandleOverflow(
-                                                                maxChars: 20,
-                                                                replacement:
-                                                                    '…',
+                                                                formatType:
+                                                                    FormatType
+                                                                        .custom,
+                                                                currency: '',
+                                                                format:
+                                                                    '#,###.##',
+                                                                locale: '',
                                                               ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
+                                                              'Loading...',
+                                                            )}',
+                                                            textAlign:
+                                                                TextAlign.end,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineMediumFamily,
+                                                                  color: valueOrDefault<
+                                                                              String>(
+                                                                            TppbGroup.searchTransactionsCall.transactionType(
+                                                                              (_model.searchTransactionsOutput?.jsonBody ?? ''),
+                                                                            )?[searchResultsIndex],
+                                                                            'Loading...',
+                                                                          ) ==
+                                                                          'Debit'
+                                                                      ? FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                  fontSize:
+                                                                      24.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineMediumFamily),
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              TppbGroup
+                                                                  .searchTransactionsCall
+                                                                  .transactionDate(
+                                                                (_model.searchTransactionsOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?[searchResultsIndex],
+                                                              'Loading...',
+                                                            ).maybeHandleOverflow(
+                                                                maxChars: 20),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLines: 1,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -803,6 +654,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                       );
                     },
                   ),
+                ),
               ],
             ),
           ),

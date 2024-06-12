@@ -5,10 +5,6 @@ import 'package:flutter/material.dart';
 
 class SearchTransactionsModel
     extends FlutterFlowModel<SearchTransactionsWidget> {
-  ///  Local state fields for this component.
-
-  bool? searchButtonPressed = false;
-
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
