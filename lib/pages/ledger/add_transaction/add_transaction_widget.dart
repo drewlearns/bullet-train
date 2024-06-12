@@ -484,7 +484,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       FlutterFlowTheme.of(context).alternate,
                                   borderWidth: 2.0,
                                   borderRadius: 12.0,
-                                  margin: const EdgeInsets.all(0.0),
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 4.0, 16.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
                                   isSearchable: false,
@@ -498,6 +499,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -532,6 +535,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .labelLargeFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -593,6 +598,9 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       filled: true,
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      contentPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              16.0, 0.0, 0.0, 0.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -626,6 +634,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               controller: _model.textController2,
                               focusNode: _model.textFieldFocusNode2,
                               autofocus: false,
+                              textCapitalization: TextCapitalization.words,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
@@ -674,6 +683,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -702,6 +713,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               controller: _model.textController3,
                               focusNode: _model.textFieldFocusNode3,
                               autofocus: false,
+                              textCapitalization: TextCapitalization.words,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
@@ -750,6 +762,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -778,6 +792,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               controller: _model.textController4,
                               focusNode: _model.textFieldFocusNode4,
                               autofocus: false,
+                              textCapitalization: TextCapitalization.words,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
@@ -829,6 +844,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium

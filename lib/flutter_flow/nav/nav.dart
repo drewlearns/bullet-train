@@ -136,12 +136,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AcceptInviteWidget(),
         ),
         FFRoute(
-          name: 'Onboarding',
-          path: '/onboarding',
-          requireAuth: true,
-          builder: (context, params) => const OnboardingWidget(),
-        ),
-        FFRoute(
           name: 'AddPaymentSource',
           path: '/addPaymentSource',
           requireAuth: true,
@@ -216,23 +210,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/paymentSources',
           requireAuth: true,
           builder: (context, params) => const PaymentSourcesWidget(),
-        ),
-        FFRoute(
-          name: 'defaultCurrency',
-          path: '/defaultCurrency',
-          requireAuth: true,
-          builder: (context, params) => DefaultCurrencyWidget(
-            householdId: params.getParam(
-              'householdId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'DefaultPaymentSource',
-          path: '/defaultPaymentSource',
-          requireAuth: true,
-          builder: (context, params) => const DefaultPaymentSourceWidget(),
         ),
         FFRoute(
           name: 'Export',

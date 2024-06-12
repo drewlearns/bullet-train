@@ -356,42 +356,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // Onboarding
-  {
-    'cbyqhghe': {
-      'en': 'Silly Name, Serious Ledgering',
-      'es': '',
-    },
-    'af2jqzn1': {
-      'en':
-          'Access or create your account below, and track expenses like a pro!',
-      'es': '',
-    },
-    'otv926su': {
-      'en': 'Login',
-      'es': '',
-    },
-    'ir5ppysr': {
-      'en': 'Confirm Email',
-      'es': '',
-    },
-    'pifffp3g': {
-      'en': 'YourEmail@Example.com',
-      'es': 'TucorreoElectrónico@ejemplo.com',
-    },
-    'ube4hh6q': {
-      'en': 'Accept Invitation',
-      'es': '',
-    },
-    'lu7sjzp3': {
-      'en': 'Disclaimer: The Purple Piggy Bank LLC is not a bank. ',
-      'es': '',
-    },
-    '1nhlwor7': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
   // AddPaymentSource
   {
     'sk4eh2c5': {
@@ -772,7 +736,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Get support',
       'es': '',
     },
-    '9iag3u40': {
+    '1nhlwor7': {
       'en': 'Home',
       'es': '',
     },
@@ -840,28 +804,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '4de9zmbc': {
       'en': 'Wallet',
-      'es': '',
-    },
-  },
-  // defaultCurrency
-  {
-    'lkew3crp': {
-      'en': 'Default Currency',
-      'es': '',
-    },
-    'pveoxysy': {
-      'en': 'Invite',
-      'es': '',
-    },
-  },
-  // DefaultPaymentSource
-  {
-    'j2t6q4gr': {
-      'en': 'Page Title',
-      'es': '',
-    },
-    'ox6veo0p': {
-      'en': 'Home',
       'es': '',
     },
   },
@@ -1315,132 +1257,132 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bill',
       'es': '',
     },
-    'v4vayj1u': {
-      'en': '1',
-      'es': '',
-    },
-    'w8m39b4m': {
-      'en': '2',
-      'es': '',
-    },
     'wqvraug3': {
-      'en': '3',
+      'en': '1st',
       'es': '',
     },
     't5qsdcps': {
-      'en': '4',
+      'en': '2nd',
       'es': '',
     },
     '930u2h2h': {
-      'en': '5',
+      'en': '3rd',
       'es': '',
     },
     'hh3jvsl8': {
-      'en': '6',
+      'en': '4th',
       'es': '',
     },
     '6juorp05': {
-      'en': '7',
+      'en': '5th',
       'es': '',
     },
     'bnql2hwg': {
-      'en': '8',
+      'en': '6th',
       'es': '',
     },
     'gn38sk2q': {
-      'en': '9',
+      'en': '7th',
       'es': '',
     },
     'jahk96ae': {
-      'en': '10',
+      'en': '8th',
       'es': '',
     },
     'faovx2sl': {
-      'en': '11',
+      'en': '9th',
       'es': '',
     },
     '8j6c6zoq': {
-      'en': '12',
+      'en': '10th',
       'es': '',
     },
     'bz9704xf': {
-      'en': '13',
+      'en': '11th',
       'es': '',
     },
     'k4u54bz7': {
-      'en': '14',
+      'en': '12th',
       'es': '',
     },
     'f9lqi3ox': {
-      'en': '15',
+      'en': '13th',
       'es': '',
     },
     'a4uw4rqp': {
-      'en': '16',
+      'en': '14th',
       'es': '',
     },
     '8gfvg5f5': {
-      'en': '17',
+      'en': '15th',
       'es': '',
     },
     '9mgkih0m': {
-      'en': '18',
+      'en': '16th',
       'es': '',
     },
     'wywjbvoc': {
-      'en': '19',
+      'en': '17th',
       'es': '',
     },
     'lm5i79uf': {
-      'en': '20',
+      'en': '18th',
       'es': '',
     },
     'rwng4r27': {
-      'en': '21',
+      'en': '19th',
       'es': '',
     },
     'bkhctvq9': {
-      'en': '22',
+      'en': '20th',
       'es': '',
     },
     '3e4d9960': {
-      'en': '23',
+      'en': '21st',
       'es': '',
     },
     '69rytq54': {
-      'en': '24',
+      'en': '22nd',
       'es': '',
     },
     'gu1gwkfc': {
-      'en': '25',
+      'en': '23rd',
       'es': '',
     },
     '1pl0xd1w': {
-      'en': '26',
+      'en': '24th',
       'es': '',
     },
     '4dxcax6o': {
-      'en': '27',
+      'en': '25th',
       'es': '',
     },
     'a7diaa16': {
-      'en': '28',
+      'en': '26th',
       'es': '',
     },
     '6c4kgyke': {
-      'en': '29',
+      'en': '27th',
       'es': '',
     },
     'ua5kebkx': {
-      'en': '30',
+      'en': '28th',
       'es': '',
     },
     'hjql9cdn': {
-      'en': '30',
+      'en': '29th',
+      'es': '',
+    },
+    'ze0xrmgn': {
+      'en': '30th',
+      'es': '',
+    },
+    'yihppkun': {
+      'en': '31st',
       'es': '',
     },
     '01kx7zyv': {
-      'en': '',
+      'en': '1st',
       'es': '',
     },
     'srs8ebvc': {
@@ -1515,8 +1457,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Username',
       'es': '',
     },
+    'sp554jiv': {
+      'en': 'Biller Username',
+      'es': '',
+    },
     'qp3jab4n': {
       'en': 'Password',
+      'es': '',
+    },
+    'pfuz3mip': {
+      'en': 'Biller Password',
       'es': '',
     },
     '4i7s7lpy': {
@@ -1663,13 +1613,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '9mr8s7gi': {
       'en': 'New Password',
-      'es': '',
-    },
-  },
-  // LedgerEntry
-  {
-    '4knaveeg': {
-      'en': 'Wallet: ',
       'es': '',
     },
   },

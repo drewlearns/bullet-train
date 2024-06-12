@@ -92,6 +92,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                         ),
                       ),
                       child: SingleChildScrollView(
+                        primary: false,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -176,7 +177,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                     borderWidth: 2.0,
                                     borderRadius: 8.0,
                                     margin: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        16.0, 0.0, 0.0, 0.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
                                     isSearchable: false,

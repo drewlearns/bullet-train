@@ -216,6 +216,9 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
+                                    contentPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

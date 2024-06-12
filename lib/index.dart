@@ -12,8 +12,6 @@ export '/pages/household/add_invite/add_invite_widget.dart'
     show AddInviteWidget;
 export '/pages/user/accept_invite/accept_invite_widget.dart'
     show AcceptInviteWidget;
-export '/pages/misc_pages/onboarding/onboarding_widget.dart'
-    show OnboardingWidget;
 export '/pages/payment_sources/add_payment_source/add_payment_source_widget.dart'
     show AddPaymentSourceWidget;
 export '/pages/ledger/add_transaction/add_transaction_widget.dart'
@@ -28,10 +26,6 @@ export '/pages/misc_pages/support_page/support_page_widget.dart'
 export '/pages/income/incomes/incomes_widget.dart' show IncomesWidget;
 export '/pages/payment_sources/payment_sources/payment_sources_widget.dart'
     show PaymentSourcesWidget;
-export '/pages/preferences/default_currency/default_currency_widget.dart'
-    show DefaultCurrencyWidget;
-export '/pages/preferences/default_payment_source/default_payment_source_widget.dart'
-    show DefaultPaymentSourceWidget;
 export '/pages/reporting/export/export_widget.dart' show ExportWidget;
 export '/pages/bills/bills/bills_widget.dart' show BillsWidget;
 export '/pages/bills/bill_details/bill_details_widget.dart'

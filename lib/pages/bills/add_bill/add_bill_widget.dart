@@ -45,7 +45,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
     _model.cashBackRateTextController ??= TextEditingController(text: '');
     _model.cashBackRateFocusNode ??= FocusNode();
 
-    _model.descriptionFieldTextController ??= TextEditingController();
+    _model.descriptionFieldTextController ??= TextEditingController(text: '');
     _model.descriptionFieldFocusNode ??= FocusNode();
 
     _model.urlFieldTextController ??= TextEditingController();
@@ -167,6 +167,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -275,6 +278,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -387,6 +393,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -481,133 +490,135 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                   child: FlutterFlowDropDown<String>(
                                     controller: _model
                                             .dayOfMonthDropDownValueController ??=
-                                        FormFieldController<String>(null),
+                                        FormFieldController<String>(
+                                      _model.dayOfMonthDropDownValue ??= '1',
+                                    ),
                                     options: List<String>.from([
-                                      '1st',
-                                      '2nd',
-                                      '3rd',
-                                      '4th',
-                                      '5th',
-                                      '6th',
-                                      '7th',
-                                      '8th',
-                                      '9th',
-                                      '10th',
-                                      '11th',
-                                      '12th',
-                                      '13th',
-                                      '14th',
-                                      '15th',
-                                      '16th',
-                                      '17th',
-                                      '18th',
-                                      '19th',
-                                      '20th',
-                                      '21st',
-                                      '22nd',
-                                      '23rd',
-                                      '24th',
-                                      '25th',
-                                      '26th',
-                                      '27th',
-                                      '28th',
-                                      '29th',
-                                      '30th',
-                                      '30'
+                                      '1',
+                                      '2',
+                                      '3',
+                                      '4',
+                                      '5',
+                                      '6',
+                                      '7',
+                                      '8',
+                                      '9',
+                                      '10',
+                                      '11',
+                                      '12',
+                                      '13',
+                                      '14',
+                                      '15',
+                                      '16',
+                                      '17',
+                                      '18',
+                                      '19',
+                                      '20',
+                                      '21',
+                                      '22',
+                                      '23',
+                                      '24',
+                                      '25',
+                                      '26',
+                                      '27',
+                                      '28',
+                                      '29',
+                                      '30',
+                                      '31'
                                     ]),
                                     optionLabels: [
                                       FFLocalizations.of(context).getText(
-                                        'v4vayj1u' /* 1 */,
+                                        'wqvraug3' /* 1st */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'w8m39b4m' /* 2 */,
+                                        't5qsdcps' /* 2nd */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'wqvraug3' /* 3 */,
+                                        '930u2h2h' /* 3rd */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        't5qsdcps' /* 4 */,
+                                        'hh3jvsl8' /* 4th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '930u2h2h' /* 5 */,
+                                        '6juorp05' /* 5th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'hh3jvsl8' /* 6 */,
+                                        'bnql2hwg' /* 6th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '6juorp05' /* 7 */,
+                                        'gn38sk2q' /* 7th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'bnql2hwg' /* 8 */,
+                                        'jahk96ae' /* 8th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'gn38sk2q' /* 9 */,
+                                        'faovx2sl' /* 9th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'jahk96ae' /* 10 */,
+                                        '8j6c6zoq' /* 10th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'faovx2sl' /* 11 */,
+                                        'bz9704xf' /* 11th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '8j6c6zoq' /* 12 */,
+                                        'k4u54bz7' /* 12th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'bz9704xf' /* 13 */,
+                                        'f9lqi3ox' /* 13th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'k4u54bz7' /* 14 */,
+                                        'a4uw4rqp' /* 14th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'f9lqi3ox' /* 15 */,
+                                        '8gfvg5f5' /* 15th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'a4uw4rqp' /* 16 */,
+                                        '9mgkih0m' /* 16th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '8gfvg5f5' /* 17 */,
+                                        'wywjbvoc' /* 17th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '9mgkih0m' /* 18 */,
+                                        'lm5i79uf' /* 18th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'wywjbvoc' /* 19 */,
+                                        'rwng4r27' /* 19th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'lm5i79uf' /* 20 */,
+                                        'bkhctvq9' /* 20th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'rwng4r27' /* 21 */,
+                                        '3e4d9960' /* 21st */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'bkhctvq9' /* 22 */,
+                                        '69rytq54' /* 22nd */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '3e4d9960' /* 23 */,
+                                        'gu1gwkfc' /* 23rd */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '69rytq54' /* 24 */,
+                                        '1pl0xd1w' /* 24th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'gu1gwkfc' /* 25 */,
+                                        '4dxcax6o' /* 25th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '1pl0xd1w' /* 26 */,
+                                        'a7diaa16' /* 26th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '4dxcax6o' /* 27 */,
+                                        '6c4kgyke' /* 27th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'a7diaa16' /* 28 */,
+                                        'ua5kebkx' /* 28th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '6c4kgyke' /* 29 */,
+                                        'hjql9cdn' /* 29th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'ua5kebkx' /* 30 */,
+                                        'ze0xrmgn' /* 30th */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'hjql9cdn' /* 30 */,
+                                        'yihppkun' /* 31st */,
                                       )
                                     ],
                                     onChanged: (val) => setState(() =>
@@ -626,6 +637,10 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily),
                                         ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '01kx7zyv' /* 1st */,
+                                    ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
                                       color: FlutterFlowTheme.of(context)
@@ -655,6 +670,8 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
@@ -759,6 +776,8 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
@@ -801,6 +820,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -816,6 +838,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -912,6 +937,8 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                       focusNode:
                                           _model.descriptionFieldFocusNode,
                                       autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.words,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText:
@@ -924,6 +951,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -1038,6 +1068,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1057,6 +1090,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1167,6 +1203,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1175,6 +1214,10 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                                 context)
                                                             .labelMediumFamily),
                                               ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'sp554jiv' /* Biller Username */,
+                                          ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -1182,6 +1225,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1292,6 +1338,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1300,6 +1349,10 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                                 context)
                                                             .labelMediumFamily),
                                               ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'pfuz3mip' /* Biller Password */,
+                                          ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -1307,6 +1360,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()
@@ -1512,6 +1568,9 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -1609,6 +1668,10 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
@@ -1625,6 +1688,10 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
