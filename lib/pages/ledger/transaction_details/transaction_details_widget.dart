@@ -4,11 +4,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'transaction_details_model.dart';
 export 'transaction_details_model.dart';
 
@@ -35,39 +33,6 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
     super.initState();
     _model = createModel(context, () => TransactionDetailsModel());
 
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.getFilePathOutput = await TppbGroup.getFilePathCall.call(
-        authorizationToken: currentAuthenticationToken,
-        transactionId: widget.transactionId,
-      );
-      if ((_model.getFilePathOutput?.succeeded ?? true)) {
-        setState(() {});
-        await Clipboard.setData(ClipboardData(
-            text: TppbGroup.getFilePathCall.url(
-          (_model.getFilePathOutput?.jsonBody ?? ''),
-        )!));
-      } else {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return AlertDialog(
-              title: const Text('Error:'),
-              content: Text(TppbGroup.getFilePathCall.message(
-                (_model.getFilePathOutput?.jsonBody ?? ''),
-              )!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: const Text('Ok'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    });
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -80,8 +45,6 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return FutureBuilder<ApiCallResponse>(
       future: TppbGroup.getTransactionCall.call(
         authorizationToken: currentAuthenticationToken,
@@ -919,30 +882,19 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              if (TppbGroup.getFilePathCall.url(
-                                                        (_model.getFilePathOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  TppbGroup.getFilePathCall.url(
-                                                        (_model.getFilePathOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      '')
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 16.0,
-                                                                0.0, 0.0),
-                                                    child: FutureBuilder<
-                                                        ApiCallResponse>(
-                                                      future: TppbGroup
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 16.0, 0.0, 0.0),
+                                                  child: FutureBuilder<
+                                                      ApiCallResponse>(
+                                                    future: FFAppState().photo(
+                                                      uniqueQueryKey:
+                                                          widget.transactionId,
+                                                      requestFn: () => TppbGroup
                                                           .getFilePathCall
                                                           .call(
                                                         authorizationToken:
@@ -950,93 +902,76 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                         transactionId: widget
                                                             .transactionId,
                                                       ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
                                                               ),
                                                             ),
-                                                          );
-                                                        }
-                                                        final imageGetFilePathResponse =
-                                                            snapshot.data!;
-                                                        return ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              TppbGroup
-                                                                  .getFilePathCall
-                                                                  .url(
-                                                                imageGetFilePathResponse
-                                                                    .jsonBody,
-                                                              ),
-                                                              'https://images.unsplash.com/photo-1607434472257-d9f8e57a643d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxsb2FkaW5nfGVufDB8fHx8MTcxNzY3NzM0NXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                          ),
+                                                        );
+                                                      }
+                                                      final imageGetFilePathResponse =
+                                                          snapshot.data!;
+                                                      return ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          fadeInDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          fadeOutDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          imageUrl:
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            TppbGroup
+                                                                .getFilePathCall
+                                                                .url(
+                                                              imageGetFilePathResponse
+                                                                  .jsonBody,
                                                             ),
+                                                            'https://p289.p2.n0.cdn.zight.com/items/E0uegXZx/b9f1dc60-2a4b-4374-acd3-344ed6d73294.png?v=%221d147bc28ad18d6568afe34c51535eae%22',
+                                                          ),
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.cover,
+                                                          errorWidget: (context,
+                                                                  error,
+                                                                  stackTrace) =>
+                                                              Image.asset(
+                                                            'assets/images/error_image.webp',
                                                             width: 300.0,
                                                             height: 200.0,
                                                             fit: BoxFit.cover,
                                                           ),
-                                                        );
-                                                      },
-                                                    ),
+                                                        ),
+                                                      );
+                                                    },
                                                   ),
                                                 ),
+                                              ),
                                             ],
                                           ),
                                         ),
-                                        if (valueOrDefault<bool>(
-                                          TppbGroup.getFilePathCall.url(
-                                                    (_model.getFilePathOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  null &&
-                                              TppbGroup.getFilePathCall.url(
-                                                    (_model.getFilePathOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  '',
-                                          false,
-                                        ))
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '99onxxhl' /* Link to Receipt Image is copie... */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  fontSize: 10.0,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
-                                                ),
-                                          ),
                                       ],
                                     ),
                                   ],

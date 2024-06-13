@@ -146,7 +146,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                               Flexible(
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 24.0, 8.0, 8.0),
+                                      8.0, 8.0, 8.0, 8.0),
                                   child: SizedBox(
                                     width: 300.0,
                                     child: TextFormField(

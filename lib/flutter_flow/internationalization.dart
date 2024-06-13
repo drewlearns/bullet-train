@@ -1621,13 +1621,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    '99onxxhl': {
-      'en': 'Link to Receipt Image is copied to your clipboard',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
     'f60bc50b': {
       'en': 'Payment Source Details',
       'es': '',
