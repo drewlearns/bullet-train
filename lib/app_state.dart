@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
@@ -260,21 +258,6 @@ class FFAppState extends ChangeNotifier {
   void deleteLastName() {
     secureStorage.delete(key: 'ff_lastName');
   }
-
-  final _photoManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> photo({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _photoManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearPhotoCache() => _photoManager.clear();
-  void clearPhotoCacheKey(String? uniqueKey) =>
-      _photoManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

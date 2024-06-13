@@ -1544,6 +1544,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
+    '46nxfr7m': {
+      'en': 'Transaction Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     't2urdtuo': {
       'en': 'Transaction Details',
       'es': '',
@@ -1665,13 +1672,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ki3664fv': {
       'en': 'Updated At',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '46nxfr7m': {
-      'en': 'Transaction Details',
       'es': '',
       'fr': '',
       'tl': '',
