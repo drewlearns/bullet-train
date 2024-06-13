@@ -78,7 +78,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '16zeiofc' /* Invitations */,
+                      'sr862bzk' /* Invitations */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -112,7 +112,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                             Expanded(
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'e9xsw3b5' /* Invite other people to join yo... */,
+                                  'hcezr687' /* Invite other people to join yo... */,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
@@ -151,7 +151,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'cyxy4rka' /* Email */,
+                                      'gkhj25dd' /* Email */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -286,7 +286,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                         setState(() {});
                       },
                       text: FFLocalizations.of(context).getText(
-                        'ubx6bxb3' /* Send Invitation */,
+                        '2bwn6o90' /* Send Invitation */,
                       ),
                       options: FFButtonOptions(
                         height: 40.0,

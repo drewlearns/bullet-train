@@ -91,7 +91,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: AutoSizeText(
                       FFLocalizations.of(context).getText(
-                        'ra8r4cs8' /* Add Income */,
+                        'wrua2ny7' /* Add Income */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineLarge.override(
@@ -136,7 +136,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'bpxel73u' /* Income Name */,
+                                  'we9ipn6g' /* Income Name */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -233,7 +233,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  '1fnkt2ei' /* Description */,
+                                  'rc7sf4xp' /* Description */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -494,7 +494,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'vqap2xom' /* Amount */,
+                                  'zx7xm0en' /* Amount */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -598,25 +598,25 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                             ]),
                             optionLabels: [
                               FFLocalizations.of(context).getText(
-                                'dmhai1j7' /* One Time */,
+                                'oull17fa' /* One Time */,
                               ),
                               FFLocalizations.of(context).getText(
-                                'lrx5e8n8' /* Weekly */,
+                                '7dqsax74' /* Weekly */,
                               ),
                               FFLocalizations.of(context).getText(
-                                'zptp9ob4' /* Bi-Weekly - Every 2 weeks */,
+                                'xfu2ef6o' /* Bi-Weekly - Every 2 weeks */,
                               ),
                               FFLocalizations.of(context).getText(
-                                'v16lwgtm' /* Monthly - Every 30 days */,
+                                'ntv407h2' /* Monthly - Every 30 days */,
                               ),
                               FFLocalizations.of(context).getText(
-                                'nzr44uyu' /* Bi-Monthly - Every 60 days */,
+                                'uvx33bbo' /* Bi-Monthly - Every 60 days */,
                               ),
                               FFLocalizations.of(context).getText(
-                                '32bhcg8a' /* Quarterly - Every 90 days */,
+                                '7x3iamd7' /* Quarterly - Every 90 days */,
                               ),
                               FFLocalizations.of(context).getText(
-                                'ppynddbu' /* Annually */,
+                                'd0jf1td8' /* Annually */,
                               )
                             ],
                             onChanged: (val) =>
@@ -634,7 +634,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                           .bodyMediumFamily),
                                 ),
                             hintText: FFLocalizations.of(context).getText(
-                              'w72t7zeu' /* How Often Do You Get Paid? */,
+                              'xlitdyv6' /* How Often Do You Get Paid? */,
                             ),
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,
@@ -722,7 +722,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                                   .bodyMediumFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'vrpddlmm' /* Connect To Payment Source */,
+                                  'kb9e4o15' /* Connect To Payment Source */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
@@ -824,7 +824,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               setState(() {});
                             },
                             text: FFLocalizations.of(context).getText(
-                              'hrypo08q' /* Add Income */,
+                              'uzkzq8av' /* Add Income */,
                             ),
                             options: FFButtonOptions(
                               width: 300.0,

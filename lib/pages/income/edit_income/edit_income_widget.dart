@@ -68,7 +68,7 @@ class _EditIncomeWidgetState extends State<EditIncomeWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'cv8lebwp' /* Edit Income */,
+                      'ddx4wv1b' /* Edit Income */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:

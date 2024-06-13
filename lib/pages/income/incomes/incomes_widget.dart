@@ -53,7 +53,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
               automaticallyImplyLeading: false,
               title: Text(
                 FFLocalizations.of(context).getText(
-                  'pyfe4td3' /* Incomes */,
+                  '5huamn5b' /* Incomes */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineLarge.override(
                       fontFamily:
@@ -149,7 +149,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'a530epg0' /* Please select... */,
+                                    '8hecepyl' /* Please select... */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -248,7 +248,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'flaqlunv' /* Your Incomes */,
+                                            'fqglnn4b' /* Your Incomes */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
@@ -272,7 +272,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                           0.0, 4.0, 0.0, 12.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '00csnecz' /* Below is a list of your Income... */,
+                                          'mye01jkr' /* Below is a list of your Income... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -379,7 +379,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'yzn26w49' /* Acme Inc */,
+                                                                      '2msslbpg' /* Acme Inc */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -563,7 +563,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'jdny7ygk' /* This Month  */,
+                                                                      'wolvdukh' /* This Month  */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -639,7 +639,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'texmx1s6' /* Next Payday  */,
+                                                                      '07gqawdr' /* Next Payday  */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)

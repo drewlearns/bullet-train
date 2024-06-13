@@ -117,7 +117,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'sb2wijru' /* Accept Invite */,
+                      'b2876cm5' /* Accept Invite */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -157,7 +157,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   0.0, 16.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'mnsha0nh' /* Create Account */,
+                                  'sxb2lz9l' /* Create Account */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -178,7 +178,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   0.0, 4.0, 0.0, 24.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'djc2g0px' /* Let's get started by filling o... */,
+                                  '2jabljnl' /* Let's get started by filling o... */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -223,7 +223,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'zaub49d3' /* Invitation Code */,
+                                      'hjpdhn03' /* Invitation Code */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
@@ -327,7 +327,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'gu7rmizj' /* Email */,
+                                      '2pxecvbu' /* Email */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
@@ -435,7 +435,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            '5oop769j' /* First Name */,
+                                            'tdziz6ej' /* First Name */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -561,7 +561,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            'zfst9hvb' /* Last Name */,
+                                            'do882gxg' /* Last Name */,
                                           ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
@@ -684,7 +684,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'f2glau2e' /* Email */,
+                                      '6bqxoiy7' /* Email */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
@@ -785,7 +785,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'kvy56omx' /* Phone Number */,
+                                      'wqmswne9' /* Phone Number */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
@@ -803,7 +803,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      '3q3io1ce' /* Must include country Code (+1 ... */,
+                                      'q854splb' /* Must include country Code (+1 ... */,
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -885,7 +885,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                 },
                                 subtitle: Text(
                                   FFLocalizations.of(context).getText(
-                                    'xaoqsfo0' /* Opt into getting pigs and prom... */,
+                                    '02smpn20' /* Opt into getting pigs and prom... */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -1001,7 +1001,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     setState(() {});
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'iaocvn8j' /* Get Started */,
+                                    '33j66c20' /* Get Started */,
                                   ),
                                   options: FFButtonOptions(
                                     width: 300.0,

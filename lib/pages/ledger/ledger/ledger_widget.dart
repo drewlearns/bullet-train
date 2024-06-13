@@ -112,7 +112,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                   flexibleSpace: FlexibleSpaceBar(
                     title: Text(
                       FFLocalizations.of(context).getText(
-                        'wxpfizi0' /* Ledger */,
+                        '37wyhkz3' /* Ledger */,
                       ),
                       textAlign: TextAlign.center,
                       style:
@@ -248,7 +248,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'rb34tajy' /* Please select... */,
+                                                          '8rb6mvvv' /* Please select... */,
                                                         ),
                                                         icon: Icon(
                                                           Icons
@@ -283,7 +283,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'bonlneeh' /* Select Household */,
+                                                          'oadh8i46' /* Select Household */,
                                                         ),
                                                         labelTextStyle:
                                                             FlutterFlowTheme.of(
@@ -352,7 +352,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'lfic0wqw' /* View Spending Habits */,
+                                                'rcl2s0p2' /* View Spending Habits */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -388,7 +388,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'aqz1p02h' /* Total Spent This month:  */,
+                                          't9s92rrf' /* Total Spent This month:  */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -576,7 +576,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'jjxlbdrz' /* Safe To Spend:  */,
+                                                    'lxij45w4' /* Safe To Spend:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -906,38 +906,39 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                       MainAxisAlignment
                                                                           .center,
                                                                   children: [
-                                                                    Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        TppbGroup
-                                                                            .getLedgerAllCall
-                                                                            .description(
-                                                                          everythingListViewGetLedgerAllResponse
-                                                                              .jsonBody,
-                                                                        )?[ledgerEntriesAllIndex],
-                                                                        'Loading...',
-                                                                      ).maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            28,
-                                                                        replacement:
-                                                                            '…',
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          TppbGroup
+                                                                              .getLedgerAllCall
+                                                                              .description(
+                                                                            everythingListViewGetLedgerAllResponse.jsonBody,
+                                                                          )?[ledgerEntriesAllIndex],
+                                                                          'Loading...',
+                                                                        ).maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              28,
+                                                                          replacement:
+                                                                              '…',
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                            ),
                                                                       ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -969,15 +970,16 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                                 buttonSize: 40.0,
                                                                                 icon: Icon(
                                                                                   Icons.check_box,
-                                                                                  color: TppbGroup.getLedgerAllCall.status(
-                                                                                    everythingListViewGetLedgerAllResponse.jsonBody,
-                                                                                  )![ledgerEntriesAllIndex]
+                                                                                  color: (TppbGroup.getLedgerAllCall.status(
+                                                                                            everythingListViewGetLedgerAllResponse.jsonBody,
+                                                                                          )?[ledgerEntriesAllIndex]) ==
+                                                                                          true
                                                                                       ? FlutterFlowTheme.of(context).secondaryText
                                                                                       : FlutterFlowTheme.of(context).alternate,
                                                                                   size: 24.0,
                                                                                 ),
                                                                                 onPressed: () async {
-                                                                                  _model.editLedgerEntryClearedAll = await TppbGroup.editLedgerEntryAsClearedCall.call(
+                                                                                  _model.apiResultil3 = await TppbGroup.editLedgerEntryAsClearedCall.call(
                                                                                     authorizationToken: currentAuthenticationToken,
                                                                                     ledgerId: valueOrDefault<String>(
                                                                                       TppbGroup.getLedgerAllCall.ledgerId(
@@ -986,7 +988,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                                       'False',
                                                                                     ),
                                                                                   );
-                                                                                  if ((_model.editLedgerEntryClearedAll?.succeeded ?? true)) {
+                                                                                  if ((_model.apiResultil3?.succeeded ?? true)) {
                                                                                     setState(() {});
                                                                                   } else {
                                                                                     await showDialog(
@@ -994,7 +996,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                                       builder: (alertDialogContext) {
                                                                                         return AlertDialog(
                                                                                           title: const Text('Error'),
-                                                                                          content: const Text('Failed to update Status of entry.'),
+                                                                                          content: const Text('Unable to set cleared status'),
                                                                                           actions: [
                                                                                             TextButton(
                                                                                               onPressed: () => Navigator.pop(alertDialogContext),
@@ -1441,38 +1443,46 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                     MainAxisAlignment
                                                                         .center,
                                                                 children: [
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      TppbGroup
-                                                                          .getLedgerThisMonthCall
-                                                                          .description(
-                                                                        listViewGetLedgerThisMonthResponse
-                                                                            .jsonBody,
-                                                                      )?[thisMonthIndex],
-                                                                      'Loading...',
-                                                                    ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          32,
-                                                                      replacement:
-                                                                          '…',
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        TppbGroup
+                                                                            .getLedgerThisMonthCall
+                                                                            .description(
+                                                                          listViewGetLedgerThisMonthResponse
+                                                                              .jsonBody,
+                                                                        )?[thisMonthIndex],
+                                                                        'Loading...',
+                                                                      ).maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            32,
+                                                                        replacement:
+                                                                            '…',
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                          ),
                                                                     ),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -1515,13 +1525,13 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                                 size: 24.0,
                                                                               ),
                                                                               onPressed: () async {
-                                                                                _model.editLedgerEntryCleared = await TppbGroup.editLedgerEntryAsClearedCall.call(
+                                                                                _model.editLedgerEntryClearedOutput = await TppbGroup.editLedgerEntryAsClearedCall.call(
                                                                                   authorizationToken: currentAuthenticationToken,
                                                                                   ledgerId: TppbGroup.getLedgerThisMonthCall.ledgerId(
                                                                                     listViewGetLedgerThisMonthResponse.jsonBody,
                                                                                   )?[thisMonthIndex],
                                                                                 );
-                                                                                if ((_model.editLedgerEntryCleared?.succeeded ?? true)) {
+                                                                                if ((_model.editLedgerEntryClearedOutput?.succeeded ?? true)) {
                                                                                   setState(() {});
                                                                                 } else {
                                                                                   await showDialog(
@@ -1941,38 +1951,46 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                     MainAxisAlignment
                                                                         .center,
                                                                 children: [
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      TppbGroup
-                                                                          .getLedgerClearedCall
-                                                                          .description(
-                                                                        listViewGetLedgerClearedResponse
-                                                                            .jsonBody,
-                                                                      )?[clearedIndex],
-                                                                      'Loading...',
-                                                                    ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          32,
-                                                                      replacement:
-                                                                          '…',
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        TppbGroup
+                                                                            .getLedgerClearedCall
+                                                                            .description(
+                                                                          listViewGetLedgerClearedResponse
+                                                                              .jsonBody,
+                                                                        )?[clearedIndex],
+                                                                        'Loading...',
+                                                                      ).maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            32,
+                                                                        replacement:
+                                                                            '…',
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                          ),
                                                                     ),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2016,13 +2034,13 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                                                                 size: 24.0,
                                                                               ),
                                                                               onPressed: () async {
-                                                                                _model.editLedgerEntryClearedClear = await TppbGroup.editLedgerEntryAsClearedCall.call(
+                                                                                _model.editLedgerEntryClearedClearOutput = await TppbGroup.editLedgerEntryAsClearedCall.call(
                                                                                   authorizationToken: currentAuthenticationToken,
                                                                                   ledgerId: TppbGroup.getLedgerClearedCall.ledgerId(
                                                                                     listViewGetLedgerClearedResponse.jsonBody,
                                                                                   )?[clearedIndex],
                                                                                 );
-                                                                                if ((_model.editLedgerEntryClearedClear?.succeeded ?? true)) {
+                                                                                if ((_model.editLedgerEntryClearedClearOutput?.succeeded ?? true)) {
                                                                                   setState(() {});
                                                                                 } else {
                                                                                   await showDialog(
@@ -2243,7 +2261,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                   label: 'Load Everything',
                                   child: Tab(
                                     text: FFLocalizations.of(context).getText(
-                                      '9lfzaqnh' /* Everything */,
+                                      'ogclwq64' /* Everything */,
                                     ),
                                   ),
                                 ),
@@ -2254,7 +2272,7 @@ class _LedgerWidgetState extends State<LedgerWidget>
                                 ),
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'qs0tglvt' /* Cleared */,
+                                    'coyp2r0z' /* Cleared */,
                                   ),
                                 ),
                               ],

@@ -1555,9 +1555,47 @@ class GetFilePathCall {
 }
 
 class EditBillCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? billId = '',
+    String? category = '',
+    double? amount,
+    int? dayOfMonth,
+    String? frequency = '',
+    String? isDebt = '',
+    double? interestRate,
+    double? cashBack,
+    String? description = '',
+    bool? status,
+    String? url = '',
+    String? username = '',
+    String? password = '',
+    String? billName = '',
+    String? notificationId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "billId": "$billId",
+  "updates": {
+    "category": "$category",
+    "billName": "$billName",
+    "amount": $amount,
+    "dayOfMonth": $dayOfMonth,
+    "frequency": "$frequency",
+    "isDebt": "$isDebt",
+    "interestRate": $interestRate,
+    "cashBack": $cashBack,
+    "description": "$description",
+    "status": $status,
+    "url": "$url",
+    "username": "$username",
+    "password": "$password",
+    "notificationId": "$notificationId"
+  }
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'editBill',
       apiUrl: '$baseUrl/editBill',
@@ -1566,7 +1604,8 @@ class EditBillCall {
         'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1574,6 +1613,11 @@ class EditBillCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetBillsCall {
@@ -1711,11 +1755,22 @@ class AddNotificationCall {
 }
 
 class EditNotificationCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? notificationId = '',
+    String? title = '',
+    String? message = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
-""''';
+{
+  "authorizationToken": "",
+  "notificationId": "",
+  "title": "",
+  "message": "",
+  "read": false
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'editNotification',
       apiUrl: '$baseUrl/editNotification',
@@ -1736,11 +1791,17 @@ class EditNotificationCall {
 }
 
 class DeleteNotificationCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? notificationId = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "notificationId": "$notificationId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteNotification',
       apiUrl: '$baseUrl/deleteNotification',
@@ -1758,14 +1819,23 @@ class DeleteNotificationCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetNotificationsCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getNotifications',
       apiUrl: '$baseUrl/getNotifications',
@@ -1783,6 +1853,88 @@ class GetNotificationsCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List? notificationsList(dynamic response) => getJsonField(
+        response,
+        r'''$.notifications''',
+        true,
+      ) as List?;
+  List<String>? notificationId(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].notificationId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? email(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].userUuid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? billId(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].billId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? title(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].title''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? notificationMessage(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].message''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<bool>? read(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].read''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  List<String>? createdAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].createdAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.notifications[:].updatedAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class AddTransactionCall {
@@ -2808,9 +2960,21 @@ class GetRunningTotalsByDateCall {
 }
 
 class GetCategoriesCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    int? month,
+    int? year,
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "month": $month,
+  "year": $year
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getCategories',
       apiUrl: '$baseUrl/getCategories',
@@ -2819,7 +2983,8 @@ class GetCategoriesCall {
         'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2827,6 +2992,53 @@ class GetCategoriesCall {
       alwaysAllowBody: false,
     );
   }
+
+  List? monthSpend(dynamic response) => getJsonField(
+        response,
+        r'''$.monthSpend''',
+        true,
+      ) as List?;
+  List<String>? category(dynamic response) => (getJsonField(
+        response,
+        r'''$.monthSpend[:].category''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? amount(dynamic response) => (getJsonField(
+        response,
+        r'''$.monthSpend[:].amount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? yearToDateSpend(dynamic response) => getJsonField(
+        response,
+        r'''$.yearToDateSpend''',
+        true,
+      ) as List?;
+  List<String>? ytdcategory(dynamic response) => (getJsonField(
+        response,
+        r'''$.yearToDateSpend[:].category''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? ytdamount(dynamic response) => (getJsonField(
+        response,
+        r'''$.yearToDateSpend[:].amount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ExportLedgerToCsvCall {
@@ -4134,6 +4346,14 @@ class GetBillCall {
         response,
         r'''$.bill.updatedAt''',
       ));
+  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.bill.status''',
+      ));
+  dynamic notificationId(dynamic response) => getJsonField(
+        response,
+        r'''$.bill.notificationId''',
+      );
 }
 
 class GetSafeToSpendCall {

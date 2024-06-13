@@ -84,7 +84,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '7yhlzdh9' /* Add Wallet */,
+                      'ro0op7rj' /* Add Wallet */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -119,7 +119,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                 24.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'sk4eh2c5' /* Add a payment source - This is... */,
+                                'kdis00po' /* Add a payment source - This is... */,
                               ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
@@ -152,19 +152,19 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                               ]),
                               optionLabels: [
                                 FFLocalizations.of(context).getText(
-                                  'z2m9uclw' /* Checking Account */,
+                                  'zqrj2y9j' /* Checking Account */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'ws33hl8u' /* Savings Account */,
+                                  'e52l5u4z' /* Savings Account */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'jwfnib8d' /* Credit Card */,
+                                  'mi5fc5tx' /* Credit Card */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  '9xsvlp7o' /* Loan */,
+                                  '6px80htj' /* Loan */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'acwla0kl' /* Other */,
+                                  '92qq1pgp' /* Other */,
                                 )
                               ],
                               onChanged: (val) =>
@@ -183,7 +183,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                                 .bodyMediumFamily),
                                   ),
                               hintText: FFLocalizations.of(context).getText(
-                                '6r1kaacv' /* Please select what kind of Acc... */,
+                                '0ena8ip9' /* Please select what kind of Acc... */,
                               ),
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -221,11 +221,11 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      '4v5wqfiw' /* Source Name */,
+                                      'ck4wkfxe' /* Source Name */,
                                     ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      '6x7onls4' /* Enter source name... */,
+                                      'iy11i9yj' /* Enter source name... */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -304,10 +304,10 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    '3f43rvnn' /* Description */,
+                                    'lljo571u' /* Description */,
                                   ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    '0xdijax9' /* Enter source name... */,
+                                    'gpf0bbl8' /* Enter source name... */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -429,7 +429,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                 setState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
-                                'ulu3nsub' /* Create Payment Source */,
+                                'r9ydgouh' /* Create Payment Source */,
                               ),
                               options: FFButtonOptions(
                                 width: 300.0,

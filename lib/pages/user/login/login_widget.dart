@@ -303,7 +303,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         child: Tab(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '3o0aopk8' /* Create Account */,
+                                            'hxiwpwui' /* Create Account */,
                                           ),
                                         ),
                                       ),
@@ -312,7 +312,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         child: Tab(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'g4xt8jzj' /* Log In */,
+                                            'o3reyrbh' /* Log In */,
                                           ),
                                         ),
                                       ),
@@ -381,7 +381,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'szzj6l6s' /* Email */,
+                                                            'exun2xyq' /* Email */,
                                                           ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -537,7 +537,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '5yd9bxbf' /* Phone Number */,
+                                                            'y5a6love' /* Phone Number */,
                                                           ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -561,7 +561,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'ozmy124q' /* Must include country Code (+1 ... */,
+                                                            '1wj9h04k' /* Must include country Code (+1 ... */,
                                                           ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
@@ -708,7 +708,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                  'gysxo2v5' /* First Name */,
+                                                                  '7c3ot4wz' /* First Name */,
                                                                 ),
                                                                 labelStyle: FlutterFlowTheme.of(
                                                                         context)
@@ -869,7 +869,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                  '0hxe5evr' /* Last Name */,
+                                                                  'fly5shpv' /* Last Name */,
                                                                 ),
                                                                 labelStyle: FlutterFlowTheme.of(
                                                                         context)
@@ -1052,7 +1052,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'fj38yy7p' /* Opt in to pigs and promotions ... */,
+                                                          'vit8m0nm' /* Opt in to pigs and promotions ... */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1217,7 +1217,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'c1reb919' /* Get Started */,
+                                                          '5tlavdfn' /* Get Started */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
@@ -1292,7 +1292,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '9bvaijeh' /* Welcome Back */,
+                                                      'qw06jci8' /* Welcome Back */,
                                                     ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
@@ -1321,7 +1321,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'if7jzkul' /* Fill out the information below... */,
+                                                        'e2kqv3tf' /* Fill out the information below... */,
                                                       ),
                                                       textAlign:
                                                           TextAlign.start,
@@ -1383,7 +1383,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '2wnr3uh4' /* Email */,
+                                                            'f6rvgfs7' /* Email */,
                                                           ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -1537,7 +1537,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'djbwfj0u' /* Password */,
+                                                            'af2n62ur' /* Password */,
                                                           ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -1805,7 +1805,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'll5c0lsv' /* Sign In */,
+                                                          'klva35si' /* Sign In */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
@@ -1898,7 +1898,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'ufx7k0mh' /* Forgot Password? */,
+                                                            'i0bf9sho' /* Forgot Password? */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
@@ -1998,7 +1998,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            '5sz8a6gy' /* Verify Email */,
+                                                            'dzpfqy54' /* Verify Email */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
@@ -2072,7 +2072,7 @@ class _LoginWidgetState extends State<LoginWidget>
                   ),
                   Text(
                     FFLocalizations.of(context).getText(
-                      'q9229y1u' /* Disclaimer: The Purple Piggy B... */,
+                      'lu7sjzp3' /* Disclaimer: The Purple Piggy B... */,
                     ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

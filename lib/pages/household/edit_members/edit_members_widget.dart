@@ -92,7 +92,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'po44mldl' /* Edit Members */,
+                          '18sxciiu' /* Edit Members */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).headlineLarge.override(
@@ -220,7 +220,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'rbuy9zv2' /* Please select... */,
+                                            'f5ymmlet' /* Please select... */,
                                           ),
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
@@ -246,7 +246,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                           isMultiSelect: false,
                                           labelText: FFLocalizations.of(context)
                                               .getText(
-                                            'thrxst7n' /* Select Household */,
+                                            '6asprp4e' /* Select Household */,
                                           ),
                                           labelTextStyle: FlutterFlowTheme.of(
                                                   context)
@@ -340,7 +340,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'v2p6ljb1' /* Name */,
+                                                'z1mwdnyl' /* Name */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -371,7 +371,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'h8hl93yq' /* Email */,
+                                                'pmu5ve7d' /* Email */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -402,7 +402,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'y3cy5jhy' /* Joined */,
+                                                'h3h76udw' /* Joined */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -433,7 +433,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'qpct2gd7' /* Action */,
+                                                'mzwo7etp' /* Action */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

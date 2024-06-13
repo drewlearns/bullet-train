@@ -24,11 +24,11 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
 
   Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryClearedAll;
+  ApiCallResponse? apiResultil3;
   // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryCleared;
+  ApiCallResponse? editLedgerEntryClearedOutput;
   // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryClearedClear;
+  ApiCallResponse? editLedgerEntryClearedClearOutput;
 
   /// Query cache managers for this widget.
 

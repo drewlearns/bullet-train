@@ -80,7 +80,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '6nzki83f' /* Confirm Email */,
+                      'pff0v29d' /* Confirm Email */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -110,7 +110,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                           24.0, 30.0, 24.0, 30.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '1vq0vg61' /* Check your email for a confirm... */,
+                          '2jxqetp7' /* Check your email for a confirm... */,
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
@@ -145,7 +145,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'farkll3t' /* Email  */,
+                                          'yfq6xx64' /* Email  */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -374,7 +374,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                   setState(() {});
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'qq3gscsk' /* Confirm Email */,
+                                  'je3ymwzg' /* Confirm Email */,
                                 ),
                                 options: FFButtonOptions(
                                   width: 300.0,

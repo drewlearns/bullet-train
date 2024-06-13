@@ -58,7 +58,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                 automaticallyImplyLeading: false,
                 title: AutoSizeText(
                   FFLocalizations.of(context).getText(
-                    'vfmdhtjf' /* Threshold */,
+                    'stkdp365' /* Threshold */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
                         fontFamily:
@@ -161,7 +161,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'j9y0ullm' /* Please select... */,
+                                      'a530epg0' /* Please select... */,
                                     ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
@@ -184,7 +184,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'vkir9nsu' /* Select Household* */,
+                                      '9xqbn850' /* Select Household* */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -269,7 +269,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                                 .bodyMediumFamily),
                                   ),
                               hintText: FFLocalizations.of(context).getText(
-                                '4ecln74v' /* Please select... */,
+                                '4b0kuftc' /* Please select... */,
                               ),
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -291,7 +291,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                               isSearchable: false,
                               isMultiSelect: false,
                               labelText: FFLocalizations.of(context).getText(
-                                'oxzw92iw' /* Select Wallet* */,
+                                '6clu8e8h' /* Select Wallet* */,
                               ),
                               labelTextStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -319,7 +319,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                 'See more information on what a threshold is',
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '02g5eksd' /* Set Threshold */,
+                                'jfaje44c' /* Set Threshold */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
@@ -400,7 +400,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                           setState(() {});
                         },
                         text: FFLocalizations.of(context).getText(
-                          'g65qng9f' /* View Threshold Breakers */,
+                          'bvvp6uaj' /* View Threshold Breakers */,
                         ),
                         options: FFButtonOptions(
                           height: 40.0,
@@ -483,7 +483,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '78bg6uui' /* Description:  */,
+                                                    'fmqngmet' /* Description:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -505,7 +505,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'n865apym' /* Date:  */,
+                                                    '2ovxahhu' /* Date:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -527,7 +527,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'ep6wk3k5' /* Amount:  */,
+                                                    'l1btfjn1' /* Amount:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -549,7 +549,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '89bg5izz' /* Running Total:  */,
+                                                    'du9pdkqr' /* Running Total:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)

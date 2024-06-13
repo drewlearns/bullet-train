@@ -1,29 +1,27 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/ledger/search_transactions/search_transactions_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'query_transactions_model.dart';
-export 'query_transactions_model.dart';
+import 'edit_transaction_model.dart';
+export 'edit_transaction_model.dart';
 
-class QueryTransactionsWidget extends StatefulWidget {
-  const QueryTransactionsWidget({super.key});
+class EditTransactionWidget extends StatefulWidget {
+  const EditTransactionWidget({super.key});
 
   @override
-  State<QueryTransactionsWidget> createState() =>
-      _QueryTransactionsWidgetState();
+  State<EditTransactionWidget> createState() => _EditTransactionWidgetState();
 }
 
-class _QueryTransactionsWidgetState extends State<QueryTransactionsWidget> {
-  late QueryTransactionsModel _model;
+class _EditTransactionWidgetState extends State<EditTransactionWidget> {
+  late EditTransactionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => QueryTransactionsModel());
+    _model = createModel(context, () => EditTransactionModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -38,7 +36,7 @@ class _QueryTransactionsWidgetState extends State<QueryTransactionsWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'Search Transactions',
+        title: 'Edit Transaction',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -70,7 +68,7 @@ class _QueryTransactionsWidgetState extends State<QueryTransactionsWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'o9uf9t3v' /* Search */,
+                      '6g8fqanz' /* Page Title */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -88,19 +86,11 @@ class _QueryTransactionsWidgetState extends State<QueryTransactionsWidget> {
                 elevation: 0.0,
               ),
             ),
-            body: SafeArea(
+            body: const SafeArea(
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: wrapWithModel(
-                      model: _model.searchTransactionsModel,
-                      updateCallback: () => setState(() {}),
-                      child: const SearchTransactionsWidget(),
-                    ),
-                  ),
-                ],
+                children: [],
               ),
             ),
           ),

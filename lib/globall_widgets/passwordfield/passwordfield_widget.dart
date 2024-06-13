@@ -67,7 +67,7 @@ class _PasswordfieldWidgetState extends State<PasswordfieldWidget> {
           obscureText: !_model.passwordSignUpVisibility,
           decoration: InputDecoration(
             labelText: FFLocalizations.of(context).getText(
-              '9mr8s7gi' /* New Password */,
+              's9udb7tj' /* New Password */,
             ),
             labelStyle: FlutterFlowTheme.of(context).labelLarge.override(
                   fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,

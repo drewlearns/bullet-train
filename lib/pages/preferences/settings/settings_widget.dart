@@ -69,7 +69,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
     context.watch<FFAppState>();
 
     return Title(
-        title: 'Account Settings',
+        title: 'Settings',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -139,7 +139,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'ib4ulrrm' /* Settings */,
+                      'old6drlr' /* Settings */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -352,7 +352,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '4aqkug6y' /* Change Email / Phone number */,
+                                                          'dqng4nv7' /* Change Email / Phone number */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -457,7 +457,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '8cs5qwjs' /* Add Household */,
+                                                          'urvy98o6' /* Add Household */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -642,7 +642,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '5vm2te1p' /* Invitations */,
+                                                          'gr5tzrtt' /* Invitations */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -871,7 +871,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'y1ef1kt8' /* Edit Members */,
+                                                          'vki2yai0' /* Edit Members */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -976,7 +976,113 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '8umt9gnn' /* Wallet */,
+                                                          'b61v90ua' /* Wallet */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Semantics(
+                                      label: 'Add Invitations',
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('PaymentSources');
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 5.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: AnimatedContainer(
+                                            duration:
+                                                const Duration(milliseconds: 200),
+                                            curve: Curves.easeInOut,
+                                            width: 300.0,
+                                            height: 44.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .notifications_active_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'kewqnqb6' /* Notifications */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1099,7 +1205,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'v9sa2szt' /* Light Mode */,
+                                                              'r8wk2rgp' /* Light Mode */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1192,7 +1298,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'rbskjpgt' /* Dark Mode */,
+                                                              'd6ph9sip' /* Dark Mode */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)

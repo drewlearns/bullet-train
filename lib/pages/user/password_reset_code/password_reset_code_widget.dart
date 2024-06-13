@@ -83,7 +83,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'eyl5bpan' /* Reset Password */,
+                      'nic9w7r8' /* Reset Password */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -117,7 +117,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                             10.0, 30.0, 10.0, 30.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            '0gz2rmx2' /* Check your email for a confirm... */,
+                            '8lk6slas' /* Check your email for a confirm... */,
                           ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
@@ -207,7 +207,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: FFLocalizations.of(context).getText(
-                                'wbq0ceu0' /* Email  */,
+                                'e3azezwx' /* Email  */,
                               ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -358,7 +358,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    '605g85ml' /* New Password */,
+                                    'gysxne8w' /* New Password */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -372,7 +372,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                                     .labelMediumFamily),
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'meylnatd' /* New Password */,
+                                    'g8ki1rg8' /* New Password */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -532,7 +532,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                       setState(() {});
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      '4i8acf0j' /* Set New Password */,
+                                      'xlv8tjrt' /* Set New Password */,
                                     ),
                                     options: FFButtonOptions(
                                       width: 300.0,

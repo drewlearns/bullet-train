@@ -141,8 +141,16 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed(
+                            'EditBill',
+                            queryParameters: {
+                              'billId': serializeParam(
+                                widget.billId,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                       ),
                     ],
@@ -152,7 +160,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                             const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                         child: AutoSizeText(
                           FFLocalizations.of(context).getText(
-                            'oitptc4o' /* Bill Details */,
+                            'vjp9wzjv' /* Bill Details */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineLarge
@@ -224,7 +232,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'mgmk44k9' /* Name:  */,
+                                                        'cpk51b2m' /* Name:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -284,7 +292,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'l1btfjn1' /* Amount:  */,
+                                                        'ep6wk3k5' /* Amount:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -345,7 +353,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'nkr9z4bs' /* Frequency:  */,
+                                                        'e2p8a4bg' /* Frequency:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -405,7 +413,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'fkv9jmvx' /* Category:  */,
+                                                        '0nxsi21t' /* Category:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -465,7 +473,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '1noddy29' /* Description:  */,
+                                                        '58jmo294' /* Description:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -525,7 +533,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'f2j5rc5o' /* Day of the Month Due:  */,
+                                                        '75qcqdik' /* Day of the Month Due:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -586,7 +594,66 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '7gyjvzol' /* Debt:  */,
+                                                        'nb89soq9' /* Status:  */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLargeFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelLargeFamily),
+                                                              ),
+                                                    ),
+                                                    Text(
+                                                      TppbGroup.getBillCall
+                                                              .status(
+                                                        billDetailsGetBillResponse
+                                                            .jsonBody,
+                                                      )!
+                                                          ? 'Cleared'
+                                                          : 'Pending',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 8.0, 8.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '8hht6yx8' /* Debt:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -647,7 +714,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'xlrql4ge' /* Interest Rate:  */,
+                                                        '6zh38yws' /* Interest Rate:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -708,7 +775,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '87h8ibrc' /* Cash Back:  */,
+                                                        'qoif27a4' /* Cash Back:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -769,7 +836,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '9lrmotd4' /* Created At:  */,
+                                                        'ok0j6grh' /* Created At:  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -876,214 +943,346 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 16.0,
-                                                                0.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Text(
+                                          child: Visibility(
+                                            visible: (TppbGroup.getBillCall.url(
+                                                          billDetailsGetBillResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        null &&
+                                                    TppbGroup.getBillCall.url(
+                                                          billDetailsGetBillResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        '') &&
+                                                (TppbGroup.getBillPasswordCall
+                                                            .secretUsername(
+                                                          columnGetBillPasswordResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        null &&
+                                                    TppbGroup
+                                                            .getBillPasswordCall
+                                                            .secretUsername(
+                                                          columnGetBillPasswordResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        '') &&
+                                                (TppbGroup.getBillPasswordCall
+                                                            .secretPassword(
+                                                          columnGetBillPasswordResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        null &&
+                                                    TppbGroup
+                                                            .getBillPasswordCall
+                                                            .secretPassword(
+                                                          columnGetBillPasswordResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        ''),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '8ooplkwr' /* Login Details */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineLargeFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'f1bid8l2' /* Login Details */,
+                                                              'j96w6oru' /* Biller Website:  */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineLarge
+                                                                .labelLarge
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .headlineLargeFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
+                                                                      .labelLargeFamily,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
                                                                           FlutterFlowTheme.of(context)
-                                                                              .headlineLargeFamily),
+                                                                              .labelLargeFamily),
                                                                 ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'ea243le7' /* Biller Website:  */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLargeFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily),
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Semantics(
-                                                    label:
-                                                        'Click to copy URL to clipboard',
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await Clipboard.setData(
-                                                            ClipboardData(
-                                                                text:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                          TppbGroup.getBillCall
-                                                              .url(
-                                                            billDetailsGetBillResponse
-                                                                .jsonBody,
-                                                          ),
-                                                          'Error',
-                                                        )));
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return AlertDialog(
-                                                              title: const Text(
-                                                                  'Copied'),
-                                                              content: const Text(
-                                                                  'Copied to Clipboard'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: const Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          TppbGroup.getBillCall
-                                                              .url(
-                                                            billDetailsGetBillResponse
-                                                                .jsonBody,
-                                                          ),
-                                                          'None Provided',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
+                                                        ],
                                                       ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'h104uwu9' /* Username:  */,
+                                                    Semantics(
+                                                      label:
+                                                          'Click to copy URL to clipboard',
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await launchURL(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            TppbGroup
+                                                                .getBillCall
+                                                                .url(
+                                                              billDetailsGetBillResponse
+                                                                  .jsonBody,
+                                                            ),
+                                                            'https://thepurplepiggybank.com',
+                                                          ));
+                                                        },
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            TppbGroup
+                                                                .getBillCall
+                                                                .url(
+                                                              billDetailsGetBillResponse
+                                                                  .jsonBody,
+                                                            ),
+                                                            'None Provided',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelLarge
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelLargeFamily,
+                                                                    .bodyMediumFamily,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily),
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'vvgav8lp' /* Username:  */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelLargeFamily),
+                                                                ),
                                                           ),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              TppbGroup
-                                                                  .getBillPasswordCall
-                                                                  .secretUsername(
+                                                          Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                TppbGroup
+                                                                    .getBillPasswordCall
+                                                                    .secretUsername(
+                                                                  columnGetBillPasswordResponse
+                                                                      .jsonBody,
+                                                                ),
+                                                                'LOADING...',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'textOnPageLoadAnimation1']!),
+                                                          ),
+                                                          FlutterFlowIconButton(
+                                                            borderRadius: 20.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
+                                                            icon: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .clipboard,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                              size: 24.0,
+                                                            ),
+                                                            onPressed:
+                                                                () async {
+                                                              await Clipboard.setData(
+                                                                  ClipboardData(
+                                                                      text: TppbGroup
+                                                                          .getBillPasswordCall
+                                                                          .secretUsername(
                                                                 columnGetBillPasswordResponse
                                                                     .jsonBody,
-                                                              ),
-                                                              'LOADING...',
+                                                              )!));
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    title: const Text(
+                                                                        'Copied'),
+                                                                    content: const Text(
+                                                                        'Copied to Clipboard'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: const Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
+                                                              );
+                                                            },
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '8v2mv767' /* Password:  */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelLargeFamily),
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'ncn4awxv' /* ******************** */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1102,198 +1301,101 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                                 ),
                                                           ).animateOnPageLoad(
                                                               animationsMap[
-                                                                  'textOnPageLoadAnimation1']!),
-                                                        ),
-                                                        FlutterFlowIconButton(
-                                                          borderRadius: 20.0,
-                                                          borderWidth: 1.0,
-                                                          buttonSize: 40.0,
-                                                          icon: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .clipboard,
-                                                            color: FlutterFlowTheme
+                                                                  'textOnPageLoadAnimation2']!),
+                                                          FlutterFlowIconButton(
+                                                            borderRadius: 20.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
+                                                            icon: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .clipboard,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                              size: 24.0,
+                                                            ),
+                                                            onPressed:
+                                                                () async {
+                                                              await Clipboard.setData(
+                                                                  ClipboardData(
+                                                                      text: valueOrDefault<
+                                                                          String>(
+                                                                TppbGroup
+                                                                    .getBillPasswordCall
+                                                                    .secretPassword(
+                                                                  columnGetBillPasswordResponse
+                                                                      .jsonBody,
+                                                                ),
+                                                                'ERROR',
+                                                              )));
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    title: const Text(
+                                                                        'Copied'),
+                                                                    content: const Text(
+                                                                        'Copied to Clipboard'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: const Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
+                                                              );
+                                                            },
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'bxcf6zx0' /* Username and Password Stored S... */,
+                                                            ),
+                                                            style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryText,
-                                                            size: 24.0,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                           ),
-                                                          onPressed: () async {
-                                                            await Clipboard.setData(
-                                                                ClipboardData(
-                                                                    text: TppbGroup
-                                                                        .getBillPasswordCall
-                                                                        .secretUsername(
-                                                              columnGetBillPasswordResponse
-                                                                  .jsonBody,
-                                                            )!));
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: const Text(
-                                                                      'Copied'),
-                                                                  content: const Text(
-                                                                      'Copied to Clipboard'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: const Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
-                                                          },
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'rc6syuom' /* Password:  */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLargeFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily),
-                                                              ),
-                                                        ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'xbgucdba' /* ******************** */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
-                                                              ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'textOnPageLoadAnimation2']!),
-                                                        FlutterFlowIconButton(
-                                                          borderRadius: 20.0,
-                                                          borderWidth: 1.0,
-                                                          buttonSize: 40.0,
-                                                          icon: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .clipboard,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            size: 24.0,
-                                                          ),
-                                                          onPressed: () async {
-                                                            await Clipboard.setData(
-                                                                ClipboardData(
-                                                                    text: valueOrDefault<
-                                                                        String>(
-                                                              TppbGroup
-                                                                  .getBillPasswordCall
-                                                                  .secretPassword(
-                                                                columnGetBillPasswordResponse
-                                                                    .jsonBody,
-                                                              ),
-                                                              'ERROR',
-                                                            )));
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: const Text(
-                                                                      'Copied'),
-                                                                  content: const Text(
-                                                                      'Copied to Clipboard'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: const Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
-                                                          },
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'yoqmd3nm' /* Username and Password Stored S... */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

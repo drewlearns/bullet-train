@@ -12,7 +12,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
-  static List<String> languages() => ['en', 'es'];
+  static List<String> languages() => ['en', 'es', 'tl', 'fr', 'zh_Hans'];
 
   static late SharedPreferences _prefs;
   static Future initialize() async =>
@@ -39,8 +39,11 @@ class FFLocalizations {
   String getVariableText({
     String? enText = '',
     String? esText = '',
+    String? tlText = '',
+    String? frText = '',
+    String? zh_HansText = '',
   }) =>
-      [enText, esText][languageIndex] ?? '';
+      [enText, esText, tlText, frText, zh_HansText][languageIndex] ?? '';
 
   static const Set<String> _languagesWithShortCode = {
     'ar',
@@ -107,1528 +110,3393 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Login
   {
-    '3o0aopk8': {
+    'hxiwpwui': {
       'en': 'Create Account',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'szzj6l6s': {
+    'exun2xyq': {
       'en': 'Email',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '5yd9bxbf': {
+    'y5a6love': {
       'en': 'Phone Number',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'ozmy124q': {
+    '1wj9h04k': {
       'en': 'Must include country Code (+1 for USA)',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'gysxo2v5': {
+    '7c3ot4wz': {
       'en': 'First Name',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '0hxe5evr': {
+    'fly5shpv': {
       'en': 'Last Name',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'fj38yy7p': {
+    'vit8m0nm': {
       'en': 'Opt in to pigs and promotions in your email',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'c1reb919': {
+    '5tlavdfn': {
       'en': 'Get Started',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'g4xt8jzj': {
+    'o3reyrbh': {
       'en': 'Log In',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '9bvaijeh': {
+    'qw06jci8': {
       'en': 'Welcome Back',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'if7jzkul': {
+    'e2kqv3tf': {
       'en': 'Fill out the information below in order to access your account.',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '2wnr3uh4': {
+    'f6rvgfs7': {
       'en': 'Email',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'djbwfj0u': {
+    'af2n62ur': {
       'en': 'Password',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'll5c0lsv': {
+    'klva35si': {
       'en': 'Sign In',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'ufx7k0mh': {
+    'i0bf9sho': {
       'en': 'Forgot Password?',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '5sz8a6gy': {
+    'dzpfqy54': {
       'en': 'Verify Email',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'q9229y1u': {
+    'lu7sjzp3': {
       'en': 'Disclaimer: The Purple Piggy Bank LLC is not a bank. ',
       'es': '',
-    },
-    'vtgmm7q4': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // ConfirmEmail
-  {
-    '1vq0vg61': {
-      'en': 'Check your email for a confirmation code and enter it below',
-      'es':
-          'Revise su correo electrónico para obtener un código de confirmación e ingréselo a continuación',
-    },
-    'farkll3t': {
-      'en': 'Email ',
-      'es': '',
-    },
-    'qq3gscsk': {
-      'en': 'Confirm Email',
-      'es': '',
-    },
-    '6nzki83f': {
-      'en': 'Confirm Email',
-      'es': 'Confirmar correo electrónico',
-    },
-    '37hgvmq8': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // ForgotPassword
-  {
-    'fx2881bz': {
-      'en': 'Email Address',
-      'es': '',
-    },
-    'rc01xg0y': {
-      'en': 'Send Me A Reset Code',
-      'es': '',
-    },
-    'a5mfuda6': {
-      'en': 'Forgot Password',
-      'es': '',
-    },
-    'weuga2mf': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // PasswordResetCode
-  {
-    '0gz2rmx2': {
-      'en': 'Check your email for a confirmation code and enter it below',
-      'es': '',
-    },
-    'wbq0ceu0': {
-      'en': 'Email ',
-      'es': '',
-    },
-    '605g85ml': {
-      'en': 'New Password',
-      'es': '',
-    },
-    'meylnatd': {
-      'en': 'New Password',
-      'es': '',
-    },
-    '4i8acf0j': {
-      'en': 'Set New Password',
-      'es': '',
-    },
-    'eyl5bpan': {
-      'en': 'Reset Password',
-      'es': '',
-    },
-    '17l9whbe': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // CreateHousehold
-  {
-    'h4sli1ln': {
-      'en':
-          'At The Purple Piggy Bank, a \"Household\" is a grouping of budgets. \nYou can name it anything you want.',
-      'es': '',
-    },
-    'iaxqzjl5': {
-      'en': 'Household Name',
-      'es': '',
-    },
-    'xhd4vi2y': {
-      'en': 'Create',
-      'es': '',
-    },
-    '8x49gfpl': {
-      'en': 'New Household',
-      'es': '',
-    },
-    'eu989foe': {
-      'en': 'Household',
-      'es': 'Familiar',
-    },
-  },
-  // AddInvite
-  {
-    'e9xsw3b5': {
-      'en': 'Invite other people to join your Household',
-      'es': '',
-    },
-    'cyxy4rka': {
-      'en': 'Email',
-      'es': '',
-    },
-    'ubx6bxb3': {
-      'en': 'Send Invitation',
-      'es': '',
-    },
-    '16zeiofc': {
-      'en': 'Invitations',
-      'es': '',
-    },
-    'iu711l4q': {
-      'en': 'Invite',
-      'es': '',
-    },
-  },
-  // AcceptInvite
-  {
-    'mnsha0nh': {
-      'en': 'Create Account',
-      'es': '',
-    },
-    'djc2g0px': {
-      'en': 'Let\'s get started by filling out the form below.',
-      'es': '',
-    },
-    'zaub49d3': {
-      'en': 'Invitation Code',
-      'es': '',
-    },
-    'gu7rmizj': {
-      'en': 'Email',
-      'es': '',
-    },
-    '5oop769j': {
-      'en': 'First Name',
-      'es': '',
-    },
-    'zfst9hvb': {
-      'en': 'Last Name',
-      'es': '',
-    },
-    'f2glau2e': {
-      'en': 'Email',
-      'es': '',
-    },
-    'kvy56omx': {
-      'en': 'Phone Number',
-      'es': '',
-    },
-    '3q3io1ce': {
-      'en': 'Must include country Code (+1 for USA)',
-      'es': '',
-    },
-    'xaoqsfo0': {
-      'en': 'Opt into getting pigs and promotions in your email inbox!',
-      'es': '',
-    },
-    'iaocvn8j': {
-      'en': 'Get Started',
-      'es': '',
-    },
-    'sb2wijru': {
-      'en': 'Accept Invite',
-      'es': '',
-    },
-    'hcw9t6xx': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // AddPaymentSource
-  {
-    'sk4eh2c5': {
-      'en':
-          'Add a payment source - This is a way to group where money comes from in your budget.',
-      'es': '',
-    },
-    'z2m9uclw': {
-      'en': 'Checking Account',
-      'es': '',
-    },
-    'ws33hl8u': {
-      'en': 'Savings Account',
-      'es': '',
-    },
-    'jwfnib8d': {
-      'en': 'Credit Card',
-      'es': '',
-    },
-    '9xsvlp7o': {
-      'en': 'Loan',
-      'es': '',
-    },
-    'acwla0kl': {
-      'en': 'Other',
-      'es': '',
-    },
-    '6r1kaacv': {
-      'en': 'Please select what kind of Account...',
-      'es': '',
-    },
-    '2ybb0ce2': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    '4v5wqfiw': {
-      'en': 'Source Name',
-      'es': '',
-    },
-    '6x7onls4': {
-      'en': 'Enter source name...',
-      'es': '',
-    },
-    '3f43rvnn': {
-      'en': 'Description',
-      'es': '',
-    },
-    '0xdijax9': {
-      'en': 'Enter source name...',
-      'es': '',
-    },
-    'ulu3nsub': {
-      'en': 'Create Payment Source',
-      'es': '',
-    },
-    '7yhlzdh9': {
-      'en': 'Add Wallet',
-      'es': '',
-    },
-    '7ixebahq': {
-      'en': 'Source',
-      'es': '',
-    },
-  },
-  // AddTransaction
-  {
-    'vo5hz1hl': {
-      'en': 'example',
-      'es': '',
-    },
-    'vccgc66r': {
-      'en': 'Please select...',
-      'es': '',
-    },
-    'ccxc1zac': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    '40l6c4aq': {
-      'en': 'Select Household*',
-      'es': '',
-    },
-    'uhtw2gk0': {
-      'en': 'Please Select...',
-      'es': '',
-    },
-    'n58ce5nj': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'j6mwafog': {
-      'en': 'Select Payment Source*',
-      'es': '',
-    },
-    '3rxdjor6': {
-      'en': 'Debit',
-      'es': '',
-    },
-    'qbi4j055': {
-      'en': '-',
-      'es': '',
-    },
-    '21e2irl6': {
-      'en': '+',
-      'es': '',
-    },
-    'hvuu66ls': {
-      'en': 'Please Select...',
-      'es': '',
-    },
-    '7juctawh': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'ho2od1ny': {
-      'en': '+/-',
-      'es': '',
-    },
-    'e9f66mmn': {
-      'en': 'Amount*',
-      'es': '',
-    },
-    'xlqsqmp9': {
-      'en': '0.00',
-      'es': '',
-    },
-    '7fyxldcf': {
-      'en': 'Description*',
-      'es': '',
-    },
-    'ycld1wwp': {
-      'en': 'Category',
-      'es': '',
-    },
-    'e0zusb6e': {
-      'en': 'Tags',
-      'es': '',
-    },
-    'm9j6ef06': {
-      'en': 'Comma Separated List',
-      'es': '',
-    },
-    '4zkzyd6e': {
-      'en': 'Cleared?                                                 ',
-      'es': '',
-    },
-    '63be80wb': {
-      'en': 'Upload Receipt',
-      'es': '',
-    },
-    '4bisizbg': {
-      'en': 'Add Transaction',
-      'es': '',
-    },
-    'qpbhzh9o': {
-      'en': 'Add Transaction',
-      'es': '',
-    },
-    '05fwsqja': {
-      'en': 'Transaction',
-      'es': 'Transacción',
-    },
-  },
-  // EditUser
-  {
-    'as6f07xi': {
-      'en': 'Email',
-      'es': '',
-    },
-    'zblrg04i': {
-      'en': 'Phone Number',
-      'es': '',
-    },
-    'ohk2irdi': {
-      'en': 'Update Profile',
-      'es': '',
-    },
-    '3l81ad7s': {
-      'en': 'Edit Profile',
-      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '9iag3u40': {
       'en': 'Home',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
-  // EditMembers
+  // ConfirmEmail
   {
-    'rbuy9zv2': {
-      'en': 'Please select...',
+    '2jxqetp7': {
+      'en': 'Check your email for a confirmation code and enter it below',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'm95pe4l2': {
-      'en': 'Search for an item...',
+    'yfq6xx64': {
+      'en': 'Email ',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'thrxst7n': {
-      'en': 'Select Household',
+    'je3ymwzg': {
+      'en': 'Confirm Email',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'v2p6ljb1': {
-      'en': 'Name',
+    'pff0v29d': {
+      'en': 'Confirm Email',
       'es': '',
-    },
-    'h8hl93yq': {
-      'en': 'Email',
-      'es': '',
-    },
-    'y3cy5jhy': {
-      'en': 'Joined',
-      'es': '',
-    },
-    'qpct2gd7': {
-      'en': 'Action',
-      'es': '',
-    },
-    'po44mldl': {
-      'en': 'Edit Members',
-      'es': '',
-    },
-    'c3unpp3a': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // Ledger
-  {
-    'o57j60hj': {
-      'en': 'example',
-      'es': '',
-    },
-    'rb34tajy': {
-      'en': 'Please select...',
-      'es': '',
-    },
-    '420kk0dd': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'bonlneeh': {
-      'en': 'Select Household',
-      'es': '',
-    },
-    'lfic0wqw': {
-      'en': 'View Spending Habits',
-      'es': '',
-    },
-    'aqz1p02h': {
-      'en': 'Total Spent This month: ',
-      'es': '',
-    },
-    'jjxlbdrz': {
-      'en': 'Safe To Spend: ',
-      'es': '',
-    },
-    '9lfzaqnh': {
-      'en': 'Everything',
-      'es': 'Todo',
-    },
-    'pptwt2a3': {
-      'en': 'This Month',
-      'es': '',
-    },
-    'qs0tglvt': {
-      'en': 'Cleared',
-      'es': '',
-    },
-    'wxpfizi0': {
-      'en': 'Ledger',
-      'es': '',
-    },
-    'zu5jz6j9': {
-      'en': 'Ledger',
-      'es': '',
-    },
-  },
-  // Settings
-  {
-    '4aqkug6y': {
-      'en': 'Change Email / Phone number',
-      'es': '',
-    },
-    '8cs5qwjs': {
-      'en': 'Add Household',
-      'es': '',
-    },
-    '5vm2te1p': {
-      'en': 'Invitations',
-      'es': '',
-    },
-    'y1ef1kt8': {
-      'en': 'Edit Members',
-      'es': '',
-    },
-    '8umt9gnn': {
-      'en': 'Wallet',
-      'es': '',
-    },
-    'v9sa2szt': {
-      'en': 'Light Mode',
-      'es': '',
-    },
-    'rbskjpgt': {
-      'en': 'Dark Mode',
-      'es': '',
-    },
-    'ib4ulrrm': {
-      'en': 'Settings',
-      'es': '',
-    },
-    'v58bmuxq': {
-      'en': 'Settings',
-      'es': 'Ajustes',
-    },
-  },
-  // SupportPage
-  {
-    '9pqd4siy': {
-      'en': 'Welcome to support',
-      'es': '',
-    },
-    'hpwg9gjl': {
-      'en': 'How can we help you?',
-      'es': '',
-    },
-    'mp4ske2y': {
-      'en': 'Call Us',
-      'es': '',
-    },
-    'u4o3txwx': {
-      'en': 'Email Us',
-      'es': '',
-    },
-    '45r262t3': {
-      'en': 'Search FAQs',
-      'es': '',
-    },
-    'u9zlxogj': {
-      'en': 'Review FAQ\'s below',
-      'es': '',
-    },
-    '338slgpr': {
-      'en': 'How do I download Code?',
-      'es': '',
-    },
-    'b6c0hnx9': {
-      'en':
-          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
-      'es': '',
-    },
-    '4shb6phd': {
-      'en': 'How do I download Code?',
-      'es': '',
-    },
-    'vs0lqun0': {
-      'en':
-          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
-      'es': '',
-    },
-    '8mmrn8tz': {
-      'en': 'How do I download Code?',
-      'es': '',
-    },
-    'm5p603hf': {
-      'en':
-          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
-      'es': '',
-    },
-    'l2ge42he': {
-      'en': 'Create Ticket',
-      'es': '',
-    },
-    '5aj2kjqc': {
-      'en': 'Chat Now',
-      'es': '',
-    },
-    'ogbjnkmc': {
-      'en': 'Get support',
-      'es': '',
-    },
-    '1nhlwor7': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // Incomes
-  {
-    'a530epg0': {
-      'en': 'Please select...',
-      'es': '',
-    },
-    'jpavqzma': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'flaqlunv': {
-      'en': 'Your Incomes',
-      'es': '',
-    },
-    '00csnecz': {
-      'en': 'Below is a list of your Incomes',
-      'es': '',
-    },
-    'yzn26w49': {
-      'en': 'Acme Inc',
-      'es': '',
-    },
-    'jdny7ygk': {
-      'en': 'This Month ',
-      'es': '',
-    },
-    'texmx1s6': {
-      'en': 'Next Payday ',
-      'es': '',
-    },
-    'pyfe4td3': {
-      'en': 'Incomes',
-      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'qsrie90l': {
-      'en': 'Incomes',
-      'es': '',
-    },
-  },
-  // PaymentSources
-  {
-    '4k5t4ems': {
-      'en': 'example',
-      'es': '',
-    },
-    '5e1lbvdq': {
-      'en': 'Please select...',
-      'es': '',
-    },
-    'sowexalv': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'z8my2sk5': {
-      'en': 'Select Household',
-      'es': '',
-    },
-    'htuooqgc': {
-      'en': 'Wallet',
-      'es': '',
-    },
-    '4de9zmbc': {
-      'en': 'Wallet',
-      'es': '',
-    },
-  },
-  // Export
-  {
-    'w3gx6kmx': {
-      'en': 'Page Title',
-      'es': '',
-    },
-    '9wx2z0jy': {
-      'en': 'Reports',
-      'es': '',
-    },
-  },
-  // Bills
-  {
-    '54nq1671': {
-      'en': 'example',
-      'es': '',
-    },
-    '0c2u2tcl': {
-      'en': 'Please select...',
-      'es': '',
-    },
-    '7jj25rq3': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'yy242i42': {
-      'en': 'Select Household',
-      'es': '',
-    },
-    'ombth8rz': {
-      'en': 'Due',
-      'es': '',
-    },
-    'vp0s9rci': {
-      'en': 'DUE',
-      'es': '',
-    },
-    '4ts0z1yw': {
-      'en': 'PAST DUE',
-      'es': '',
-    },
-    'hlhurnt6': {
-      'en': 'Paid',
-      'es': '',
-    },
-    'mw3fxbya': {
-      'en': 'PAID',
-      'es': '',
-    },
-    '7337bw1y': {
-      'en': 'Future',
-      'es': '',
-    },
-    'hpfwbosi': {
-      'en': 'Not Due Yet',
-      'es': '',
-    },
-    '7bjer6i3': {
-      'en': 'Bills',
-      'es': '',
-    },
-    '5k2ed9dk': {
-      'en': 'Bills',
-      'es': '',
-    },
-  },
-  // BillDetails
-  {
-    'mgmk44k9': {
-      'en': 'Name: ',
-      'es': '',
-    },
-    'l1btfjn1': {
-      'en': 'Amount: ',
-      'es': '',
-    },
-    'nkr9z4bs': {
-      'en': 'Frequency: ',
-      'es': '',
-    },
-    'fkv9jmvx': {
-      'en': 'Category: ',
-      'es': '',
-    },
-    '1noddy29': {
-      'en': 'Description: ',
-      'es': '',
-    },
-    'f2j5rc5o': {
-      'en': 'Day of the Month Due: ',
-      'es': '',
-    },
-    '7gyjvzol': {
-      'en': 'Debt: ',
-      'es': '',
-    },
-    'xlrql4ge': {
-      'en': 'Interest Rate: ',
-      'es': '',
-    },
-    '87h8ibrc': {
-      'en': 'Cash Back: ',
-      'es': '',
-    },
-    '9lrmotd4': {
-      'en': 'Created At: ',
-      'es': '',
-    },
-    'f1bid8l2': {
-      'en': 'Login Details',
-      'es': '',
-    },
-    'ea243le7': {
-      'en': 'Biller Website: ',
-      'es': '',
-    },
-    'h104uwu9': {
-      'en': 'Username: ',
-      'es': '',
-    },
-    'rc6syuom': {
-      'en': 'Password: ',
-      'es': '',
-    },
-    'xbgucdba': {
-      'en': '********************',
-      'es': '',
-    },
-    'yoqmd3nm': {
-      'en': 'Username and Password Stored Securely',
-      'es': '',
-    },
-    'oitptc4o': {
-      'en': 'Bill Details',
-      'es': '',
-    },
-    'seycjexv': {
       'en': 'Home',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
-  // TransactionDetails
+  // ForgotPassword
   {
-    'l444keke': {
-      'en': 'Transaction Details',
+    '8o3c8w94': {
+      'en': 'Email Address',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'l7b2ij55': {
-      'en': 'Description',
-      'es': 'Descripción',
-    },
-    '1gzga15u': {
-      'en': 'Amount',
-      'es': '',
-    },
-    'pq6woc9k': {
-      'en': 'Cleared?',
-      'es': '',
-    },
-    'af538eym': {
-      'en': 'TransactionDate',
-      'es': '',
-    },
-    'oesdwhvr': {
-      'en': 'Created At',
-      'es': '',
-    },
-    'd56uzuns': {
-      'en': 'Updated At',
-      'es': '',
-    },
-    '8xbwvi7r': {
-      'en': 'Transaction Type',
-      'es': '',
-    },
-    '2d2ku081': {
-      'en': 'Category',
-      'es': '',
-    },
-    'lbn14rpe': {
-      'en': 'Updated By',
-      'es': '',
-    },
-    'bdmuypo4': {
-      'en': 'Tags',
-      'es': '',
-    },
-    '4y9mnn2i': {
-      'en': 'Link to Receipt Image is copied to your clipboard',
-      'es': '',
-    },
-    'b2ox7zr3': {
-      'en': 'Payment Source Details',
-      'es': '',
-    },
-    'moaawwut': {
-      'en': 'Payment Source',
-      'es': '',
-    },
-    'ujvetoik': {
-      'en': 'Running Total',
-      'es': '',
-    },
-    'gnlba36h': {
-      'en': 'Payment Type',
-      'es': '',
-    },
-    'azc4mkfz': {
-      'en': 'Description',
-      'es': '',
-    },
-    '5sbye8b0': {
-      'en': 'Created At',
-      'es': '',
-    },
-    '40c1xcgi': {
-      'en': 'Updated At',
-      'es': '',
-    },
-    'du3x0b8q': {
-      'en': 'Transaction Details',
-      'es': 'Detalles de la transacción',
-    },
-    '2q12y4mj': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // IncomeDetails
-  {
-    'aiuy1h5x': {
-      'en': 'Income Details',
-      'es': '',
-    },
-    'qiek02k1': {
-      'en': 'Name',
-      'es': '',
-    },
-    '8ihgnfl6': {
-      'en': 'Amount',
-      'es': '',
-    },
-    'ozwoobmw': {
-      'en': 'First Payday',
-      'es': '',
-    },
-    'vmmh318c': {
-      'en': 'Frequency',
-      'es': '',
-    },
-    '0wqdvzy3': {
-      'en': 'Created At',
-      'es': '',
-    },
-    'dmcmufu1': {
-      'en': 'Updated At',
-      'es': '',
-    },
-    'fhbpi6gf': {
-      'en': 'Household',
-      'es': '',
-    },
-    '5560t94s': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // AddIncome
-  {
-    'bpxel73u': {
-      'en': 'Income Name',
-      'es': '',
-    },
-    '1fnkt2ei': {
-      'en': 'Description',
-      'es': '',
-    },
-    'vqap2xom': {
-      'en': 'Amount',
-      'es': '',
-    },
-    'dmhai1j7': {
-      'en': 'One Time',
-      'es': '',
-    },
-    'lrx5e8n8': {
-      'en': 'Weekly',
-      'es': '',
-    },
-    'zptp9ob4': {
-      'en': 'Bi-Weekly - Every 2 weeks',
-      'es': '',
-    },
-    'v16lwgtm': {
-      'en': 'Monthly - Every 30 days',
-      'es': '',
-    },
-    'nzr44uyu': {
-      'en': 'Bi-Monthly - Every 60 days',
-      'es': '',
-    },
-    '32bhcg8a': {
-      'en': 'Quarterly - Every 90 days',
-      'es': '',
-    },
-    'ppynddbu': {
-      'en': 'Annually',
-      'es': '',
-    },
-    'w72t7zeu': {
-      'en': 'How Often Do You Get Paid?',
-      'es': '',
-    },
-    'm5857s2k': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    '73onef6i': {
-      'en': 'One Time',
-      'es': '',
-    },
-    'kplk0xkq': {
-      'en': 'Weekly',
-      'es': '',
-    },
-    'uqw30vl4': {
-      'en': 'Bi-Weekly - Every 2 weeks',
-      'es': '',
-    },
-    'jsdfptbo': {
-      'en': 'Monthly - Every 30 days',
-      'es': '',
-    },
-    'fyxdut9a': {
-      'en': 'Bi-Monthly - Every 60 days',
-      'es': '',
-    },
-    'sc4eyh1r': {
-      'en': 'Quarterly - Every 90 days',
-      'es': '',
-    },
-    'yi7lmxu9': {
-      'en': 'Annually',
-      'es': '',
-    },
-    'vrpddlmm': {
-      'en': 'Connect To Payment Source',
-      'es': '',
-    },
-    'drxj8fg1': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'hrypo08q': {
-      'en': 'Add Income',
-      'es': '',
-    },
-    'ra8r4cs8': {
-      'en': 'Add Income',
-      'es': '',
-    },
-    '34yo6nw6': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // Notifications
-  {
-    'utba5tmr': {
-      'en': 'Check-in evaluated',
-      'es': '',
-    },
-    'xmy5byhf': {
-      'en': 'Mar 8, 2022',
-      'es': '',
-    },
-    'fq2o45sx': {
-      'en': 'Check-in evaluated',
-      'es': '',
-    },
-    'xlhct6s5': {
-      'en': 'Mar 8, 2022',
-      'es': '',
-    },
-    'eqhmhaio': {
-      'en': 'Check-in evaluated',
-      'es': '',
-    },
-    '9drcqgc7': {
-      'en': 'Mar 8, 2022',
-      'es': '',
-    },
-    's4yqgkia': {
-      'en': 'New Event added to your calendar',
-      'es': '',
-    },
-    'xk38nhou': {
-      'en': 'Mar 8, 2022',
-      'es': '',
-    },
-    '5qipyhvz': {
-      'en': 'Profile Modified',
-      'es': '',
-    },
-    'udrajo23': {
-      'en': 'Mar 8, 2022',
-      'es': '',
-    },
-    'gbn2487e': {
-      'en': 'Notifications',
-      'es': '',
-    },
-    '978adqpz': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // Categories
-  {
-    'bqv43vpw': {
-      'en': 'Categories',
-      'es': '',
-    },
-    '822sr01o': {
-      'en': 'Home',
-      'es': '',
-    },
-  },
-  // AddBill
-  {
-    'bq7qnlsa': {
-      'en': 'Add Bill',
-      'es': '',
-    },
-    '1ff3s5jd': {
-      'en': 'Name of Bill*',
-      'es': '',
-    },
-    's8bbyiir': {
-      'en': 'Amount*',
-      'es': '',
-    },
-    'r79yylov': {
-      'en': 'Category',
-      'es': '',
-    },
-    'w2axq1ox': {
-      'en': 'Bill',
-      'es': '',
-    },
-    'wqvraug3': {
-      'en': '1st',
-      'es': '',
-    },
-    't5qsdcps': {
-      'en': '2nd',
-      'es': '',
-    },
-    '930u2h2h': {
-      'en': '3rd',
-      'es': '',
-    },
-    'hh3jvsl8': {
-      'en': '4th',
-      'es': '',
-    },
-    '6juorp05': {
-      'en': '5th',
-      'es': '',
-    },
-    'bnql2hwg': {
-      'en': '6th',
-      'es': '',
-    },
-    'gn38sk2q': {
-      'en': '7th',
-      'es': '',
-    },
-    'jahk96ae': {
-      'en': '8th',
-      'es': '',
-    },
-    'faovx2sl': {
-      'en': '9th',
-      'es': '',
-    },
-    '8j6c6zoq': {
-      'en': '10th',
-      'es': '',
-    },
-    'bz9704xf': {
-      'en': '11th',
-      'es': '',
-    },
-    'k4u54bz7': {
-      'en': '12th',
-      'es': '',
-    },
-    'f9lqi3ox': {
-      'en': '13th',
-      'es': '',
-    },
-    'a4uw4rqp': {
-      'en': '14th',
-      'es': '',
-    },
-    '8gfvg5f5': {
-      'en': '15th',
-      'es': '',
-    },
-    '9mgkih0m': {
-      'en': '16th',
-      'es': '',
-    },
-    'wywjbvoc': {
-      'en': '17th',
-      'es': '',
-    },
-    'lm5i79uf': {
-      'en': '18th',
-      'es': '',
-    },
-    'rwng4r27': {
-      'en': '19th',
-      'es': '',
-    },
-    'bkhctvq9': {
-      'en': '20th',
-      'es': '',
-    },
-    '3e4d9960': {
-      'en': '21st',
-      'es': '',
-    },
-    '69rytq54': {
-      'en': '22nd',
-      'es': '',
-    },
-    'gu1gwkfc': {
-      'en': '23rd',
-      'es': '',
-    },
-    '1pl0xd1w': {
-      'en': '24th',
-      'es': '',
-    },
-    '4dxcax6o': {
-      'en': '25th',
-      'es': '',
-    },
-    'a7diaa16': {
-      'en': '26th',
-      'es': '',
-    },
-    '6c4kgyke': {
-      'en': '27th',
-      'es': '',
-    },
-    'ua5kebkx': {
-      'en': '28th',
-      'es': '',
-    },
-    'hjql9cdn': {
-      'en': '29th',
-      'es': '',
-    },
-    'ze0xrmgn': {
-      'en': '30th',
-      'es': '',
-    },
-    'yihppkun': {
-      'en': '31st',
-      'es': '',
-    },
-    '01kx7zyv': {
-      'en': '1st',
-      'es': '',
-    },
-    'srs8ebvc': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'fvw9ecl2': {
-      'en': 'Day Of the Month Due*',
-      'es': '',
-    },
-    'rmnk9p8g': {
-      'en': 'Monthly',
-      'es': '',
-    },
-    'u8qllptl': {
-      'en': 'Once',
-      'es': '',
-    },
-    'xtpwl9l0': {
-      'en': 'Weekly',
-      'es': '',
-    },
-    'mit220a3': {
-      'en': 'Bi-Weekly (Every 2 weeks)',
-      'es': '',
-    },
-    's2htk243': {
-      'en': 'Monthly (Every 30 days)',
-      'es': '',
-    },
-    'mbg8xmkj': {
-      'en': 'Bi-Monthly (Every 60 days)',
-      'es': '',
-    },
-    'k4pid9w4': {
-      'en': 'Quarterly (Every 90 days)',
-      'es': '',
-    },
-    'zm384tki': {
-      'en': 'Annually (Yearly)',
-      'es': '',
-    },
-    'xv80dolm': {
-      'en': 'Frequency',
-      'es': '',
-    },
-    '6gslvggc': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'xry6730d': {
-      'en': 'Frequency*',
-      'es': '',
-    },
-    'kiqv4fyp': {
-      'en': 'Cash Back Rate (If applicable)',
-      'es': '',
-    },
-    'mtdtuxub': {
-      'en': 'Description',
-      'es': '',
-    },
-    'g8wlxgzl': {
-      'en': 'Biller URL',
-      'es': '',
-    },
-    'wizo4hw8': {
-      'en': 'Please Provide a link to the biller\'s webpage',
-      'es': '',
-    },
-    'vjogfd2j': {
-      'en': 'Username',
-      'es': '',
-    },
-    'sp554jiv': {
-      'en': 'Biller Username',
-      'es': '',
-    },
-    'qp3jab4n': {
-      'en': 'Password',
-      'es': '',
-    },
-    'pfuz3mip': {
-      'en': 'Biller Password',
-      'es': '',
-    },
-    '4i7s7lpy': {
-      'en': '',
-      'es': '',
-    },
-    'jv67qlbu': {
-      'en': 'Search for an item...',
-      'es': '',
-    },
-    'e1idkio8': {
-      'en': 'Payment Source*',
-      'es': '',
-    },
-    'a40jxn1v': {
-      'en': 'Is it a Debt?',
-      'es': '',
-    },
-    'xjp2l2t9': {
-      'en': 'Interest Rate (if applicable)',
+    '4g9wlh73': {
+      'en': 'Send Me A Reset Code',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'p42lwg23': {
-      'en': 'Add Bill',
+    'yvhi0k3e': {
+      'en': 'Forgot Password',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'mo5n9cmm': {
       'en': 'Home',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
-  // PaymentSourceDetails
+  // PasswordResetCode
   {
-    'aau7mbav': {
-      'en': 'Wallet Details',
+    '8lk6slas': {
+      'en': 'Check your email for a confirmation code and enter it below',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'smhrb5vq': {
+    'e3azezwx': {
+      'en': 'Email ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gysxne8w': {
+      'en': 'New Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'g8ki1rg8': {
+      'en': 'New Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xlv8tjrt': {
+      'en': 'Set New Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'nic9w7r8': {
+      'en': 'Reset Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ox6veo0p': {
       'en': 'Home',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
-  // QueryTransactions
+  // CreateHousehold
   {
-    'zrn61of4': {
-      'en': 'Search',
+    '28tml14z': {
+      'en':
+          'At The Purple Piggy Bank, a \"Household\" is a grouping of budgets. \nYou can name it anything you want.',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'qsrie90l': {
+    'q5a1tx49': {
+      'en': 'Household Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's9e7nrfw': {
+      'en': 'Create',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qrqf5ejm': {
+      'en': 'New Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'n7u54he6': {
+      'en': 'Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // AddInvite
+  {
+    'hcezr687': {
+      'en': 'Invite other people to join your Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gkhj25dd': {
+      'en': 'Email',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2bwn6o90': {
+      'en': 'Send Invitation',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'sr862bzk': {
+      'en': 'Invitations',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fe3uvau5': {
+      'en': 'Invite',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // AcceptInvite
+  {
+    'sxb2lz9l': {
+      'en': 'Create Account',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2jabljnl': {
+      'en': 'Let\'s get started by filling out the form below.',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hjpdhn03': {
+      'en': 'Invitation Code',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2pxecvbu': {
+      'en': 'Email',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tdziz6ej': {
+      'en': 'First Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'do882gxg': {
+      'en': 'Last Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6bqxoiy7': {
+      'en': 'Email',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wqmswne9': {
+      'en': 'Phone Number',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'q854splb': {
+      'en': 'Must include country Code (+1 for USA)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '02smpn20': {
+      'en': 'Opt into getting pigs and promotions in your email inbox!',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '33j66c20': {
+      'en': 'Get Started',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'b2876cm5': {
+      'en': 'Accept Invite',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6jhoz580': {
       'en': 'Home',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
-  // EditBill
+  // AddPaymentSource
   {
-    'zad938an': {
-      'en': 'Edit Bill',
+    'kdis00po': {
+      'en':
+          'Add a payment source - This is a way to group where money comes from in your budget.',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'okfyypuz': {
-      'en': 'Home',
+    'zqrj2y9j': {
+      'en': 'Checking Account',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-  },
-  // EditIncome
-  {
-    'cv8lebwp': {
-      'en': 'Edit Income',
+    'e52l5u4z': {
+      'en': 'Savings Account',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'v7igkcu5': {
-      'en': 'Home',
+    'mi5fc5tx': {
+      'en': 'Credit Card',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-  },
-  // Threshold
-  {
-    'vfmdhtjf': {
-      'en': 'Threshold',
+    '6px80htj': {
+      'en': 'Loan',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'satbhtrh': {
-      'en': 'Option 1',
+    '92qq1pgp': {
+      'en': 'Other',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'j9y0ullm': {
-      'en': 'Please select...',
+    '0ena8ip9': {
+      'en': 'Please select what kind of Account...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'jpavqzma': {
       'en': 'Search for an item...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'vkir9nsu': {
-      'en': 'Select Household*',
+    'ck4wkfxe': {
+      'en': 'Source Name',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    's3kx2b9w': {
-      'en': 'Option 1',
+    'iy11i9yj': {
+      'en': 'Enter source name...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '4ecln74v': {
+    'lljo571u': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gpf0bbl8': {
+      'en': 'Enter source name...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'r9ydgouh': {
+      'en': 'Create Payment Source',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ro0op7rj': {
+      'en': 'Add Wallet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2sxctoc7': {
+      'en': 'Source',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // AddTransaction
+  {
+    '6cb881qe': {
+      'en': 'example',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'j9y0ullm': {
       'en': 'Please select...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'oki5snjx': {
+    'drxj8fg1': {
       'en': 'Search for an item...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'oxzw92iw': {
-      'en': 'Select Wallet*',
+    'qv1kzk04': {
+      'en': 'Select Household*',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '02g5eksd': {
-      'en': 'Set Threshold',
+    '6mox1rnq': {
+      'en': 'Please Select...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'g65qng9f': {
-      'en': 'View Threshold Breakers',
+    'srs8ebvc': {
+      'en': 'Search for an item...',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '78bg6uui': {
-      'en': 'Description: ',
+    '02i8v3nh': {
+      'en': 'Select Payment Source*',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'n865apym': {
-      'en': 'Date: ',
+    'g5ahcttr': {
+      'en': 'Debit',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'yn02ubpd': {
+      'en': '-',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7sd71dvf': {
+      'en': '+',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dvk73hmh': {
+      'en': 'Please Select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xslgp9zr': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'jijiw4uw': {
+      'en': '+/-',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'cc1crqyo': {
+      'en': 'Amount*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xlqsqmp9': {
+      'en': '0.00',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o1cso2hp': {
+      'en': 'Description*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'r79yylov': {
+      'en': 'Category',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qjletz0c': {
+      'en': 'Tags',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '975z1mda': {
+      'en': 'Comma Separated List',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '59xgdtb8': {
+      'en': 'Cleared?                                                 ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'z8ztxd74': {
+      'en': 'Upload Receipt',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'v1uh6xgd': {
+      'en': 'Add Transaction',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hiqjw0eb': {
+      'en': 'Add Transaction',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'axa67esb': {
+      'en': 'Transaction',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditUser
+  {
+    '648tohc5': {
+      'en': 'Email',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'nnhjo7e1': {
+      'en': 'Phone Number',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'yp5imn4x': {
+      'en': 'Update Profile',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ihlfs3p2': {
+      'en': 'Edit Profile',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '1nhlwor7': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditMembers
+  {
+    'f5ymmlet': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'h0n074ig': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6asprp4e': {
+      'en': 'Select Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'z1mwdnyl': {
+      'en': 'Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pmu5ve7d': {
+      'en': 'Email',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'h3h76udw': {
+      'en': 'Joined',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mzwo7etp': {
+      'en': 'Action',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '18sxciiu': {
+      'en': 'Edit Members',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'uopp4d42': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Ledger
+  {
+    'fi6ceitj': {
+      'en': 'example',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8rb6mvvv': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'teylsa79': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'oadh8i46': {
+      'en': 'Select Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'rcl2s0p2': {
+      'en': 'View Spending Habits',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    't9s92rrf': {
+      'en': 'Total Spent This month: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lxij45w4': {
+      'en': 'Safe To Spend: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ogclwq64': {
+      'en': 'Everything',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pptwt2a3': {
+      'en': 'This Month',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'coyp2r0z': {
+      'en': 'Cleared',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '37wyhkz3': {
+      'en': 'Ledger',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'z67rchgz': {
+      'en': 'Ledger',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Settings
+  {
+    'dqng4nv7': {
+      'en': 'Change Email / Phone number',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'urvy98o6': {
+      'en': 'Add Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gr5tzrtt': {
+      'en': 'Invitations',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vki2yai0': {
+      'en': 'Edit Members',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'b61v90ua': {
+      'en': 'Wallet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'kewqnqb6': {
+      'en': 'Notifications',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'r8wk2rgp': {
+      'en': 'Light Mode',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'd6ph9sip': {
+      'en': 'Dark Mode',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'old6drlr': {
+      'en': 'Settings',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9lph6yzp': {
+      'en': 'Settings',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // SupportPage
+  {
+    'ytq0by5i': {
+      'en': 'Welcome to support',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'v7jz0bw3': {
+      'en': 'How can we help you?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bmlmxjj6': {
+      'en': 'Email Us',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ii6q1e3g': {
+      'en': 'Search FAQs',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '42mage7j': {
+      'en': 'Review FAQ\'s below',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'h9wzzrdf': {
+      'en': 'How do I download Code?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6zvypkxu': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '33bks0oa': {
+      'en': 'How do I download Code?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ndw152b2': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'drnh2dtk': {
+      'en': 'How do I download Code?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '5nyjytd9': {
+      'en':
+          'Showcase a couple of eye-catching screenshots or mockups of your UI Kit to capture attention and give users a glimpse of what they can expect.',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'klkrn7wu': {
+      'en': 'Create Ticket',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'grhfihfb': {
+      'en': 'Chat Now',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ockjgpfk': {
+      'en': 'Get support',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7nlmrujd': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Incomes
+  {
+    '8hecepyl': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm95pe4l2': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fqglnn4b': {
+      'en': 'Your Incomes',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mye01jkr': {
+      'en': 'Below is a list of your Incomes',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2msslbpg': {
+      'en': 'Acme Inc',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wolvdukh': {
+      'en': 'This Month ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '07gqawdr': {
+      'en': 'Next Payday ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '5huamn5b': {
+      'en': 'Incomes',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xkkd5m13': {
+      'en': 'Incomes ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // PaymentSources
+  {
+    'eg33hesr': {
+      'en': 'example',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gsemlu16': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '3a1ra9an': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dk9jnu6h': {
+      'en': 'Select Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'thnemytb': {
+      'en': 'Wallet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ka2j9ssj': {
+      'en': 'Wallet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Export
+  {
+    'zreuhkb1': {
+      'en': 'Page Title',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '5159rhj6': {
+      'en': 'Reports',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Bills
+  {
+    'hxb5ji1p': {
+      'en': 'example',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2oqt8a86': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qij3am63': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'umkrgsf1': {
+      'en': 'Select Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'frr71lhz': {
+      'en': 'Due',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ov331tcb': {
+      'en': 'DUE',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'c3j9yic1': {
+      'en': 'PAST DUE',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '02zggwa4': {
+      'en': 'Paid',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2k2k7vfa': {
+      'en': 'PAID',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dyrxz4j4': {
+      'en': 'Future',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm5iyw6s4': {
+      'en': 'Not Due Yet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0kyl2p6o': {
+      'en': 'Bills',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ttmje8k7': {
+      'en': 'Bills',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // BillDetails
+  {
+    'cpk51b2m': {
+      'en': 'Name: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'ep6wk3k5': {
       'en': 'Amount: ',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '89bg5izz': {
-      'en': 'Running Total: ',
+    'e2p8a4bg': {
+      'en': 'Frequency: ',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'myerdmah': {
+    '0nxsi21t': {
+      'en': 'Category: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '58jmo294': {
+      'en': 'Description: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '75qcqdik': {
+      'en': 'Day of the Month Due: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'nb89soq9': {
+      'en': 'Status: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8hht6yx8': {
+      'en': 'Debt: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6zh38yws': {
+      'en': 'Interest Rate: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qoif27a4': {
+      'en': 'Cash Back: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ok0j6grh': {
+      'en': 'Created At: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8ooplkwr': {
+      'en': 'Login Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'j96w6oru': {
+      'en': 'Biller Website: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vvgav8lp': {
+      'en': 'Username: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8v2mv767': {
+      'en': 'Password: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ncn4awxv': {
+      'en': '********************',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bxcf6zx0': {
+      'en': 'Username and Password Stored Securely',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vjp9wzjv': {
+      'en': 'Bill Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qr8b8pmj': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // TransactionDetails
+  {
+    't2urdtuo': {
+      'en': 'Transaction Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6z25bdwi': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8ihgnfl6': {
+      'en': 'Amount',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lvgz9n0f': {
+      'en': 'Cleared?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ovi6bo69': {
+      'en': 'TransactionDate',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0wqdvzy3': {
+      'en': 'Created At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dmcmufu1': {
+      'en': 'Updated At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '96155r76': {
+      'en': 'Transaction Type',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pwgfruwk': {
+      'en': 'Category',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'p9surem7': {
+      'en': 'Updated By',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'l15uojq6': {
+      'en': 'Tags',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '99onxxhl': {
+      'en': 'Link to Receipt Image is copied to your clipboard',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'f60bc50b': {
+      'en': 'Payment Source Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'e5658oi2': {
+      'en': 'Payment Source',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gyvr51yd': {
+      'en': 'Running Total',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pjqyp5lk': {
+      'en': 'Payment Type',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '36170s1s': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qd6hqt9e': {
+      'en': 'Created At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ki3664fv': {
+      'en': 'Updated At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '46nxfr7m': {
+      'en': 'Transaction Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm8c2hfnm': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // IncomeDetails
+  {
+    'n7s2rlty': {
+      'en': 'Income Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hq2rzsun': {
+      'en': 'Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '1gzga15u': {
+      'en': 'Amount',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6olynats': {
+      'en': 'First Payday',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vmmh318c': {
+      'en': 'Frequency',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'oesdwhvr': {
+      'en': 'Created At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'd56uzuns': {
+      'en': 'Updated At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'a13honax': {
+      'en': 'Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's4jxjqy1': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // AddIncome
+  {
+    'we9ipn6g': {
+      'en': 'Income Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'rc7sf4xp': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'zx7xm0en': {
+      'en': 'Amount',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'oull17fa': {
+      'en': 'One Time',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7dqsax74': {
+      'en': 'Weekly',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xfu2ef6o': {
+      'en': 'Bi-Weekly - Every 2 weeks',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ntv407h2': {
+      'en': 'Monthly - Every 30 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'uvx33bbo': {
+      'en': 'Bi-Monthly - Every 60 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7x3iamd7': {
+      'en': 'Quarterly - Every 90 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'd0jf1td8': {
+      'en': 'Annually',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xlitdyv6': {
+      'en': 'How Often Do You Get Paid?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'y2owf7ix': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fae4ldn2': {
+      'en': 'One Time',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'j8xwab89': {
+      'en': 'Weekly',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ci0498nk': {
+      'en': 'Bi-Weekly - Every 2 weeks',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'btu2rhai': {
+      'en': 'Monthly - Every 30 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    't5dv4hse': {
+      'en': 'Bi-Monthly - Every 60 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '4avz4wz8': {
+      'en': 'Quarterly - Every 90 days',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hrw5syxr': {
+      'en': 'Annually',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'kb9e4o15': {
+      'en': 'Connect To Payment Source',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6gslvggc': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'uzkzq8av': {
+      'en': 'Add Income',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wrua2ny7': {
+      'en': 'Add Income',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0qp21nl4': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Notifications
+  {
+    'of9s4gmg': {
+      'en': 'Notifications',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'diwgwdua': {
+      'en': 'Email Address: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'efx2ixfe': {
+      'en': 'Title: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9lj2cyo7': {
+      'en': 'Message: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's1wo1npo': {
+      'en': 'Created At: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'trq7cbq6': {
+      'en': 'Updated At:',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '3pr7hfv2': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Categories
+  {
+    'e9eu270c': {
+      'en': 'January',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9bdewwbe': {
+      'en': 'Februrary',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gy1rhgxl': {
+      'en': 'March',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'b8sg7tgb': {
+      'en': 'April',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'f75vgn1f': {
+      'en': 'May',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'iwrmgggz': {
+      'en': 'June',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dhrwqosw': {
+      'en': 'July',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hk82cqkj': {
+      'en': 'August',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0tb3bbay': {
+      'en': 'September',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9rf7m25d': {
+      'en': 'October',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    't6ai1k39': {
+      'en': 'November',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lnxo85uk': {
+      'en': 'December',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'eecap8j6': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'byyicnyz': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pu1dfiba': {
+      'en': 'Month',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ifg1y9a9': {
+      'en': '2024',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'v97s6izf': {
+      'en': '2025',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'q901mejj': {
+      'en': '2026',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'n5d877pr': {
+      'en': '2027',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tbtxnlfl': {
+      'en': '2028',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'e3u8blbm': {
+      'en': '2029',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '763vnuio': {
+      'en': '2030',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '4kke73pn': {
+      'en': '2031',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7psf9hai': {
+      'en': '2032',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dcqc7tcc': {
+      'en': '2033',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '1cxslyr5': {
+      'en': '2034',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hdbx5ykm': {
+      'en': '2035',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'npdqj4b2': {
+      'en': '2036',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'g7v3c6l8': {
+      'en': '2037',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2srrcz9j': {
+      'en': '2038',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '854lwgvc': {
+      'en': '2039',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0ub55hrx': {
+      'en': '2040',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'pj6lmue4': {
+      'en': '2041',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'k9lw6eo8': {
+      'en': '2042',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'up7ac3xl': {
+      'en': '2043',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'kagnn1ku': {
+      'en': '2044',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2zdf29ox': {
+      'en': '2045',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mtiyqlv2': {
+      'en': '2046',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mgb0bg4t': {
+      'en': '2047',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bw8ddpjn': {
+      'en': '2048',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qfyb1pgh': {
+      'en': '2049',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'odymvswt': {
+      'en': '2050',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bmutklbl': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8qvqb7n6': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '90y82496': {
+      'en': 'Year',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o3s9olcs': {
+      'en': 'Month to Date',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xm5m0hay': {
+      'en': 'Year to Date',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8vcz8tbb': {
+      'en': 'Categories',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xgncgens': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // AddBill
+  {
+    '3dhe25b2': {
+      'en': 'Add Bill',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '3mw8m97t': {
+      'en': 'Name of Bill*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'iawlktxl': {
+      'en': 'Amount*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2d2ku081': {
+      'en': 'Category',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'rofbjklk': {
+      'en': 'Bill',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'sc7asjte': {
+      'en': '1st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm3ffx2q7': {
+      'en': '2nd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'q632u26w': {
+      'en': '3rd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'w5chra2x': {
+      'en': '4th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'zb7x5yk2': {
+      'en': '5th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mgogy3d2': {
+      'en': '6th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'g5mq3lyr': {
+      'en': '7th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'huaz5xx9': {
+      'en': '8th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lrp1gt6s': {
+      'en': '9th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lgrykxf2': {
+      'en': '10th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '242v42vd': {
+      'en': '11th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lpsagjdo': {
+      'en': '12th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '73uo8uyh': {
+      'en': '13th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vr9139yi': {
+      'en': '14th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'phemj3qo': {
+      'en': '15th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's6z57upd': {
+      'en': '16th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'zd5ojm2b': {
+      'en': '17th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ot39ma9z': {
+      'en': '18th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dl6b0c2p': {
+      'en': '19th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's7b8uxzd': {
+      'en': '20th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '4f04vtz3': {
+      'en': '21st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6cesc1uv': {
+      'en': '22nd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6fuk3ob3': {
+      'en': '23rd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vbajqnf9': {
+      'en': '24th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tw6z6yty': {
+      'en': '25th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'w4gozext': {
+      'en': '26th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tc1z3ag5': {
+      'en': '27th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vbdwxgz1': {
+      'en': '28th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o2gvnsby': {
+      'en': '29th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xo4aioz8': {
+      'en': '30th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'v39le4y0': {
+      'en': '31st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'r77k9oce': {
+      'en': '1st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'jv67qlbu': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '23t6m2gy': {
+      'en': 'Day Of the Month Due*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'w9cubujr': {
+      'en': 'Monthly',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'cmduuiiw': {
+      'en': 'Once',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xsdjvpdm': {
+      'en': 'Weekly',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wayigelf': {
+      'en': 'Bi-Weekly (Every 2 weeks)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vgrera01': {
+      'en': 'Monthly (Every 30 days)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '5it388a0': {
+      'en': 'Bi-Monthly (Every 60 days)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lzt56jzr': {
+      'en': 'Quarterly (Every 90 days)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '57b95gqc': {
+      'en': 'Annually (Yearly)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'joh0rz56': {
+      'en': 'Frequency',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dsg0cjxx': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'spgzx57p': {
+      'en': 'Frequency*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'th298lvp': {
+      'en': 'Cash Back Rate (If applicable)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'woiqap2j': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'n025alnj': {
+      'en': 'Biller URL',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ti9rgtbn': {
+      'en': 'Please Provide a link to the biller\'s webpage',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'cgjxgxb2': {
+      'en': 'Username',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'd18r914v': {
+      'en': 'Biller Username',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o8oi74cz': {
+      'en': 'Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'r6pi1g0y': {
+      'en': 'Biller Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'a7ftd4zh': {
+      'en': '',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8jhg2xde': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'h58me0s8': {
+      'en': 'Payment Source*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wk43x0ra': {
+      'en': 'Is it a Debt?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'opysw7k1': {
+      'en': 'Interest Rate (if applicable)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lalf0hgl': {
+      'en': 'Add Bill',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'c3unpp3a': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // PaymentSourceDetails
+  {
+    '4v6caq3g': {
+      'en': 'Wallet Details',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dw6q7vrm': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // QueryTransactions
+  {
+    'o9uf9t3v': {
+      'en': 'Search',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm7hqji8i': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditBill
+  {
+    'wke78qjn': {
+      'en': 'Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's4ok44f5': {
+      'en': 'Amount',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9dc2wx2b': {
+      'en': 'Once',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'l6ho10k9': {
+      'en': 'Weekly',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    's9gze5jm': {
+      'en': 'Bi-Weekly ( 14 days)',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'u41h179g': {
+      'en': 'Monthly ( 30 days )',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'z4le7m7y': {
+      'en': 'Bi-Monthly (60 days )',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gluezox8': {
+      'en': 'Quarterly ( 90 days )',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ndxdfvjb': {
+      'en': 'Annually',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'e01x5dwq': {
+      'en': 'Frequency',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'v3zqazvc': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gz9z8xxn': {
+      'en': 'Category',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '99cvlthp': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'q8lws8af': {
+      'en': '1st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '5vm8pfju': {
+      'en': '2nd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '1mtk8n37': {
+      'en': '3rd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dbreicht': {
+      'en': '4th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'udwa06b4': {
+      'en': '5th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fzvoqfgc': {
+      'en': '6th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'guuyfbpg': {
+      'en': '7th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'hav19war': {
+      'en': '8th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'jgj1hq42': {
+      'en': '9th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '61h9ilz6': {
+      'en': '10th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ivvlqmsi': {
+      'en': '11th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'mnbxlzss': {
+      'en': '12th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'd4szkz4u': {
+      'en': '13th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'xfomp78o': {
+      'en': '14th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'dpm9v930': {
+      'en': '15th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'ailpt9oe': {
+      'en': '16th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'z2d6s8xe': {
+      'en': '17th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '3tubel1g': {
+      'en': '18th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7jw5ksuw': {
+      'en': '19th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vsgn26tn': {
+      'en': '20th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'g268bxkk': {
+      'en': '21st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'c24qeah5': {
+      'en': '22nd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'n1xtjluu': {
+      'en': '23rd',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'g8460jyx': {
+      'en': '24th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '4kdretsw': {
+      'en': '25th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bw1bseyf': {
+      'en': '26th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '621furi7': {
+      'en': '27th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'b1cx5x3n': {
+      'en': '28th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'l105h6pc': {
+      'en': '29th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wa1inmfi': {
+      'en': '30th',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'sxvqvrmv': {
+      'en': '31st',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7ozy6rih': {
+      'en': 'Day of the Month Due',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'wobslc6z': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'a6m9cbr8': {
+      'en': 'True',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'luharsxx': {
+      'en': 'False',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '292ltxbr': {
+      'en': 'Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '94vzromz': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8c1kpq0o': {
+      'en': 'Debt?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'x3mcb6sk': {
+      'en': 'Cleared',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gxhbl97w': {
+      'en': 'Pending',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'biy9kiog': {
+      'en': 'Cleared?',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'n288og04': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '7ngmjokn': {
+      'en': 'Status',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'sjzd01qj': {
+      'en': 'Interest Rate',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'qdtd70a7': {
+      'en': 'Cash Back',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'yf31nx2n': {
+      'en': 'Biller URL',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'nm1v0zy5': {
+      'en': 'Username',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'vurkmq5b': {
+      'en': 'Password',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tvr7v8jq': {
+      'en': 'Edit Bill',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8dz7vj7p': {
+      'en': 'Edit Bill',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '1s0a9szv': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditIncome
+  {
+    'ddx4wv1b': {
+      'en': 'Edit Income',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'lw6miq56': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // Threshold
+  {
+    'stkdp365': {
       'en': 'Threshold',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'a6fulzbw': {
+      'en': 'Option 1',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'a530epg0': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o69rvk6o': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '9xqbn850': {
+      'en': 'Select Household*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2cmw9w8r': {
+      'en': 'Option 1',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '4b0kuftc': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'oejvx8o8': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '6clu8e8h': {
+      'en': 'Select Wallet*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'jfaje44c': {
+      'en': 'Set Threshold',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'bvvp6uaj': {
+      'en': 'View Threshold Breakers',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fmqngmet': {
+      'en': 'Description: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '2ovxahhu': {
+      'en': 'Date: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'l1btfjn1': {
+      'en': 'Amount: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'du9pdkqr': {
+      'en': 'Running Total: ',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'odolg6eo': {
+      'en': 'Threshold',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditNotification
+  {
+    'lbmvqzmy': {
+      'en':
+          'Notifications are created by creating a Bill. Bill Notification dates can be added on the Add Bill Page.',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'tm9hwe4r': {
+      'en': 'Title',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '77lr9mnd': {
+      'en': 'Message',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '0cj57rfs': {
+      'en': 'Edit Notification',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'o1dwevtb': {
+      'en': 'Edit Notification',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8dl0db1o': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+  },
+  // EditTransaction
+  {
+    '6g8fqanz': {
+      'en': 'Page Title',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'stlzc6qu': {
+      'en': 'Home',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
   // passwordfield
   {
-    '9mr8s7gi': {
+    's9udb7tj': {
       'en': 'New Password',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
   // SearchTransactions
   {
-    'i346y9fb': {
+    '9982x6q3': {
       'en': 'Keyword Search',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    'd6gh8wzl': {
+    '05bp02dn': {
       'en': 'Search Everything',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
-    '57h9csyj': {
+    '9wvcyc0y': {
       'en': 'Search',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
   // Miscellaneous
@@ -1636,126 +3504,219 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '57fllogz': {
       'en': 'Please provide Camera access so you can upload receipts',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'hqjyswpi': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'gqnpf09i': {
       'en': 'Please provide Biometrics access for quicker login',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'rrtsqja0': {
       'en': 'Please provide Calendar access for bills',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '0jvhuji2': {
       'en': 'Please provide Camera access so you can upload receipts',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'u9m5mzh6': {
       'en': 'Please provide access to Photo Library so you can upload receipts',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '55v3srad': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'es8762ji': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'qsxzzvc2': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'vnwtrchj': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'xclnr7ni': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '53up8ruf': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'hnr9h57q': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '0z1wal53': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'miuzrtvl': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'm8locfsf': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'klc8lp4j': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'dfsifyux': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '795j3gj6': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'wd7x988o': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'khko1hkh': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'tumf7sjr': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'wcro1mys': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'wxjrdbd9': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'ft0gisuq': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'bdov1cte': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '70czdhee': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'plomdrwt': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'q49jhonk': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     'lagf6jd9': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     's1lod96p': {
       'en': '',
       'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
   },
 ].reduce((a, b) => a..addAll(b));

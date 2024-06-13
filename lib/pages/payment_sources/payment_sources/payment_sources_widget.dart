@@ -40,7 +40,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
   @override
   Widget build(BuildContext context) {
     return Title(
-        title: 'PaymentSources',
+        title: 'Wallet',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -72,7 +72,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'htuooqgc' /* Wallet */,
+                      'thnemytb' /* Wallet */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily:
@@ -240,7 +240,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                '5e1lbvdq' /* Please select... */,
+                                                'gsemlu16' /* Please select... */,
                                               ),
                                               icon: Icon(
                                                 Icons
@@ -269,7 +269,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                               labelText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'z8my2sk5' /* Select Household */,
+                                                'dk9jnu6h' /* Select Household */,
                                               ),
                                               labelTextStyle:
                                                   FlutterFlowTheme.of(context)

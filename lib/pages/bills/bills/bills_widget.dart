@@ -86,24 +86,49 @@ class _BillsWidgetState extends State<BillsWidget>
                   child: AppBar(
                     backgroundColor: FlutterFlowTheme.of(context).primary,
                     automaticallyImplyLeading: false,
-                    title: Text(
-                      FFLocalizations.of(context).getText(
-                        '7bjer6i3' /* Bills */,
+                    actions: [
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 16.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.notification_add_outlined,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              context.pushNamed('Notifications');
+                            },
+                          ),
+                        ),
                       ),
-                      style:
-                          FlutterFlowTheme.of(context).headlineLarge.override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineLargeFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .headlineLargeFamily),
-                              ),
+                    ],
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text(
+                        FFLocalizations.of(context).getText(
+                          '0kyl2p6o' /* Bills */,
+                        ),
+                        style:
+                            FlutterFlowTheme.of(context).headlineLarge.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .headlineLargeFamily,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .headlineLargeFamily),
+                                ),
+                      ),
+                      centerTitle: true,
+                      expandedTitleScale: 1.0,
                     ),
-                    actions: const [],
-                    centerTitle: true,
                     elevation: 0.0,
                   ),
                 ),
@@ -167,7 +192,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      '0c2u2tcl' /* Please select... */,
+                                      '2oqt8a86' /* Please select... */,
                                     ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
@@ -190,7 +215,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'yy242i42' /* Select Household */,
+                                      'umkrgsf1' /* Select Household */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -306,19 +331,19 @@ class _BillsWidgetState extends State<BillsWidget>
                                       Tab(
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'ombth8rz' /* Due */,
+                                          'frr71lhz' /* Due */,
                                         ),
                                       ),
                                       Tab(
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'hlhurnt6' /* Paid */,
+                                          '02zggwa4' /* Paid */,
                                         ),
                                       ),
                                       Tab(
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          '7337bw1y' /* Future */,
+                                          'dyrxz4j4' /* Future */,
                                         ),
                                       ),
                                     ],
@@ -595,7 +620,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        'vp0s9rci' /* DUE */,
+                                                                                        'ov331tcb' /* DUE */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -880,7 +905,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        '4ts0z1yw' /* PAST DUE */,
+                                                                                        'c3j9yic1' /* PAST DUE */,
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -1192,7 +1217,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                               padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
-                                                                                  'mw3fxbya' /* PAID */,
+                                                                                  '2k2k7vfa' /* PAID */,
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -1495,7 +1520,7 @@ class _BillsWidgetState extends State<BillsWidget>
                                                                               padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
-                                                                                  'hpfwbosi' /* Not Due Yet */,
+                                                                                  'm5iyw6s4' /* Not Due Yet */,
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,

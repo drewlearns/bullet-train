@@ -49,7 +49,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'EditUser',
+        title: 'Edit User',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -81,7 +81,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '3l81ad7s' /* Edit Profile */,
+                      'ihlfs3p2' /* Edit Profile */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -130,7 +130,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'as6f07xi' /* Email */,
+                                        '648tohc5' /* Email */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -245,7 +245,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'zblrg04i' /* Phone Number */,
+                                      'nnhjo7e1' /* Phone Number */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -422,7 +422,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                               setState(() {});
                             },
                             text: FFLocalizations.of(context).getText(
-                              'ohk2irdi' /* Update Profile */,
+                              'yp5imn4x' /* Update Profile */,
                             ),
                             options: FFButtonOptions(
                               width: 300.0,

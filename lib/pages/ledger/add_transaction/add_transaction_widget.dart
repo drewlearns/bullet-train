@@ -88,7 +88,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'qpbhzh9o' /* Add Transaction */,
+                      'hiqjw0eb' /* Add Transaction */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -198,7 +198,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'vccgc66r' /* Please select... */,
+                                          'j9y0ullm' /* Please select... */,
                                         ),
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
@@ -222,7 +222,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                         isMultiSelect: false,
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          '40l6c4aq' /* Select Household* */,
+                                          'qv1kzk04' /* Select Household* */,
                                         ),
                                         labelTextStyle: FlutterFlowTheme.of(
                                                 context)
@@ -309,7 +309,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                                   .bodyMediumFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'uhtw2gk0' /* Please Select... */,
+                                  '6mox1rnq' /* Please Select... */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
@@ -331,7 +331,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 isSearchable: false,
                                 isMultiSelect: false,
                                 labelText: FFLocalizations.of(context).getText(
-                                  'j6mwafog' /* Select Payment Source* */,
+                                  '02i8v3nh' /* Select Payment Source* */,
                                 ),
                                 labelTextStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -448,10 +448,10 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       List<String>.from(['Debit', 'Credit']),
                                   optionLabels: [
                                     FFLocalizations.of(context).getText(
-                                      'qbi4j055' /* - */,
+                                      'yn02ubpd' /* - */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '21e2irl6' /* + */,
+                                      '7sd71dvf' /* + */,
                                     )
                                   ],
                                   onChanged: (val) => setState(
@@ -469,7 +469,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'hvuu66ls' /* Please Select... */,
+                                    'dvk73hmh' /* Please Select... */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -492,7 +492,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   isMultiSelect: false,
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'ho2od1ny' /* +/- */,
+                                    'jijiw4uw' /* +/- */,
                                   ),
                                   labelTextStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -527,7 +527,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       isDense: false,
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'e9f66mmn' /* Amount* */,
+                                        'cc1crqyo' /* Amount* */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -638,7 +638,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  '7fyxldcf' /* Description* */,
+                                  'o1cso2hp' /* Description* */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -717,7 +717,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'ycld1wwp' /* Category */,
+                                  'r79yylov' /* Category */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -796,10 +796,10 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'e0zusb6e' /* Tags */,
+                                  'qjletz0c' /* Tags */,
                                 ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'm9j6ef06' /* Comma Separated List */,
+                                  '975z1mda' /* Comma Separated List */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -874,7 +874,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '4zkzyd6e' /* Cleared?                      ... */,
+                                  '59xgdtb8' /* Cleared?                      ... */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -968,7 +968,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                   setState(() {});
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  '63be80wb' /* Upload Receipt */,
+                                  'z8ztxd74' /* Upload Receipt */,
                                 ),
                                 options: FFButtonOptions(
                                   height: 60.0,
@@ -1071,7 +1071,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                 setState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
-                                '4bisizbg' /* Add Transaction */,
+                                'v1uh6xgd' /* Add Transaction */,
                               ),
                               options: FFButtonOptions(
                                 height: 60.0,

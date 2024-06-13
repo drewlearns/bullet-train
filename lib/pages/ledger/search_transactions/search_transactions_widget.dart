@@ -102,7 +102,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                               labelText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'i346y9fb' /* Keyword Search */,
+                                                '9982x6q3' /* Keyword Search */,
                                               ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
@@ -123,7 +123,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'd6gh8wzl' /* Search Everything */,
+                                                '05bp02dn' /* Search Everything */,
                                               ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
@@ -255,7 +255,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                         setState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        '57h9csyj' /* Search */,
+                                        '9wvcyc0y' /* Search */,
                                       ),
                                       options: FFButtonOptions(
                                         height: 52.0,

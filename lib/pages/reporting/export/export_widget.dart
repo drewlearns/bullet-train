@@ -71,7 +71,7 @@ class _ExportWidgetState extends State<ExportWidget> {
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'w3gx6kmx' /* Page Title */,
+                        'zreuhkb1' /* Page Title */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineLarge.override(

@@ -74,7 +74,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      '8x49gfpl' /* New Household */,
+                      'qrqf5ejm' /* New Household */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -117,7 +117,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                         8.0, 30.0, 8.0, 16.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'h4sli1ln' /* At The Purple Piggy Bank, a "H... */,
+                                        '28tml14z' /* At The Purple Piggy Bank, a "H... */,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
@@ -151,7 +151,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'iaxqzjl5' /* Household Name */,
+                                    'q5a1tx49' /* Household Name */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -325,7 +325,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              'xhd4vi2y' /* Create */,
+                                              's9e7nrfw' /* Create */,
                                             ),
                                             options: FFButtonOptions(
                                               width: 300.0,

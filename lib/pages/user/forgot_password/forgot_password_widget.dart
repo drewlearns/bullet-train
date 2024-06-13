@@ -73,7 +73,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'a5mfuda6' /* Forgot Password */,
+                      'yvhi0k3e' /* Forgot Password */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:
@@ -134,7 +134,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'fx2881bz' /* Email Address */,
+                                    '8o3c8w94' /* Email Address */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -280,7 +280,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               setState(() {});
                             },
                             text: FFLocalizations.of(context).getText(
-                              'rc01xg0y' /* Send Me A Reset Code */,
+                              '4g9wlh73' /* Send Me A Reset Code */,
                             ),
                             options: FFButtonOptions(
                               width: 300.0,

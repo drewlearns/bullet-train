@@ -135,7 +135,22 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                         context.pop();
                       },
                     ),
-                    actions: const [],
+                    actions: [
+                      FlutterFlowIconButton(
+                        borderRadius: 20.0,
+                        borderWidth: 1.0,
+                        buttonSize: 40.0,
+                        icon: Icon(
+                          Icons.edit,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          size: 24.0,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                    ],
                     flexibleSpace: FlexibleSpaceBar(
                       title: Align(
                         alignment: const AlignmentDirectional(0.0, 1.0),
@@ -144,7 +159,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: AutoSizeText(
                             FFLocalizations.of(context).getText(
-                              'du3x0b8q' /* Transaction Details */,
+                              '46nxfr7m' /* Transaction Details */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
@@ -208,7 +223,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'l444keke' /* Transaction Details */,
+                                                    't2urdtuo' /* Transaction Details */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -252,7 +267,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'l7b2ij55' /* Description */,
+                                                    '6z25bdwi' /* Description */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -317,7 +332,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '1gzga15u' /* Amount */,
+                                                    '8ihgnfl6' /* Amount */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -388,7 +403,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'pq6woc9k' /* Cleared? */,
+                                                    'lvgz9n0f' /* Cleared? */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -454,7 +469,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'af538eym' /* TransactionDate */,
+                                                    'ovi6bo69' /* TransactionDate */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -519,7 +534,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'oesdwhvr' /* Created At */,
+                                                    '0wqdvzy3' /* Created At */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -584,7 +599,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'd56uzuns' /* Updated At */,
+                                                    'dmcmufu1' /* Updated At */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -649,7 +664,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '8xbwvi7r' /* Transaction Type */,
+                                                    '96155r76' /* Transaction Type */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -714,7 +729,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '2d2ku081' /* Category */,
+                                                    'pwgfruwk' /* Category */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -779,7 +794,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'lbn14rpe' /* Updated By */,
+                                                    'p9surem7' /* Updated By */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -844,7 +859,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'bdmuypo4' /* Tags */,
+                                                    'l15uojq6' /* Tags */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1003,7 +1018,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                         ))
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              '4y9mnn2i' /* Link to Receipt Image is copie... */,
+                                              '99onxxhl' /* Link to Receipt Image is copie... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1084,7 +1099,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'b2ox7zr3' /* Payment Source Details */,
+                                                        'f60bc50b' /* Payment Source Details */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1131,7 +1146,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'moaawwut' /* Payment Source */,
+                                                        'e5658oi2' /* Payment Source */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1200,7 +1215,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'ujvetoik' /* Running Total */,
+                                                        'gyvr51yd' /* Running Total */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1272,7 +1287,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'gnlba36h' /* Payment Type */,
+                                                        'pjqyp5lk' /* Payment Type */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1341,7 +1356,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'azc4mkfz' /* Description */,
+                                                        '36170s1s' /* Description */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1410,7 +1425,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '5sbye8b0' /* Created At */,
+                                                        'qd6hqt9e' /* Created At */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1479,7 +1494,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '40c1xcgi' /* Updated At */,
+                                                        'ki3664fv' /* Updated At */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(

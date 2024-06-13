@@ -75,7 +75,7 @@ class _PaymentSourceDetailsWidgetState
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     FFLocalizations.of(context).getText(
-                      'aau7mbav' /* Wallet Details */,
+                      '4v6caq3g' /* Wallet Details */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily:

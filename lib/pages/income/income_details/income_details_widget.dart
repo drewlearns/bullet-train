@@ -118,7 +118,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                             const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                         child: AutoSizeText(
                           FFLocalizations.of(context).getText(
-                            'aiuy1h5x' /* Income Details */,
+                            'n7s2rlty' /* Income Details */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineLarge
@@ -196,7 +196,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'qiek02k1' /* Name */,
+                                                          'hq2rzsun' /* Name */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -278,7 +278,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '8ihgnfl6' /* Amount */,
+                                                          '1gzga15u' /* Amount */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -361,7 +361,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'ozwoobmw' /* First Payday */,
+                                                          '6olynats' /* First Payday */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -525,7 +525,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '0wqdvzy3' /* Created At */,
+                                                          'oesdwhvr' /* Created At */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -607,7 +607,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'dmcmufu1' /* Updated At */,
+                                                          'd56uzuns' /* Updated At */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -689,7 +689,7 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'fhbpi6gf' /* Household */,
+                                                          'a13honax' /* Household */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(

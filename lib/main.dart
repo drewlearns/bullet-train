@@ -91,6 +91,9 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [
         Locale('en'),
         Locale('es'),
+        Locale('tl'),
+        Locale('fr'),
+        Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
       ],
       theme: ThemeData(
         brightness: Brightness.light,
@@ -167,10 +170,10 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Ledger': const LedgerWidget(),
       'Bills': const BillsWidget(),
-      'Incomes': const IncomesWidget(),
       'Threshold': const ThresholdWidget(),
+      'Ledger': const LedgerWidget(),
+      'Incomes': const IncomesWidget(),
       'Settings': const SettingsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -192,31 +195,11 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(
-              Icons.monetization_on_outlined,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'zu5jz6j9' /* Ledger */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
               Icons.ballot_sharp,
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              '5k2ed9dk' /* Bills */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.inbox,
-              size: 24.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'qsrie90l' /* Incomes */,
+              'ttmje8k7' /* Bills */,
             ),
             tooltip: '',
           ),
@@ -226,7 +209,27 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'myerdmah' /* Threshold */,
+              'odolg6eo' /* Threshold */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.monetization_on_outlined,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'z67rchgz' /* Ledger */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.inbox,
+              size: 24.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'xkkd5m13' /* Incomes  */,
             ),
             tooltip: '',
           ),
@@ -236,7 +239,7 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: FFLocalizations.of(context).getText(
-              'v58bmuxq' /* Settings */,
+              '9lph6yzp' /* Settings */,
             ),
             tooltip: '',
           )

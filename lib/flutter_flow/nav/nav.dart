@@ -185,7 +185,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'Settings',
-          path: '/accountSettings',
+          path: '/Settings',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Settings')
@@ -317,7 +317,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EditBill',
           path: '/editBill',
           requireAuth: true,
-          builder: (context, params) => const EditBillWidget(),
+          builder: (context, params) => EditBillWidget(
+            billId: params.getParam(
+              'billId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'EditIncome',
@@ -332,6 +337,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Threshold')
               : const ThresholdWidget(),
+        ),
+        FFRoute(
+          name: 'EditNotification',
+          path: '/editNotification',
+          requireAuth: true,
+          builder: (context, params) => EditNotificationWidget(
+            notificationId: params.getParam(
+              'notificationId',
+              ParamType.String,
+            ),
+            title: params.getParam(
+              'title',
+              ParamType.String,
+            ),
+            messsage: params.getParam(
+              'messsage',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'EditTransaction',
+          path: '/editTransaction',
+          requireAuth: true,
+          builder: (context, params) => const EditTransactionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
