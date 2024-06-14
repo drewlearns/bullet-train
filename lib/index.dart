@@ -47,5 +47,5 @@ export '/edit_income/edit_income_widget.dart' show EditIncomeWidget;
 export '/pages/threshold/threshold/threshold_widget.dart' show ThresholdWidget;
 export '/pages/notifications/edit_notification/edit_notification_widget.dart'
     show EditNotificationWidget;
-export '/edit_transaction/edit_transaction_widget.dart'
+export '/pages/ledger/edit_transaction/edit_transaction_widget.dart'
     show EditTransactionWidget;

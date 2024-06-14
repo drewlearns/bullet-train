@@ -48,6 +48,8 @@ class EditBillModel extends FlutterFlowModel<EditBillWidget> {
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // Stores action output result for [Backend Call - API (editBill)] action in Button widget.
   ApiCallResponse? apiResultxem;
+  // Stores action output result for [Backend Call - API (deleteBill)] action in IconButton widget.
+  ApiCallResponse? deleteBillOutput;
 
   @override
   void initState(BuildContext context) {

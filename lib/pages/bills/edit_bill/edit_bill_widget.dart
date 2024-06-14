@@ -112,11 +112,99 @@ class _EditBillWidgetState extends State<EditBillWidget> {
                         context.pop();
                       },
                     ),
-                    actions: const [],
+                    actions: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: FlutterFlowIconButton(
+                          borderRadius: 20.0,
+                          borderWidth: 1.0,
+                          buttonSize: 40.0,
+                          icon: Icon(
+                            Icons.delete_forever,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: const Text(
+                                          'Are you sure you want to delete this Bill?'),
+                                      content: const Text('Please confirm'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: const Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                            _model.deleteBillOutput =
+                                await TppbGroup.deleteBillCall.call(
+                              authorizationToken: currentAuthenticationToken,
+                              billId: widget.billId,
+                            );
+                            if ((_model.deleteBillOutput?.succeeded ?? true)) {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: const Text('Success'),
+                                    content: const Text('Bill was deleted'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: const Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+
+                              context.pushNamed('Bills');
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: const Text('Error'),
+                                    content:
+                                        Text(TppbGroup.deleteBillCall.message(
+                                      (_model.deleteBillOutput?.jsonBody ?? ''),
+                                    )!),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: const Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+
+                            setState(() {});
+                          },
+                        ),
+                      ),
+                    ],
                     flexibleSpace: FlexibleSpaceBar(
                       title: Text(
                         FFLocalizations.of(context).getText(
-                          '8dz7vj7p' /* Edit Bill */,
+                          '0e3oj3yl' /* Edit Bill */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).headlineLarge.override(
@@ -567,7 +655,7 @@ class _EditBillWidgetState extends State<EditBillWidget> {
                                 isSearchable: false,
                                 isMultiSelect: false,
                                 labelText: FFLocalizations.of(context).getText(
-                                  'h011necd' /* Frequency */,
+                                  '4scucxos' /* Frequency */,
                                 ),
                                 labelTextStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -598,11 +686,8 @@ class _EditBillWidgetState extends State<EditBillWidget> {
                                 child: TextFormField(
                                   controller: _model.categoryTextController ??=
                                       TextEditingController(
-                                    text: valueOrDefault<String>(
-                                      TppbGroup.getBillCall.category(
-                                        editBillGetBillResponse.jsonBody,
-                                      ),
-                                      'Loading',
+                                    text: TppbGroup.getBillCall.category(
+                                      editBillGetBillResponse.jsonBody,
                                     ),
                                   ),
                                   focusNode: _model.categoryFocusNode,

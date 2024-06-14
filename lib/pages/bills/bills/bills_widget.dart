@@ -164,7 +164,13 @@ class _BillsWidgetState extends State<BillsWidget>
                                     controller: _model
                                             .getHouseholdDropDownValueController ??=
                                         FormFieldController<String>(
-                                      _model.getHouseholdDropDownValue ??= '',
+                                      _model.getHouseholdDropDownValue ??=
+                                          TppbGroup.getHouseholdCall
+                                              .householdId(
+                                                billsGetHouseholdResponse
+                                                    .jsonBody,
+                                              )
+                                              ?.first,
                                     ),
                                     options: List<String>.from(
                                         TppbGroup.getHouseholdCall.householdId(

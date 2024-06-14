@@ -17,9 +17,11 @@ class TransactionDetailsWidget extends StatefulWidget {
   const TransactionDetailsWidget({
     super.key,
     String? transactionId,
+    required this.householdId,
   }) : transactionId = transactionId ?? 'null';
 
   final String transactionId;
+  final String? householdId;
 
   @override
   State<TransactionDetailsWidget> createState() =>
@@ -147,8 +149,20 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed(
+                            'EditTransaction',
+                            queryParameters: {
+                              'transactionID': serializeParam(
+                                widget.transactionId,
+                                ParamType.String,
+                              ),
+                              'householdId': serializeParam(
+                                widget.householdId,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                       ),
                     ],

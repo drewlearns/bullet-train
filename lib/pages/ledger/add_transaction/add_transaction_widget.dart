@@ -165,7 +165,13 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                         controller:
                                             _model.dropDownValueController1 ??=
                                                 FormFieldController<String>(
-                                          _model.dropDownValue1 ??= '',
+                                          _model.dropDownValue1 ??=
+                                              TppbGroup.getHouseholdCall
+                                                  .householdId(
+                                                    dropDownGetHouseholdResponse
+                                                        .jsonBody,
+                                                  )
+                                                  ?.first,
                                         ),
                                         options: List<String>.from(
                                             TppbGroup.getHouseholdCall

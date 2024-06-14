@@ -156,7 +156,13 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                               controller: _model
                                                       .dropDownValueController ??=
                                                   FormFieldController<String>(
-                                                _model.dropDownValue ??= '',
+                                                _model.dropDownValue ??=
+                                                    TppbGroup.getHouseholdCall
+                                                        .householdId(
+                                                          dropDownGetHouseholdResponse
+                                                              .jsonBody,
+                                                        )
+                                                        ?.first,
                                               ),
                                               options: List<String>.from(
                                                   TppbGroup.getHouseholdCall

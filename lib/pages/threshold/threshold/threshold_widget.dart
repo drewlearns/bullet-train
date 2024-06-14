@@ -128,7 +128,13 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                     controller: _model
                                             .householdIdDropDownValueController ??=
                                         FormFieldController<String>(
-                                      _model.householdIdDropDownValue ??= '',
+                                      _model.householdIdDropDownValue ??=
+                                          TppbGroup.getHouseholdCall
+                                              .householdName(
+                                                householdIdDropDownGetHouseholdResponse
+                                                    .jsonBody,
+                                              )
+                                              ?.first,
                                     ),
                                     options: List<String>.from(
                                         TppbGroup.getHouseholdCall
@@ -285,7 +291,7 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                               borderWidth: 2.0,
                               borderRadius: 8.0,
                               margin: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                                  16.0, 0.0, 0.0, 0.0),
                               hidesUnderline: true,
                               isOverButton: true,
                               isSearchable: false,

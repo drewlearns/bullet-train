@@ -228,6 +228,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'transactionId',
               ParamType.String,
             ),
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -345,7 +349,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EditTransaction',
           path: '/editTransaction',
           requireAuth: true,
-          builder: (context, params) => const EditTransactionWidget(),
+          builder: (context, params) => EditTransactionWidget(
+            transactionID: params.getParam(
+              'transactionID',
+              ParamType.String,
+            ),
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

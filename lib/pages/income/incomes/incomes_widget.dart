@@ -521,6 +521,8 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                           children: [
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
@@ -536,7 +538,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                               .spaceBetween,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .start,
+                                                              .end,
                                                       children: [
                                                         Padding(
                                                           padding:
@@ -563,7 +565,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'wolvdukh' /* This Month  */,
+                                                                      'wolvdukh' /* Total  */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -588,14 +590,27 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                               Text(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  TppbGroup
-                                                                      .getCurrentMonthIncomeCall
-                                                                      .totalIncome(
-                                                                    listViewGetCurrentMonthIncomeResponse
-                                                                        .jsonBody,
+                                                                  formatNumber(
+                                                                    TppbGroup
+                                                                        .getCurrentMonthIncomeCall
+                                                                        .totalIncome(
+                                                                      listViewGetCurrentMonthIncomeResponse
+                                                                          .jsonBody,
+                                                                    ),
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .custom,
+                                                                    currency:
+                                                                        '',
+                                                                    format:
+                                                                        '#,###.##',
+                                                                    locale: '',
                                                                   ),
                                                                   'Error',
                                                                 ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .displaySmall

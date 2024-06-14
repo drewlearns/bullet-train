@@ -1,34 +1,31 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/filter_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/request_manager.dart';
 
-import 'dart:async';
 import 'ledger_widget.dart' show LedgerWidget;
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   ///  Local state fields for this page.
 
   String? householdId;
 
+  bool? filterButtonPressed = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for HouseholdIdDropDown widget.
   String? householdIdDropDownValue;
   FormFieldController<String>? householdIdDropDownValueController;
-  // State field(s) for TabBar widget.
-  TabController? tabBarController;
-  int get tabBarCurrentIndex =>
-      tabBarController != null ? tabBarController!.index : 0;
+  // Model for Filter component.
+  late FilterModel filterModel;
+  // State field(s) for ListView widget.
 
-  Completer<ApiCallResponse>? apiRequestCompleter;
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? apiResultil3;
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryClearedOutput;
-  // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryClearedClearOutput;
+  PagingController<ApiPagingParams, dynamic>? listViewPagingController;
+  Function(ApiPagingParams nextPageMarker)? listViewApiCall;
 
   /// Query cache managers for this widget.
 
@@ -63,11 +60,14 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
       _safeToSpendManager.clearRequest(uniqueKey);
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    filterModel = createModel(context, () => FilterModel());
+  }
 
   @override
   void dispose() {
-    tabBarController?.dispose();
+    filterModel.dispose();
+    listViewPagingController?.dispose();
 
     /// Dispose query cache managers for this widget.
 
@@ -77,18 +77,43 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   }
 
   /// Additional helper methods.
-  Future waitForApiRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
+  PagingController<ApiPagingParams, dynamic> setListViewController(
+    Function(ApiPagingParams) apiCall,
+  ) {
+    listViewApiCall = apiCall;
+    return listViewPagingController ??= _createListViewController(apiCall);
   }
+
+  PagingController<ApiPagingParams, dynamic> _createListViewController(
+    Function(ApiPagingParams) query,
+  ) {
+    final controller = PagingController<ApiPagingParams, dynamic>(
+      firstPageKey: ApiPagingParams(
+        nextPageNumber: 0,
+        numItems: 0,
+        lastResponse: null,
+      ),
+    );
+    return controller..addPageRequestListener(listViewGetLedgerAllPage);
+  }
+
+  void listViewGetLedgerAllPage(ApiPagingParams nextPageMarker) =>
+      listViewApiCall!(nextPageMarker).then((listViewGetLedgerAllResponse) {
+        final pageItems = (TppbGroup.getLedgerAllCall.list(
+                  listViewGetLedgerAllResponse.jsonBody,
+                ) ??
+                [])
+            .toList() as List;
+        final newNumItems = nextPageMarker.numItems + pageItems.length;
+        listViewPagingController?.appendPage(
+          pageItems,
+          (pageItems.isNotEmpty)
+              ? ApiPagingParams(
+                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
+                  numItems: newNumItems,
+                  lastResponse: listViewGetLedgerAllResponse,
+                )
+              : null,
+        );
+      });
 }

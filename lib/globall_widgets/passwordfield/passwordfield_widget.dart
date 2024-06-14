@@ -106,7 +106,8 @@ class _PasswordfieldWidgetState extends State<PasswordfieldWidget> {
             ),
             filled: true,
             fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-            contentPadding: const EdgeInsets.all(24.0),
+            contentPadding:
+                const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             suffixIcon: InkWell(
               onTap: () => setState(
                 () => _model.passwordSignUpVisibility =
