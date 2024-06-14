@@ -728,7 +728,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
+                                        16.0, 4.0, 16.0, 4.0),
                                     child: Container(
                                       width: 361.0,
                                       height: 100.0,
