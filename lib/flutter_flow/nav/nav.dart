@@ -123,12 +123,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddInvite',
           path: '/addInvite',
           requireAuth: true,
-          builder: (context, params) => AddInviteWidget(
-            householdId: params.getParam(
-              'householdId',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => const AddInviteWidget(),
         ),
         FFRoute(
           name: 'AcceptInvite',
@@ -162,18 +157,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EditMembers',
           path: '/editMembers',
           requireAuth: true,
-          builder: (context, params) => EditMembersWidget(
-            householdIds: params.getParam<String>(
-              'householdIds',
-              ParamType.String,
-              isList: true,
-            ),
-            householdNames: params.getParam<String>(
-              'householdNames',
-              ParamType.String,
-              isList: true,
-            ),
-          ),
+          builder: (context, params) => const EditMembersWidget(),
         ),
         FFRoute(
           name: 'Ledger',

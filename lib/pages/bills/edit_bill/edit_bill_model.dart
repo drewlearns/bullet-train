@@ -16,6 +16,10 @@ class EditBillModel extends FlutterFlowModel<EditBillWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for frequency widget.
   String? frequencyValue;
   FormFieldController<String>? frequencyValueController;
@@ -23,27 +27,12 @@ class EditBillModel extends FlutterFlowModel<EditBillWidget> {
   FocusNode? categoryFocusNode;
   TextEditingController? categoryTextController;
   String? Function(BuildContext, String?)? categoryTextControllerValidator;
-  // State field(s) for description widget.
-  FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionTextController;
-  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for dayofmonth widget.
   int? dayofmonthValue;
   FormFieldController<int>? dayofmonthValueController;
-  // State field(s) for isDebt widget.
-  String? isDebtValue;
-  FormFieldController<String>? isDebtValueController;
   // State field(s) for status widget.
   bool? statusValue;
   FormFieldController<bool>? statusValueController;
-  // State field(s) for interestRate widget.
-  FocusNode? interestRateFocusNode;
-  TextEditingController? interestRateTextController;
-  String? Function(BuildContext, String?)? interestRateTextControllerValidator;
-  // State field(s) for cashback widget.
-  FocusNode? cashbackFocusNode;
-  TextEditingController? cashbackTextController;
-  String? Function(BuildContext, String?)? cashbackTextControllerValidator;
   // State field(s) for url widget.
   FocusNode? urlFocusNode;
   TextEditingController? urlTextController;
@@ -74,17 +63,11 @@ class EditBillModel extends FlutterFlowModel<EditBillWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
 
-    categoryFocusNode?.dispose();
-    categoryTextController?.dispose();
-
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
 
-    interestRateFocusNode?.dispose();
-    interestRateTextController?.dispose();
-
-    cashbackFocusNode?.dispose();
-    cashbackTextController?.dispose();
+    categoryFocusNode?.dispose();
+    categoryTextController?.dispose();
 
     urlFocusNode?.dispose();
     urlTextController?.dispose();

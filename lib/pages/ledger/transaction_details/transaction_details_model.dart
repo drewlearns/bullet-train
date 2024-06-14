@@ -9,7 +9,7 @@ class TransactionDetailsModel
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getFilePath)] action in TransactionDetails widget.
-  ApiCallResponse? apiResultiwv;
+  ApiCallResponse? getFilePathOutput;
 
   @override
   void initState(BuildContext context) {}

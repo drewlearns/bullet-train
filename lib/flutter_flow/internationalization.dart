@@ -1457,27 +1457,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    '8hht6yx8': {
-      'en': 'Debt: ',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '6zh38yws': {
-      'en': 'Interest Rate: ',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'qoif27a4': {
-      'en': 'Cash Back: ',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
     'ok0j6grh': {
       'en': 'Created At: ',
       'es': '',
@@ -1544,13 +1523,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TransactionDetails
   {
-    '46nxfr7m': {
-      'en': 'Transaction Details',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
     't2urdtuo': {
       'en': 'Transaction Details',
       'es': '',
@@ -1672,6 +1644,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ki3664fv': {
       'en': 'Updated At',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '46nxfr7m': {
+      'en': 'Transaction Details',
       'es': '',
       'fr': '',
       'tl': '',
@@ -2329,6 +2308,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
+    'a7ftd4zh': {
+      'en': '',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    '8jhg2xde': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'h58me0s8': {
+      'en': 'Payment Source*',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     '3mw8m97t': {
       'en': 'Name of Bill*',
       'es': '',
@@ -2672,13 +2672,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    'th298lvp': {
-      'en': 'Cash Back Rate (If applicable)',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
     'woiqap2j': {
       'en': 'Description',
       'es': '',
@@ -2723,41 +2716,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'r6pi1g0y': {
       'en': 'Biller Password',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'a7ftd4zh': {
-      'en': '',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '8jhg2xde': {
-      'en': 'Search for an item...',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'h58me0s8': {
-      'en': 'Payment Source*',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'wk43x0ra': {
-      'en': 'Is it a Debt?',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'opysw7k1': {
-      'en': 'Interest Rate (if applicable)',
       'es': '',
       'fr': '',
       'tl': '',
@@ -2828,6 +2786,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
+    '99cvlthp': {
+      'en': 'Description',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     '9dc2wx2b': {
       'en': 'Once',
       'es': '',
@@ -2891,15 +2856,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    'gz9z8xxn': {
-      'en': 'Category',
+    'h011necd': {
+      'en': 'Frequency',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '99cvlthp': {
-      'en': 'Description',
+    'gz9z8xxn': {
+      'en': 'Category',
       'es': '',
       'fr': '',
       'tl': '',
@@ -3136,41 +3101,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    'a6m9cbr8': {
-      'en': 'True',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'luharsxx': {
-      'en': 'False',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '292ltxbr': {
-      'en': 'Name',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '94vzromz': {
-      'en': 'Search for an item...',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    '8c1kpq0o': {
-      'en': 'Debt?',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
     'x3mcb6sk': {
       'en': 'Cleared',
       'es': '',
@@ -3201,20 +3131,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '7ngmjokn': {
       'en': 'Status',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'sjzd01qj': {
-      'en': 'Interest Rate',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'qdtd70a7': {
-      'en': 'Cash Back',
       'es': '',
       'fr': '',
       'tl': '',
@@ -3397,6 +3313,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EditNotification
   {
+    'o1dwevtb': {
+      'en': 'Edit Notification',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     'lbmvqzmy': {
       'en':
           'Notifications are created by creating a Bill. Bill Notification dates can be added on the Add Bill Page.',
@@ -3420,13 +3343,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
     },
     '0cj57rfs': {
-      'en': 'Edit Notification',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'o1dwevtb': {
       'en': 'Edit Notification',
       'es': '',
       'fr': '',

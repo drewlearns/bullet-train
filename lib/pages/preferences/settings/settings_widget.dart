@@ -1,5 +1,4 @@
 import '/auth/custom_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -231,72 +230,20 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.getUserOutput =
-                                              await TppbGroup.getUserCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
+                                          context.pushNamed(
+                                            'EditUser',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .bottomToTop,
+                                                duration:
+                                                    Duration(milliseconds: 30),
+                                              ),
+                                            },
                                           );
-                                          if ((_model
-                                                  .getUserOutput?.succeeded ??
-                                              true)) {
-                                            FFAppState().email =
-                                                TppbGroup.getUserCall.email(
-                                              (_model.getUserOutput?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().householdIds =
-                                                TppbGroup.getUserCall
-                                                    .householdIds(
-                                                      (_model.getUserOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().confirmedEmail =
-                                                TppbGroup.getUserCall
-                                                    .confirmedEmail(
-                                              (_model.getUserOutput?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            setState(() {});
-
-                                            context.pushNamed(
-                                              'EditUser',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .bottomToTop,
-                                                  duration: Duration(
-                                                      milliseconds: 30),
-                                                ),
-                                              },
-                                            );
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: const Text('Sorry'),
-                                                  content: const Text(
-                                                      'We are having trouble\'s pulling your profile temporarily. Try again.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -506,87 +453,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.getUserOutput4 =
-                                              await TppbGroup.getUserCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                          );
-                                          if ((_model
-                                                  .getUserOutput4?.succeeded ??
-                                              true)) {
-                                            FFAppState().email =
-                                                TppbGroup.getUserCall.email(
-                                              (_model.getUserOutput4
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().householdIds =
-                                                TppbGroup.getUserCall
-                                                    .householdIds(
-                                                      (_model.getUserOutput4
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().confirmedEmail =
-                                                TppbGroup.getUserCall
-                                                    .confirmedEmail(
-                                              (_model.getUserOutput4
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            FFAppState().subscriptionEndDate =
-                                                TppbGroup.getUserCall
-                                                    .subscriptionEndDate(
-                                              (_model.getUserOutput4
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!;
-                                            setState(() {});
-
-                                            context.pushNamed(
-                                              'AddInvite',
-                                              queryParameters: {
-                                                'householdId': serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .bottomToTop,
-                                                  duration: Duration(
-                                                      milliseconds: 30),
-                                                ),
-                                              },
-                                            );
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: const Text('Sorry'),
-                                                  content: const Text(
-                                                      'We are having trouble\'s pulling your profile temporarily. Try again.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
+                                          context.pushNamed('AddInvite');
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -691,131 +558,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.getUserOutput1 =
-                                              await TppbGroup.getUserCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                          );
-                                          if ((_model
-                                                  .getUserOutput1?.succeeded ??
-                                              true)) {
-                                            _model.getHouseholdOutput1 =
-                                                await TppbGroup.getHouseholdCall
-                                                    .call(
-                                              authorizationToken:
-                                                  currentAuthenticationToken,
-                                              page: 1,
-                                            );
-                                            if ((_model.getHouseholdOutput1
-                                                    ?.succeeded ??
-                                                true)) {
-                                              FFAppState().householdIds =
-                                                  TppbGroup.getUserCall
-                                                      .householdIds(
-                                                        (_model.getUserOutput1
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                      .toList()
-                                                      .cast<String>();
-                                              if (Navigator.of(context)
-                                                  .canPop()) {
-                                                context.pop();
-                                              }
-                                              context.pushNamed(
-                                                'EditMembers',
-                                                queryParameters: {
-                                                  'householdIds':
-                                                      serializeParam(
-                                                    TppbGroup.getUserCall
-                                                        .householdIds(
-                                                      (_model.getUserOutput1
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    ParamType.String,
-                                                    isList: true,
-                                                  ),
-                                                  'householdNames':
-                                                      serializeParam(
-                                                    TppbGroup.getHouseholdCall
-                                                        .householdName(
-                                                      (_model.getHouseholdOutput1
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    ParamType.String,
-                                                    isList: true,
-                                                  ),
-                                                }.withoutNulls,
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      const TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType
-                                                            .bottomToTop,
-                                                    duration: Duration(
-                                                        milliseconds: 30),
-                                                  ),
-                                                },
-                                              );
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: const Text('Error'),
-                                                    content: Text(TppbGroup
-                                                        .getHouseholdCall
-                                                        .message(
-                                                      (_model.getHouseholdOutput1
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: const Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            }
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title:
-                                                      const Text('Sorry - Try again'),
-                                                  content: Text(
-                                                      valueOrDefault<String>(
-                                                    TppbGroup.getUserCall
-                                                        .message(
-                                                      (_model.getUserOutput1
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    'We weren\'t able to pull your members data at this time, try again later.',
-                                                  )),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: const Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
+                                          context.pushNamed('EditMembers');
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1025,7 +768,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('PaymentSources');
+                                          context.pushNamed('Notifications');
                                         },
                                         child: Material(
                                           color: Colors.transparent,

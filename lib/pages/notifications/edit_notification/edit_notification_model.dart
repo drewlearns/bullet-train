@@ -7,6 +7,8 @@ class EditNotificationModel extends FlutterFlowModel<EditNotificationWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (deleteNotification)] action in IconButton widget.
+  ApiCallResponse? apiResult46m;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -17,8 +19,6 @@ class EditNotificationModel extends FlutterFlowModel<EditNotificationWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Backend Call - API (editNotification)] action in Button widget.
   ApiCallResponse? apiResultlt0;
-  // Stores action output result for [Backend Call - API (deleteNotification)] action in IconButton widget.
-  ApiCallResponse? apiResult46m;
 
   @override
   void initState(BuildContext context) {}

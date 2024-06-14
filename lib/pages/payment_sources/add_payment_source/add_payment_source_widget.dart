@@ -169,8 +169,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                               ],
                               onChanged: (val) =>
                                   setState(() => _model.dropDownValue = val),
-                              width: 361.0,
-                              height: 60.0,
+                              width: 300.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -199,7 +198,7 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                               borderWidth: 2.0,
                               borderRadius: 8.0,
                               margin: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 4.0, 16.0, 4.0),
+                                  16.0, 0.0, 16.0, 0.0),
                               hidesUnderline: true,
                               isOverButton: true,
                               isSearchable: false,
@@ -454,6 +453,15 @@ class _AddPaymentSourceWidgetState extends State<AddPaymentSourceWidget> {
                                 elevation: 2.0,
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/piggy_bank_with_drop_shadow.png',
+                              width: 300.0,
+                              height: 342.0,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ],

@@ -9,12 +9,7 @@ import 'add_invite_model.dart';
 export 'add_invite_model.dart';
 
 class AddInviteWidget extends StatefulWidget {
-  const AddInviteWidget({
-    super.key,
-    required this.householdId,
-  });
-
-  final String? householdId;
+  const AddInviteWidget({super.key});
 
   @override
   State<AddInviteWidget> createState() => _AddInviteWidgetState();
@@ -312,6 +307,15 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/piggy_bank_with_drop_shadow.png',
+                        width: 300.0,
+                        height: 342.0,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ],

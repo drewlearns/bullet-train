@@ -455,6 +455,15 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                       ),
                     ],
                   ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/piggy_bank_with_drop_shadow.png',
+                      width: 300.0,
+                      height: 342.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ],
               ),
             ),
