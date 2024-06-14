@@ -3150,10 +3150,11 @@ class GetLedgerAllCall {
     );
   }
 
-  dynamic list(dynamic response) => getJsonField(
+  List? list(dynamic response) => getJsonField(
         response,
         r'''$.lastResponse''',
-      );
+        true,
+      ) as List?;
   int? nextPageNumber(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.nextPageNumber''',
@@ -3162,91 +3163,213 @@ class GetLedgerAllCall {
         response,
         r'''$.numberOfItemsLoaded''',
       ));
-  String? ledgerId(dynamic response) => castToType<String>(getJsonField(
+  List<String>? ledgerId(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].ledgerId''',
-      ));
-  String? householdId(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? householdId(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].householdId''',
-      ));
-  String? paymentSourceId(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? paymentSourceId(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].paymentSourceId''',
-      ));
-  double? amount(dynamic response) => castToType<double>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<double>? amount(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].amount''',
-      ));
-  String? transactionType(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionType(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].transactionType''',
-      ));
-  String? transactionDate(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionDate(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].transactionDate''',
-      ));
-  String? category(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? category(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].category''',
-      ));
-  String? description(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? description(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].description''',
-      ));
-  bool? status(dynamic response) => castToType<bool>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<bool>? status(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].status''',
-      ));
-  String? createdAt(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  List<String>? createdAt(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].createdAt''',
-      ));
-  String? updatedAt(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updatedAt(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].updatedAt''',
-      ));
-  String? updatedBy(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updatedBy(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].updatedBy''',
-      ));
-  double? runningTotal(dynamic response) => castToType<double>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<double>? runningTotal(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].runningTotal''',
-      ));
-  int? interestRate(dynamic response) => castToType<int>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<double>? interestRate(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].interestRate''',
-      ));
-  int? cashBack(dynamic response) => castToType<int>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<double>? cashBack(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].cashBack''',
-      ));
-  String? tags(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tags(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].tags''',
-      ));
-  String? paymentSourceName(dynamic response) =>
-      castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? paymentSourceName(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].paymentSource.sourceName''',
-      ));
-  String? transactionId(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? transactionId(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].transactionId''',
-      ));
-  String? type(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? type(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].type''',
-      ));
-  int? year(dynamic response) => castToType<int>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? year(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].year''',
-      ));
-  String? month(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? month(dynamic response) => (getJsonField(
         response,
         r'''$.lastResponse[:].month''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? incomeId(dynamic response) => (getJsonField(
+        response,
+        r'''$.lastResponse[:].incomeId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? billId(dynamic response) => (getJsonField(
+        response,
+        r'''$.lastResponse[:].billId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLedgerEntryCall {

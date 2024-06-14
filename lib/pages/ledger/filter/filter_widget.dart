@@ -28,14 +28,11 @@ class _FilterWidgetState extends State<FilterWidget> {
     super.initState();
     _model = createModel(context, () => FilterModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
     _model.switchValue1 = false;
     _model.switchValue2 = true;
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -144,8 +141,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                 activeColor: FlutterFlowTheme.of(context).primary,
                 inactiveColor: FlutterFlowTheme.of(context).accent2,
                 min: 0.0,
-                max: 10000.0,
-                value: _model.sliderValue2 ??= 10000.0,
+                max: 1000000.0,
+                value: _model.sliderValue2 ??= 100000.0,
                 onChanged: (newValue) {
                   newValue = double.parse(newValue.toStringAsFixed(4));
                   setState(() => _model.sliderValue2 = newValue);
@@ -172,8 +169,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                 ),
               ),
               TextFormField(
-                controller: _model.textController1,
-                focusNode: _model.textFieldFocusNode1,
+                controller: _model.textController,
+                focusNode: _model.textFieldFocusNode,
                 autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
@@ -231,7 +228,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).bodyLargeFamily),
                     ),
-                validator: _model.textController1Validator.asValidator(context),
+                validator: _model.textControllerValidator.asValidator(context),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -330,80 +327,104 @@ class _FilterWidgetState extends State<FilterWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 120.0,
-                    child: TextFormField(
-                      controller: _model.textController2,
-                      focusNode: _model.textFieldFocusNode2,
-                      autofocus: false,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hintStyle: FlutterFlowTheme.of(context)
-                            .bodyLarge
-                            .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyLargeFamily),
-                            ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        errorBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        focusedErrorBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
+                  Expanded(
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.dropDownValueController1 ??=
+                          FormFieldController<String>(
+                        _model.dropDownValue1 ??= '',
                       ),
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      options: List<String>.from([
+                        'Option 1',
+                        '2',
+                        '3',
+                        '4',
+                        '5',
+                        '6',
+                        '7',
+                        '8',
+                        '9',
+                        '10',
+                        '11',
+                        '12'
+                      ]),
+                      optionLabels: [
+                        FFLocalizations.of(context).getText(
+                          '9exxivka' /* 1 Januaary */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'qdpwv0o8' /* 2 February */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          '3j8sa8q7' /* 3 March */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'uo3tjbua' /* 4 April */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          '74c1ftf6' /* 5 May */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'vkaq9obj' /* 6 June */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'ogbvnvdq' /* 7 July */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          '91yfly7k' /* 8 August */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          '8hhg0wz0' /* 9 September */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          '47zi6bj8' /* 10 October */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'ucltki44' /* 11 November */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'czhv9zmf' /* 12 December */,
+                        )
+                      ],
+                      onChanged: (val) =>
+                          setState(() => _model.dropDownValue1 = val),
+                      width: 300.0,
+                      height: 56.0,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .bodyMedium
+                          .override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).bodyLargeFamily,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             letterSpacing: 0.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyLargeFamily),
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
-                      validator:
-                          _model.textController2Validator.asValidator(context),
+                      hintText: FFLocalizations.of(context).getText(
+                        'gfyxrxzd' /* Please select... */,
+                      ),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
+                      borderRadius: 8.0,
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isOverButton: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
                     ),
                   ),
                   Expanded(
                     child: FlutterFlowDropDown<int>(
-                      controller: _model.dropDownValueController ??=
+                      controller: _model.dropDownValueController2 ??=
                           FormFieldController<int>(
-                        _model.dropDownValue ??= 2024,
+                        _model.dropDownValue2 ??= 2024,
                       ),
                       options: List<int>.from([
                         2024,
@@ -518,7 +539,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                         )
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue = val),
+                          setState(() => _model.dropDownValue2 = val),
                       width: 300.0,
                       height: 56.0,
                       textStyle: FlutterFlowTheme.of(context)
