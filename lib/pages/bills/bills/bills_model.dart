@@ -12,6 +12,8 @@ class BillsModel extends FlutterFlowModel<BillsWidget> {
   // State field(s) for GetHouseholdDropDown widget.
   String? getHouseholdDropDownValue;
   FormFieldController<String>? getHouseholdDropDownValueController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in GetHouseholdDropDown widget.
+  ApiCallResponse? refreshTokenOutput;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

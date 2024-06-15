@@ -16,6 +16,8 @@ class CategoriesModel extends FlutterFlowModel<CategoriesWidget> {
   FormFieldController<int>? dropDownValueController2;
   // Stores action output result for [Backend Call - API (getCategories)] action in IconButton widget.
   ApiCallResponse? getCategoriesOutput;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in IconButton widget.
+  ApiCallResponse? apiResult9rp;
 
   @override
   void initState(BuildContext context) {}

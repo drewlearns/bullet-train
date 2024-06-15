@@ -47,6 +47,8 @@ class EditTransactionModel extends FlutterFlowModel<EditTransactionWidget> {
   String? fileUploaded;
   // Stores action output result for [Backend Call - API (editTransaction)] action in Button widget.
   ApiCallResponse? editTransactionOutput;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in Button widget.
+  ApiCallResponse? apiResultduf;
   // Stores action output result for [Backend Call - API (deleteTransaction)] action in IconButton widget.
   ApiCallResponse? deleteTransaction;
 

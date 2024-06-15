@@ -1467,7 +1467,8 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        _model.addBillOutput = await TppbGroup.addBillCall.call(
+                        _model.addBillOutput1 =
+                            await TppbGroup.addBillCall.call(
                           authorizationToken: currentAuthenticationToken,
                           householdId: widget.householdId,
                           category: _model.categoryFieldTextController.text,
@@ -1485,7 +1486,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                           paymentSourceId: _model.paymentSourceFieldValue,
                           username: _model.usernameFieldTextController.text,
                         );
-                        if ((_model.addBillOutput?.succeeded ?? true)) {
+                        if ((_model.addBillOutput1?.succeeded ?? true)) {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
@@ -1512,24 +1513,59 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                             _model.passwordFielTextController?.clear();
                           });
                         } else {
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return AlertDialog(
-                                title: const Text('Error:'),
-                                content: Text(TppbGroup.addBillCall.message(
-                                  (_model.addBillOutput?.jsonBody ?? ''),
-                                )!),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: const Text('Ok'),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
+                          if ((_model.addBillOutput1?.statusCode ?? 200) ==
+                              401) {
+                            _model.apiResult6hu1 =
+                                await TppbGroup.refreshTokenCall.call();
+                            _model.addBillOutput =
+                                await TppbGroup.addBillCall.call(
+                              authorizationToken: currentAuthenticationToken,
+                              householdId: widget.householdId,
+                              category: _model.categoryFieldTextController.text,
+                              billName: _model.textController1.text,
+                              amount:
+                                  double.tryParse(_model.textController2.text),
+                              dayOfMonth: _model.dayOfMonthDropDownValue,
+                              frequency: _model.frequencyDropDownValue,
+                              isDebt: false.toString(),
+                              interestRate: '0.0',
+                              cashBack: '0.0',
+                              description:
+                                  _model.descriptionFieldTextController.text,
+                              url: _model.urlFieldTextController.text,
+                              password: _model.passwordFielTextController.text,
+                              paymentSourceId: _model.paymentSourceFieldValue,
+                              username: _model.usernameFieldTextController.text,
+                            );
+                            setState(() {
+                              _model.textController1?.clear();
+                              _model.textController2?.clear();
+                              _model.categoryFieldTextController?.clear();
+                              _model.descriptionFieldTextController?.clear();
+                              _model.urlFieldTextController?.clear();
+                              _model.usernameFieldTextController?.clear();
+                              _model.passwordFielTextController?.clear();
+                            });
+                          } else {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: const Text('Error'),
+                                  content: Text(
+                                      (_model.addBillOutput1?.statusCode ?? 200)
+                                          .toString()),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: const Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
                         }
 
                         setState(() {});

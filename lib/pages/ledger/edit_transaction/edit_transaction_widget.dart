@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'edit_transaction_model.dart';
@@ -1918,29 +1919,70 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                                                 },
                                               );
                                             } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: const Text('Error'),
-                                                    content: Text(TppbGroup
-                                                        .editTransactionCall
-                                                        .message(
-                                                      (_model.editTransactionOutput
+                                              if ((_model.editTransactionOutput
+                                                          ?.statusCode ??
+                                                      200) ==
+                                                  401) {
+                                                _model.apiResultduf =
+                                                    await TppbGroup
+                                                        .refreshTokenCall
+                                                        .call(
+                                                  authorizationToken:
+                                                      currentAuthenticationToken,
+                                                  refreshToken:
+                                                      currentAuthRefreshToken,
+                                                );
+                                                if ((_model.apiResultduf
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  authManager
+                                                      .updateAuthUserData(
+                                                    authenticationToken:
+                                                        TppbGroup
+                                                            .refreshTokenCall
+                                                            .accessToken(
+                                                      (_model.apiResultduf
                                                               ?.jsonBody ??
                                                           ''),
-                                                    )!),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: const Text('Ok'),
-                                                      ),
-                                                    ],
+                                                    ),
+                                                    refreshToken: TppbGroup
+                                                        .refreshTokenCall
+                                                        .refreshToken(
+                                                      (_model.apiResultduf
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ),
+                                                    tokenExpiration: functions
+                                                        .updateExpireAtAction(),
+                                                    authUid: currentUserUid,
                                                   );
-                                                },
-                                              );
+                                                }
+                                              } else {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: const Text('Error'),
+                                                      content: Text(TppbGroup
+                                                          .editTransactionCall
+                                                          .message(
+                                                        (_model.editTransactionOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: const Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }
                                             }
 
                                             setState(() {});

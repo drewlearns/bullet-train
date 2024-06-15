@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'add_transaction_model.dart';
@@ -184,8 +185,47 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                             .householdName(
                                           dropDownGetHouseholdResponse.jsonBody,
                                         )!,
-                                        onChanged: (val) => setState(
-                                            () => _model.dropDownValue1 = val),
+                                        onChanged: (val) async {
+                                          setState(() =>
+                                              _model.dropDownValue1 = val);
+                                          if (dropDownGetHouseholdResponse
+                                                  .statusCode ==
+                                              401) {
+                                            _model.apiResultvvt =
+                                                await TppbGroup.refreshTokenCall
+                                                    .call(
+                                              authorizationToken:
+                                                  currentAuthenticationToken,
+                                              refreshToken:
+                                                  currentAuthRefreshToken,
+                                            );
+                                            if ((_model
+                                                    .apiResultvvt?.succeeded ??
+                                                true)) {
+                                              authManager.updateAuthUserData(
+                                                authenticationToken: TppbGroup
+                                                    .refreshTokenCall
+                                                    .accessToken(
+                                                  (_model.apiResultvvt
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                refreshToken: TppbGroup
+                                                    .refreshTokenCall
+                                                    .refreshToken(
+                                                  (_model.apiResultvvt
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                tokenExpiration: functions
+                                                    .updateExpireAtAction(),
+                                                authUid: currentUserUid,
+                                              );
+                                            }
+                                          }
+
+                                          setState(() {});
+                                        },
                                         width: 300.0,
                                         height: 56.0,
                                         textStyle: FlutterFlowTheme.of(context)

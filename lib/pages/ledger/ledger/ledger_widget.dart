@@ -6,9 +6,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/ledger/filter/filter_widget.dart';
+import '/walkthroughs/ledger.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ledger_model.dart';
 export 'ledger_model.dart';
@@ -90,6 +95,9 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                       onPressed: () async {
                         context.pushNamed('QueryTransactions');
                       },
+                    ).addWalkthrough(
+                      iconButtonS2i4myvt,
+                      _model.ledgerController,
                     ),
                     FlutterFlowIconButton(
                       borderRadius: 20.0,
@@ -104,7 +112,12 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                         _model.filterButtonPressed =
                             !_model.filterButtonPressed;
                         setState(() {});
+                        setState(() => _model.apiRequestCompleter = null);
+                        await _model.waitForApiRequestCompleted();
                       },
+                    ).addWalkthrough(
+                      iconButton3nmlyw29,
+                      _model.ledgerController,
                     ),
                     FlutterFlowIconButton(
                       borderRadius: 20.0,
@@ -239,10 +252,60 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                           ledgerGetHouseholdResponse
                                                               .jsonBody,
                                                         )!,
-                                                        onChanged: (val) =>
+                                                        onChanged: (val) async {
+                                                          setState(() => _model
+                                                                  .householdIdDropDownValue =
+                                                              val);
+                                                          if (ledgerGetHouseholdResponse
+                                                                  .statusCode ==
+                                                              401) {
+                                                            _model.apiResultc92 =
+                                                                await TppbGroup
+                                                                    .refreshTokenCall
+                                                                    .call(
+                                                              authorizationToken:
+                                                                  currentAuthenticationToken,
+                                                              refreshToken:
+                                                                  currentAuthRefreshToken,
+                                                            );
+                                                            if ((_model
+                                                                    .apiResultc92
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              authManager
+                                                                  .updateAuthUserData(
+                                                                authenticationToken:
+                                                                    TppbGroup
+                                                                        .refreshTokenCall
+                                                                        .accessToken(
+                                                                  (_model.apiResultc92
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ),
+                                                                refreshToken: TppbGroup
+                                                                    .refreshTokenCall
+                                                                    .refreshToken(
+                                                                  (_model.apiResultc92
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ),
+                                                                tokenExpiration:
+                                                                    functions
+                                                                        .updateExpireAtAction(),
+                                                                authUid:
+                                                                    currentUserUid,
+                                                              );
+                                                            }
+                                                          } else {
                                                             setState(() => _model
-                                                                    .householdIdDropDownValue =
-                                                                val),
+                                                                    .apiRequestCompleter =
+                                                                null);
+                                                            await _model
+                                                                .waitForApiRequestCompleted();
+                                                          }
+
+                                                          setState(() {});
+                                                        },
                                                         width: 300.0,
                                                         height: 56.0,
                                                         textStyle:
@@ -739,6 +802,8 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Padding(
                                             padding:
@@ -940,53 +1005,86 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                   MainAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                FlutterFlowIconButton(
-                                                                  borderColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  borderRadius:
-                                                                      20.0,
-                                                                  borderWidth:
-                                                                      1.0,
-                                                                  buttonSize:
-                                                                      40.0,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .check_box,
-                                                                    color: (TppbGroup.getLedgerAllCall
-                                                                                    .status(
-                                                                              listViewGetLedgerAllResponse.jsonBody,
-                                                                            )?[
-                                                                                ledgerlistItemsIndex]) ==
-                                                                            false
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .alternate
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                    size: 24.0,
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          24.0),
+                                                                  child:
+                                                                      FlutterFlowIconButton(
+                                                                    borderColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    borderRadius:
+                                                                        20.0,
+                                                                    borderWidth:
+                                                                        1.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .checkCircle,
+                                                                      color: (TppbGroup.getLedgerAllCall.status(
+                                                                                listViewGetLedgerAllResponse.jsonBody,
+                                                                              )?[ledgerlistItemsIndex]) ==
+                                                                              false
+                                                                          ? FlutterFlowTheme.of(context).alternate
+                                                                          : FlutterFlowTheme.of(context).secondaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                    onPressed:
+                                                                        () async {
+                                                                      _model.apiResultymm = await TppbGroup
+                                                                          .editLedgerEntryAsClearedCall
+                                                                          .call(
+                                                                        authorizationToken:
+                                                                            currentAuthenticationToken,
+                                                                        ledgerId: TppbGroup
+                                                                            .getLedgerAllCall
+                                                                            .ledgerId(
+                                                                          listViewGetLedgerAllResponse
+                                                                              .jsonBody,
+                                                                        )?[ledgerlistItemsIndex],
+                                                                      );
+                                                                      if ((_model
+                                                                              .apiResultymm
+                                                                              ?.succeeded ??
+                                                                          true)) {
+                                                                        setState(
+                                                                            () {});
+                                                                        setState(() =>
+                                                                            _model.apiRequestCompleter =
+                                                                                null);
+                                                                        await _model
+                                                                            .waitForApiRequestCompleted();
+                                                                      } else {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return AlertDialog(
+                                                                              title: const Text('Error'),
+                                                                              content: const Text('Unable to update status at this time'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: const Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      }
+
+                                                                      setState(
+                                                                          () {});
+                                                                    },
                                                                   ),
-                                                                  onPressed:
-                                                                      () async {
-                                                                    _model.editLedgerEntryAsClearedOutput =
-                                                                        await TppbGroup
-                                                                            .editLedgerEntryAsClearedCall
-                                                                            .call(
-                                                                      authorizationToken:
-                                                                          currentAuthenticationToken,
-                                                                      ledgerId: TppbGroup
-                                                                          .getLedgerAllCall
-                                                                          .ledgerId(
-                                                                        listViewGetLedgerAllResponse
-                                                                            .jsonBody,
-                                                                      )?[ledgerlistItemsIndex],
-                                                                    );
-
-                                                                    setState(
-                                                                        () {});
-
-                                                                    setState(
-                                                                        () {});
-                                                                  },
                                                                 ),
                                                               ],
                                                             ),
@@ -1235,4 +1333,15 @@ class _LedgerWidgetState extends State<LedgerWidget> {
       },
     );
   }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.ledgerController = null);
+        },
+        onSkip: () {
+          return true;
+        },
+      );
 }

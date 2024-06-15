@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -149,8 +150,43 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                               .jsonBody,
                                         )!
                                         .unique((e) => e),
-                                    onChanged: (val) => setState(() =>
-                                        _model.householdIdDropDownValue = val),
+                                    onChanged: (val) async {
+                                      setState(() => _model
+                                          .householdIdDropDownValue = val);
+                                      if (householdIdDropDownGetHouseholdResponse
+                                              .statusCode ==
+                                          401) {
+                                        _model.refreshoutput = await TppbGroup
+                                            .refreshTokenCall
+                                            .call(
+                                          authorizationToken:
+                                              currentAuthenticationToken,
+                                          refreshToken: currentAuthRefreshToken,
+                                        );
+                                        if ((_model.refreshoutput?.succeeded ??
+                                            true)) {
+                                          authManager.updateAuthUserData(
+                                            authenticationToken: TppbGroup
+                                                .refreshTokenCall
+                                                .accessToken(
+                                              (_model.refreshoutput?.jsonBody ??
+                                                  ''),
+                                            ),
+                                            refreshToken: TppbGroup
+                                                .refreshTokenCall
+                                                .refreshToken(
+                                              (_model.refreshoutput?.jsonBody ??
+                                                  ''),
+                                            ),
+                                            tokenExpiration: functions
+                                                .updateExpireAtAction(),
+                                            authUid: currentUserUid,
+                                          );
+                                        }
+                                      }
+
+                                      setState(() {});
+                                    },
                                     width: 300.0,
                                     height: 56.0,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -379,10 +415,10 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                           activeColor: FlutterFlowTheme.of(context).primary,
                           inactiveColor: FlutterFlowTheme.of(context).alternate,
                           min: 1.0,
-                          max: 1000.0,
+                          max: 10000.0,
                           value: _model.sliderValue ??= 500.0,
                           label: _model.sliderValue?.toStringAsFixed(2),
-                          divisions: 999,
+                          divisions: 2000,
                           onChanged: (newValue) {
                             newValue =
                                 double.parse(newValue.toStringAsFixed(2));

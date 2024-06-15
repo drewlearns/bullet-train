@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -133,8 +134,41 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                       TppbGroup.getHouseholdCall.householdName(
                                     dropDownGetHouseholdResponse.jsonBody,
                                   )!,
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue = val),
+                                  onChanged: (val) async {
+                                    setState(() => _model.dropDownValue = val);
+                                    if (dropDownGetHouseholdResponse
+                                            .statusCode ==
+                                        401) {
+                                      _model.apiResultmgb =
+                                          await TppbGroup.refreshTokenCall.call(
+                                        authorizationToken:
+                                            currentAuthenticationToken,
+                                        refreshToken: currentAuthRefreshToken,
+                                      );
+                                      if ((_model.apiResultmgb?.succeeded ??
+                                          true)) {
+                                        authManager.updateAuthUserData(
+                                          authenticationToken: TppbGroup
+                                              .refreshTokenCall
+                                              .accessToken(
+                                            (_model.apiResultmgb?.jsonBody ??
+                                                ''),
+                                          ),
+                                          refreshToken: TppbGroup
+                                              .refreshTokenCall
+                                              .refreshToken(
+                                            (_model.apiResultmgb?.jsonBody ??
+                                                ''),
+                                          ),
+                                          tokenExpiration:
+                                              functions.updateExpireAtAction(),
+                                          authUid: currentUserUid,
+                                        );
+                                      }
+                                    }
+
+                                    setState(() {});
+                                  },
                                   width: 300.0,
                                   height: 56.0,
                                   textStyle: FlutterFlowTheme.of(context)

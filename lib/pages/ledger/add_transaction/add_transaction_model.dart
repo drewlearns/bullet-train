@@ -11,6 +11,8 @@ class AddTransactionModel extends FlutterFlowModel<AddTransactionWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in DropDown widget.
+  ApiCallResponse? apiResultvvt;
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;

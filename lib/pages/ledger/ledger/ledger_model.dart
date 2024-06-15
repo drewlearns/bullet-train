@@ -6,6 +6,8 @@ import '/flutter_flow/request_manager.dart';
 
 import 'dart:async';
 import 'ledger_widget.dart' show LedgerWidget;
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 
 class LedgerModel extends FlutterFlowModel<LedgerWidget> {
@@ -17,14 +19,17 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  TutorialCoachMark? ledgerController;
   // State field(s) for HouseholdIdDropDown widget.
   String? householdIdDropDownValue;
   FormFieldController<String>? householdIdDropDownValueController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in HouseholdIdDropDown widget.
+  ApiCallResponse? apiResultc92;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // Model for Filter component.
   late FilterModel filterModel;
-  Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (editLedgerEntryAsCleared)] action in IconButton widget.
-  ApiCallResponse? editLedgerEntryAsClearedOutput;
+  ApiCallResponse? apiResultymm;
 
   /// Query cache managers for this widget.
 
@@ -65,6 +70,7 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
 
   @override
   void dispose() {
+    ledgerController?.finish();
     filterModel.dispose();
 
     /// Dispose query cache managers for this widget.

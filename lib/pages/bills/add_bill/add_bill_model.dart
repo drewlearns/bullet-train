@@ -48,6 +48,10 @@ class AddBillModel extends FlutterFlowModel<AddBillWidget> {
   late bool passwordFielVisibility;
   String? Function(BuildContext, String?)? passwordFielTextControllerValidator;
   // Stores action output result for [Backend Call - API (addBill)] action in Button widget.
+  ApiCallResponse? addBillOutput1;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in Button widget.
+  ApiCallResponse? apiResult6hu1;
+  // Stores action output result for [Backend Call - API (addBill)] action in Button widget.
   ApiCallResponse? addBillOutput;
 
   @override

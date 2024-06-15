@@ -11,6 +11,8 @@ class ThresholdModel extends FlutterFlowModel<ThresholdWidget> {
   // State field(s) for householdIdDropDown widget.
   String? householdIdDropDownValue;
   FormFieldController<String>? householdIdDropDownValueController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in householdIdDropDown widget.
+  ApiCallResponse? refreshoutput;
   // State field(s) for paymentSourceIdDropDown widget.
   String? paymentSourceIdDropDownValue;
   FormFieldController<String>? paymentSourceIdDropDownValueController;

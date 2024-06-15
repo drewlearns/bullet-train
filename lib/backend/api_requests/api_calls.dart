@@ -12,9 +12,9 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start TPPB Group Code
 
 class TppbGroup {
-  static String getBaseUrl() => 'https://api.dev.thepurplepiggybank.com';
+  static String getBaseUrl() => 'https://api.thepurplepiggybank.com';
   static Map<String, String> headers = {
-    'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+    'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
   };
   static AddUserCall addUserCall = AddUserCall();
   static ConfirmSignupCall confirmSignupCall = ConfirmSignupCall();
@@ -136,7 +136,7 @@ class AddUserCall {
       apiUrl: '$baseUrl/addUser',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -265,7 +265,7 @@ class ConfirmSignupCall {
       apiUrl: '$baseUrl/confirmSignup',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -359,7 +359,7 @@ class LoginCall {
       apiUrl: '$baseUrl/login',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -413,7 +413,7 @@ class GetUserCall {
       apiUrl: '$baseUrl/getUser',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -512,7 +512,7 @@ class EditUserCall {
       apiUrl: '$baseUrl/editUser',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -605,7 +605,7 @@ class DeleteUserJsCall {
       apiUrl: '$baseUrl/deleteUser',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -620,17 +620,23 @@ class DeleteUserJsCall {
 }
 
 class RefreshTokenCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? refreshToken = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$refreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'refreshToken',
       apiUrl: '$baseUrl/refreshToken',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -642,6 +648,31 @@ class RefreshTokenCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  dynamic tokens(dynamic response) => getJsonField(
+        response,
+        r'''$.tokens''',
+      );
+  String? accessToken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.AccessToken''',
+      ));
+  String? refreshToken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.RefreshToken''',
+      ));
+  String? idtoken(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.tokens.IdToken''',
+      ));
+  dynamic expiresIn(dynamic response) => getJsonField(
+        response,
+        r'''$.tokens.ExpiresIn''',
+      );
 }
 
 class RevokeTokenCall {
@@ -655,7 +686,7 @@ class RevokeTokenCall {
       apiUrl: '$baseUrl/revokeToken',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -684,7 +715,7 @@ class ForgotPasswordCall {
       apiUrl: '$baseUrl/forgotPassword',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -726,7 +757,7 @@ class ConfirmPasswordResetCodeCall {
       apiUrl: '$baseUrl/confirmPasswordResetCode',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -765,7 +796,7 @@ class AddHouseholdCall {
       apiUrl: '$baseUrl/addHousehold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -820,7 +851,7 @@ class AddInviteCall {
       apiUrl: '$baseUrl/addInvite',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -850,7 +881,7 @@ class AcceptInviteCall {
       apiUrl: '$baseUrl/acceptInvite',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -883,7 +914,7 @@ class DeleteMemberFromHouseholdCall {
       apiUrl: '$baseUrl/deleteMemberFromHousehold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -913,7 +944,7 @@ class EditHouseholdCall {
       apiUrl: '$baseUrl/editHousehold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -944,7 +975,7 @@ class GetHouseholdMembersCall {
       apiUrl: '$baseUrl/getHouseholdMembers',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1010,7 +1041,7 @@ class DeleteHouseholdCall {
       apiUrl: '$baseUrl/deleteHousehold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1041,7 +1072,7 @@ class GetHouseholdCall {
       apiUrl: '$baseUrl/getHousehold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1116,7 +1147,7 @@ class GetHouseholdByIdCall {
       apiUrl: '$baseUrl/getHouseholdById',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1220,7 +1251,7 @@ class AddPaymentSourceCall {
       apiUrl: '$baseUrl/addPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1278,7 +1309,7 @@ class DeletePaymentSourceCall {
       apiUrl: '$baseUrl/deletePaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1303,7 +1334,7 @@ class EditPaymentSourceCall {
       apiUrl: '$baseUrl/editPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1334,7 +1365,7 @@ class GetPaymentSourceCall {
       apiUrl: '$baseUrl/getPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1432,7 +1463,7 @@ class AddBillCall {
       apiUrl: '$baseUrl/addBill',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1468,7 +1499,7 @@ class GetBillPasswordCall {
       apiUrl: '$baseUrl/getBillPassword',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1508,7 +1539,7 @@ class DeleteBillCall {
       apiUrl: '$baseUrl/deleteBill',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1544,7 +1575,7 @@ class GetFilePathCall {
       apiUrl: '$baseUrl/getFilePath',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1614,7 +1645,7 @@ class EditBillCall {
       apiUrl: '$baseUrl/editBill',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1650,7 +1681,7 @@ class GetBillsCall {
       apiUrl: '$baseUrl/getBills',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1753,7 +1784,7 @@ class AddNotificationCall {
       apiUrl: '$baseUrl/addNotification',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1789,7 +1820,7 @@ class EditNotificationCall {
       apiUrl: '$baseUrl/editNotification',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1820,7 +1851,7 @@ class DeleteNotificationCall {
       apiUrl: '$baseUrl/deleteNotification',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1854,7 +1885,7 @@ class GetNotificationsCall {
       apiUrl: '$baseUrl/getNotifications',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1985,7 +2016,7 @@ class AddTransactionCall {
       apiUrl: '$baseUrl/addTransaction',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2057,7 +2088,7 @@ class GetTransactionCall {
       apiUrl: '$baseUrl/getTransaction',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2204,7 +2235,7 @@ class GetTransactionByMonthCall {
       apiUrl: '$baseUrl/getTransactionsByMonth',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2240,7 +2271,7 @@ class SearchTransactionsCall {
       apiUrl: '$baseUrl/searchTransactions',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2415,7 +2446,7 @@ class GetTransactionsByPaymentSourceCall {
       apiUrl: '$baseUrl/getTransactionsByPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2440,7 +2471,7 @@ class GetAuditTrailCall {
       apiUrl: '$baseUrl/getAuditTrail',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2465,7 +2496,7 @@ class SetDefaultPaymentSourceCall {
       apiUrl: '$baseUrl/setDefaultPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2490,7 +2521,7 @@ class GetDefaultPaymentSourcePreferenceCall {
       apiUrl: '$baseUrl/getDefaultPaymentSourcePreference',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2515,7 +2546,7 @@ class EditDefaultPaymentSourceCall {
       apiUrl: '$baseUrl/editDefaultPaymentSource',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2540,7 +2571,7 @@ class SetThresholdCall {
       apiUrl: '$baseUrl/setThreshold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2565,7 +2596,7 @@ class EditThresholdCall {
       apiUrl: '$baseUrl/editThreshold',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2600,7 +2631,7 @@ class GetThresholdBreakersCall {
       apiUrl: '$baseUrl/getThresholdBreakers',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2667,7 +2698,7 @@ class GetThresholdPreferenceCall {
       apiUrl: '$baseUrl/getThresholdPreference',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2710,7 +2741,7 @@ class AddIncomeCall {
       apiUrl: '$baseUrl/addIncome',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2738,7 +2769,7 @@ class EditIncomeJsCall {
       apiUrl: '$baseUrl/editIncome',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -2768,7 +2799,7 @@ class GetIncomesCall {
       apiUrl: '$baseUrl/getIncomes',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2841,7 +2872,7 @@ class GetIncomeCall {
       apiUrl: '$baseUrl/getIncome',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2893,7 +2924,7 @@ class DeleteIncomeJsCall {
       apiUrl: '$baseUrl/deleteIncome',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -2923,7 +2954,7 @@ class GetRunningTotalCall {
       apiUrl: '$baseUrl/getRunningTotal',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2959,7 +2990,7 @@ class GetRunningTotalsByDateCall {
       apiUrl: '$baseUrl/getRunningTotalsByDate',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -2993,7 +3024,7 @@ class GetCategoriesCall {
       apiUrl: '$baseUrl/getCategories',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3063,7 +3094,7 @@ class ExportLedgerToCsvCall {
       apiUrl: '$baseUrl/exportLedgerToCsv',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -3085,7 +3116,7 @@ class ExportLedgerToQBOCall {
       apiUrl: '$baseUrl/exportLedgerToQBO',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -3137,7 +3168,7 @@ class GetLedgerAllCall {
       apiUrl: '$baseUrl/getLedger',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3381,7 +3412,7 @@ class GetLedgerEntryCall {
       apiUrl: '$baseUrl/getLedgerEntry',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3403,7 +3434,7 @@ class DeleteLedgerEntryCall {
       apiUrl: '$baseUrl/deleteLedgerEntry',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3425,7 +3456,7 @@ class ExportSearchCall {
       apiUrl: '$baseUrl/exportSearch',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3447,7 +3478,7 @@ class ChangePasswordCall {
       apiUrl: '$baseUrl/changePassword',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3477,7 +3508,7 @@ class GetDueBillsCall {
       apiUrl: '$baseUrl/getDueBills',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3572,7 +3603,7 @@ class GetFutureDueBillsCall {
       apiUrl: '$baseUrl/getFutureDueBills',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3664,7 +3695,7 @@ class EditLedgerEntryCall {
       apiUrl: '$baseUrl/editLedgerEntry',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3686,7 +3717,7 @@ class GetMonthlyIncomeTotalCall {
       apiUrl: '$baseUrl/getMonthlyIncomeTotal',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3718,7 +3749,7 @@ class GetPastDueBillsCall {
       apiUrl: '$baseUrl/getPastDueBills',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3822,7 +3853,7 @@ class GetTotalSpentCall {
       apiUrl: '$baseUrl/getTotalSpent',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3862,7 +3893,7 @@ class GetBillCall {
       apiUrl: '$baseUrl/getBill',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3962,7 +3993,7 @@ class GetSafeToSpendCall {
       apiUrl: '$baseUrl/getSafeToSpend',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -4002,7 +4033,7 @@ class EditLedgerEntryAsClearedCall {
       apiUrl: '$baseUrl/editLedgerEntryAsCleared',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -4038,7 +4069,7 @@ class GetCurrentMonthIncomeCall {
       apiUrl: '$baseUrl/getCurrentMonthIncome',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -4102,7 +4133,7 @@ class EditTransactionCall {
       apiUrl: '$baseUrl/editTransaction',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,
@@ -4138,7 +4169,7 @@ class DeleteTransactionCall {
       apiUrl: '$baseUrl/deleteTransaction',
       callType: ApiCallType.POST,
       headers: {
-        'x-api-key': 'nDHQMyD3U5L545Uqa1Z8YdiYtmc3jvtD',
+        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
       body: ffApiRequestBody,

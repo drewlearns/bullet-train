@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'categories_model.dart';
@@ -397,23 +398,49 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                                 true)) {
                               setState(() {});
                             } else {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: const Text('Error'),
-                                    content: const Text(
-                                        'Error Getting Categories! Reach out to support.'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: const Text('Ok'),
-                                      ),
-                                    ],
+                              if ((_model.getCategoriesOutput?.statusCode ??
+                                      200) ==
+                                  401) {
+                                _model.apiResult9rp =
+                                    await TppbGroup.refreshTokenCall.call(
+                                  authorizationToken:
+                                      currentAuthenticationToken,
+                                  refreshToken: currentAuthRefreshToken,
+                                );
+                                if ((_model.apiResult9rp?.succeeded ?? true)) {
+                                  authManager.updateAuthUserData(
+                                    authenticationToken:
+                                        TppbGroup.refreshTokenCall.accessToken(
+                                      (_model.apiResult9rp?.jsonBody ?? ''),
+                                    ),
+                                    refreshToken:
+                                        TppbGroup.refreshTokenCall.refreshToken(
+                                      (_model.apiResult9rp?.jsonBody ?? ''),
+                                    ),
+                                    tokenExpiration:
+                                        functions.updateExpireAtAction(),
+                                    authUid: currentUserUid,
                                   );
-                                },
-                              );
+                                }
+                              } else {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: const Text('Error'),
+                                      content: const Text(
+                                          'Error Getting Categories! Reach out to support.'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: const Text('Ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
                             }
 
                             setState(() {});

@@ -3592,84 +3592,84 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    '9exxivka': {
+    'ljlqib9m': {
       'en': '1 Januaary',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'qdpwv0o8': {
+    '9gj21wo4': {
       'en': '2 February',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '3j8sa8q7': {
+    'smhodqik': {
       'en': '3 March',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'uo3tjbua': {
+    'whezd4ws': {
       'en': '4 April',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '74c1ftf6': {
+    '2zsski3u': {
       'en': '5 May',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'vkaq9obj': {
+    'r4dtoxr1': {
       'en': '6 June',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'ogbvnvdq': {
+    'zpgruheb': {
       'en': '7 July',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '91yfly7k': {
+    'gax2lpsi': {
       'en': '8 August',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '8hhg0wz0': {
+    '4hdopud8': {
       'en': '9 September',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    '47zi6bj8': {
+    'u079zxlb': {
       'en': '10 October',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'ucltki44': {
+    'f1qtf7zi': {
       'en': '11 November',
       'es': '',
       'fr': '',
       'tl': '',
       'zh_Hans': '',
     },
-    'czhv9zmf': {
+    'vm8k4dax': {
       'en': '12 December',
       'es': '',
       'fr': '',
