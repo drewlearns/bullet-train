@@ -176,12 +176,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const SettingsWidget(),
         ),
         FFRoute(
-          name: 'SupportPage',
-          path: '/supportPage',
-          requireAuth: true,
-          builder: (context, params) => const SupportPageWidget(),
-        ),
-        FFRoute(
           name: 'Incomes',
           path: '/incomes',
           requireAuth: true,
@@ -359,6 +353,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'EditHousehold',
+          path: '/editHousehold',
+          requireAuth: true,
+          builder: (context, params) => const EditHouseholdWidget(),
+        ),
+        FFRoute(
+          name: 'DeleteUser',
+          path: '/deleteUser',
+          requireAuth: true,
+          builder: (context, params) => const DeleteUserWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

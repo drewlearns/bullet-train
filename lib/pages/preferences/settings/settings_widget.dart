@@ -173,7 +173,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,

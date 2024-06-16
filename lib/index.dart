@@ -21,7 +21,6 @@ export '/pages/household/edit_members/edit_members_widget.dart'
     show EditMembersWidget;
 export '/pages/ledger/ledger/ledger_widget.dart' show LedgerWidget;
 export '/pages/preferences/settings/settings_widget.dart' show SettingsWidget;
-export '/support_page/support_page_widget.dart' show SupportPageWidget;
 export '/pages/income/incomes/incomes_widget.dart' show IncomesWidget;
 export '/pages/payment_sources/payment_sources/payment_sources_widget.dart'
     show PaymentSourcesWidget;
@@ -49,3 +48,5 @@ export '/pages/notifications/edit_notification/edit_notification_widget.dart'
     show EditNotificationWidget;
 export '/pages/ledger/edit_transaction/edit_transaction_widget.dart'
     show EditTransactionWidget;
+export '/edit_household/edit_household_widget.dart' show EditHouseholdWidget;
+export '/delete_user/delete_user_widget.dart' show DeleteUserWidget;

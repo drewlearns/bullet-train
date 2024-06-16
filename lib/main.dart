@@ -20,6 +20,7 @@ void main() async {
   await FlutterFlowTheme.initialize();
 
   await authManager.initialize();
+  await FFLocalizations.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -42,7 +43,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+  Locale? _locale = FFLocalizations.getStoredLocale();
 
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
@@ -70,6 +71,7 @@ class _MyAppState extends State<MyApp> {
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
+    FFLocalizations.storeLocale(language);
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {

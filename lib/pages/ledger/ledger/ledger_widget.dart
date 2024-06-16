@@ -747,7 +747,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                       _model.filterModel.switchValue2,
                                   minAmount: _model.filterModel.sliderValue1,
                                   maxAmount: _model.filterModel.sliderValue2,
-                                  pageSize: 100,
+                                  pageSize: 1000,
                                   year: _model.filterModel.dropDownValue2,
                                   month: _model.filterModel.dropDownValue1,
                                   page: 1,

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'support_page_widget.dart' show SupportPageWidget;
+import 'edit_household_widget.dart' show EditHouseholdWidget;
 import 'package:flutter/material.dart';
 
-class SupportPageModel extends FlutterFlowModel<SupportPageWidget> {
+class EditHouseholdModel extends FlutterFlowModel<EditHouseholdWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

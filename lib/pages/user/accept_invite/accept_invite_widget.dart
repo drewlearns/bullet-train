@@ -34,17 +34,14 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
     _model.invitationCodeTextController ??= TextEditingController();
     _model.invitationCodeFocusNode ??= FocusNode();
 
-    _model.emailSignUpTextController1 ??= TextEditingController();
-    _model.emailSignUpFocusNode1 ??= FocusNode();
+    _model.emailSignUpTextController ??= TextEditingController();
+    _model.emailSignUpFocusNode ??= FocusNode();
 
     _model.firstNameTextController ??= TextEditingController();
     _model.firstNameFocusNode ??= FocusNode();
 
     _model.lastNameTextController ??= TextEditingController();
     _model.lastNameFocusNode ??= FocusNode();
-
-    _model.emailSignUpTextController2 ??= TextEditingController();
-    _model.emailSignUpFocusNode2 ??= FocusNode();
 
     _model.phoneNumberTextController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
@@ -275,7 +272,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    contentPadding: const EdgeInsets.all(24.0),
+                                    contentPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -305,18 +304,17 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                               child: SizedBox(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.emailSignUpTextController1,
-                                  focusNode: _model.emailSignUpFocusNode1,
+                                  controller: _model.emailSignUpTextController,
+                                  focusNode: _model.emailSignUpFocusNode,
                                   onFieldSubmitted: (_) async {
                                     setState(() {
-                                      _model.emailSignUpTextController1?.text =
-                                          _model
-                                              .emailSignUpTextController1.text;
-                                      _model.emailSignUpTextController1
+                                      _model.emailSignUpTextController?.text =
+                                          _model.emailSignUpTextController.text;
+                                      _model.emailSignUpTextController
                                               ?.selection =
                                           TextSelection.collapsed(
                                               offset: _model
-                                                  .emailSignUpTextController1!
+                                                  .emailSignUpTextController!
                                                   .text
                                                   .length);
                                     });
@@ -379,7 +377,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    contentPadding: const EdgeInsets.all(24.0),
+                                    contentPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -396,7 +396,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   cursorColor:
                                       FlutterFlowTheme.of(context).primary,
                                   validator: _model
-                                      .emailSignUpTextController1Validator
+                                      .emailSignUpTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -431,6 +431,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                         },
                                         autofocus: true,
                                         autofillHints: const [AutofillHints.name],
+                                        textCapitalization:
+                                            TextCapitalization.words,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
@@ -500,7 +502,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
-                                          contentPadding: const EdgeInsets.all(24.0),
+                                          contentPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -516,8 +520,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                                   context)
                                                               .bodyLargeFamily),
                                             ),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,
@@ -557,6 +559,8 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                         autofillHints: const [
                                           AutofillHints.familyName
                                         ],
+                                        textCapitalization:
+                                            TextCapitalization.words,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
@@ -626,7 +630,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
-                                          contentPadding: const EdgeInsets.all(24.0),
+                                          contentPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -642,8 +648,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                                                   context)
                                                               .bodyLargeFamily),
                                             ),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,
@@ -655,108 +659,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   ),
                                 ),
                               ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 16.0),
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: TextFormField(
-                                  controller: _model.emailSignUpTextController2,
-                                  focusNode: _model.emailSignUpFocusNode2,
-                                  onFieldSubmitted: (_) async {
-                                    setState(() {
-                                      _model.emailSignUpTextController2?.text =
-                                          _model
-                                              .emailSignUpTextController2.text;
-                                      _model.emailSignUpTextController2
-                                              ?.selection =
-                                          TextSelection.collapsed(
-                                              offset: _model
-                                                  .emailSignUpTextController2!
-                                                  .text
-                                                  .length);
-                                    });
-                                  },
-                                  autofocus: true,
-                                  autofillHints: const [AutofillHints.email],
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      '6bqxoiy7' /* Email */,
-                                    ),
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelLargeFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLargeFamily),
-                                        ),
-                                    alignLabelWithHint: false,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    contentPadding: const EdgeInsets.all(24.0),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyLargeFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLargeFamily),
-                                      ),
-                                  keyboardType: TextInputType.emailAddress,
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  validator: _model
-                                      .emailSignUpTextController2Validator
-                                      .asValidator(context),
-                                ),
-                              ),
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -840,7 +742,9 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    contentPadding: const EdgeInsets.all(24.0),
+                                    contentPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -859,7 +763,6 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   validator: _model
                                       .phoneNumberTextControllerValidator
                                       .asValidator(context),
-                                  inputFormatters: [_model.phoneNumberMask],
                                 ),
                               ),
                             ),
@@ -924,44 +827,24 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    _model.signUpOutput =
-                                        await TppbGroup.addUserCall.call(
-                                      username: _model
+                                    _model.acceptInviteOutput =
+                                        await TppbGroup.acceptInviteCall.call(
+                                      username:
+                                          _model.emailSignUpTextController.text,
+                                      invitationId: _model
                                           .invitationCodeTextController.text,
-                                      email: _model
-                                          .invitationCodeTextController.text,
-                                      password: _model.passwordfieldModel
-                                          .passwordSignUpTextController.text,
-                                      mailOptIn: _model.mailOptInValue,
-                                      phoneNumber:
-                                          _model.phoneNumberTextController.text,
+                                      mailOptin: _model.mailOptInValue,
                                       firstName:
                                           _model.firstNameTextController.text,
                                       lastName:
                                           _model.lastNameTextController.text,
+                                      phoneNumber:
+                                          _model.phoneNumberTextController.text,
+                                      password: _model.passwordfieldModel
+                                          .passwordSignUpTextController.text,
                                     );
-                                    if ((_model.signUpOutput?.succeeded ??
+                                    if ((_model.acceptInviteOutput?.succeeded ??
                                         true)) {
-                                      context.pushNamed(
-                                        'ConfirmEmail',
-                                        queryParameters: {
-                                          'email': serializeParam(
-                                            _model.invitationCodeTextController
-                                                .text,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.bottomToTop,
-                                            duration:
-                                                Duration(milliseconds: 60),
-                                          ),
-                                        },
-                                      );
-
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -980,12 +863,24 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                           );
                                         },
                                       );
+
+                                      context.pushNamed(
+                                        'ConfirmEmail',
+                                        queryParameters: {
+                                          'email': serializeParam(
+                                            _model
+                                                .emailSignUpTextController.text,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     } else {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
                                             title: const Text('Error'),
+                                            content: const Text('Please try again'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -1006,7 +901,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                   options: FFButtonOptions(
                                     width: 300.0,
                                     height: 60.0,
-                                    padding: const EdgeInsets.all(24.0),
+                                    padding: const EdgeInsets.all(0.0),
                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,

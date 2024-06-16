@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/globall_widgets/passwordfield/passwordfield_widget.dart';
 import 'accept_invite_widget.dart' show AcceptInviteWidget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
   ///  State fields for stateful widgets in this page.
@@ -15,9 +14,9 @@ class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
   String? Function(BuildContext, String?)?
       invitationCodeTextControllerValidator;
   // State field(s) for emailSignUp widget.
-  FocusNode? emailSignUpFocusNode1;
-  TextEditingController? emailSignUpTextController1;
-  String? Function(BuildContext, String?)? emailSignUpTextController1Validator;
+  FocusNode? emailSignUpFocusNode;
+  TextEditingController? emailSignUpTextController;
+  String? Function(BuildContext, String?)? emailSignUpTextControllerValidator;
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
   TextEditingController? firstNameTextController;
@@ -26,21 +25,16 @@ class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
-  // State field(s) for emailSignUp widget.
-  FocusNode? emailSignUpFocusNode2;
-  TextEditingController? emailSignUpTextController2;
-  String? Function(BuildContext, String?)? emailSignUpTextController2Validator;
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
   TextEditingController? phoneNumberTextController;
-  final phoneNumberMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
   // Model for passwordfield component.
   late PasswordfieldModel passwordfieldModel;
   // State field(s) for mailOptIn widget.
   bool? mailOptInValue;
-  // Stores action output result for [Backend Call - API (addUser)] action in Button widget.
-  ApiCallResponse? signUpOutput;
+  // Stores action output result for [Backend Call - API (acceptInvite)] action in Button widget.
+  ApiCallResponse? acceptInviteOutput;
 
   @override
   void initState(BuildContext context) {
@@ -53,17 +47,14 @@ class AcceptInviteModel extends FlutterFlowModel<AcceptInviteWidget> {
     invitationCodeFocusNode?.dispose();
     invitationCodeTextController?.dispose();
 
-    emailSignUpFocusNode1?.dispose();
-    emailSignUpTextController1?.dispose();
+    emailSignUpFocusNode?.dispose();
+    emailSignUpTextController?.dispose();
 
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
-
-    emailSignUpFocusNode2?.dispose();
-    emailSignUpTextController2?.dispose();
 
     phoneNumberFocusNode?.dispose();
     phoneNumberTextController?.dispose();

@@ -871,11 +871,27 @@ class AddInviteCall {
 }
 
 class AcceptInviteCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? username = '',
+    String? invitationId = '',
+    bool? mailOptin,
+    String? firstName = '',
+    String? lastName = '',
+    String? phoneNumber = '',
+    String? password = '',
+  }) async {
     final baseUrl = TppbGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "invitationId": "$invitationId",
+  "username": "$username",
+  "mailOptin": $mailOptin,
+  "firstName": "$firstName",
+  "lastName": "$lastName",
+  "phoneNumber": "$phoneNumber",
+  "password": "$password"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'acceptInvite',
       apiUrl: '$baseUrl/acceptInvite',

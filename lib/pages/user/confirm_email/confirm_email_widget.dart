@@ -13,7 +13,7 @@ export 'confirm_email_model.dart';
 class ConfirmEmailWidget extends StatefulWidget {
   const ConfirmEmailWidget({
     super.key,
-    required this.email,
+    this.email,
   });
 
   final String? email;
@@ -32,7 +32,11 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
     super.initState();
     _model = createModel(context, () => ConfirmEmailModel());
 
-    _model.emailTextController ??= TextEditingController(text: widget.email);
+    _model.emailTextController ??= TextEditingController(
+        text: valueOrDefault<String>(
+      widget.email,
+      'yourname@example.com',
+    ));
     _model.emailFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

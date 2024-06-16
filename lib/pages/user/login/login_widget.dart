@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/globall_widgets/passwordfield/passwordfield_widget.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -1179,34 +1180,64 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 _model
                                                                     .lastNameTextController
                                                                     .text;
-
-                                                            context.pushNamed(
-                                                              'ConfirmEmail',
-                                                              queryParameters: {
-                                                                'email':
-                                                                    serializeParam(
-                                                                  _model
-                                                                      .emailSignUpTextController
-                                                                      .text,
-                                                                  ParamType
-                                                                      .String,
-                                                                ),
-                                                              }.withoutNulls,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                kTransitionInfoKey:
-                                                                    const TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .bottomToTop,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          60),
-                                                                ),
-                                                              },
-                                                            );
+                                                            var confirmDialogResponse =
+                                                                await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return AlertDialog(
+                                                                          title:
+                                                                              const Text('Agreement'),
+                                                                          content:
+                                                                              const Text('I agree to the terms of use and privacy policy.'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: const Text('Cancel'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: const Text('Agree'),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    ) ??
+                                                                    false;
+                                                            if (confirmDialogResponse) {
+                                                              context.pushNamed(
+                                                                'ConfirmEmail',
+                                                                queryParameters:
+                                                                    {
+                                                                  'email':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .emailSignUpTextController
+                                                                        .text,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      const TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .bottomToTop,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            60),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            } else {
+                                                              context.safePop();
+                                                            }
                                                           } else {
                                                             await showDialog(
                                                               context: context,
@@ -1215,12 +1246,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 return AlertDialog(
                                                                   title: const Text(
                                                                       'Error'),
-                                                                  content: Text(
-                                                                      'Be sure that you put in a country code for your phone number! Error: ${TppbGroup.addUserCall.message(
-                                                                    (_model.signUpOutput
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )}'),
+                                                                  content: const Text(
+                                                                      'Be sure that you put in a country code for your phone number!  The password requires 1 special character, 1 capital letter, 1 number, and 8 characters minimum'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed:
@@ -1291,6 +1318,64 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         ),
                                                       ),
                                                     ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Semantics(
+                                                        label:
+                                                            'Link to legal disclosures and agreements',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            unawaited(
+                                                              () async {
+                                                                await launchURL(
+                                                                    'https://thepurplepiggybank.com/legal');
+                                                              }(),
+                                                            );
+                                                          },
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '7kx1mid1' /* Legal Stuff */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  decoration:
+                                                                      TextDecoration
+                                                                          .underline,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),
@@ -1379,42 +1464,207 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0,
                                                                   0.0,
                                                                   16.0),
+                                                      child: Semantics(
+                                                        label: 'Email Field',
+                                                        child: SizedBox(
+                                                          width:
+                                                              double.infinity,
+                                                          child: TextFormField(
+                                                            controller: _model
+                                                                .emailAddressSignInTextController,
+                                                            focusNode: _model
+                                                                .emailAddressSignInFocusNode,
+                                                            onFieldSubmitted:
+                                                                (_) async {
+                                                              setState(() {
+                                                                _model.emailAddressSignInTextController
+                                                                        ?.text =
+                                                                    _model
+                                                                        .emailAddressSignInTextController
+                                                                        .text;
+                                                                _model.emailAddressSignInTextController
+                                                                        ?.selection =
+                                                                    TextSelection.collapsed(
+                                                                        offset: _model
+                                                                            .emailAddressSignInTextController!
+                                                                            .text
+                                                                            .length);
+                                                              });
+                                                            },
+                                                            autofocus: true,
+                                                            autofillHints: const [
+                                                              AutofillHints
+                                                                  .email
+                                                            ],
+                                                            obscureText: false,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelText:
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                'f6rvgfs7' /* Email */,
+                                                              ),
+                                                              labelStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                      ),
+                                                              alignLabelWithHint:
+                                                                  false,
+                                                              enabledBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              focusedBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              errorBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              filled: true,
+                                                              fillColor: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              contentPadding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyLargeFamily),
+                                                                ),
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .emailAddress,
+                                                            cursorColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                            validator: _model
+                                                                .emailAddressSignInTextControllerValidator
+                                                                .asValidator(
+                                                                    context),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
+                                                    child: Semantics(
+                                                      label: 'Password Field',
                                                       child: SizedBox(
                                                         width: double.infinity,
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .emailAddressSignInTextController,
+                                                              .passwordSigninTextController,
                                                           focusNode: _model
-                                                              .emailAddressSignInFocusNode,
+                                                              .passwordSigninFocusNode,
                                                           onFieldSubmitted:
                                                               (_) async {
                                                             setState(() {
-                                                              _model.emailAddressSignInTextController
+                                                              _model.passwordSigninTextController
                                                                       ?.text =
                                                                   _model
-                                                                      .emailAddressSignInTextController
+                                                                      .passwordSigninTextController
                                                                       .text;
-                                                              _model.emailAddressSignInTextController
+                                                              _model.passwordSigninTextController
                                                                       ?.selection =
                                                                   TextSelection.collapsed(
                                                                       offset: _model
-                                                                          .emailAddressSignInTextController!
+                                                                          .passwordSigninTextController!
                                                                           .text
                                                                           .length);
                                                             });
                                                           },
                                                           autofocus: true,
                                                           autofillHints: const [
-                                                            AutofillHints.email
+                                                            AutofillHints
+                                                                .password
                                                           ],
-                                                          obscureText: false,
+                                                          obscureText: !_model
+                                                              .passwordSigninVisibility,
                                                           decoration:
                                                               InputDecoration(
                                                             labelText:
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                              'f6rvgfs7' /* Email */,
+                                                              'af2n62ur' /* Password */,
                                                             ),
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
@@ -1434,8 +1684,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           .containsKey(
                                                                               FlutterFlowTheme.of(context).labelLargeFamily),
                                                                     ),
-                                                            alignLabelWithHint:
-                                                                false,
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
@@ -1503,6 +1751,29 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
+                                                            suffixIcon: InkWell(
+                                                              onTap: () =>
+                                                                  setState(
+                                                                () => _model
+                                                                        .passwordSigninVisibility =
+                                                                    !_model
+                                                                        .passwordSigninVisibility,
+                                                              ),
+                                                              focusNode: FocusNode(
+                                                                  skipTraversal:
+                                                                      true),
+                                                              child: Icon(
+                                                                _model.passwordSigninVisibility
+                                                                    ? Icons
+                                                                        .visibility_outlined
+                                                                    : Icons
+                                                                        .visibility_off_outlined,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 24.0,
+                                                              ),
+                                                            ),
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1519,388 +1790,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyLargeFamily),
                                                               ),
-                                                          keyboardType:
-                                                              TextInputType
-                                                                  .emailAddress,
                                                           cursorColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .primary,
                                                           validator: _model
-                                                              .emailAddressSignInTextControllerValidator
+                                                              .passwordSigninTextControllerValidator
                                                               .asValidator(
                                                                   context),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 16.0),
-                                                    child: SizedBox(
-                                                      width: double.infinity,
-                                                      child: TextFormField(
-                                                        controller: _model
-                                                            .passwordSigninTextController,
-                                                        focusNode: _model
-                                                            .passwordSigninFocusNode,
-                                                        onFieldSubmitted:
-                                                            (_) async {
-                                                          setState(() {
-                                                            _model.passwordSigninTextController
-                                                                    ?.text =
-                                                                _model
-                                                                    .passwordSigninTextController
-                                                                    .text;
-                                                            _model.passwordSigninTextController
-                                                                    ?.selection =
-                                                                TextSelection.collapsed(
-                                                                    offset: _model
-                                                                        .passwordSigninTextController!
-                                                                        .text
-                                                                        .length);
-                                                          });
-                                                        },
-                                                        autofocus: true,
-                                                        autofillHints: const [
-                                                          AutofillHints.password
-                                                        ],
-                                                        obscureText: !_model
-                                                            .passwordSigninVisibility,
-                                                        decoration:
-                                                            InputDecoration(
-                                                          labelText:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'af2n62ur' /* Password */,
-                                                          ),
-                                                          labelStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                  ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          filled: true,
-                                                          fillColor: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          contentPadding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          suffixIcon: InkWell(
-                                                            onTap: () =>
-                                                                setState(
-                                                              () => _model
-                                                                      .passwordSigninVisibility =
-                                                                  !_model
-                                                                      .passwordSigninVisibility,
-                                                            ),
-                                                            focusNode: FocusNode(
-                                                                skipTraversal:
-                                                                    true),
-                                                            child: Icon(
-                                                              _model.passwordSigninVisibility
-                                                                  ? Icons
-                                                                      .visibility_outlined
-                                                                  : Icons
-                                                                      .visibility_off_outlined,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLarge
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLargeFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily),
-                                                                ),
-                                                        cursorColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        validator: _model
-                                                            .passwordSigninTextControllerValidator
-                                                            .asValidator(
-                                                                context),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  16.0),
-                                                      child: FFButtonWidget(
-                                                        onPressed: () async {
-                                                          Function() navigate =
-                                                              () {};
-                                                          _model.loginOutput =
-                                                              await TppbGroup
-                                                                  .loginCall
-                                                                  .call(
-                                                            username: _model
-                                                                .emailAddressSignInTextController
-                                                                .text,
-                                                            password: _model
-                                                                .passwordSigninTextController
-                                                                .text,
-                                                          );
-                                                          if ((_model
-                                                                  .loginOutput
-                                                                  ?.succeeded ??
-                                                              true)) {
-                                                            await actions
-                                                                .updateExpiresAtAction(
-                                                              context,
-                                                            );
-                                                            GoRouter.of(context)
-                                                                .prepareAuthEvent();
-                                                            await authManager
-                                                                .signIn(
-                                                              authenticationToken:
-                                                                  TppbGroup
-                                                                      .loginCall
-                                                                      .accessToken(
-                                                                (_model.loginOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ),
-                                                              refreshToken:
-                                                                  TppbGroup
-                                                                      .loginCall
-                                                                      .refreshToken(
-                                                                (_model.loginOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ),
-                                                              tokenExpiration:
-                                                                  FFAppState()
-                                                                      .expiresAt,
-                                                              authUid: _model
-                                                                  .emailAddressSignInTextController
-                                                                  .text,
-                                                              userData:
-                                                                  UserStruct(
-                                                                accessToken: TppbGroup
-                                                                    .loginCall
-                                                                    .accessToken(
-                                                                  (_model.loginOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ),
-                                                                expiresIn: TppbGroup
-                                                                    .loginCall
-                                                                    .expiresIn(
-                                                                  (_model.loginOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ),
-                                                                idToken: TppbGroup
-                                                                    .loginCall
-                                                                    .idToken(
-                                                                  (_model.loginOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ),
-                                                                refreshToken:
-                                                                    TppbGroup
-                                                                        .loginCall
-                                                                        .refreshToken(
-                                                                  (_model.loginOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ),
-                                                                tokenType:
-                                                                    'Bearer',
-                                                              ),
-                                                            );
-                                                            navigate = () =>
-                                                                context.goNamedAuth(
-                                                                    'Ledger',
-                                                                    context
-                                                                        .mounted);
-                                                          } else {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: const Text(
-                                                                      'Error'),
-                                                                  content: Text(
-                                                                      'Failed to log In. Check Your Username and Password and try again. ${TppbGroup.loginCall.message(
-                                                                    (_model.loginOutput
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )}'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: const Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
-                                                          }
-
-                                                          navigate();
-
-                                                          setState(() {});
-                                                        },
-                                                        text:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          'klva35si' /* Sign In */,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 230.0,
-                                                          height: 52.0,
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleSmallFamily,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily),
-                                                                  ),
-                                                          elevation: 3.0,
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
                                                         ),
                                                       ),
                                                     ),
@@ -1918,42 +1815,146 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0,
                                                                   16.0),
                                                       child: Semantics(
-                                                        label:
-                                                            'Forgot Password',
+                                                        label: 'Sign In',
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
-                                                            context.pushNamed(
-                                                              'ForgotPassword',
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                kTransitionInfoKey:
-                                                                    const TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .bottomToTop,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          30),
-                                                                ),
-                                                              },
+                                                            Function()
+                                                                navigate =
+                                                                () {};
+                                                            _model.loginOutput =
+                                                                await TppbGroup
+                                                                    .loginCall
+                                                                    .call(
+                                                              username: _model
+                                                                  .emailAddressSignInTextController
+                                                                  .text,
+                                                              password: _model
+                                                                  .passwordSigninTextController
+                                                                  .text,
                                                             );
+                                                            if ((_model
+                                                                    .loginOutput
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              await actions
+                                                                  .updateExpiresAtAction(
+                                                                context,
+                                                              );
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .prepareAuthEvent();
+                                                              await authManager
+                                                                  .signIn(
+                                                                authenticationToken:
+                                                                    TppbGroup
+                                                                        .loginCall
+                                                                        .accessToken(
+                                                                  (_model.loginOutput
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ),
+                                                                refreshToken:
+                                                                    TppbGroup
+                                                                        .loginCall
+                                                                        .refreshToken(
+                                                                  (_model.loginOutput
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ),
+                                                                tokenExpiration:
+                                                                    FFAppState()
+                                                                        .expiresAt,
+                                                                authUid: _model
+                                                                    .emailAddressSignInTextController
+                                                                    .text,
+                                                                userData:
+                                                                    UserStruct(
+                                                                  accessToken: TppbGroup
+                                                                      .loginCall
+                                                                      .accessToken(
+                                                                    (_model.loginOutput
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  expiresIn: TppbGroup
+                                                                      .loginCall
+                                                                      .expiresIn(
+                                                                    (_model.loginOutput
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  idToken: TppbGroup
+                                                                      .loginCall
+                                                                      .idToken(
+                                                                    (_model.loginOutput
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  refreshToken:
+                                                                      TppbGroup
+                                                                          .loginCall
+                                                                          .refreshToken(
+                                                                    (_model.loginOutput
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  tokenType:
+                                                                      'Bearer',
+                                                                ),
+                                                              );
+                                                              navigate = () =>
+                                                                  context.goNamedAuth(
+                                                                      'Ledger',
+                                                                      context
+                                                                          .mounted);
+                                                            } else {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    title: const Text(
+                                                                        'Error'),
+                                                                    content: Text(
+                                                                        'Failed to log In. Check Your Username and Password and try again. ${TppbGroup.loginCall.message(
+                                                                      (_model.loginOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: const Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
+                                                              );
+                                                            }
+
+                                                            navigate();
+
+                                                            setState(() {});
                                                           },
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'i0bf9sho' /* Forgot Password? */,
+                                                            'klva35si' /* Sign In */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
-                                                            height: 44.0,
+                                                            width: 230.0,
+                                                            height: 52.0,
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        32.0,
                                                                         0.0,
-                                                                        32.0,
+                                                                        0.0,
+                                                                        0.0,
                                                                         0.0),
                                                             iconPadding:
                                                                 const EdgeInsetsDirectional
@@ -1964,9 +1965,111 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryBackground,
+                                                                .primary,
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                    ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      16.0),
+                                                          child: Semantics(
+                                                            label:
+                                                                'Forgot Password',
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'ForgotPassword',
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    kTransitionInfoKey:
+                                                                        const TransitionInfo(
+                                                                      hasTransition:
+                                                                          true,
+                                                                      transitionType:
+                                                                          PageTransitionType
+                                                                              .bottomToTop,
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              30),
+                                                                    ),
+                                                                  },
+                                                                );
+                                                              },
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'i0bf9sho' /* Forgot Password? */,
+                                                              ),
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                width: 180.0,
+                                                                height: 44.0,
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        32.0,
+                                                                        0.0,
+                                                                        32.0,
+                                                                        0.0),
+                                                                iconPadding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
@@ -1983,19 +2086,113 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           .containsKey(
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
-                                                            elevation: 0.0,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        40.0),
-                                                            hoverColor:
-                                                                FlutterFlowTheme.of(
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            40.0),
+                                                                hoverColor: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      16.0),
+                                                          child: Semantics(
+                                                            label:
+                                                                'Accept Invitation',
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'AcceptInvite',
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    kTransitionInfoKey:
+                                                                        const TransitionInfo(
+                                                                      hasTransition:
+                                                                          true,
+                                                                      transitionType:
+                                                                          PageTransitionType
+                                                                              .bottomToTop,
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              30),
+                                                                    ),
+                                                                  },
+                                                                );
+                                                              },
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'iyfjsk7h' /* Accept Invitation */,
+                                                              ),
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                width: 180.0,
+                                                                height: 44.0,
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        32.0,
+                                                                        0.0,
+                                                                        32.0,
+                                                                        0.0),
+                                                                iconPadding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            40.0),
+                                                                hoverColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   Align(
                                                     alignment:
@@ -2008,7 +2205,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
-                                                                  16.0),
+                                                                  32.0),
                                                       child: Semantics(
                                                         label: 'Verify Email',
                                                         child: FFButtonWidget(
@@ -2096,6 +2293,64 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         ),
                                                       ),
                                                     ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Semantics(
+                                                        label:
+                                                            'Open legal disclosures and agreements',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            unawaited(
+                                                              () async {
+                                                                await launchURL(
+                                                                    'https://thepurplepiggybank.com/legal');
+                                                              }(),
+                                                            );
+                                                          },
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'kfoiiu67' /* Legal Stuff */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  decoration:
+                                                                      TextDecoration
+                                                                          .underline,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),
