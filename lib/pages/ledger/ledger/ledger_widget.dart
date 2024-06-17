@@ -13,6 +13,7 @@ import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ledger_model.dart';
@@ -34,6 +35,62 @@ class _LedgerWidgetState extends State<LedgerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LedgerModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      Function() navigate = () {};
+      if (!ledgerGetHouseholdResponse.succeeded) {
+        if (ledgerGetHouseholdResponse.statusCode == 401) {
+          _model.refreshTokenOutput = await TppbGroup.refreshTokenCall.call(
+            authorizationToken: currentAuthenticationToken,
+            refreshToken: currentAuthRefreshToken,
+          );
+          if ((_model.refreshTokenOutput?.succeeded ?? true)) {
+            authManager.updateAuthUserData(
+              authenticationToken: TppbGroup.refreshTokenCall.accessToken(
+                (_model.refreshTokenOutput?.jsonBody ?? ''),
+              ),
+              refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+                (_model.refreshTokenOutput?.jsonBody ?? ''),
+              ),
+              tokenExpiration: functions.updateExpireAtAction(),
+              authUid: currentUserUid,
+            );
+            GoRouter.of(context).prepareAuthEvent();
+            await authManager.signIn(
+              authenticationToken: currentAuthenticationToken,
+              refreshToken: currentAuthRefreshToken,
+              tokenExpiration: currentAuthTokenExpiration,
+              authUid: currentUserUid,
+            );
+            navigate = () => context.goNamedAuth('Ledger', context.mounted);
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return AlertDialog(
+                  title: const Text('You have been signed out'),
+                  content: const Text('Log back in'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: const Text('Ok'),
+                    ),
+                  ],
+                );
+              },
+            );
+            GoRouter.of(context).prepareAuthEvent();
+            await authManager.signOut();
+            GoRouter.of(context).clearRedirectLocation();
+
+            navigate = () => context.goNamedAuth('Login', context.mounted);
+          }
+        }
+      }
+
+      navigate();
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

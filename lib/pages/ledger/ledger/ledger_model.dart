@@ -20,6 +20,8 @@ class LedgerModel extends FlutterFlowModel<LedgerWidget> {
   ///  State fields for stateful widgets in this page.
 
   TutorialCoachMark? ledgerController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in Ledger widget.
+  ApiCallResponse? refreshTokenOutput;
   // State field(s) for HouseholdIdDropDown widget.
   String? householdIdDropDownValue;
   FormFieldController<String>? householdIdDropDownValueController;

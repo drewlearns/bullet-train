@@ -2340,7 +2340,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Halaga*',
       'zh_Hans': '数量*',
     },
-    '701848re': {
+    'b2sunboq': {
       'en': '0.00',
       'es': '',
       'fr': '',
@@ -2756,26 +2756,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '',
       'zh_Hans': '',
     },
-    'rhb6rnf2': {
+    'a6fulzbw': {
       'en': 'Option 1',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Opción 1',
+      'fr': 'Option 1',
+      'tl': 'Opsyon 1',
+      'zh_Hans': '选项1',
     },
     'gfyxrxzd': {
       'en': 'Please select...',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
     },
     'm5857s2k': {
       'en': 'Search for an item...',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
     },
     'b31429dd': {
       'en': 'Account Type',
@@ -3255,7 +3255,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pangalan ng Sambahayan:',
       'zh_Hans': '户名：',
     },
-    'a6fulzbw': {
+    'rhb6rnf2': {
       'en': 'Option 1',
       'es': 'Opción 1',
       'fr': 'Option 1',
@@ -3374,7 +3374,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pakipili...',
       'zh_Hans': '请选择...',
     },
-    '1omopv6c': {
+    'wx8uymg1': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',
@@ -3412,7 +3412,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Threshold',
       'zh_Hans': '临界点',
     },
-    '6urjym7g': {
+    '2cmw9w8r': {
       'en': 'Option 1',
       'es': 'Opción 1',
       'fr': 'Option 1',
@@ -3440,7 +3440,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pumili ng Sambahayan*',
       'zh_Hans': '选择家庭*',
     },
-    '2cmw9w8r': {
+    '6urjym7g': {
       'en': 'Option 1',
       'es': 'Opción 1',
       'fr': 'Option 1',
@@ -3848,7 +3848,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Kategorya',
       'zh_Hans': '类别',
     },
-    'lgabw4oo': {
+    'hjml47q6': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',
@@ -3956,7 +3956,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pakipili...',
       'zh_Hans': '请选择...',
     },
-    'l3ozfx1n': {
+    '4trhb7bw': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',
@@ -3991,7 +3991,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'I-export Sa CSV',
       'zh_Hans': '导出至 CSV',
     },
-    'x99vtcpk': {
+    'v7igkcu5': {
       'en': 'Home',
       'es': 'Hogar',
       'fr': 'Maison',
@@ -4001,7 +4001,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ExportToQBOFile
   {
-    '6r789xcd': {
+    'cqqjrhda': {
       'en': 'Option 1',
       'es': 'Opción 1',
       'fr': 'Option 1',
@@ -4015,7 +4015,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pakipili...',
       'zh_Hans': '请选择...',
     },
-    'u1z5zcpm': {
+    'p14n3kze': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',
@@ -4050,7 +4050,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'I-export sa QBO',
       'zh_Hans': '导出至 QBO',
     },
-    '2lfzp5lt': {
+    '9wx2z0jy': {
       'en': 'Home',
       'es': 'Hogar',
       'fr': 'Maison',
@@ -4248,7 +4248,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Pakipili...',
       'zh_Hans': '请选择...',
     },
-    'l01zt3l8': {
+    'akmlsopz': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',

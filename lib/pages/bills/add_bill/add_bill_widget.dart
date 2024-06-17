@@ -410,7 +410,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          '701848re' /* 0.00 */,
+                                          'b2sunboq' /* 0.00 */,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium

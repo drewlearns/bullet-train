@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'bills_model.dart';
 export 'bills_model.dart';
@@ -30,6 +31,30 @@ class _BillsWidgetState extends State<BillsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => BillsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (!billsGetHouseholdResponse.succeeded) {
+        if (billsGetHouseholdResponse.statusCode == 401) {
+          _model.refreshTokenOutput = await TppbGroup.refreshTokenCall.call(
+            authorizationToken: currentAuthenticationToken,
+            refreshToken: currentAuthRefreshToken,
+          );
+          if ((_model.refreshTokenOutput?.succeeded ?? true) == false) {
+            authManager.updateAuthUserData(
+              authenticationToken: TppbGroup.refreshTokenCall.accessToken(
+                (_model.refreshTokenOutput?.jsonBody ?? ''),
+              ),
+              refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+                (_model.refreshTokenOutput?.jsonBody ?? ''),
+              ),
+              tokenExpiration: functions.updateExpireAtAction(),
+              authUid: currentUserUid,
+            );
+          }
+        }
+      }
+    });
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -181,50 +206,8 @@ class _BillsWidgetState extends State<BillsWidget>
                                         .householdName(
                                       billsGetHouseholdResponse.jsonBody,
                                     )!,
-                                    onChanged: (val) async {
-                                      setState(() => _model
-                                          .getHouseholdDropDownValue = val);
-                                      if (!billsGetHouseholdResponse
-                                          .succeeded) {
-                                        if (billsGetHouseholdResponse
-                                                .statusCode ==
-                                            401) {
-                                          _model.refreshTokenOutput =
-                                              await TppbGroup.refreshTokenCall
-                                                  .call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                            refreshToken:
-                                                currentAuthRefreshToken,
-                                          );
-                                          if ((_model.refreshTokenOutput
-                                                  ?.succeeded ??
-                                              true)) {
-                                            authManager.updateAuthUserData(
-                                              authenticationToken: TppbGroup
-                                                  .refreshTokenCall
-                                                  .accessToken(
-                                                (_model.refreshTokenOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
-                                              refreshToken: TppbGroup
-                                                  .refreshTokenCall
-                                                  .refreshToken(
-                                                (_model.refreshTokenOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
-                                              tokenExpiration: functions
-                                                  .updateExpireAtAction(),
-                                              authUid: currentUserUid,
-                                            );
-                                          }
-                                        }
-                                      }
-
-                                      setState(() {});
-                                    },
+                                    onChanged: (val) => setState(() =>
+                                        _model.getHouseholdDropDownValue = val),
                                     width: 300.0,
                                     height: 56.0,
                                     textStyle: FlutterFlowTheme.of(context)
