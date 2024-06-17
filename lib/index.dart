@@ -24,7 +24,7 @@ export '/pages/preferences/settings/settings_widget.dart' show SettingsWidget;
 export '/pages/income/incomes/incomes_widget.dart' show IncomesWidget;
 export '/pages/payment_sources/payment_sources/payment_sources_widget.dart'
     show PaymentSourcesWidget;
-export '/export/export_widget.dart' show ExportWidget;
+export '/pages/reporting/export/export_widget.dart' show ExportWidget;
 export '/pages/bills/bills/bills_widget.dart' show BillsWidget;
 export '/pages/bills/bill_details/bill_details_widget.dart'
     show BillDetailsWidget;
@@ -37,16 +37,26 @@ export '/pages/notifications/notifications/notifications_widget.dart'
     show NotificationsWidget;
 export '/pages/ledger/categories/categories_widget.dart' show CategoriesWidget;
 export '/pages/bills/add_bill/add_bill_widget.dart' show AddBillWidget;
-export '/payment_source_details/payment_source_details_widget.dart'
+export '/pages/payment_sources/payment_source_details/payment_source_details_widget.dart'
     show PaymentSourceDetailsWidget;
 export '/pages/ledger/query_transactions/query_transactions_widget.dart'
     show QueryTransactionsWidget;
 export '/pages/bills/edit_bill/edit_bill_widget.dart' show EditBillWidget;
-export '/edit_income/edit_income_widget.dart' show EditIncomeWidget;
+export '/pages/income/edit_income/edit_income_widget.dart'
+    show EditIncomeWidget;
 export '/pages/threshold/threshold/threshold_widget.dart' show ThresholdWidget;
 export '/pages/notifications/edit_notification/edit_notification_widget.dart'
     show EditNotificationWidget;
 export '/pages/ledger/edit_transaction/edit_transaction_widget.dart'
     show EditTransactionWidget;
-export '/edit_household/edit_household_widget.dart' show EditHouseholdWidget;
-export '/delete_user/delete_user_widget.dart' show DeleteUserWidget;
+export '/pages/household/edit_household/edit_household_widget.dart'
+    show EditHouseholdWidget;
+export '/pages/user/delete_user/delete_user_widget.dart' show DeleteUserWidget;
+export '/pages/reporting/export_search/export_search_widget.dart'
+    show ExportSearchWidget;
+export '/pages/user/change_password/change_password_widget.dart'
+    show ChangePasswordWidget;
+export '/pages/reporting/export_to_c_s_v/export_to_c_s_v_widget.dart'
+    show ExportToCSVWidget;
+export '/pages/reporting/export_to_q_b_o_file/export_to_q_b_o_file_widget.dart'
+    show ExportToQBOFileWidget;

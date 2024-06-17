@@ -173,8 +173,6 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                                   );
                                 },
                               );
-
-                              context.pushNamed('Ledger');
                             } else {
                               await showDialog(
                                 context: context,
@@ -197,6 +195,8 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                                 },
                               );
                             }
+
+                            context.pushNamed('Ledger');
 
                             setState(() {});
                           },

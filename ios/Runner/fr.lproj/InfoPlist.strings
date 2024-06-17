@@ -1,1 +1,2 @@
-
+NSCameraUsageDescription = "Veuillez fournir un accès à la caméra afin que vous puissiez télécharger les reçus.";
+NSPhotoLibraryUsageDescription = "Veuillez donner accès à la photothèque afin que vous puissiez télécharger les reçus.";

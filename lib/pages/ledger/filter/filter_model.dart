@@ -4,6 +4,22 @@ import 'filter_widget.dart' show FilterWidget;
 import 'package:flutter/material.dart';
 
 class FilterModel extends FlutterFlowModel<FilterWidget> {
+  ///  Local state fields for this component.
+
+  double? minAmount;
+
+  double? maxAmount;
+
+  String? searchTerm;
+
+  bool cleardOnly = false;
+
+  bool currentMonthOnly = false;
+
+  String? month;
+
+  int? year;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Slider widget.

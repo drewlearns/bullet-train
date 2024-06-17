@@ -108,7 +108,15 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          context.pushNamed('EditIncome');
+                          context.pushNamed(
+                            'EditIncome',
+                            queryParameters: {
+                              'incomeId': serializeParam(
+                                widget.incomeId,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                       ),
                     ],

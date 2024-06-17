@@ -1,1 +1,2 @@
-
+NSCameraUsageDescription = "Proporcione acceso a la cámara para poder cargar recibos";
+NSPhotoLibraryUsageDescription = "Proporcione acceso a la biblioteca de fotos para poder cargar recibos.";

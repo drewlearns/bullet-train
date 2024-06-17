@@ -54,10 +54,7 @@
     <string>Please provide Camera access so you can upload receipts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>In order to upload data, this app requires permission to access the photo library.</string>
-	<key>NSFaceIDUsageDescription</key>
-    <string>Please provide Biometrics access for quicker login</string>
-	<key>NSCalendarsUsageDescription</key>
-    <string>Please provide Calendar access for bills</string>
+
 
 
 	<key>UILaunchStoryboardName</key>

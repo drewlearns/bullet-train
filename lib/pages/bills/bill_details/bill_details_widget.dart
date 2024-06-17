@@ -313,12 +313,18 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget>
                                                     ),
                                                     Text(
                                                       valueOrDefault<String>(
-                                                        TppbGroup.getBillCall
-                                                            .amount(
-                                                              billDetailsGetBillResponse
-                                                                  .jsonBody,
-                                                            )
-                                                            ?.toString(),
+                                                        formatNumber(
+                                                          TppbGroup.getBillCall
+                                                              .amount(
+                                                            billDetailsGetBillResponse
+                                                                .jsonBody,
+                                                          ),
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          currency: '',
+                                                          format: '#,###.##',
+                                                          locale: '',
+                                                        ),
                                                         'Loading...',
                                                       ),
                                                       style:

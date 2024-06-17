@@ -1,1 +1,2 @@
-
+NSCameraUsageDescription = "请提供相机访问权限，以便您上传收据";
+NSPhotoLibraryUsageDescription = "请提供照片库的访问权限，以便您上传收据";

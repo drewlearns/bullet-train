@@ -891,6 +891,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'I-update ang Profile',
       'zh_Hans': '更新个人信息',
     },
+    '1na566zp': {
+      'en': 'Permanently Delete Account',
+      'es': 'Actualización del perfil',
+      'fr': 'Mettre à jour le profil',
+      'tl': 'I-update ang Profile',
+      'zh_Hans': '更新个人信息',
+    },
     'ihlfs3p2': {
       'en': 'Edit Profile',
       'es': 'Editar perfil',
@@ -1041,14 +1048,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Settings
   {
     'dqng4nv7': {
-      'en': 'Change Email / Phone number',
+      'en': 'Edit Account Details',
       'es': 'Cambiar correo electrónico/número de teléfono',
       'fr': 'Changer l\'e-mail / le numéro de téléphone',
       'tl': 'Baguhin ang Email / Numero ng Telepono',
       'zh_Hans': '更改电子邮箱 / 电话号码',
     },
+    'z9jjich5': {
+      'en': 'Change Password',
+      'es': 'Notificaciones',
+      'fr': 'Notifications',
+      'tl': 'Mga abiso',
+      'zh_Hans': '通知',
+    },
     'urvy98o6': {
       'en': 'Add Household',
+      'es': 'Agregar hogar',
+      'fr': 'Ajouter un foyer',
+      'tl': 'Magdagdag ng Sambahayan',
+      'zh_Hans': '添加家庭',
+    },
+    '35u78bl5': {
+      'en': 'Edit Household Name',
       'es': 'Agregar hogar',
       'fr': 'Ajouter un foyer',
       'tl': 'Magdagdag ng Sambahayan',
@@ -1077,6 +1098,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kewqnqb6': {
       'en': 'Notifications',
+      'es': 'Notificaciones',
+      'fr': 'Notifications',
+      'tl': 'Mga abiso',
+      'zh_Hans': '通知',
+    },
+    'nnu5fk2j': {
+      'en': 'Export to File',
       'es': 'Notificaciones',
       'fr': 'Notifications',
       'tl': 'Mga abiso',
@@ -1230,6 +1258,48 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Exporter',
       'tl': 'I-export',
       'zh_Hans': '出口',
+    },
+    'xjwfr193': {
+      'en': 'Please select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    '3pahna02': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    'ufmj808m': {
+      'en': 'Household',
+      'es': 'Familiar',
+      'fr': 'Ménage',
+      'tl': 'Sambahayan',
+      'zh_Hans': '家庭',
+    },
+    '76rgnrdt': {
+      'en': 'Export Ledger To CSV File',
+      'es': 'Editar miembros',
+      'fr': 'Modifier les membres',
+      'tl': 'I-edit ang mga Miyembro',
+      'zh_Hans': '編輯成員',
+    },
+    'ik5ptum9': {
+      'en': 'Export Ledger To QBO File',
+      'es': 'Billetera',
+      'fr': 'Portefeuille',
+      'tl': 'Wallet',
+      'zh_Hans': '钱包',
+    },
+    'y7w3c8dk': {
+      'en': 'Export Search',
+      'es': 'Notificaciones',
+      'fr': 'Notifications',
+      'tl': 'Mga abiso',
+      'zh_Hans': '通知',
     },
     '5159rhj6': {
       'en': 'Reports',
@@ -1577,7 +1647,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '更新于',
     },
     '46nxfr7m': {
-      'en': 'Transaction Details',
+      'en': 'Transaction',
       'es': 'Detalles de la transacción',
       'fr': 'détails de la transaction',
       'tl': 'Mga Detalye ng Transaksyon',
@@ -1660,21 +1730,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // AddIncome
   {
     'we9ipn6g': {
-      'en': 'Income Name',
+      'en': 'Income Name*',
       'es': 'Nombre de ingresos',
       'fr': 'Nom du revenu',
       'tl': 'Pangalan ng Kita',
       'zh_Hans': '收入名称',
     },
     'rc7sf4xp': {
-      'en': 'Description',
+      'en': 'Description*',
       'es': 'Descripción',
       'fr': 'Description',
       'tl': 'Paglalarawan',
       'zh_Hans': '描述',
     },
     'zx7xm0en': {
-      'en': 'Amount',
+      'en': 'Amount*',
       'es': 'Cantidad',
       'fr': 'Montant',
       'tl': 'Halaga',
@@ -1730,7 +1800,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '每年',
     },
     'xlitdyv6': {
-      'en': 'How Often Do You Get Paid?',
+      'en': 'How Often Do You Get Paid?*',
       'es': '¿Con qué frecuencia le pagan?',
       'fr': 'À quelle fréquence recevez-vous votre salaire?',
       'tl': 'Gaano Ka kadalas Nababayaran?',
@@ -1793,7 +1863,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '每年',
     },
     'kb9e4o15': {
-      'en': 'Connect To Payment Source',
+      'en': 'Connect To Wallet*',
       'es': 'Conectarse a la fuente de pago',
       'fr': 'Connectez-vous à la source de paiement',
       'tl': 'Kumonekta sa Pinagmulan ng Pagbabayad',
@@ -2270,6 +2340,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Halaga*',
       'zh_Hans': '数量*',
     },
+    '701848re': {
+      'en': '0.00',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     '2d2ku081': {
       'en': 'Category',
       'es': 'Categoría',
@@ -2516,7 +2593,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '搜索商品...',
     },
     '23t6m2gy': {
-      'en': 'Day Of the Month Due*',
+      'en': 'Most Recent Day Of the Month Due*',
       'es': 'Día del mes de vencimiento*',
       'fr': 'Jour du mois dû*',
       'tl': 'Araw ng Buwan na Nakatakda*',
@@ -2665,6 +2742,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PaymentSourceDetails
   {
+    'qiek02k1': {
+      'en': 'Name',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'fhbpi6gf': {
+      'en': 'Household',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'rhb6rnf2': {
+      'en': 'Option 1',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'gfyxrxzd': {
+      'en': 'Please select...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'm5857s2k': {
+      'en': 'Search for an item...',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'b31429dd': {
+      'en': 'Account Type',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
+    'zrhnu1xa': {
+      'en': 'Edit Wallet',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     '4v6caq3g': {
       'en': 'Wallet Details',
       'es': 'Detalles de la billetera',
@@ -3108,6 +3234,160 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EditIncome
   {
+    'slfti9ua': {
+      'en': 'Income Name: ',
+      'es': 'Nombre de ingresos:',
+      'fr': 'Nom du revenu :',
+      'tl': 'Pangalan ng Kita:',
+      'zh_Hans': '收入名称：',
+    },
+    'bdvo5u05': {
+      'en': 'Amount: ',
+      'es': 'Cantidad:',
+      'fr': 'Montant:',
+      'tl': 'Halaga:',
+      'zh_Hans': '数量：',
+    },
+    'wp18ahkw': {
+      'en': 'Household Name: ',
+      'es': 'Nombre del hogar:',
+      'fr': 'Nom du ménage :',
+      'tl': 'Pangalan ng Sambahayan:',
+      'zh_Hans': '户名：',
+    },
+    'a6fulzbw': {
+      'en': 'Option 1',
+      'es': 'Opción 1',
+      'fr': 'Option 1',
+      'tl': 'Opsyon 1',
+      'zh_Hans': '选项1',
+    },
+    'wej33rpn': {
+      'en': 'Please select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    '1zfgjxya': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    'jidn0zts': {
+      'en': 'Wallet Name: ',
+      'es': 'Nombre de la billetera:',
+      'fr': 'Nom du portefeuille :',
+      'tl': 'Pangalan ng Wallet:',
+      'zh_Hans': '钱包名称：',
+    },
+    's3kx2b9w': {
+      'en': 'Option 1',
+      'es': 'Opción 1',
+      'fr': 'Option 1',
+      'tl': 'Opsyon 1',
+      'zh_Hans': '选项1',
+    },
+    '4ecln74v': {
+      'en': 'Please select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    'taxnrh9c': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    'paqbj4mh': {
+      'en': 'First Pay Day: ',
+      'es': 'Primer día de pago:',
+      'fr': 'Premier jour de paie :',
+      'tl': 'Unang Araw ng Sahod:',
+      'zh_Hans': '第一个发薪日：',
+    },
+    'nkr9z4bs': {
+      'en': 'Frequency: ',
+      'es': 'Frecuencia:',
+      'fr': 'Fréquence:',
+      'tl': 'Dalas:',
+      'zh_Hans': '频率：',
+    },
+    '2lb1v7oo': {
+      'en': 'Once',
+      'es': 'Una vez',
+      'fr': 'Une fois',
+      'tl': 'minsan',
+      'zh_Hans': '一次',
+    },
+    'grvuzmwa': {
+      'en': 'Weekly - every 7 days',
+      'es': 'Semanal - cada 7 días',
+      'fr': 'Hebdomadaire - tous les 7 jours',
+      'tl': 'Lingguhan - tuwing 7 araw',
+      'zh_Hans': '每周 - 每 7 天',
+    },
+    'su1m2yvw': {
+      'en': 'Biweekly - every 14 days',
+      'es': 'Quincenal - cada 14 días',
+      'fr': 'Bihebdomadaire - tous les 14 jours',
+      'tl': 'Biweekly - bawat 14 na araw',
+      'zh_Hans': '每两周 - 每 14 天',
+    },
+    '9w6es8ja': {
+      'en': 'Monthly - every 30 days',
+      'es': 'Mensual - cada 30 días',
+      'fr': 'Mensuel - tous les 30 jours',
+      'tl': 'Buwan-buwan - tuwing 30 araw',
+      'zh_Hans': '每月 - 每 30 天',
+    },
+    'hz9fklbb': {
+      'en': 'Bimonthly - every 60 days',
+      'es': 'Bimestral - cada 60 días',
+      'fr': 'Bimensuel - tous les 60 jours',
+      'tl': 'Bimonthly - bawat 60 araw',
+      'zh_Hans': '每两个月 - 每 60 天',
+    },
+    'neto9c8a': {
+      'en': 'Quarterly - every 90 days',
+      'es': 'Trimestralmente - cada 90 días',
+      'fr': 'Trimestriel - tous les 90 jours',
+      'tl': 'Quarterly - bawat 90 araw',
+      'zh_Hans': '每季度 - 每 90 天',
+    },
+    'ppynddbu': {
+      'en': 'Annually',
+      'es': 'Anualmente',
+      'fr': 'Annuellement',
+      'tl': 'Taun-taon',
+      'zh_Hans': '每年',
+    },
+    '449rr124': {
+      'en': 'Please select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    '1omopv6c': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    'k7787xi5': {
+      'en': 'Edit Income',
+      'es': 'Editar ingresos',
+      'fr': 'Modifier le revenu',
+      'tl': 'I-edit ang Kita',
+      'zh_Hans': '编辑收入',
+    },
     'ddx4wv1b': {
       'en': 'Edit Income',
       'es': 'Editar ingresos',
@@ -3132,7 +3412,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Threshold',
       'zh_Hans': '临界点',
     },
-    'a6fulzbw': {
+    '6urjym7g': {
       'en': 'Option 1',
       'es': 'Opción 1',
       'fr': 'Option 1',
@@ -3431,10 +3711,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '6g8fqanz': {
       'en': 'Edit Transaction',
-      'es': 'Editar transacción',
-      'fr': 'Modifier la transaction',
-      'tl': 'I-edit ang Transaksyon',
-      'zh_Hans': '編輯交易',
+      'es': 'Título de la página',
+      'fr': 'Titre de la page',
+      'tl': 'Pamagat ng Pahina',
+      'zh_Hans': '页面标题',
     },
     'stlzc6qu': {
       'en': 'Home',
@@ -3446,36 +3726,336 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EditHousehold
   {
-    '4vxq1sor': {
-      'en': 'Page Title',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+    'v6xj7s4f': {
+      'en': 'example',
+      'es': 'ejemplo',
+      'fr': 'exemple',
+      'tl': 'halimbawa',
+      'zh_Hans': '例子',
+    },
+    'l4ngjd1a': {
+      'en': 'Please select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    'kjwgwywm': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    '9fwu9bg4': {
+      'en': 'Select Household',
+      'es': 'Seleccione Hogar',
+      'fr': 'Sélectionnez le foyer',
+      'tl': 'Piliin ang Sambahayan',
+      'zh_Hans': '选择家庭',
+    },
+    't67554jt': {
+      'en': 'New Household Name',
+      'es': 'Nuevo nombre del hogar',
+      'fr': 'Nouveau nom de ménage',
+      'tl': 'Bagong Pangalan ng Sambahayan',
+      'zh_Hans': '新的家喻户晓的名字',
+    },
+    'mbcgxd3k': {
+      'en': 'Edit household',
+      'es': 'Editar hogar',
+      'fr': 'Modifier le foyer',
+      'tl': 'I-edit ang sambahayan',
+      'zh_Hans': '编辑家庭',
+    },
+    'vfmdhtjf': {
+      'en': 'Edit Household',
+      'es': 'Editar hogar',
+      'fr': 'Modifier le foyer',
+      'tl': 'I-edit ang Sambahayan',
+      'zh_Hans': '編輯家庭',
     },
     '37hgvmq8': {
       'en': 'Home',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
     },
   },
   // DeleteUser
   {
-    'gpco90ko': {
+    '80t5dkrt': {
+      'en':
+          'Are you sure you want to \ndelete your account?\nThis is not reversable',
+      'es':
+          'Estás seguro que quieres \neliminar tu cuenta?\nEsto no es reversible',
+      'fr':
+          'Êtes-vous sûr de vouloir \nSupprimer votre compte?\nCe n\'est pas réversible',
+      'tl':
+          'Sigurado ka bang gusto mo \ntanggalin ang iyong account?\nHindi ito nababaligtad',
+      'zh_Hans': '您确定要\n删除您的帐户吗？\n此操作不可逆转',
+    },
+    'iahmb214': {
+      'en': 'Delete Account',
+      'es': 'Borrar cuenta',
+      'fr': 'Supprimer le compte',
+      'tl': 'Tanggalin ang Account',
+      'zh_Hans': '删除帐户',
+    },
+    'jvpr6j79': {
       'en': 'Page Title',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Título de la página',
+      'fr': 'Titre de la page',
+      'tl': 'Pamagat ng Pahina',
+      'zh_Hans': '页面标题',
     },
     'eu989foe': {
       'en': 'Home',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
+    },
+  },
+  // ExportSearch
+  {
+    '68eid0az': {
+      'en': 'Category',
+      'es': 'Categoría',
+      'fr': 'Catégorie',
+      'tl': 'Kategorya',
+      'zh_Hans': '类别',
+    },
+    'jy9cuzy4': {
+      'en': 'Year End',
+      'es': 'Fin de año',
+      'fr': 'Fin de l\'année',
+      'tl': 'Katapusan ng taon',
+      'zh_Hans': '年底',
+    },
+    'cnxii3xy': {
+      'en': 'Tracking',
+      'es': 'Seguimiento',
+      'fr': 'Suivi',
+      'tl': 'Pagsubaybay',
+      'zh_Hans': '追踪',
+    },
+    'bvg1k6sz': {
+      'en': 'Category',
+      'es': 'Categoría',
+      'fr': 'Catégorie',
+      'tl': 'Kategorya',
+      'zh_Hans': '类别',
+    },
+    'lgabw4oo': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    '04qcl54c': {
+      'en': 'Export To CSV',
+      'es': 'Exportar a CSV',
+      'fr': 'Exporter vers CSV',
+      'tl': 'I-export Sa CSV',
+      'zh_Hans': '导出至 CSV',
+    },
+    '4bjmbdqs': {
+      'en': 'Click here for results',
+      'es': 'Haga clic aquí para ver los resultados',
+      'fr': 'Cliquez ici pour les résultats',
+      'tl': 'Mag-click dito para sa mga resulta',
+      'zh_Hans': '点击此处查看结果',
+    },
+    'm6go2mp9': {
+      'en': 'Export Search',
+      'es': 'Exportar búsqueda',
+      'fr': 'Exporter la recherche',
+      'tl': 'I-export ang Paghahanap',
+      'zh_Hans': '出口搜索',
+    },
+    'okfyypuz': {
+      'en': 'Home',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
+    },
+  },
+  // ChangePassword
+  {
+    '4vxq1sor': {
+      'en': 'Page Title',
+      'es': 'Título de la página',
+      'fr': 'Titre de la page',
+      'tl': 'Pamagat ng Pahina',
+      'zh_Hans': '页面标题',
+    },
+    'q5u67zfe': {
+      'en': 'Email Address',
+      'es': 'Dirección de correo electrónico',
+      'fr': 'Adresse e-mail',
+      'tl': 'Email Address',
+      'zh_Hans': '电子邮件地址',
+    },
+    'm1kyjhuv': {
+      'en': 'Old Password',
+      'es': 'Contraseña anterior',
+      'fr': 'ancien mot de passe',
+      'tl': 'Lumang password',
+      'zh_Hans': '旧密码',
+    },
+    'evi091i7': {
+      'en':
+          'Passwords must contain 1 capital letter, 1 lowercase letter, 1 special character and be at least 8 characters long.',
+      'es':
+          'Las contraseñas deben contener 1 letra mayúscula, 1 letra minúscula, 1 carácter especial y tener al menos 8 caracteres.',
+      'fr':
+          'Les mots de passe doivent contenir 1 lettre majuscule, 1 lettre minuscule, 1 caractère spécial et comporter au moins 8 caractères.',
+      'tl':
+          'Ang mga password ay dapat maglaman ng 1 malaking titik, 1 maliit na titik, 1 espesyal na character at hindi bababa sa 8 character ang haba.',
+      'zh_Hans': '密码必须包含 1 个大写字母、1 个小写字母、1 个特殊字符，且长度至少为 8 个字符。',
+    },
+    'lbos7pdy': {
+      'en': 'New Password',
+      'es': 'Nueva contraseña',
+      'fr': 'nouveau mot de passe',
+      'tl': 'Bagong Password',
+      'zh_Hans': '新密码',
+    },
+    'x7kwyqor': {
+      'en': 'Change Password',
+      'es': 'Cambiar la contraseña',
+      'fr': 'Changer le mot de passe',
+      'tl': 'Palitan ANG password',
+      'zh_Hans': '更改密码',
+    },
+    'iu711l4q': {
+      'en': 'Home',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
+    },
+  },
+  // ExportToCSV
+  {
+    'satbhtrh': {
+      'en': 'Option 1',
+      'es': 'Opción 1',
+      'fr': 'Option 1',
+      'tl': 'Opsyon 1',
+      'zh_Hans': '选项1',
+    },
+    'inhr2jia': {
+      'en': 'Please Select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    'l3ozfx1n': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    '4hqf7jvj': {
+      'en': 'Wallet',
+      'es': 'Billetera',
+      'fr': 'Portefeuille',
+      'tl': 'Wallet',
+      'zh_Hans': '钱包',
+    },
+    '318wv7fh': {
+      'en': 'Export To CSV',
+      'es': 'Exportar a CSV',
+      'fr': 'Exporter vers CSV',
+      'tl': 'I-export Sa CSV',
+      'zh_Hans': '导出至 CSV',
+    },
+    'u386rolo': {
+      'en': 'Click here for results',
+      'es': 'Haga clic aquí para ver los resultados',
+      'fr': 'Cliquez ici pour les résultats',
+      'tl': 'Mag-click dito para sa mga resulta',
+      'zh_Hans': '点击此处查看结果',
+    },
+    '5u4htrfc': {
+      'en': 'Export To CSV',
+      'es': 'Exportar a CSV',
+      'fr': 'Exporter vers CSV',
+      'tl': 'I-export Sa CSV',
+      'zh_Hans': '导出至 CSV',
+    },
+    'x99vtcpk': {
+      'en': 'Home',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
+    },
+  },
+  // ExportToQBOFile
+  {
+    '6r789xcd': {
+      'en': 'Option 1',
+      'es': 'Opción 1',
+      'fr': 'Option 1',
+      'tl': 'Opsyon 1',
+      'zh_Hans': '选项1',
+    },
+    'k02s9vr9': {
+      'en': 'Please Select...',
+      'es': 'Por favor seleccione...',
+      'fr': 'Veuillez sélectionner...',
+      'tl': 'Pakipili...',
+      'zh_Hans': '请选择...',
+    },
+    'u1z5zcpm': {
+      'en': 'Search for an item...',
+      'es': 'Buscar un artículo...',
+      'fr': 'Rechercher un article...',
+      'tl': 'Maghanap ng item...',
+      'zh_Hans': '搜索商品...',
+    },
+    'xeh0klyn': {
+      'en': 'Wallet',
+      'es': 'Billetera',
+      'fr': 'Portefeuille',
+      'tl': 'Wallet',
+      'zh_Hans': '钱包',
+    },
+    'wctai5zi': {
+      'en': 'Export To CSV',
+      'es': 'Exportar a CSV',
+      'fr': 'Exporter vers CSV',
+      'tl': 'I-export Sa CSV',
+      'zh_Hans': '导出至 CSV',
+    },
+    '5dy8woqa': {
+      'en': 'Click here for results',
+      'es': 'Haga clic aquí para ver los resultados',
+      'fr': 'Cliquez ici pour les résultats',
+      'tl': 'Mag-click dito para sa mga resulta',
+      'zh_Hans': '点击此处查看结果',
+    },
+    'cucuth9a': {
+      'en': 'Export To QBO',
+      'es': 'Exportar a QBO',
+      'fr': 'Exporter vers QBO',
+      'tl': 'I-export sa QBO',
+      'zh_Hans': '导出至 QBO',
+    },
+    '2lfzp5lt': {
+      'en': 'Home',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'tl': 'Bahay',
+      'zh_Hans': '家',
     },
   },
   // passwordfield
@@ -3542,12 +4122,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Max na Halaga',
       'zh_Hans': '最大金额',
     },
-    'hk22ysw5': {
-      'en': 'Search',
-      'es': 'Buscar',
-      'fr': 'Recherche',
-      'tl': 'Maghanap',
-      'zh_Hans': '搜索',
+    'orasux0y': {
+      'en': 'Search Term',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
     },
     '00235yee': {
       'en': 'Cleared Only',
@@ -3661,14 +4241,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': '12 Disyembre',
       'zh_Hans': '12 月 12 日',
     },
-    'gfyxrxzd': {
+    'xmyfjj5h': {
       'en': 'Please select...',
       'es': 'Por favor seleccione...',
       'fr': 'Veuillez sélectionner...',
       'tl': 'Pakipili...',
       'zh_Hans': '请选择...',
     },
-    'm5857s2k': {
+    'l01zt3l8': {
       'en': 'Search for an item...',
       'es': 'Buscar un artículo...',
       'fr': 'Rechercher un article...',
@@ -3883,45 +4463,42 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '57fllogz': {
       'en': 'Please provide Camera access so you can upload receipts',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Proporcione acceso a la cámara para poder cargar recibos',
+      'fr':
+          'Veuillez fournir un accès à la caméra afin que vous puissiez télécharger les reçus.',
+      'tl':
+          'Mangyaring magbigay ng access sa Camera upang makapag-upload ka ng mga resibo',
+      'zh_Hans': '请提供相机访问权限，以便您上传收据',
     },
     'hqjyswpi': {
-      'en': '',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'gqnpf09i': {
-      'en': 'Please provide Biometrics access for quicker login',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
-    },
-    'rrtsqja0': {
-      'en': 'Please provide Calendar access for bills',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'en':
+          'In order to upload data, this app requires permission to access the photo library.',
+      'es':
+          'Para cargar datos, esta aplicación requiere permiso para acceder a la biblioteca de fotos.',
+      'fr':
+          'Afin de télécharger des données, cette application nécessite l\'autorisation d\'accéder à la photothèque.',
+      'tl':
+          'Upang makapag-upload ng data, ang app na ito ay nangangailangan ng pahintulot na ma-access ang library ng larawan.',
+      'zh_Hans': '为了上传数据，此应用程序需要访问照片库的权限。',
     },
     '0jvhuji2': {
       'en': 'Please provide Camera access so you can upload receipts',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es': 'Proporcione acceso a la cámara para poder cargar recibos',
+      'fr':
+          'Veuillez fournir un accès à la caméra afin que vous puissiez télécharger les reçus.',
+      'tl':
+          'Mangyaring magbigay ng access sa Camera upang makapag-upload ka ng mga resibo',
+      'zh_Hans': '请提供相机访问权限，以便您上传收据',
     },
     'u9m5mzh6': {
       'en': 'Please provide access to Photo Library so you can upload receipts',
-      'es': '',
-      'fr': '',
-      'tl': '',
-      'zh_Hans': '',
+      'es':
+          'Proporcione acceso a la biblioteca de fotos para poder cargar recibos.',
+      'fr':
+          'Veuillez donner accès à la photothèque afin que vous puissiez télécharger les reçus.',
+      'tl':
+          'Mangyaring magbigay ng access sa Photo Library para makapag-upload ka ng mga resibo',
+      'zh_Hans': '请提供照片库的访问权限，以便您上传收据',
     },
     '55v3srad': {
       'en': '',

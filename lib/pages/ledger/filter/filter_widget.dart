@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'filter_model.dart';
 export 'filter_model.dart';
@@ -28,11 +29,23 @@ class _FilterWidgetState extends State<FilterWidget> {
     super.initState();
     _model = createModel(context, () => FilterModel());
 
-    _model.textController ??= TextEditingController();
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.minAmount = _model.sliderValue1;
+      _model.maxAmount = _model.sliderValue2;
+      _model.searchTerm = _model.textController.text;
+      _model.cleardOnly = !_model.cleardOnly;
+      _model.currentMonthOnly = !_model.currentMonthOnly;
+      _model.month = _model.dropDownValue1;
+      _model.year = _model.dropDownValue2;
+      setState(() {});
+    });
+
+    _model.textController ??= TextEditingController(text: '');
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.switchValue1 = false;
-    _model.switchValue2 = true;
+    _model.switchValue2 = false;
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -51,8 +64,8 @@ class _FilterWidgetState extends State<FilterWidget> {
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
-          topLeft: Radius.circular(16.0),
-          topRight: Radius.circular(16.0),
+          topLeft: Radius.circular(0.0),
+          topRight: Radius.circular(0.0),
         ),
       ),
       child: Padding(
@@ -106,16 +119,21 @@ class _FilterWidgetState extends State<FilterWidget> {
                   ],
                 ),
               ),
-              Slider(
-                activeColor: FlutterFlowTheme.of(context).primary,
-                inactiveColor: FlutterFlowTheme.of(context).accent2,
-                min: 0.0,
-                max: 10000.0,
-                value: _model.sliderValue1 ??= 0.0,
-                onChanged: (newValue) {
-                  newValue = double.parse(newValue.toStringAsFixed(4));
-                  setState(() => _model.sliderValue1 = newValue);
-                },
+              SizedBox(
+                width: 350.0,
+                child: Slider(
+                  activeColor: FlutterFlowTheme.of(context).primary,
+                  inactiveColor: FlutterFlowTheme.of(context).accent2,
+                  min: 0.0,
+                  max: 10000.0,
+                  value: _model.sliderValue1 ??= 0.01,
+                  label: _model.sliderValue1?.toStringAsFixed(2),
+                  divisions: 100,
+                  onChanged: (newValue) {
+                    newValue = double.parse(newValue.toStringAsFixed(2));
+                    setState(() => _model.sliderValue1 = newValue);
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -137,35 +155,20 @@ class _FilterWidgetState extends State<FilterWidget> {
                   ],
                 ),
               ),
-              Slider(
-                activeColor: FlutterFlowTheme.of(context).primary,
-                inactiveColor: FlutterFlowTheme.of(context).accent2,
-                min: 0.0,
-                max: 1000000.0,
-                value: _model.sliderValue2 ??= 100000.0,
-                onChanged: (newValue) {
-                  newValue = double.parse(newValue.toStringAsFixed(4));
-                  setState(() => _model.sliderValue2 = newValue);
-                },
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'hk22ysw5' /* Search */,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyMediumFamily),
-                          ),
-                    ),
-                  ],
+              SizedBox(
+                width: 350.0,
+                child: Slider(
+                  activeColor: FlutterFlowTheme.of(context).primary,
+                  inactiveColor: FlutterFlowTheme.of(context).accent2,
+                  min: 0.01,
+                  max: 99999.0,
+                  value: _model.sliderValue2 ??= 99999.0,
+                  label: _model.sliderValue2?.toStringAsFixed(2),
+                  divisions: 1000,
+                  onChanged: (newValue) {
+                    newValue = double.parse(newValue.toStringAsFixed(2));
+                    setState(() => _model.sliderValue2 = newValue);
+                  },
                 ),
               ),
               TextFormField(
@@ -174,6 +177,9 @@ class _FilterWidgetState extends State<FilterWidget> {
                 autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
+                  labelText: FFLocalizations.of(context).getText(
+                    'orasux0y' /* Search Term */,
+                  ),
                   hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyLargeFamily,
@@ -230,35 +236,44 @@ class _FilterWidgetState extends State<FilterWidget> {
                     ),
                 validator: _model.textControllerValidator.asValidator(context),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        '00235yee' /* Cleared Only */,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyMediumFamily),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '00235yee' /* Cleared Only */,
                           ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Switch(
-                value: _model.switchValue1!,
-                onChanged: (newValue) async {
-                  setState(() => _model.switchValue1 = newValue);
-                },
-                activeColor: FlutterFlowTheme.of(context).primaryText,
-                activeTrackColor: FlutterFlowTheme.of(context).primary,
-                inactiveTrackColor: FlutterFlowTheme.of(context).primary,
-                inactiveThumbColor: FlutterFlowTheme.of(context).primaryText,
+                  ),
+                  Switch(
+                    value: _model.switchValue1!,
+                    onChanged: (newValue) async {
+                      setState(() => _model.switchValue1 = newValue);
+                    },
+                    activeColor: FlutterFlowTheme.of(context).primaryText,
+                    activeTrackColor: FlutterFlowTheme.of(context).primary,
+                    inactiveTrackColor: FlutterFlowTheme.of(context).primary,
+                    inactiveThumbColor:
+                        FlutterFlowTheme.of(context).primaryText,
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -277,18 +292,19 @@ class _FilterWidgetState extends State<FilterWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
+                    Switch(
+                      value: _model.switchValue2!,
+                      onChanged: (newValue) async {
+                        setState(() => _model.switchValue2 = newValue);
+                      },
+                      activeColor: FlutterFlowTheme.of(context).primaryText,
+                      activeTrackColor: FlutterFlowTheme.of(context).primary,
+                      inactiveTrackColor: FlutterFlowTheme.of(context).primary,
+                      inactiveThumbColor:
+                          FlutterFlowTheme.of(context).primaryText,
+                    ),
                   ],
                 ),
-              ),
-              Switch(
-                value: _model.switchValue2!,
-                onChanged: (newValue) async {
-                  setState(() => _model.switchValue2 = newValue);
-                },
-                activeColor: FlutterFlowTheme.of(context).primaryText,
-                activeTrackColor: FlutterFlowTheme.of(context).primary,
-                inactiveTrackColor: FlutterFlowTheme.of(context).primary,
-                inactiveThumbColor: FlutterFlowTheme.of(context).primaryText,
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -334,18 +350,18 @@ class _FilterWidgetState extends State<FilterWidget> {
                         _model.dropDownValue1 ??= '',
                       ),
                       options: List<String>.from([
-                        'Option 1',
-                        '2',
-                        '3',
-                        '4',
-                        '5',
-                        '6',
-                        '7',
-                        '8',
-                        '9',
-                        '10',
-                        '11',
-                        '12'
+                        'january',
+                        'february',
+                        'march',
+                        'april',
+                        'may',
+                        'june',
+                        'july',
+                        'august',
+                        'september',
+                        'october',
+                        'november',
+                        'december'
                       ]),
                       optionLabels: [
                         FFLocalizations.of(context).getText(
@@ -399,7 +415,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       hintText: FFLocalizations.of(context).getText(
-                        'gfyxrxzd' /* Please select... */,
+                        'xmyfjj5h' /* Please select... */,
                       ),
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -424,7 +440,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                     child: FlutterFlowDropDown<int>(
                       controller: _model.dropDownValueController2 ??=
                           FormFieldController<int>(
-                        _model.dropDownValue2 ??= 2024,
+                        _model.dropDownValue2 ??= null,
                       ),
                       options: List<int>.from([
                         2024,

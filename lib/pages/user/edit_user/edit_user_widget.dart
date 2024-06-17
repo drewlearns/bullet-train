@@ -427,7 +427,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                             options: FFButtonOptions(
                               width: 300.0,
                               height: 60.0,
-                              padding: const EdgeInsets.all(24.0),
+                              padding: const EdgeInsets.all(0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
@@ -449,6 +449,44 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed('DeleteUser');
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                '1na566zp' /* Permanently Delete Account */,
+                              ),
+                              options: FFButtonOptions(
+                                width: 300.0,
+                                height: 60.0,
+                                padding: const EdgeInsets.all(0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).error,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
+                                    ),
+                                elevation: 12.0,
+                                borderSide: const BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
                             ),
                           ),
                         ],

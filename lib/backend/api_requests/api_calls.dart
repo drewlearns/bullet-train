@@ -12,7 +12,10 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start TPPB Group Code
 
 class TppbGroup {
-  static String getBaseUrl() => 'https://api.thepurplepiggybank.com';
+  static String getBaseUrl({
+    String? globalRefreshToken = 'FAKE',
+  }) =>
+      'https://api.thepurplepiggybank.com';
   static Map<String, String> headers = {
     'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
   };
@@ -23,7 +26,6 @@ class TppbGroup {
   static EditUserCall editUserCall = EditUserCall();
   static DeleteUserJsCall deleteUserJsCall = DeleteUserJsCall();
   static RefreshTokenCall refreshTokenCall = RefreshTokenCall();
-  static RevokeTokenCall revokeTokenCall = RevokeTokenCall();
   static ForgotPasswordCall forgotPasswordCall = ForgotPasswordCall();
   static ConfirmPasswordResetCodeCall confirmPasswordResetCodeCall =
       ConfirmPasswordResetCodeCall();
@@ -49,7 +51,6 @@ class TppbGroup {
   static GetFilePathCall getFilePathCall = GetFilePathCall();
   static EditBillCall editBillCall = EditBillCall();
   static GetBillsCall getBillsCall = GetBillsCall();
-  static AddNotificationCall addNotificationCall = AddNotificationCall();
   static EditNotificationCall editNotificationCall = EditNotificationCall();
   static DeleteNotificationCall deleteNotificationCall =
       DeleteNotificationCall();
@@ -60,41 +61,22 @@ class TppbGroup {
       GetTransactionByMonthCall();
   static SearchTransactionsCall searchTransactionsCall =
       SearchTransactionsCall();
-  static GetTransactionsByPaymentSourceCall getTransactionsByPaymentSourceCall =
-      GetTransactionsByPaymentSourceCall();
-  static GetAuditTrailCall getAuditTrailCall = GetAuditTrailCall();
-  static SetDefaultPaymentSourceCall setDefaultPaymentSourceCall =
-      SetDefaultPaymentSourceCall();
-  static GetDefaultPaymentSourcePreferenceCall
-      getDefaultPaymentSourcePreferenceCall =
-      GetDefaultPaymentSourcePreferenceCall();
-  static EditDefaultPaymentSourceCall editDefaultPaymentSourceCall =
-      EditDefaultPaymentSourceCall();
-  static SetThresholdCall setThresholdCall = SetThresholdCall();
-  static EditThresholdCall editThresholdCall = EditThresholdCall();
   static GetThresholdBreakersCall getThresholdBreakersCall =
       GetThresholdBreakersCall();
-  static GetThresholdPreferenceCall getThresholdPreferenceCall =
-      GetThresholdPreferenceCall();
   static AddIncomeCall addIncomeCall = AddIncomeCall();
-  static EditIncomeJsCall editIncomeJsCall = EditIncomeJsCall();
+  static EditIncomeCall editIncomeCall = EditIncomeCall();
   static GetIncomesCall getIncomesCall = GetIncomesCall();
   static GetIncomeCall getIncomeCall = GetIncomeCall();
   static DeleteIncomeJsCall deleteIncomeJsCall = DeleteIncomeJsCall();
   static GetRunningTotalCall getRunningTotalCall = GetRunningTotalCall();
-  static GetRunningTotalsByDateCall getRunningTotalsByDateCall =
-      GetRunningTotalsByDateCall();
   static GetCategoriesCall getCategoriesCall = GetCategoriesCall();
   static ExportLedgerToCsvCall exportLedgerToCsvCall = ExportLedgerToCsvCall();
   static ExportLedgerToQBOCall exportLedgerToQBOCall = ExportLedgerToQBOCall();
   static GetLedgerAllCall getLedgerAllCall = GetLedgerAllCall();
-  static GetLedgerEntryCall getLedgerEntryCall = GetLedgerEntryCall();
-  static DeleteLedgerEntryCall deleteLedgerEntryCall = DeleteLedgerEntryCall();
   static ExportSearchCall exportSearchCall = ExportSearchCall();
   static ChangePasswordCall changePasswordCall = ChangePasswordCall();
   static GetDueBillsCall getDueBillsCall = GetDueBillsCall();
   static GetFutureDueBillsCall getFutureDueBillsCall = GetFutureDueBillsCall();
-  static EditLedgerEntryCall editLedgerEntryCall = EditLedgerEntryCall();
   static GetMonthlyIncomeTotalCall getMonthlyIncomeTotalCall =
       GetMonthlyIncomeTotalCall();
   static GetPastDueBillsCall getPastDueBillsCall = GetPastDueBillsCall();
@@ -118,8 +100,11 @@ class AddUserCall {
     String? phoneNumber = '',
     String? firstName = '',
     String? lastName = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -252,8 +237,11 @@ class ConfirmSignupCall {
   Future<ApiCallResponse> call({
     String? username = '',
     String? confirmationCode = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -346,8 +334,11 @@ class LoginCall {
   Future<ApiCallResponse> call({
     String? username = '',
     String? password = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -401,12 +392,16 @@ class LoginCall {
 class GetUserCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
-  "authorizationToken": "$authorizationToken"
+  "authorizationToken": "$authorizationToken",
+"refreshToken":"$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUser',
@@ -497,8 +492,11 @@ class EditUserCall {
     String? email = '',
     String? newUsername = '',
     String? phoneNumber = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -595,11 +593,18 @@ class EditUserCall {
 }
 
 class DeleteUserJsCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteUser.js',
       apiUrl: '$baseUrl/deleteUser',
@@ -623,8 +628,11 @@ class RefreshTokenCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? refreshToken = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -675,36 +683,14 @@ class RefreshTokenCall {
       );
 }
 
-class RevokeTokenCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'revokeToken',
-      apiUrl: '$baseUrl/revokeToken',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class ForgotPasswordCall {
   Future<ApiCallResponse> call({
     String? email = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -743,8 +729,11 @@ class ConfirmPasswordResetCodeCall {
     String? username = '',
     String? code = '',
     String? newPassword = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -782,14 +771,18 @@ class AddHouseholdCall {
     String? authorizationToken = '',
     String? customHouseholdNameSuchAsCrew = '',
     String? account = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "householdName": "$householdName",
   "authorizationToken": "$authorizationToken",
-  "customHouseholdNameSuchAsCrew": "$customHouseholdNameSuchAsCrew"
+  "customHouseholdNameSuchAsCrew": "$customHouseholdNameSuchAsCrew",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addHousehold',
@@ -837,14 +830,18 @@ class AddInviteCall {
     String? authorizationToken = '',
     String? email = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
   "email": "$email",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addInvite',
@@ -879,8 +876,11 @@ class AcceptInviteCall {
     String? lastName = '',
     String? phoneNumber = '',
     String? password = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -890,7 +890,8 @@ class AcceptInviteCall {
   "firstName": "$firstName",
   "lastName": "$lastName",
   "phoneNumber": "$phoneNumber",
-  "password": "$password"
+  "password": "$password",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'acceptInvite',
@@ -916,14 +917,18 @@ class DeleteMemberFromHouseholdCall {
     String? authorizationToken = '',
     String? householdId = '',
     String? memberUuid = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
   "householdId": "$householdId",
-  "memberUuid": "$memberUuid"
+  "memberUuid": "$memberUuid",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteMemberFromHousehold',
@@ -950,11 +955,23 @@ class DeleteMemberFromHouseholdCall {
 }
 
 class EditHouseholdCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? householdid = '',
+    String? householdName = '',
+    String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "householdId": "$householdid",
+  "householdName": "$householdName",
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'editHousehold',
       apiUrl: '$baseUrl/editHousehold',
@@ -972,19 +989,28 @@ class EditHouseholdCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetHouseholdMembersCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdMembers',
@@ -1047,11 +1073,21 @@ class GetHouseholdMembersCall {
 }
 
 class DeleteHouseholdCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteHousehold',
       apiUrl: '$baseUrl/deleteHousehold',
@@ -1075,13 +1111,17 @@ class GetHouseholdCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     int? page = 1,
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "page": $page
+  "page": $page,
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHousehold',
@@ -1150,13 +1190,17 @@ class GetHouseholdByIdCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getHouseholdById',
@@ -1251,8 +1295,11 @@ class AddPaymentSourceCall {
     String? sourceName = '',
     String? sourceType = '',
     String? details = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1260,7 +1307,8 @@ class AddPaymentSourceCall {
   "householdId": "$householdId",
   "sourceName": "$sourceName",
   "sourceType": "$sourceType",
-  "details": "$details"
+  "details": "$details",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addPaymentSource',
@@ -1315,11 +1363,23 @@ class AddPaymentSourceCall {
 }
 
 class DeletePaymentSourceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? sourceId = '',
+    String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "sourceId": "$sourceId",
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deletePaymentSource',
       apiUrl: '$baseUrl/deletePaymentSource',
@@ -1340,11 +1400,27 @@ class DeletePaymentSourceCall {
 }
 
 class EditPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? name = '',
+    String? type = '',
+    String? sourceId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
-""''';
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "householdId": "$householdId",
+  "sourceName": "$name",
+  "sourceType": "$type",
+  "sourceId": "$sourceId",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'editPaymentSource',
       apiUrl: '$baseUrl/editPaymentSource',
@@ -1362,19 +1438,28 @@ class EditPaymentSourceCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetPaymentSourceCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getPaymentSource',
@@ -1451,8 +1536,11 @@ class AddBillCall {
     String? paymentSourceId = '',
     String? username = '',
     bool? status,
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1472,7 +1560,8 @@ class AddBillCall {
   "cashBack": "$cashBack",
   "isDebt": "$isDebt",
   "status": false,
-  "url": "$url"
+  "url": "$url",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addBill',
@@ -1502,13 +1591,17 @@ class GetBillPasswordCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? billId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "billId": "$billId"
+  "billId": "$billId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBillPassword',
@@ -1542,13 +1635,17 @@ class DeleteBillCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? billId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "billId": "$billId"
+  "billId": "$billId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteBill',
@@ -1578,13 +1675,17 @@ class GetFilePathCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? transactionId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "transactionId": "$transactionId"
+  "transactionId": "$transactionId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getFilePath',
@@ -1632,8 +1733,11 @@ class EditBillCall {
     String? password = '',
     String? billName = '',
     String? notificationId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -1653,7 +1757,8 @@ class EditBillCall {
     "url": "$url",
     "username": "$username",
     "password": "$password",
-    "notificationId": "$notificationId"
+    "notificationId": "$notificationId",
+    "refreshToken": "$globalRefreshToken"
   }
 }''';
     return ApiManager.instance.makeApiCall(
@@ -1684,13 +1789,17 @@ class GetBillsCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBills',
@@ -1789,47 +1898,26 @@ class GetBillsCall {
       ));
 }
 
-class AddNotificationCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'addNotification',
-      apiUrl: '$baseUrl/addNotification',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class EditNotificationCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? notificationId = '',
     String? title = '',
     String? message = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "authorizationToken": "",
   "notificationId": "",
   "title": "",
   "message": "",
-  "read": false
+  "read": false,
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'editNotification',
@@ -1854,13 +1942,17 @@ class DeleteNotificationCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? notificationId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "notificationId": "$notificationId"
+  "notificationId": "$notificationId",
+"refreshToken":"$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteNotification',
@@ -1889,12 +1981,16 @@ class DeleteNotificationCall {
 class GetNotificationsCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
-  "authorizationToken": "$authorizationToken"
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getNotifications',
@@ -2010,8 +2106,11 @@ class AddTransactionCall {
     String? sourceId = '',
     String? tags = '',
     String? image = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2025,7 +2124,8 @@ class AddTransactionCall {
   "status": "$status",
   "sourceId": "$sourceId",
   "tags": "$tags",
-  "image": "$image"
+  "image": "$image",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addTransaction',
@@ -2091,13 +2191,17 @@ class GetTransactionCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? transactionId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "transactionId": "$transactionId"
+  "transactionId": "$transactionId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTransaction',
@@ -2236,15 +2340,19 @@ class GetTransactionByMonthCall {
     String? transactionId = '',
     int? month,
     int? year,
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
   "transactionId": "$transactionId",
   "month": $month,
-  "year": $year
+  "year": $year,
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTransactionByMonth',
@@ -2274,13 +2382,17 @@ class SearchTransactionsCall {
   Future<ApiCallResponse> call({
     String? query = '',
     String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "query": "$query"
+  "query": "$query",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'searchTransactions',
@@ -2451,189 +2563,17 @@ class SearchTransactionsCall {
           .toList();
 }
 
-class GetTransactionsByPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getTransactionsByPaymentSource',
-      apiUrl: '$baseUrl/getTransactionsByPaymentSource',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class GetAuditTrailCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getAuditTrail',
-      apiUrl: '$baseUrl/getAuditTrail',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class SetDefaultPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'setDefaultPaymentSource',
-      apiUrl: '$baseUrl/setDefaultPaymentSource',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class GetDefaultPaymentSourcePreferenceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getDefaultPaymentSourcePreference',
-      apiUrl: '$baseUrl/getDefaultPaymentSourcePreference',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class EditDefaultPaymentSourceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'editDefaultPaymentSource',
-      apiUrl: '$baseUrl/editDefaultPaymentSource',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class SetThresholdCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'setThreshold',
-      apiUrl: '$baseUrl/setThreshold',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class EditThresholdCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'editThreshold',
-      apiUrl: '$baseUrl/editThreshold',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class GetThresholdBreakersCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
     String? threshold = '',
     String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2703,31 +2643,6 @@ class GetThresholdBreakersCall {
           .toList();
 }
 
-class GetThresholdPreferenceCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-""''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'getThresholdPreference',
-      apiUrl: '$baseUrl/getThresholdPreference',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class AddIncomeCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
@@ -2738,8 +2653,11 @@ class AddIncomeCall {
     String? frequency = '',
     String? description = '',
     String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -2750,7 +2668,8 @@ class AddIncomeCall {
   "firstPayDay": "$firstPayDay",
   "frequency": "$frequency",
   "description": "$description",
-  "paymentSourceId": "$paymentSourceId"
+  "paymentSourceId": "$paymentSourceId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'addIncome',
@@ -2776,19 +2695,46 @@ class AddIncomeCall {
       ));
 }
 
-class EditIncomeJsCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+class EditIncomeCall {
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? incomeId = '',
+    String? householdId = '',
+    String? name = '',
+    double? amount,
+    String? firstPayDay = '',
+    String? frequency = '',
+    String? description = '',
+    String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "incomeId": "$incomeId",
+  "householdId": "$householdId",
+  "name": "$name",
+  "amount": $amount,
+  "firstPayDay": "$firstPayDay",
+  "frequency": "$frequency",
+  "description": "$description",
+  "paymentSourceId": "$paymentSourceId",
+"refreshToken":"$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'editIncome.js',
+      callName: 'editIncome',
       apiUrl: '$baseUrl/editIncome',
       callType: ApiCallType.POST,
       headers: {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2802,13 +2748,17 @@ class GetIncomesCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getIncomes',
@@ -2875,13 +2825,17 @@ class GetIncomeCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? incomeId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "incomeId": "$incomeId"
+  "incomeId": "$incomeId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getIncome',
@@ -2932,9 +2886,21 @@ class GetIncomeCall {
 }
 
 class DeleteIncomeJsCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? incomeId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "incomeId": "$incomeId",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteIncome.js',
       apiUrl: '$baseUrl/deleteIncome',
@@ -2943,7 +2909,8 @@ class DeleteIncomeJsCall {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2957,13 +2924,17 @@ class GetRunningTotalCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "paymentSourceId": "$paymentSourceId"
+  "paymentSourceId": "$paymentSourceId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getRunningTotal',
@@ -2997,43 +2968,25 @@ class GetRunningTotalCall {
       ));
 }
 
-class GetRunningTotalsByDateCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'getRunningTotalsByDate',
-      apiUrl: '$baseUrl/getRunningTotalsByDate',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      bodyType: BodyType.MULTIPART,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class GetCategoriesCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
     int? month,
     int? year,
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
   "householdId": "$householdId",
   "month": $month,
-  "year": $year
+  "year": $year,
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getCategories',
@@ -3102,9 +3055,23 @@ class GetCategoriesCall {
 }
 
 class ExportLedgerToCsvCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$globalRefreshToken",
+  "householdId": "$householdId",
+  "paymentSourceId": "$paymentSourceId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'exportLedgerToCsv',
       apiUrl: '$baseUrl/exportLedgerToCsv',
@@ -3113,7 +3080,8 @@ class ExportLedgerToCsvCall {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -3124,9 +3092,23 @@ class ExportLedgerToCsvCall {
 }
 
 class ExportLedgerToQBOCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? householdId = '',
+    String? paymentSourceId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$globalRefreshToken",
+  "householdId": "$householdId",
+  "paymentSourceId": "$paymentSourceId"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'exportLedgerToQBO',
       apiUrl: '$baseUrl/exportLedgerToQBO',
@@ -3135,7 +3117,8 @@ class ExportLedgerToQBOCall {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
-      bodyType: BodyType.MULTIPART,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -3152,14 +3135,17 @@ class GetLedgerAllCall {
     bool? clearedOnly,
     bool? currentMonthOnly,
     String? transactionName = '',
-    double? minAmount,
-    double? maxAmount,
-    int? page,
-    int? pageSize,
+    double? minAmount = 0.01,
+    double? maxAmount = 100000,
+    int? page = 1,
+    int? pageSize = 20,
     int? year,
     String? month = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -3171,13 +3157,14 @@ class GetLedgerAllCall {
     "transactionName": "$transactionName",
     "minAmount": $minAmount,
     "maxAmount": $maxAmount,
-   "year": $year,
+    "year": $year,
     "month": "$month"
   },
   "pagination": {
     "page": $page,
     "itemsPerPage": $pageSize
-  }
+  },
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLedgerAll',
@@ -3419,54 +3406,26 @@ class GetLedgerAllCall {
           .toList();
 }
 
-class GetLedgerEntryCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'getLedgerEntry',
-      apiUrl: '$baseUrl/getLedgerEntry',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class DeleteLedgerEntryCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'deleteLedgerEntry',
-      apiUrl: '$baseUrl/deleteLedgerEntry',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class ExportSearchCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? authorizationToken = '',
+    String? category = '',
+    String? reportType = '',
+    String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "authorizationToken": "$authorizationToken",
+  "category": "$category",
+  "reportType": "",
+  "householdId": "",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'exportSearch',
       apiUrl: '$baseUrl/exportSearch',
@@ -3475,6 +3434,7 @@ class ExportSearchCall {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
@@ -3486,9 +3446,25 @@ class ExportSearchCall {
 }
 
 class ChangePasswordCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? email = '',
+    String? oldPassword = '',
+    String? newPassword = '',
+    String? authorizationToken = '',
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
+    final ffApiRequestBody = '''
+{
+  "username": "$email",
+  "oldPassword": "$oldPassword",
+  "newPassword": "$newPassword",
+  "authorizationToken": "$authorizationToken",
+  "refreshToken": "$globalRefreshToken"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'changePassword',
       apiUrl: '$baseUrl/changePassword',
@@ -3497,6 +3473,7 @@ class ChangePasswordCall {
         'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
       },
       params: {},
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
@@ -3511,13 +3488,17 @@ class GetDueBillsCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getDueBills',
@@ -3606,13 +3587,17 @@ class GetFutureDueBillsCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getFutureDueBills',
@@ -3702,31 +3687,13 @@ class GetFutureDueBillsCall {
           .toList();
 }
 
-class EditLedgerEntryCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'editLedgerEntry',
-      apiUrl: '$baseUrl/editLedgerEntry',
-      callType: ApiCallType.POST,
-      headers: {
-        'x-api-key': 'zRkOsRKfGjAxK5aKxXO4gS9HUTIsSzmM',
-      },
-      params: {},
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class GetMonthlyIncomeTotalCall {
-  Future<ApiCallResponse> call() async {
-    final baseUrl = TppbGroup.getBaseUrl();
+  Future<ApiCallResponse> call({
+    String? globalRefreshToken = 'FAKE',
+  }) async {
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     return ApiManager.instance.makeApiCall(
       callName: 'getMonthlyIncomeTotal',
@@ -3751,14 +3718,18 @@ class GetPastDueBillsCall {
     String? authorizationToken = '',
     String? householdId = '',
     bool? pastDueOnly,
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
   "householdId": "$householdId",
-  "pastDueOnly":$pastDueOnly
+  "pastDueOnly": $pastDueOnly,
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getPastDueBills',
@@ -3856,13 +3827,17 @@ class GetTotalSpentCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTotalSpent',
@@ -3896,13 +3871,17 @@ class GetBillCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? billId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "billId": "$billId"
+  "billId": "$billId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getBill',
@@ -3930,7 +3909,7 @@ class GetBillCall {
         response,
         r'''$.bill.billName''',
       ));
-  int? amount(dynamic response) => castToType<int>(getJsonField(
+  double? amount(dynamic response) => castToType<double>(getJsonField(
         response,
         r'''$.bill.amount''',
       ));
@@ -3953,14 +3932,6 @@ class GetBillCall {
   bool? isDebt(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.bill.isDebt''',
-      ));
-  int? interestRate(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.bill.interestRate''',
-      ));
-  int? cashBack(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.bill.cashBack''',
       ));
   String? url(dynamic response) => castToType<String>(getJsonField(
         response,
@@ -3996,13 +3967,17 @@ class GetSafeToSpendCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getSafeToSpend',
@@ -4036,13 +4011,17 @@ class EditLedgerEntryAsClearedCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? ledgerId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "ledgerId": "$ledgerId"
+  "ledgerId": "$ledgerId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'editLedgerEntryAsCleared',
@@ -4072,13 +4051,17 @@ class GetCurrentMonthIncomeCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? householdId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "householdId": "$householdId"
+  "householdId": "$householdId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getCurrentMonthIncome',
@@ -4126,8 +4109,11 @@ class EditTransactionCall {
     String? sourceId = '',
     String? tags = '',
     String? image = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
@@ -4142,7 +4128,8 @@ class EditTransactionCall {
   "status": "$status",
   "sourceId": "$sourceId",
   "tags": "$tags",
-  "image": "$image"
+  "image": "$image",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'editTransaction',
@@ -4172,13 +4159,17 @@ class DeleteTransactionCall {
   Future<ApiCallResponse> call({
     String? authorizationToken = '',
     String? transactionId = '',
+    String? globalRefreshToken = 'FAKE',
   }) async {
-    final baseUrl = TppbGroup.getBaseUrl();
+    final baseUrl = TppbGroup.getBaseUrl(
+      globalRefreshToken: globalRefreshToken,
+    );
 
     final ffApiRequestBody = '''
 {
   "authorizationToken": "$authorizationToken",
-  "transactionId": "$transactionId"
+  "transactionId": "$transactionId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'deleteTransaction',

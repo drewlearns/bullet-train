@@ -640,7 +640,7 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                                         '#,###.##',
                                                                     locale: '',
                                                                   ),
-                                                                  'Error',
+                                                                  'Loading...',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign

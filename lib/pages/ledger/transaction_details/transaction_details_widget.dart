@@ -40,6 +40,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().update(() {});
       _model.getFilePathOutput = await TppbGroup.getFilePathCall.call(
         authorizationToken: currentAuthenticationToken,
         transactionId: widget.transactionId,
@@ -174,7 +175,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               24.0, 0.0, 0.0, 0.0),
                           child: AutoSizeText(
                             FFLocalizations.of(context).getText(
-                              '46nxfr7m' /* Transaction Details */,
+                              '46nxfr7m' /* Transaction */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
@@ -1052,6 +1053,10 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                             transactionDetailsGetTransactionResponse
                                                 .jsonBody,
                                           ),
+                                          ParamType.String,
+                                        ),
+                                        'householdId': serializeParam(
+                                          widget.householdId,
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,

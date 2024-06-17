@@ -287,6 +287,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'paymentSourceId',
               ParamType.String,
             ),
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -310,7 +314,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EditIncome',
           path: '/editIncome',
           requireAuth: true,
-          builder: (context, params) => const EditIncomeWidget(),
+          builder: (context, params) => EditIncomeWidget(
+            incomeId: params.getParam(
+              'incomeId',
+              ParamType.String,
+            ),
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Threshold',
@@ -365,6 +378,45 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/deleteUser',
           requireAuth: true,
           builder: (context, params) => const DeleteUserWidget(),
+        ),
+        FFRoute(
+          name: 'ExportSearch',
+          path: '/exportSearch',
+          requireAuth: true,
+          builder: (context, params) => ExportSearchWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'ChangePassword',
+          path: '/changePassword',
+          requireAuth: true,
+          builder: (context, params) => const ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: 'ExportToCSV',
+          path: '/exportToCSV',
+          requireAuth: true,
+          builder: (context, params) => ExportToCSVWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'ExportToQBOFile',
+          path: '/exportToQBOFile',
+          requireAuth: true,
+          builder: (context, params) => ExportToQBOFileWidget(
+            householdId: params.getParam(
+              'householdId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

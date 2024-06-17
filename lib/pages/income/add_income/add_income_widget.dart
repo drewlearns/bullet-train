@@ -136,7 +136,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'we9ipn6g' /* Income Name */,
+                                  'we9ipn6g' /* Income Name* */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -233,7 +233,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'rc7sf4xp' /* Description */,
+                                  'rc7sf4xp' /* Description* */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -494,7 +494,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'zx7xm0en' /* Amount */,
+                                  'zx7xm0en' /* Amount* */,
                                 ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -634,7 +634,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                           .bodyMediumFamily),
                                 ),
                             hintText: FFLocalizations.of(context).getText(
-                              'xlitdyv6' /* How Often Do You Get Paid? */,
+                              'xlitdyv6' /* How Often Do You Get Paid?* */,
                             ),
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,
@@ -722,7 +722,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                                   .bodyMediumFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'kb9e4o15' /* Connect To Payment Source */,
+                                  'kb9e4o15' /* Connect To Wallet* */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,

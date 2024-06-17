@@ -408,12 +408,19 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                                               context)
                                                           .labelMediumFamily),
                                             ),
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          '701848re' /* 0.00 */,
+                                        ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -781,7 +788,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                                     isMultiSelect: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      '23t6m2gy' /* Day Of the Month Due* */,
+                                      '23t6m2gy' /* Most Recent Day Of the Month D... */,
                                     ),
                                     labelTextStyle: FlutterFlowTheme.of(context)
                                         .labelMedium

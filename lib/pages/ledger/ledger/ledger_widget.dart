@@ -745,11 +745,17 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                   clearedOnly: _model.filterModel.switchValue1,
                                   currentMonthOnly:
                                       _model.filterModel.switchValue2,
-                                  minAmount: _model.filterModel.sliderValue1,
-                                  maxAmount: _model.filterModel.sliderValue2,
-                                  pageSize: 1000,
-                                  year: _model.filterModel.dropDownValue2,
-                                  month: _model.filterModel.dropDownValue1,
+                                  minAmount: valueOrDefault<double>(
+                                    _model.filterModel.minAmount,
+                                    0.0,
+                                  ),
+                                  maxAmount: valueOrDefault<double>(
+                                    _model.filterModel.maxAmount,
+                                    90000.0,
+                                  ),
+                                  pageSize: 300,
+                                  year: _model.filterModel.year,
+                                  month: _model.filterModel.month,
                                   page: 1,
                                 )))
                           .future,
@@ -819,14 +825,27 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if ((TppbGroup
-                                                              .getLedgerAllCall
-                                                              .type(
-                                                        listViewGetLedgerAllResponse
-                                                            .jsonBody,
-                                                      )?[
-                                                          ledgerlistItemsIndex]) ==
-                                                      'transaction') {
+                                                  if (((TppbGroup.getLedgerAllCall
+                                                                  .type(
+                                                            listViewGetLedgerAllResponse
+                                                                .jsonBody,
+                                                          )?[
+                                                              ledgerlistItemsIndex]) ==
+                                                          'transaction') ||
+                                                      ((TppbGroup.getLedgerAllCall
+                                                                      .transactionId(
+                                                                listViewGetLedgerAllResponse
+                                                                    .jsonBody,
+                                                              )?[
+                                                                  ledgerlistItemsIndex]) !=
+                                                              null &&
+                                                          (TppbGroup.getLedgerAllCall
+                                                                      .transactionId(
+                                                                listViewGetLedgerAllResponse
+                                                                    .jsonBody,
+                                                              )?[
+                                                                  ledgerlistItemsIndex]) !=
+                                                              '')) {
                                                     context.pushNamed(
                                                       'TransactionDetails',
                                                       queryParameters: {
@@ -963,11 +982,8 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                       )?[ledgerlistItemsIndex],
                                                                       'Loading...',
                                                                     ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          30,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
+                                                                        maxChars:
+                                                                            40),
                                                                     textAlign:
                                                                         TextAlign
                                                                             .center,

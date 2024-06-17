@@ -1,1 +1,2 @@
-
+NSCameraUsageDescription = "Mangyaring magbigay ng access sa Camera upang makapag-upload ka ng mga resibo";
+NSPhotoLibraryUsageDescription = "Mangyaring magbigay ng access sa Photo Library para makapag-upload ka ng mga resibo";

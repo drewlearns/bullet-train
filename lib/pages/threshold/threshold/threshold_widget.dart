@@ -409,21 +409,26 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                     ),
                     if (_model.householdIdDropDownValue != null &&
                         _model.householdIdDropDownValue != '')
-                      SizedBox(
-                        width: 350.0,
-                        child: Slider(
-                          activeColor: FlutterFlowTheme.of(context).primary,
-                          inactiveColor: FlutterFlowTheme.of(context).alternate,
-                          min: 1.0,
-                          max: 10000.0,
-                          value: _model.sliderValue ??= 500.0,
-                          label: _model.sliderValue?.toStringAsFixed(2),
-                          divisions: 2000,
-                          onChanged: (newValue) {
-                            newValue =
-                                double.parse(newValue.toStringAsFixed(2));
-                            setState(() => _model.sliderValue = newValue);
-                          },
+                      SliderTheme(
+                        data: const SliderThemeData(
+                          showValueIndicator: ShowValueIndicator.always,
+                        ),
+                        child: SizedBox(
+                          width: 350.0,
+                          child: Slider(
+                            activeColor: FlutterFlowTheme.of(context).primary,
+                            inactiveColor:
+                                FlutterFlowTheme.of(context).alternate,
+                            min: 1.0,
+                            max: 9999.0,
+                            value: _model.sliderValue ??= 500.0,
+                            label: _model.sliderValue?.toStringAsFixed(2),
+                            onChanged: (newValue) {
+                              newValue =
+                                  double.parse(newValue.toStringAsFixed(2));
+                              setState(() => _model.sliderValue = newValue);
+                            },
+                          ),
                         ),
                       ),
                     if (_model.householdIdDropDownValue != null &&

@@ -39,127 +39,124 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Title(
-        title: 'Wallet',
-        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
-        child: GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
-          child: Scaffold(
-            key: scaffoldKey,
+    return FutureBuilder<ApiCallResponse>(
+      future: TppbGroup.getHouseholdCall.call(
+        authorizationToken: currentAuthenticationToken,
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(50.0),
-              child: AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primary,
-                automaticallyImplyLeading: false,
-                leading: FlutterFlowIconButton(
-                  borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    size: 30.0,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
                   ),
-                  onPressed: () async {
-                    context.pop();
-                  },
                 ),
-                actions: const [],
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    FFLocalizations.of(context).getText(
-                      'thnemytb' /* Wallet */,
-                    ),
-                    style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).displaySmallFamily,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).displaySmallFamily),
-                        ),
-                  ),
-                  centerTitle: true,
-                  expandedTitleScale: 1.0,
-                ),
-                elevation: 0.0,
               ),
             ),
-            body: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primary,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Column(
+          );
+        }
+        final paymentSourcesGetHouseholdResponse = snapshot.data!;
+        return Title(
+            title: 'Wallet',
+            color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Scaffold(
+                key: scaffoldKey,
+                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                appBar: PreferredSize(
+                  preferredSize: const Size.fromHeight(50.0),
+                  child: AppBar(
+                    backgroundColor: FlutterFlowTheme.of(context).primary,
+                    automaticallyImplyLeading: false,
+                    leading: FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 60.0,
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        size: 30.0,
+                      ),
+                      onPressed: () async {
+                        context.pop();
+                      },
+                    ),
+                    actions: const [],
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text(
+                        FFLocalizations.of(context).getText(
+                          'thnemytb' /* Wallet */,
+                        ),
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displaySmallFamily,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displaySmallFamily),
+                                ),
+                      ),
+                      centerTitle: true,
+                      expandedTitleScale: 1.0,
+                    ),
+                    elevation: 0.0,
+                  ),
+                ),
+                body: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).primary,
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                  topLeft: Radius.circular(0.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
+                              ),
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 16.0, 0.0, 16.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        FutureBuilder<ApiCallResponse>(
-                                          future:
-                                              TppbGroup.getHouseholdCall.call(
-                                            authorizationToken:
-                                                currentAuthenticationToken,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            final dropDownGetHouseholdResponse =
-                                                snapshot.data!;
-                                            return FlutterFlowDropDown<String>(
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 16.0, 0.0, 16.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            FlutterFlowDropDown<String>(
                                               controller: _model
                                                       .dropDownValueController ??=
                                                   FormFieldController<String>(
                                                 _model.dropDownValue ??=
                                                     TppbGroup.getHouseholdCall
                                                         .householdId(
-                                                          dropDownGetHouseholdResponse
+                                                          paymentSourcesGetHouseholdResponse
                                                               .jsonBody,
                                                         )
                                                         ?.first,
@@ -167,14 +164,14 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                               options: List<String>.from(
                                                   TppbGroup.getHouseholdCall
                                                       .householdId(
-                                                        dropDownGetHouseholdResponse
+                                                        paymentSourcesGetHouseholdResponse
                                                             .jsonBody,
                                                       )!
                                                       .sortedList((e) => e)),
                                               optionLabels:
                                                   TppbGroup.getHouseholdCall
                                                       .householdName(
-                                                        dropDownGetHouseholdResponse
+                                                        paymentSourcesGetHouseholdResponse
                                                             .jsonBody,
                                                       )!
                                                       .sortedList((e) => e),
@@ -293,232 +290,245 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                                         context)
                                                                     .labelMediumFamily),
                                                       ),
-                                            );
-                                          },
-                                        ),
-                                        if (_model.dropDownValue != null &&
-                                            _model.dropDownValue != '')
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                borderRadius: 20.0,
-                                                borderWidth: 2.0,
-                                                buttonSize: 40.0,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                icon: Icon(
-                                                  Icons.add,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  context.pushNamed(
-                                                    'AddPaymentSource',
-                                                    queryParameters: {
-                                                      'householdId':
-                                                          serializeParam(
-                                                        _model.dropDownValue,
-                                                        ParamType.String,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                              ),
                                             ),
-                                          ),
-                                      ],
-                                    ),
+                                            if (_model.dropDownValue != null &&
+                                                _model.dropDownValue != '')
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .alternate,
+                                                    borderRadius: 20.0,
+                                                    borderWidth: 2.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    icon: Icon(
+                                                      Icons.add,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        'AddPaymentSource',
+                                                        queryParameters: {
+                                                          'householdId':
+                                                              serializeParam(
+                                                            _model
+                                                                .dropDownValue,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                        if (_model.dropDownValue != null &&
-                            _model.dropDownValue != '')
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                6.0, 12.0, 0.0, 0.0),
-                            child: FutureBuilder<ApiCallResponse>(
-                              future: TppbGroup.getPaymentSourceCall.call(
-                                authorizationToken: currentAuthenticationToken,
-                                householdId: valueOrDefault<String>(
-                                  _model.dropDownValue,
-                                  'N/A',
-                                ),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
-                                      ),
+                            ),
+                            if (_model.dropDownValue != null &&
+                                _model.dropDownValue != '')
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 12.0, 0.0, 0.0),
+                                child: FutureBuilder<ApiCallResponse>(
+                                  future: TppbGroup.getPaymentSourceCall.call(
+                                    authorizationToken:
+                                        currentAuthenticationToken,
+                                    householdId: valueOrDefault<String>(
+                                      _model.dropDownValue,
+                                      'N/A',
                                     ),
-                                  );
-                                }
-                                final listViewGetPaymentSourceResponse =
-                                    snapshot.data!;
-                                return Builder(
-                                  builder: (context) {
-                                    final walletItems =
-                                        TppbGroup.getPaymentSourceCall
-                                                .paymentSources(
-                                                  listViewGetPaymentSourceResponse
-                                                      .jsonBody,
-                                                )
-                                                ?.toList() ??
-                                            [];
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: walletItems.length,
-                                      itemBuilder: (context, walletItemsIndex) {
-                                        final walletItemsItem =
-                                            walletItems[walletItemsIndex];
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 8.0, 16.0, 8.0),
-                                          child: Container(
-                                            width: 100.0,
-                                            height: 52.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                            ),
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Semantics(
-                                                    label:
-                                                        'View Payment Source details',
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'PaymentSourceDetails',
-                                                          queryParameters: {
-                                                            'paymentSourceId':
-                                                                serializeParam(
-                                                              TppbGroup
-                                                                  .getPaymentSourceCall
-                                                                  .sourceId(
-                                                                listViewGetPaymentSourceResponse
-                                                                    .jsonBody,
-                                                              ),
-                                                              ParamType.String,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Flexible(
-                                                            child: Text(
-                                                              getJsonField(
-                                                                walletItemsItem,
-                                                                r'''$.sourceName''',
-                                                              ).toString(),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            getJsonField(
-                                                              walletItemsItem,
-                                                              r'''$.sourceType''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
                                             ),
                                           ),
+                                        ),
+                                      );
+                                    }
+                                    final listViewGetPaymentSourceResponse =
+                                        snapshot.data!;
+                                    return Builder(
+                                      builder: (context) {
+                                        final walletItems =
+                                            TppbGroup.getPaymentSourceCall
+                                                    .paymentSources(
+                                                      listViewGetPaymentSourceResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.toList() ??
+                                                [];
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: walletItems.length,
+                                          itemBuilder:
+                                              (context, walletItemsIndex) {
+                                            final walletItemsItem =
+                                                walletItems[walletItemsIndex];
+                                            return Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 8.0, 16.0, 8.0),
+                                              child: Container(
+                                                width: 100.0,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Semantics(
+                                                        label:
+                                                            'View Payment Source details',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'PaymentSourceDetails',
+                                                              queryParameters: {
+                                                                'paymentSourceId':
+                                                                    serializeParam(
+                                                                  TppbGroup
+                                                                      .getPaymentSourceCall
+                                                                      .sourceId(
+                                                                    listViewGetPaymentSourceResponse
+                                                                        .jsonBody,
+                                                                  ),
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'householdId':
+                                                                    serializeParam(
+                                                                  _model
+                                                                      .dropDownValue,
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Flexible(
+                                                                child: Text(
+                                                                  getJsonField(
+                                                                    walletItemsItem,
+                                                                    r'''$.sourceName''',
+                                                                  ).toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  walletItemsItem,
+                                                                  r'''$.sourceType''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          },
                                         );
                                       },
                                     );
                                   },
-                                );
-                              },
-                            ),
-                          ),
-                      ],
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ));
+              ),
+            ));
+      },
+    );
   }
 }
