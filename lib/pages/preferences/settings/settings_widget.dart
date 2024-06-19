@@ -558,7 +558,7 @@ class _SettingsWidgetState extends State<SettingsWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('CreateHousehold');
+                                          context.pushNamed('EditHousehold');
                                         },
                                         child: Material(
                                           color: Colors.transparent,

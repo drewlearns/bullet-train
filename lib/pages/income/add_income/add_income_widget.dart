@@ -772,6 +772,7 @@ class _AddIncomeWidgetState extends State<AddIncomeWidget> {
                                 description: _model.textController2.text,
                                 paymentSourceId: _model.dropDownValue2,
                               );
+
                               if ((_model.addIncomeOutput?.succeeded ?? true)) {
                                 await showDialog(
                                   context: context,

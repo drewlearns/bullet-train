@@ -17,7 +17,7 @@ class EditIncomeWidget extends StatefulWidget {
   const EditIncomeWidget({
     super.key,
     required this.incomeId,
-    this.householdId,
+    required this.householdId,
   });
 
   final String? incomeId;
@@ -146,6 +146,7 @@ class _EditIncomeWidgetState extends State<EditIncomeWidget>
                               authorizationToken: currentAuthenticationToken,
                               incomeId: widget.incomeId,
                             );
+
                             if ((_model.apiResultvw0?.succeeded ?? true)) {
                               await showDialog(
                                 context: context,
@@ -163,6 +164,7 @@ class _EditIncomeWidgetState extends State<EditIncomeWidget>
                                   );
                                 },
                               );
+                              context.safePop();
                             } else {
                               await showDialog(
                                 context: context,
@@ -657,7 +659,7 @@ class _EditIncomeWidgetState extends State<EditIncomeWidget>
                                                         FormFieldController<
                                                             String>(
                                                       _model.dropDownValue1 ??=
-                                                          '',
+                                                          widget.householdId,
                                                     ),
                                                     options: List<String>.from(
                                                         TppbGroup
@@ -1233,6 +1235,7 @@ class _EditIncomeWidgetState extends State<EditIncomeWidget>
                             description: '',
                             paymentSourceId: _model.dropDownValue2,
                           );
+
                           if ((_model.apiResultzod?.succeeded ?? true)) {
                             await showDialog(
                               context: context,

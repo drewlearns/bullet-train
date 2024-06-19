@@ -14,7 +14,7 @@ export 'export_search_model.dart';
 class ExportSearchWidget extends StatefulWidget {
   const ExportSearchWidget({
     super.key,
-    this.householdId,
+    required this.householdId,
   });
 
   final String? householdId;
@@ -33,8 +33,8 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
     super.initState();
     _model = createModel(context, () => ExportSearchModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.categoryTextController ??= TextEditingController();
+    _model.categoryFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -112,9 +112,10 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                       child: SizedBox(
                         width: 350.0,
                         child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
+                          controller: _model.categoryTextController,
+                          focusNode: _model.categoryFocusNode,
                           autofocus: true,
+                          textCapitalization: TextCapitalization.words,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: FFLocalizations.of(context).getText(
@@ -188,7 +189,7 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                                     FlutterFlowTheme.of(context)
                                         .bodyMediumFamily),
                               ),
-                          validator: _model.textControllerValidator
+                          validator: _model.categoryTextControllerValidator
                               .asValidator(context),
                         ),
                       ),
@@ -200,9 +201,9 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 0.0),
                       child: FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController ??=
+                        controller: _model.reportTypeValueController ??=
                             FormFieldController<String>(
-                          _model.dropDownValue ??= '',
+                          _model.reportTypeValue ??= 'yearEnd',
                         ),
                         options: List<String>.from(['yearEnd', 'tracking']),
                         optionLabels: [
@@ -214,7 +215,7 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                           )
                         ],
                         onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
+                            setState(() => _model.reportTypeValue = val),
                         width: 350.0,
                         height: 56.0,
                         textStyle: FlutterFlowTheme.of(context)
@@ -228,7 +229,7 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                                       .bodyMediumFamily),
                             ),
                         hintText: FFLocalizations.of(context).getText(
-                          'bvg1k6sz' /* Category */,
+                          'bvg1k6sz' /* Please Select... */,
                         ),
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
@@ -242,11 +243,23 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                         borderWidth: 2.0,
                         borderRadius: 8.0,
                         margin: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 4.0, 16.0, 4.0),
+                            16.0, 0.0, 16.0, 0.0),
                         hidesUnderline: true,
                         isOverButton: true,
                         isSearchable: false,
                         isMultiSelect: false,
+                        labelText: FFLocalizations.of(context).getText(
+                          '4jsc87uq' /* Report Type */,
+                        ),
+                        labelTextStyle: FlutterFlowTheme.of(context)
+                            .bodyLarge
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyLargeFamily),
+                            ),
                       ),
                     ),
                   ),
@@ -260,18 +273,22 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                           _model.apiResultfzl =
                               await TppbGroup.exportSearchCall.call(
                             authorizationToken: currentAuthenticationToken,
-                            category: _model.textController.text,
-                            reportType: _model.dropDownValue,
+                            category: _model.categoryTextController.text,
+                            reportType: valueOrDefault<String>(
+                              _model.reportTypeValue,
+                              'yearEnd',
+                            ),
                             householdId: widget.householdId,
                           );
+
                           if ((_model.apiResultfzl?.succeeded ?? true)) {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
                                   title: const Text('Success'),
-                                  content: const Text(
-                                      'Your link is beind this popup window to download the .CSV file.'),
+                                  content:
+                                      const Text('A link has been emailed to you'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
@@ -282,6 +299,9 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                                 );
                               },
                             );
+                            setState(() {
+                              _model.categoryTextController?.clear();
+                            });
                           } else {
                             await showDialog(
                               context: context,
@@ -337,41 +357,6 @@ class _ExportSearchWidgetState extends State<ExportSearchWidget> {
                       ),
                     ),
                   ),
-                  if ((_model.apiResultfzl?.succeeded ?? true) == false)
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                      child: Semantics(
-                        label: 'Click here for csv link to open',
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await launchURL(getJsonField(
-                              (_model.apiResultfzl?.jsonBody ?? ''),
-                              r'''$.presignedUrl''',
-                            ).toString());
-                          },
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '4bjmbdqs' /* Click here for results */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
-                                ),
-                          ),
-                        ),
-                      ),
-                    ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(

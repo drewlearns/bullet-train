@@ -220,6 +220,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                   await TppbGroup.forgotPasswordCall.call(
                                 email: _model.textController.text,
                               );
+
                               if ((_model.forgotPasswordOutput?.succeeded ??
                                   true)) {
                                 await showDialog(

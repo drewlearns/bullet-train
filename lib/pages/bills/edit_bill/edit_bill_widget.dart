@@ -155,6 +155,7 @@ class _EditBillWidgetState extends State<EditBillWidget> {
                               authorizationToken: currentAuthenticationToken,
                               billId: widget.billId,
                             );
+
                             if ((_model.deleteBillOutput?.succeeded ?? true)) {
                               await showDialog(
                                 context: context,
@@ -1526,6 +1527,7 @@ class _EditBillWidgetState extends State<EditBillWidget> {
                                       )
                                       .toString(),
                                 );
+
                                 if ((_model.apiResultxem?.succeeded ?? true)) {
                                   await showDialog(
                                     context: context,

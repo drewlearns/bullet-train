@@ -9,11 +9,15 @@ class BillsModel extends FlutterFlowModel<BillsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - isItRfreshTokenTimeYet] action in Bills widget.
+  bool? refreshTokenTiime;
   // Stores action output result for [Backend Call - API (refreshToken)] action in Bills widget.
-  ApiCallResponse? refreshTokenOutput;
+  ApiCallResponse? apiResulth4p;
   // State field(s) for GetHouseholdDropDown widget.
   String? getHouseholdDropDownValue;
   FormFieldController<String>? getHouseholdDropDownValueController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in GetHouseholdDropDown widget.
+  ApiCallResponse? refreshTokenOutput;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

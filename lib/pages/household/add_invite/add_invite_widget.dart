@@ -185,6 +185,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                                                 currentAuthenticationToken,
                                             householdId: _model.dropDownValue,
                                           );
+
                                           if ((_model.apiResult37n?.succeeded ??
                                               true)) {
                                             setState(() {});
@@ -475,6 +476,7 @@ class _AddInviteWidgetState extends State<AddInviteWidget> {
                                       email: _model.textController.text,
                                       householdId: _model.dropDownValue,
                                     );
+
                                     if ((_model.apiResultcil?.succeeded ??
                                         true)) {
                                       await showDialog(

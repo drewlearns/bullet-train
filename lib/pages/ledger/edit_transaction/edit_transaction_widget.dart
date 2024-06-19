@@ -156,6 +156,7 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                               authorizationToken: currentAuthenticationToken,
                               transactionId: widget.transactionID,
                             );
+
                             if ((_model.deleteTransaction?.succeeded ?? true)) {
                               await showDialog(
                                 context: context,
@@ -1897,6 +1898,7 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                                                   .tagsFieldTextController.text,
                                               image: _model.fileUploaded,
                                             );
+
                                             if ((_model.editTransactionOutput
                                                     ?.succeeded ??
                                                 true)) {
@@ -1927,11 +1929,12 @@ class _EditTransactionWidgetState extends State<EditTransactionWidget> {
                                                     await TppbGroup
                                                         .refreshTokenCall
                                                         .call(
-                                                  authorizationToken:
+                                                  username:
                                                       currentAuthenticationToken,
                                                   refreshToken:
                                                       currentAuthRefreshToken,
                                                 );
+
                                                 if ((_model.apiResultduf
                                                         ?.succeeded ??
                                                     true)) {

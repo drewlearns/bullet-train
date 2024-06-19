@@ -13,9 +13,11 @@ class IncomeDetailsWidget extends StatefulWidget {
   const IncomeDetailsWidget({
     super.key,
     required this.incomeId,
+    this.householdId,
   });
 
   final String? incomeId;
+  final String? householdId;
 
   @override
   State<IncomeDetailsWidget> createState() => _IncomeDetailsWidgetState();
@@ -108,11 +110,18 @@ class _IncomeDetailsWidgetState extends State<IncomeDetailsWidget> {
                           size: 24.0,
                         ),
                         onPressed: () async {
+                          if (Navigator.of(context).canPop()) {
+                            context.pop();
+                          }
                           context.pushNamed(
                             'EditIncome',
                             queryParameters: {
                               'incomeId': serializeParam(
                                 widget.incomeId,
+                                ParamType.String,
+                              ),
+                              'householdId': serializeParam(
+                                widget.householdId,
                                 ParamType.String,
                               ),
                             }.withoutNulls,

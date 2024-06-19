@@ -629,6 +629,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                         newPassword: _model.textController3.text,
                         authorizationToken: currentAuthenticationToken,
                       );
+
                       if ((_model.apiResulthu0?.succeeded ?? true)) {
                         await showDialog(
                           context: context,

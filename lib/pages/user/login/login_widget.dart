@@ -1154,6 +1154,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 .lastNameTextController
                                                                 .text,
                                                           );
+
                                                           if ((_model
                                                                   .signUpOutput
                                                                   ?.succeeded ??
@@ -1832,6 +1833,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .passwordSigninTextController
                                                                   .text,
                                                             );
+
                                                             if ((_model
                                                                     .loginOutput
                                                                     ?.succeeded ??
@@ -1840,6 +1842,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   .updateExpiresAtAction(
                                                                 context,
                                                               );
+                                                              FFAppState()
+                                                                      .email =
+                                                                  _model
+                                                                      .emailAddressSignInTextController
+                                                                      .text;
                                                               GoRouter.of(
                                                                       context)
                                                                   .prepareAuthEvent();

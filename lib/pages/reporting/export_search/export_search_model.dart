@@ -8,13 +8,13 @@ class ExportSearchModel extends FlutterFlowModel<ExportSearchWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for Category widget.
+  FocusNode? categoryFocusNode;
+  TextEditingController? categoryTextController;
+  String? Function(BuildContext, String?)? categoryTextControllerValidator;
+  // State field(s) for ReportType widget.
+  String? reportTypeValue;
+  FormFieldController<String>? reportTypeValueController;
   // Stores action output result for [Backend Call - API (exportSearch)] action in Button widget.
   ApiCallResponse? apiResultfzl;
 
@@ -24,7 +24,7 @@ class ExportSearchModel extends FlutterFlowModel<ExportSearchWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    categoryFocusNode?.dispose();
+    categoryTextController?.dispose();
   }
 }

@@ -197,11 +197,12 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                             _model.apiResultvvt =
                                                 await TppbGroup.refreshTokenCall
                                                     .call(
-                                              authorizationToken:
+                                              username:
                                                   currentAuthenticationToken,
                                               refreshToken:
                                                   currentAuthRefreshToken,
                                             );
+
                                             if ((_model
                                                     .apiResultvvt?.succeeded ??
                                                 true)) {
@@ -690,7 +691,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                                               context)
                                                           .bodyMediumFamily),
                                             ),
-                                        keyboardType: TextInputType.number,
+                                        keyboardType: const TextInputType
+                                            .numberWithOptions(decimal: true),
                                         validator: _model
                                             .textController1Validator
                                             .asValidator(context),
@@ -1120,6 +1122,7 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                       tags: _model.textController4.text,
                                       image: _model.base64ImageString,
                                     );
+
                                     if ((_model
                                             .addTransactionOutput?.succeeded ??
                                         true)) {
@@ -1144,6 +1147,15 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                         _model.textController1?.clear();
                                         _model.textController3?.clear();
                                         _model.textController4?.clear();
+                                        _model.textController2?.clear();
+                                      });
+                                      setState(() {
+                                        _model.dropDownValueController1
+                                            ?.reset();
+                                        _model.dropDownValueController2
+                                            ?.reset();
+                                        _model.dropDownValueController3
+                                            ?.reset();
                                       });
                                     } else {
                                       await showDialog(
@@ -1151,13 +1163,8 @@ class _AddTransactionWidgetState extends State<AddTransactionWidget> {
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
                                             title: const Text('Error:'),
-                                            content: Text(TppbGroup
-                                                .addTransactionCall
-                                                .message(
-                                              (_model.addTransactionOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!),
+                                            content: const Text(
+                                                'Check to make sure you filled out all required fields'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(

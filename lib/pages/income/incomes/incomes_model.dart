@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 class IncomesModel extends FlutterFlowModel<IncomesWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - isItRfreshTokenTimeYet] action in Incomes widget.
+  bool? refreshTokenTiime;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in Incomes widget.
+  ApiCallResponse? apiResulth4p;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

@@ -1493,6 +1493,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                           paymentSourceId: _model.paymentSourceFieldValue,
                           username: _model.usernameFieldTextController.text,
                         );
+
                         if ((_model.addBillOutput1?.succeeded ?? true)) {
                           await showDialog(
                             context: context,
@@ -1524,6 +1525,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                               401) {
                             _model.apiResult6hu1 =
                                 await TppbGroup.refreshTokenCall.call();
+
                             _model.addBillOutput =
                                 await TppbGroup.addBillCall.call(
                               authorizationToken: currentAuthenticationToken,
@@ -1544,6 +1546,7 @@ class _AddBillWidgetState extends State<AddBillWidget> {
                               paymentSourceId: _model.paymentSourceFieldValue,
                               username: _model.usernameFieldTextController.text,
                             );
+
                             setState(() {
                               _model.textController1?.clear();
                               _model.textController2?.clear();

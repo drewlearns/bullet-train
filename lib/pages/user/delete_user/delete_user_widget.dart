@@ -190,6 +190,7 @@ dele... */
                               await TppbGroup.deleteUserJsCall.call(
                             authorizationToken: currentAuthenticationToken,
                           );
+
                           if ((_model.apiResultgib?.succeeded ?? true)) {
                             await showDialog(
                               context: context,

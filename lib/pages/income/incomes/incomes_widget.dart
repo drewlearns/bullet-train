@@ -5,9 +5,11 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'incomes_model.dart';
 export 'incomes_model.dart';
@@ -28,6 +30,33 @@ class _IncomesWidgetState extends State<IncomesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => IncomesModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.refreshTokenTiime = await actions.isItRfreshTokenTimeYet(
+        currentAuthTokenExpiration?.toString(),
+      );
+      if (_model.refreshTokenTiime == true) {
+        await actions.updateExpiresAtAction(
+          context,
+        );
+        _model.apiResulth4p = await TppbGroup.refreshTokenCall.call(
+          username: currentAuthenticationToken,
+          refreshToken: currentAuthRefreshToken,
+        );
+
+        authManager.updateAuthUserData(
+          authenticationToken: TppbGroup.refreshTokenCall.accessToken(
+            (_model.apiResulth4p?.jsonBody ?? ''),
+          ),
+          refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+            (_model.apiResulth4p?.jsonBody ?? ''),
+          ),
+          tokenExpiration: functions.updateExpireAtAction(),
+          authUid: currentUserUid,
+        );
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -141,10 +170,10 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                         401) {
                                       _model.apiResultmgb =
                                           await TppbGroup.refreshTokenCall.call(
-                                        authorizationToken:
-                                            currentAuthenticationToken,
+                                        username: currentAuthenticationToken,
                                         refreshToken: currentAuthRefreshToken,
                                       );
+
                                       if ((_model.apiResultmgb?.succeeded ??
                                           true)) {
                                         authManager.updateAuthUserData(
@@ -370,149 +399,178 @@ class _IncomesWidgetState extends State<IncomesWidget> {
                                                   (context, incomesIndex) {
                                                 final incomesItem =
                                                     incomes[incomesIndex];
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  12.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 3,
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
+                                                return Semantics(
+                                                  label:
+                                                      'Click to view income details',
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'IncomeDetails',
+                                                        queryParameters: {
+                                                          'incomeId':
+                                                              serializeParam(
+                                                            TppbGroup
+                                                                .getIncomesCall
+                                                                .incomeId(
+                                                              listViewGetIncomesResponse
+                                                                  .jsonBody,
+                                                            )?[incomesIndex],
+                                                            ParamType.String,
+                                                          ),
+                                                          'householdId':
+                                                              serializeParam(
+                                                            _model
+                                                                .dropDownValue,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      12.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 3,
+                                                                child: Padding(
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           4.0,
                                                                           0.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '2msslbpg' /* Acme Inc */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).titleLargeFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          TppbGroup
+                                                                              .getIncomesCall
+                                                                              .name(
+                                                                            listViewGetIncomesResponse.jsonBody,
+                                                                          )?[incomesIndex],
+                                                                          'Loading...',
                                                                         ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          TppbGroup
+                                                                              .getIncomesCall
+                                                                              .payday(
+                                                                            listViewGetIncomesResponse.jsonBody,
+                                                                          )?[incomesIndex],
+                                                                          'Error',
+                                                                        ).maybeHandleOverflow(
+                                                                            maxChars:
+                                                                                10),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      TppbGroup
-                                                                          .getIncomesCall
-                                                                          .payday(
-                                                                        listViewGetIncomesResponse
-                                                                            .jsonBody,
-                                                                      )?[incomesIndex],
-                                                                      'Error',
-                                                                    ).maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            10),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).titleLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ],
+                                                                ),
                                                               ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              formatNumber(
-                                                                TppbGroup
-                                                                    .getIncomesCall
-                                                                    .amount(
-                                                                  listViewGetIncomesResponse
-                                                                      .jsonBody,
-                                                                )![incomesIndex],
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: '',
-                                                                format:
-                                                                    '#,###.##',
-                                                                locale: '',
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign.end,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleLargeFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).titleLargeFamily),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  formatNumber(
+                                                                    TppbGroup
+                                                                        .getIncomesCall
+                                                                        .amount(
+                                                                      listViewGetIncomesResponse
+                                                                          .jsonBody,
+                                                                    )![incomesIndex],
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .custom,
+                                                                    currency:
+                                                                        '',
+                                                                    format:
+                                                                        '#,###.##',
+                                                                    locale: '',
                                                                   ),
-                                                            ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .end,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).titleLargeFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Divider(
-                                                      thickness: 2.0,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                        ),
+                                                        Divider(
+                                                          thickness: 2.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .alternate,
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
+                                                  ),
                                                 );
                                               },
                                             );

@@ -182,7 +182,7 @@ class _ExportToCSVWidgetState extends State<ExportToCSVWidget> {
                                 borderWidth: 2.0,
                                 borderRadius: 8.0,
                                 margin: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 4.0),
+                                    16.0, 0.0, 0.0, 0.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
                                 isSearchable: false,
@@ -216,12 +216,12 @@ class _ExportToCSVWidgetState extends State<ExportToCSVWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               _model.apiResultfzl =
-                                  await TppbGroup.exportSearchCall.call(
+                                  await TppbGroup.exportLedgerToCsvCall.call(
                                 authorizationToken: currentAuthenticationToken,
-                                category: _model.dropDownValue,
-                                reportType: _model.dropDownValue,
                                 householdId: widget.householdId,
+                                paymentSourceId: _model.dropDownValue,
                               );
+
                               if ((_model.apiResultfzl?.succeeded ?? true)) {
                                 await showDialog(
                                   context: context,
@@ -229,7 +229,7 @@ class _ExportToCSVWidgetState extends State<ExportToCSVWidget> {
                                     return AlertDialog(
                                       title: const Text('Success'),
                                       content: const Text(
-                                          'Your link is beind this popup window to download the .CSV file.'),
+                                          'A link has been emailed to you'),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>
@@ -296,42 +296,6 @@ class _ExportToCSVWidgetState extends State<ExportToCSVWidget> {
                           ),
                         ),
                       ),
-                      if ((_model.apiResultfzl?.succeeded ?? true) == false)
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 0.0),
-                          child: Semantics(
-                            label: 'Click here for csv link to open',
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                await launchURL(getJsonField(
-                                  (_model.apiResultfzl?.jsonBody ?? ''),
-                                  r'''$.presignedUrl''',
-                                ).toString());
-                              },
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'u386rolo' /* Click here for results */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(

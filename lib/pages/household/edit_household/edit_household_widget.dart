@@ -118,6 +118,7 @@ class _EditHouseholdWidgetState extends State<EditHouseholdWidget> {
                               authorizationToken: currentAuthenticationToken,
                               householdId: _model.getHouseholdDropDownValue,
                             );
+
                             if ((_model.apiResultr5r?.succeeded ?? true)) {
                               await showDialog(
                                 context: context,
@@ -276,11 +277,12 @@ class _EditHouseholdWidgetState extends State<EditHouseholdWidget> {
                                                               await TppbGroup
                                                                   .refreshTokenCall
                                                                   .call(
-                                                            authorizationToken:
+                                                            username:
                                                                 currentAuthenticationToken,
                                                             refreshToken:
                                                                 currentAuthRefreshToken,
                                                           );
+
                                                           if ((_model
                                                                   .refreshTokenOutput
                                                                   ?.succeeded ??
@@ -570,6 +572,7 @@ class _EditHouseholdWidgetState extends State<EditHouseholdWidget> {
                                 authorizationToken: currentAuthenticationToken,
                                 householdName: _model.textController.text,
                               );
+
                               if ((_model.apiResultf9h?.succeeded ?? true)) {
                                 await showDialog(
                                   context: context,

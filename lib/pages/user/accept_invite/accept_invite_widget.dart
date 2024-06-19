@@ -843,6 +843,7 @@ class _AcceptInviteWidgetState extends State<AcceptInviteWidget>
                                       password: _model.passwordfieldModel
                                           .passwordSignUpTextController.text,
                                     );
+
                                     if ((_model.acceptInviteOutput?.succeeded ??
                                         true)) {
                                       await showDialog(

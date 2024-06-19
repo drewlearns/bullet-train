@@ -159,10 +159,10 @@ class _ThresholdWidgetState extends State<ThresholdWidget> {
                                         _model.refreshoutput = await TppbGroup
                                             .refreshTokenCall
                                             .call(
-                                          authorizationToken:
-                                              currentAuthenticationToken,
+                                          username: currentAuthenticationToken,
                                           refreshToken: currentAuthRefreshToken,
                                         );
+
                                         if ((_model.refreshoutput?.succeeded ??
                                             true)) {
                                           authManager.updateAuthUserData(

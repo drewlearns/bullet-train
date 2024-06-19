@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/ledger/filter/filter_widget.dart';
 import '/walkthroughs/ledger.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
@@ -38,58 +40,40 @@ class _LedgerWidgetState extends State<LedgerWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Function() navigate = () {};
-      if (!ledgerGetHouseholdResponse.succeeded) {
-        if (ledgerGetHouseholdResponse.statusCode == 401) {
-          _model.refreshTokenOutput = await TppbGroup.refreshTokenCall.call(
-            authorizationToken: currentAuthenticationToken,
-            refreshToken: currentAuthRefreshToken,
-          );
-          if ((_model.refreshTokenOutput?.succeeded ?? true)) {
-            authManager.updateAuthUserData(
-              authenticationToken: TppbGroup.refreshTokenCall.accessToken(
-                (_model.refreshTokenOutput?.jsonBody ?? ''),
-              ),
-              refreshToken: TppbGroup.refreshTokenCall.refreshToken(
-                (_model.refreshTokenOutput?.jsonBody ?? ''),
-              ),
-              tokenExpiration: functions.updateExpireAtAction(),
-              authUid: currentUserUid,
-            );
-            GoRouter.of(context).prepareAuthEvent();
-            await authManager.signIn(
-              authenticationToken: currentAuthenticationToken,
-              refreshToken: currentAuthRefreshToken,
-              tokenExpiration: currentAuthTokenExpiration,
-              authUid: currentUserUid,
-            );
-            navigate = () => context.goNamedAuth('Ledger', context.mounted);
-          } else {
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return AlertDialog(
-                  title: const Text('You have been signed out'),
-                  content: const Text('Log back in'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: const Text('Ok'),
-                    ),
-                  ],
-                );
-              },
-            );
-            GoRouter.of(context).prepareAuthEvent();
-            await authManager.signOut();
-            GoRouter.of(context).clearRedirectLocation();
-
-            navigate = () => context.goNamedAuth('Login', context.mounted);
-          }
-        }
+      if (RootPageContext.isInactiveRootPage(context)) {
+        return;
       }
+      _model.refreshTokenTiime = await actions.isItRfreshTokenTimeYet(
+        currentAuthTokenExpiration?.toString(),
+      );
+      if (_model.refreshTokenTiime == true) {
+        await actions.updateExpiresAtAction(
+          context,
+        );
+        _model.apiResulth4p = await TppbGroup.refreshTokenCall.call(
+          username: currentUserUid,
+          refreshToken: currentAuthRefreshToken,
+        );
 
-      navigate();
+        authManager.updateAuthUserData(
+          authenticationToken: TppbGroup.refreshTokenCall.accessToken(
+            (_model.apiResulth4p?.jsonBody ?? ''),
+          ),
+          refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+            (_model.apiResulth4p?.jsonBody ?? ''),
+          ),
+          tokenExpiration: functions.updateExpireAtAction(),
+          authUid: currentUserUid,
+          userData: UserStruct(
+            accessToken: TppbGroup.refreshTokenCall.accessToken(
+              (_model.apiResulth4p?.jsonBody ?? ''),
+            ),
+            refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+              (_model.apiResulth4p?.jsonBody ?? ''),
+            ),
+          ),
+        );
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -108,6 +92,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
       future: TppbGroup.getHouseholdCall.call(
         authorizationToken: currentAuthenticationToken,
         page: 1,
+        globalRefreshToken: currentAuthRefreshToken,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -293,7 +278,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                     ledgerGetHouseholdResponse
                                                                         .jsonBody,
                                                                   )
-                                                                  ?.first,
+                                                                  ?.last,
                                                         ),
                                                         options: List<
                                                                 String>.from(
@@ -320,11 +305,12 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                 await TppbGroup
                                                                     .refreshTokenCall
                                                                     .call(
-                                                              authorizationToken:
+                                                              username:
                                                                   currentAuthenticationToken,
                                                               refreshToken:
                                                                   currentAuthRefreshToken,
                                                             );
+
                                                             if ((_model
                                                                     .apiResultc92
                                                                     ?.succeeded ??
@@ -789,6 +775,8 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                       ),
                     ],
                   ),
+
+                  // currentMonthOnly is reversed in logic
                   Expanded(
                     child: FutureBuilder<ApiCallResponse>(
                       future: (_model.apiRequestCompleter ??=
@@ -801,7 +789,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                   householdId: _model.householdIdDropDownValue,
                                   clearedOnly: _model.filterModel.switchValue1,
                                   currentMonthOnly:
-                                      _model.filterModel.switchValue2,
+                                      _model.filterModel.currentMonthOnly,
                                   minAmount: valueOrDefault<double>(
                                     _model.filterModel.minAmount,
                                     0.0,
@@ -967,6 +955,12 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                           )?[ledgerlistItemsIndex],
                                                           ParamType.String,
                                                         ),
+                                                        'householdId':
+                                                            serializeParam(
+                                                          _model
+                                                              .householdIdDropDownValue,
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   } else {
@@ -1103,9 +1097,9 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                       color: (TppbGroup.getLedgerAllCall.status(
                                                                                 listViewGetLedgerAllResponse.jsonBody,
                                                                               )?[ledgerlistItemsIndex]) ==
-                                                                              false
-                                                                          ? FlutterFlowTheme.of(context).alternate
-                                                                          : FlutterFlowTheme.of(context).secondaryText,
+                                                                              true
+                                                                          ? FlutterFlowTheme.of(context).secondaryText
+                                                                          : FlutterFlowTheme.of(context).alternate,
                                                                       size:
                                                                           24.0,
                                                                     ),
@@ -1123,6 +1117,7 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                               .jsonBody,
                                                                         )?[ledgerlistItemsIndex],
                                                                       );
+
                                                                       if ((_model
                                                                               .apiResultymm
                                                                               ?.succeeded ??
@@ -1176,15 +1171,16 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        'Wallet: ${valueOrDefault<String>(
-                                                                          TppbGroup
-                                                                              .getLedgerAllCall
-                                                                              .paymentSourceName(
-                                                                            listViewGetLedgerAllResponse.jsonBody,
-                                                                          )?[ledgerlistItemsIndex],
-                                                                          'loading...',
-                                                                        )}'
-                                                                            .maybeHandleOverflow(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          'Wallet: ${valueOrDefault<String>(
+                                                                            TppbGroup.getLedgerAllCall.paymentSourceName(
+                                                                              listViewGetLedgerAllResponse.jsonBody,
+                                                                            )?[ledgerlistItemsIndex],
+                                                                            'loading...',
+                                                                          )}',
+                                                                          'Loading...',
+                                                                        ).maybeHandleOverflow(
                                                                           maxChars:
                                                                               20,
                                                                           replacement:
@@ -1206,11 +1202,13 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        'Category: ${TppbGroup.getLedgerAllCall.category(
-                                                                          listViewGetLedgerAllResponse
-                                                                              .jsonBody,
-                                                                        )?[ledgerlistItemsIndex]}'
-                                                                            .maybeHandleOverflow(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          'Category: ${TppbGroup.getLedgerAllCall.category(
+                                                                            listViewGetLedgerAllResponse.jsonBody,
+                                                                          )?[ledgerlistItemsIndex]}',
+                                                                          'Loading...',
+                                                                        ).maybeHandleOverflow(
                                                                           maxChars:
                                                                               20,
                                                                           replacement:
@@ -1285,12 +1283,16 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                               .end,
                                                                       children: [
                                                                         Text(
-                                                                          valueOrDefault<String>(
-                                                                                TppbGroup.getLedgerAllCall.transactionType(
-                                                                                  listViewGetLedgerAllResponse.jsonBody,
-                                                                                )?[ledgerlistItemsIndex],
-                                                                                'Loading...',
-                                                                              ) == 'Debit' ? '-' : '+',
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            valueOrDefault<String>(
+                                                                                  TppbGroup.getLedgerAllCall.transactionType(
+                                                                                    listViewGetLedgerAllResponse.jsonBody,
+                                                                                  )?[ledgerlistItemsIndex],
+                                                                                  'Loading...',
+                                                                                ) == 'Debit' ? '-' : '+',
+                                                                            '-',
+                                                                          ),
                                                                           textAlign:
                                                                               TextAlign.center,
                                                                           style: FlutterFlowTheme.of(context)
@@ -1309,18 +1311,18 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                               ),
                                                                         ),
                                                                         AutoSizeText(
-                                                                          formatNumber(
-                                                                            TppbGroup.getLedgerAllCall.amount(
-                                                                              listViewGetLedgerAllResponse.jsonBody,
-                                                                            )![ledgerlistItemsIndex],
-                                                                            formatType:
-                                                                                FormatType.custom,
-                                                                            currency:
-                                                                                '',
-                                                                            format:
-                                                                                '#,###.##',
-                                                                            locale:
-                                                                                '',
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            formatNumber(
+                                                                              TppbGroup.getLedgerAllCall.amount(
+                                                                                listViewGetLedgerAllResponse.jsonBody,
+                                                                              )?[ledgerlistItemsIndex],
+                                                                              formatType: FormatType.custom,
+                                                                              currency: '',
+                                                                              format: '#,###.##',
+                                                                              locale: '',
+                                                                            ),
+                                                                            '1234.56',
                                                                           ),
                                                                           textAlign:
                                                                               TextAlign.center,
@@ -1352,18 +1354,18 @@ class _LedgerWidgetState extends State<LedgerWidget> {
                                                                               .end,
                                                                       children: [
                                                                         Text(
-                                                                          formatNumber(
-                                                                            TppbGroup.getLedgerAllCall.runningTotal(
-                                                                              listViewGetLedgerAllResponse.jsonBody,
-                                                                            )![ledgerlistItemsIndex],
-                                                                            formatType:
-                                                                                FormatType.custom,
-                                                                            currency:
-                                                                                '',
-                                                                            format:
-                                                                                '#,###.##',
-                                                                            locale:
-                                                                                '',
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            formatNumber(
+                                                                              TppbGroup.getLedgerAllCall.runningTotal(
+                                                                                listViewGetLedgerAllResponse.jsonBody,
+                                                                              )?[ledgerlistItemsIndex],
+                                                                              formatType: FormatType.custom,
+                                                                              currency: '',
+                                                                              format: '#,###.##',
+                                                                              locale: '',
+                                                                            ),
+                                                                            'Loading...',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium

@@ -1169,13 +1169,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Nasa ibaba ang isang listahan ng iyong mga Kita para sa buwan',
       'zh_Hans': '以下是您本月的收入清单',
     },
-    '2msslbpg': {
-      'en': 'Acme Inc',
-      'es': 'acme inc.',
-      'fr': 'Acmé Inc',
-      'tl': 'Acme Inc',
-      'zh_Hans': 'Acme 公司',
-    },
     'wolvdukh': {
       'en': 'Total ',
       'es': 'Total',
@@ -3842,7 +3835,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '追踪',
     },
     'bvg1k6sz': {
-      'en': 'Category',
+      'en': 'Please Select...',
       'es': 'Categoría',
       'fr': 'Catégorie',
       'tl': 'Kategorya',
@@ -3855,19 +3848,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'Maghanap ng item...',
       'zh_Hans': '搜索商品...',
     },
+    '4jsc87uq': {
+      'en': 'Report Type',
+      'es': '',
+      'fr': '',
+      'tl': '',
+      'zh_Hans': '',
+    },
     '04qcl54c': {
       'en': 'Export To CSV',
       'es': 'Exportar a CSV',
       'fr': 'Exporter vers CSV',
       'tl': 'I-export Sa CSV',
       'zh_Hans': '导出至 CSV',
-    },
-    '4bjmbdqs': {
-      'en': 'Click here for results',
-      'es': 'Haga clic aquí para ver los resultados',
-      'fr': 'Cliquez ici pour les résultats',
-      'tl': 'Mag-click dito para sa mga resulta',
-      'zh_Hans': '点击此处查看结果',
     },
     'm6go2mp9': {
       'en': 'Export Search',
@@ -3977,13 +3970,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tl': 'I-export Sa CSV',
       'zh_Hans': '导出至 CSV',
     },
-    'u386rolo': {
-      'en': 'Click here for results',
-      'es': 'Haga clic aquí para ver los resultados',
-      'fr': 'Cliquez ici pour les résultats',
-      'tl': 'Mag-click dito para sa mga resulta',
-      'zh_Hans': '点击此处查看结果',
-    },
     '5u4htrfc': {
       'en': 'Export To CSV',
       'es': 'Exportar a CSV',
@@ -4030,18 +4016,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '钱包',
     },
     'wctai5zi': {
-      'en': 'Export To CSV',
+      'en': 'Export To QBB/QBO',
       'es': 'Exportar a CSV',
       'fr': 'Exporter vers CSV',
       'tl': 'I-export Sa CSV',
       'zh_Hans': '导出至 CSV',
-    },
-    '5dy8woqa': {
-      'en': 'Click here for results',
-      'es': 'Haga clic aquí para ver los resultados',
-      'fr': 'Cliquez ici pour les résultats',
-      'tl': 'Mag-click dito para sa mga resulta',
-      'zh_Hans': '点击此处查看结果',
     },
     'cucuth9a': {
       'en': 'Export To QBO',

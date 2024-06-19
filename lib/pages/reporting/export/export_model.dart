@@ -8,10 +8,10 @@ class ExportModel extends FlutterFlowModel<ExportWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // Stores action output result for [Backend Call - API (refreshToken)] action in DropDown widget.
+  // State field(s) for HouseholdIdDropdown widget.
+  String? householdIdDropdownValue;
+  FormFieldController<String>? householdIdDropdownValueController;
+  // Stores action output result for [Backend Call - API (refreshToken)] action in HouseholdIdDropdown widget.
   ApiCallResponse? apiResultmgb;
 
   @override

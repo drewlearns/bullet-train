@@ -128,6 +128,7 @@ class _EditNotificationWidgetState extends State<EditNotificationWidget> {
                             authorizationToken: currentAuthenticationToken,
                             notificationId: widget.notificationId,
                           );
+
                           if ((_model.apiResult46m?.succeeded ?? true)) {
                             context.safePop();
                           } else {
@@ -474,6 +475,7 @@ class _EditNotificationWidgetState extends State<EditNotificationWidget> {
                                   title: _model.textController1.text,
                                   message: _model.textController2.text,
                                 );
+
                                 if ((_model.apiResultlt0?.succeeded ?? true)) {
                                   await showDialog(
                                     context: context,

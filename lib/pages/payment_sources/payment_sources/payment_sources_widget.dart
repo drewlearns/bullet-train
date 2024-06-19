@@ -186,6 +186,7 @@ class _PaymentSourcesWidgetState extends State<PaymentSourcesWidget> {
                                                       currentAuthenticationToken,
                                                   page: 1,
                                                 );
+
                                                 if ((_model.apiResult37n
                                                         ?.succeeded ??
                                                     true)) {

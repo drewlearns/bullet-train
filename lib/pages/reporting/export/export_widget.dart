@@ -151,10 +151,16 @@ class _ExportWidgetState extends State<ExportWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),
                                   child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.dropDownValueController ??=
-                                            FormFieldController<String>(
-                                      _model.dropDownValue ??= '',
+                                    controller: _model
+                                            .householdIdDropdownValueController ??=
+                                        FormFieldController<String>(
+                                      _model.householdIdDropdownValue ??=
+                                          TppbGroup.getHouseholdCall
+                                              .householdId(
+                                                exportGetHouseholdResponse
+                                                    .jsonBody,
+                                              )
+                                              ?.first,
                                     ),
                                     options: List<String>.from(
                                         TppbGroup.getHouseholdCall.householdId(
@@ -165,18 +171,18 @@ class _ExportWidgetState extends State<ExportWidget> {
                                       exportGetHouseholdResponse.jsonBody,
                                     )!,
                                     onChanged: (val) async {
-                                      setState(
-                                          () => _model.dropDownValue = val);
+                                      setState(() => _model
+                                          .householdIdDropdownValue = val);
                                       if (exportGetHouseholdResponse
                                               .statusCode ==
                                           401) {
                                         _model.apiResultmgb = await TppbGroup
                                             .refreshTokenCall
                                             .call(
-                                          authorizationToken:
-                                              currentAuthenticationToken,
+                                          username: currentAuthenticationToken,
                                           refreshToken: currentAuthRefreshToken,
                                         );
+
                                         if ((_model.apiResultmgb?.succeeded ??
                                             true)) {
                                           authManager.updateAuthUserData(
@@ -233,7 +239,7 @@ class _ExportWidgetState extends State<ExportWidget> {
                                     borderWidth: 2.0,
                                     borderRadius: 8.0,
                                     margin: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 4.0, 16.0, 4.0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
                                     isSearchable: false,
@@ -260,8 +266,8 @@ class _ExportWidgetState extends State<ExportWidget> {
                             ),
                           ),
                         ),
-                        if (_model.dropDownValue != null &&
-                            _model.dropDownValue != '')
+                        if (_model.householdIdDropdownValue != null &&
+                            _model.householdIdDropdownValue != '')
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
@@ -282,11 +288,14 @@ class _ExportWidgetState extends State<ExportWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
                                           context.pushNamed(
                                             'ExportToCSV',
                                             queryParameters: {
                                               'householdId': serializeParam(
-                                                _model.dropDownValue,
+                                                _model.householdIdDropdownValue,
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
@@ -395,11 +404,14 @@ class _ExportWidgetState extends State<ExportWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
                                           context.pushNamed(
                                             'ExportToQBOFile',
                                             queryParameters: {
                                               'householdId': serializeParam(
-                                                _model.dropDownValue,
+                                                _model.householdIdDropdownValue,
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
@@ -508,11 +520,14 @@ class _ExportWidgetState extends State<ExportWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
                                           context.pushNamed(
                                             'ExportSearch',
                                             queryParameters: {
                                               'householdId': serializeParam(
-                                                _model.dropDownValue,
+                                                _model.householdIdDropdownValue,
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,

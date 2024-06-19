@@ -475,6 +475,7 @@ class _PasswordResetCodeWidgetState extends State<PasswordResetCodeWidget> {
                                         newPassword:
                                             _model.textController2.text,
                                       );
+
                                       if ((_model
                                               .confirmSignupOutput?.succeeded ??
                                           true)) {

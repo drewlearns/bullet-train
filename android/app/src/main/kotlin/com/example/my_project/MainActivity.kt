@@ -1,4 +1,4 @@
-package com.thepurplepiggybank
+package com.thepurplepiggybank.app
 
 import io.flutter.embedding.android.FlutterActivity
 

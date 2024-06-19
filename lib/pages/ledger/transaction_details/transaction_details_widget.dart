@@ -45,6 +45,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
         authorizationToken: currentAuthenticationToken,
         transactionId: widget.transactionId,
       );
+
       if ((_model.getFilePathOutput?.succeeded ?? true)) {
         setState(() {});
         await Clipboard.setData(ClipboardData(

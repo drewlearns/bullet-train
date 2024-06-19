@@ -316,6 +316,7 @@ class _ConfirmEmailWidgetState extends State<ConfirmEmailWidget> {
                                         _model.pinCodeController!.text,
                                     username: widget.email,
                                   );
+
                                   if ((_model.apiResultxtq?.succeeded ??
                                       true)) {
                                     unawaited(

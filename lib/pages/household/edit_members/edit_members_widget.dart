@@ -217,6 +217,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                                 currentAuthenticationToken,
                                             householdId: _model.dropDownValue,
                                           );
+
                                           if ((_model.apiResult37n?.succeeded ??
                                               true)) {
                                             setState(() {});
@@ -617,6 +618,7 @@ class _EditMembersWidgetState extends State<EditMembersWidget> {
                                                     ''),
                                               )?[listOfMembersIndex],
                                             );
+
                                             if ((_model
                                                     .deleteMemberFromHouseholdOutput
                                                     ?.succeeded ??

@@ -258,6 +258,7 @@ class _CreateHouseholdWidgetState extends State<CreateHouseholdWidget> {
                                                 householdName:
                                                     _model.textController.text,
                                               );
+
                                               if ((_model.addHouseholdOutput
                                                       ?.succeeded ??
                                                   true)) {

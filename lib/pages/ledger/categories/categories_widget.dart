@@ -394,6 +394,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                               month: _model.dropDownValue1,
                               year: _model.dropDownValue2,
                             );
+
                             if ((_model.getCategoriesOutput?.succeeded ??
                                 true)) {
                               setState(() {});
@@ -403,10 +404,10 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                                   401) {
                                 _model.apiResult9rp =
                                     await TppbGroup.refreshTokenCall.call(
-                                  authorizationToken:
-                                      currentAuthenticationToken,
+                                  username: currentAuthenticationToken,
                                   refreshToken: currentAuthRefreshToken,
                                 );
+
                                 if ((_model.apiResult9rp?.succeeded ?? true)) {
                                   authManager.updateAuthUserData(
                                     authenticationToken:

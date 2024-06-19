@@ -243,6 +243,7 @@ class _SearchTransactionsWidgetState extends State<SearchTransactionsWidget> {
                                               currentAuthenticationToken,
                                           query: _model.textController.text,
                                         );
+
                                         if ((_model.searchTransactionsOutput
                                                     ?.succeeded ??
                                                 true) ==

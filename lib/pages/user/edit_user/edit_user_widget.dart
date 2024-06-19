@@ -27,7 +27,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
     super.initState();
     _model = createModel(context, () => EditUserModel());
 
-    _model.textController1 ??= TextEditingController(text: FFAppState().email);
+    _model.textController1 ??= TextEditingController(text: currentUserUid);
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.phoneNumberTextController ??=
@@ -373,10 +373,16 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                     _model.phoneNumberTextController.text,
                                 email: FFAppState().email,
                               );
+
                               if ((_model.apiResultc5j?.succeeded ?? true)) {
                                 FFAppState().phoneNumber =
                                     _model.phoneNumberTextController.text;
                                 setState(() {});
+                                authManager.updateAuthUserData(
+                                  authUid: _model.textController1.text,
+                                );
+                                FFAppState().email =
+                                    _model.textController1.text;
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {

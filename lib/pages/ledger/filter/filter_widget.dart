@@ -45,7 +45,7 @@ class _FilterWidgetState extends State<FilterWidget> {
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.switchValue1 = false;
-    _model.switchValue2 = false;
+    _model.switchValue2 = true;
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -160,7 +160,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                 child: Slider(
                   activeColor: FlutterFlowTheme.of(context).primary,
                   inactiveColor: FlutterFlowTheme.of(context).accent2,
-                  min: 0.01,
+                  min: 0.0,
                   max: 99999.0,
                   value: _model.sliderValue2 ??= 99999.0,
                   label: _model.sliderValue2?.toStringAsFixed(2),

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -34,24 +35,29 @@ class _BillsWidgetState extends State<BillsWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (!billsGetHouseholdResponse.succeeded) {
-        if (billsGetHouseholdResponse.statusCode == 401) {
-          _model.refreshTokenOutput = await TppbGroup.refreshTokenCall.call(
-            authorizationToken: currentAuthenticationToken,
-            refreshToken: currentAuthRefreshToken,
+      _model.refreshTokenTiime = await actions.isItRfreshTokenTimeYet(
+        currentAuthTokenExpiration?.toString(),
+      );
+      if (_model.refreshTokenTiime == true) {
+        await actions.updateExpiresAtAction(
+          context,
+        );
+        _model.apiResulth4p = await TppbGroup.refreshTokenCall.call(
+          username: currentAuthenticationToken,
+          refreshToken: currentAuthRefreshToken,
+        );
+
+        if ((_model.refreshTokenOutput?.succeeded ?? true)) {
+          authManager.updateAuthUserData(
+            authenticationToken: TppbGroup.refreshTokenCall.accessToken(
+              (_model.apiResulth4p?.jsonBody ?? ''),
+            ),
+            refreshToken: TppbGroup.refreshTokenCall.refreshToken(
+              (_model.apiResulth4p?.jsonBody ?? ''),
+            ),
+            tokenExpiration: functions.updateExpireAtAction(),
+            authUid: currentUserUid,
           );
-          if ((_model.refreshTokenOutput?.succeeded ?? true) == false) {
-            authManager.updateAuthUserData(
-              authenticationToken: TppbGroup.refreshTokenCall.accessToken(
-                (_model.refreshTokenOutput?.jsonBody ?? ''),
-              ),
-              refreshToken: TppbGroup.refreshTokenCall.refreshToken(
-                (_model.refreshTokenOutput?.jsonBody ?? ''),
-              ),
-              tokenExpiration: functions.updateExpireAtAction(),
-              authUid: currentUserUid,
-            );
-          }
         }
       }
     });
@@ -206,8 +212,51 @@ class _BillsWidgetState extends State<BillsWidget>
                                         .householdName(
                                       billsGetHouseholdResponse.jsonBody,
                                     )!,
-                                    onChanged: (val) => setState(() =>
-                                        _model.getHouseholdDropDownValue = val),
+                                    onChanged: (val) async {
+                                      setState(() => _model
+                                          .getHouseholdDropDownValue = val);
+                                      if (!billsGetHouseholdResponse
+                                          .succeeded) {
+                                        if (billsGetHouseholdResponse
+                                                .statusCode ==
+                                            401) {
+                                          _model.refreshTokenOutput =
+                                              await TppbGroup.refreshTokenCall
+                                                  .call(
+                                            username:
+                                                currentAuthenticationToken,
+                                            refreshToken:
+                                                currentAuthRefreshToken,
+                                          );
+
+                                          if ((_model.refreshTokenOutput
+                                                  ?.succeeded ??
+                                              true)) {
+                                            authManager.updateAuthUserData(
+                                              authenticationToken: TppbGroup
+                                                  .refreshTokenCall
+                                                  .accessToken(
+                                                (_model.refreshTokenOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              refreshToken: TppbGroup
+                                                  .refreshTokenCall
+                                                  .refreshToken(
+                                                (_model.refreshTokenOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              tokenExpiration: functions
+                                                  .updateExpireAtAction(),
+                                              authUid: currentUserUid,
+                                            );
+                                          }
+                                        }
+                                      }
+
+                                      setState(() {});
+                                    },
                                     width: 300.0,
                                     height: 56.0,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -699,21 +748,8 @@ class _BillsWidgetState extends State<BillsWidget>
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
+                                                  return Image.asset(
+                                                    'assets/images/piggy_bank_with_drop_shadow.png',
                                                   );
                                                 }
                                                 final pastDueBillsGetPastDueBillsResponse =

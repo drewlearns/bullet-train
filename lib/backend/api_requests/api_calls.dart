@@ -130,6 +130,7 @@ class AddUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -262,6 +263,7 @@ class ConfirmSignupCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -359,6 +361,7 @@ class LoginCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -417,6 +420,7 @@ class GetUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -503,7 +507,8 @@ class EditUserCall {
   "authorizationToken": "$authorizationToken",
   "email": "$email",
   "newUsername": "$newUsername",
-  "phoneNumber": "$phoneNumber"
+  "phoneNumber": "$phoneNumber",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'editUser',
@@ -519,6 +524,7 @@ class EditUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -619,6 +625,7 @@ class DeleteUserJsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -626,7 +633,7 @@ class DeleteUserJsCall {
 
 class RefreshTokenCall {
   Future<ApiCallResponse> call({
-    String? authorizationToken = '',
+    String? username = '',
     String? refreshToken = '',
     String? globalRefreshToken = 'FAKE',
   }) async {
@@ -636,7 +643,7 @@ class RefreshTokenCall {
 
     final ffApiRequestBody = '''
 {
-  "authorizationToken": "$authorizationToken",
+  "username":"$username"
   "refreshToken": "$refreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -653,6 +660,7 @@ class RefreshTokenCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -710,6 +718,7 @@ class ForgotPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -755,6 +764,7 @@ class ConfirmPasswordResetCodeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -798,6 +808,7 @@ class AddHouseholdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -857,6 +868,7 @@ class AddInviteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -907,6 +919,7 @@ class AcceptInviteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -944,6 +957,7 @@ class DeleteMemberFromHouseholdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -986,6 +1000,7 @@ class EditHouseholdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1026,6 +1041,7 @@ class GetHouseholdMembersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1102,6 +1118,7 @@ class DeleteHouseholdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1137,6 +1154,7 @@ class GetHouseholdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1216,6 +1234,7 @@ class GetHouseholdByIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1324,6 +1343,7 @@ class AddPaymentSourceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1394,6 +1414,7 @@ class DeletePaymentSourceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1435,6 +1456,7 @@ class EditPaymentSourceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1475,6 +1497,7 @@ class GetPaymentSourceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1577,6 +1600,7 @@ class AddBillCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1617,6 +1641,7 @@ class GetBillPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1661,6 +1686,7 @@ class DeleteBillCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1701,6 +1727,7 @@ class GetFilePathCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1743,6 +1770,7 @@ class EditBillCall {
 {
   "authorizationToken": "$authorizationToken",
   "billId": "$billId",
+  "refreshToken": "$globalRefreshToken",
   "updates": {
     "category": "$category",
     "billName": "$billName",
@@ -1757,8 +1785,7 @@ class EditBillCall {
     "url": "$url",
     "username": "$username",
     "password": "$password",
-    "notificationId": "$notificationId",
-    "refreshToken": "$globalRefreshToken"
+    "notificationId": "$notificationId"
   }
 }''';
     return ApiManager.instance.makeApiCall(
@@ -1775,6 +1802,7 @@ class EditBillCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1815,6 +1843,7 @@ class GetBillsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1933,6 +1962,7 @@ class EditNotificationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1968,6 +1998,7 @@ class DeleteNotificationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2006,6 +2037,7 @@ class GetNotificationsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2141,6 +2173,7 @@ class AddTransactionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2217,6 +2250,7 @@ class GetTransactionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2368,6 +2402,7 @@ class GetTransactionByMonthCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2408,6 +2443,7 @@ class SearchTransactionsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2580,7 +2616,8 @@ class GetThresholdBreakersCall {
   "authorizationToken": "$authorizationToken",
   "householdId": "$householdId",
   "threshold": "$threshold",
-  "paymentSourceId": "$paymentSourceId"
+  "paymentSourceId": "$paymentSourceId",
+  "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getThresholdBreakers',
@@ -2596,6 +2633,7 @@ class GetThresholdBreakersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2685,6 +2723,7 @@ class AddIncomeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2739,6 +2778,7 @@ class EditIncomeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2774,6 +2814,7 @@ class GetIncomesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2851,6 +2892,7 @@ class GetIncomeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2915,6 +2957,7 @@ class DeleteIncomeJsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -2950,6 +2993,7 @@ class GetRunningTotalCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3002,6 +3046,7 @@ class GetCategoriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3086,6 +3131,7 @@ class ExportLedgerToCsvCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3123,6 +3169,7 @@ class ExportLedgerToQBOCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3133,12 +3180,12 @@ class GetLedgerAllCall {
     String? authorizationToken = '',
     String? householdId = '',
     bool? clearedOnly,
-    bool? currentMonthOnly,
+    bool? currentMonthOnly = true,
     String? transactionName = '',
     double? minAmount = 0.01,
     double? maxAmount = 100000,
     int? page = 1,
-    int? pageSize = 20,
+    int? pageSize = 300,
     int? year,
     String? month = '',
     String? globalRefreshToken = 'FAKE',
@@ -3180,6 +3227,7 @@ class GetLedgerAllCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3422,8 +3470,8 @@ class ExportSearchCall {
 {
   "authorizationToken": "$authorizationToken",
   "category": "$category",
-  "reportType": "",
-  "householdId": "",
+  "reportType": "$reportType",
+  "householdId": "$householdId",
   "refreshToken": "$globalRefreshToken"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -3440,6 +3488,7 @@ class ExportSearchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3479,6 +3528,7 @@ class ChangePasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3514,6 +3564,7 @@ class GetDueBillsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3613,6 +3664,7 @@ class GetFutureDueBillsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3708,6 +3760,7 @@ class GetMonthlyIncomeTotalCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3745,6 +3798,7 @@ class GetPastDueBillsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3853,6 +3907,7 @@ class GetTotalSpentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3897,6 +3952,7 @@ class GetBillCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -3993,6 +4049,7 @@ class GetSafeToSpendCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -4037,6 +4094,7 @@ class EditLedgerEntryAsClearedCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -4077,6 +4135,7 @@ class GetCurrentMonthIncomeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -4145,6 +4204,7 @@ class EditTransactionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -4185,6 +4245,7 @@ class DeleteTransactionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
